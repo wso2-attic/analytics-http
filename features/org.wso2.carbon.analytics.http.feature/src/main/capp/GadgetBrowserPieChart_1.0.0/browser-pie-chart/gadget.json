@@ -1,0 +1,15 @@
+{
+"id": "browsers-pie-chart",
+"title" : "AS Browser Pie-chart",
+"type": "gadget",
+"thumbnail": "store://gadget/browser-pie-chart/images/index.jpg",
+"data": {
+"url": "store://gadget/browser-pie-chart/browser-pie-chart.xml"
+},
+  "listen": {
+    "timeRangeChangeSubscriber": {
+      "type": "message",
+      "description": "This listens to  message received by the subscriber"
+    }
+  }
+} 

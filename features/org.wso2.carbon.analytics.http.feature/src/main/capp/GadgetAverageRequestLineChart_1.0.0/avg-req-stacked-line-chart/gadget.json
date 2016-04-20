@@ -1,0 +1,15 @@
+{
+"id": "avg-req-stacked-line-chart",
+"title" : "Average Request Count",
+"type": "gadget",
+"thumbnail": "store://gadget/avg-req-stacked-line-chart/images/index.png",
+"data": {
+"url": "store://gadget/avg-req-stacked-line-chart/avg-req-stacked-line-chart.xml"
+},
+  "listen": {
+    "timeRangeChangeSubscriber": {
+      "type": "message",
+      "description": "This listens to  message received by the subscriber"
+    }
+  }
+} 

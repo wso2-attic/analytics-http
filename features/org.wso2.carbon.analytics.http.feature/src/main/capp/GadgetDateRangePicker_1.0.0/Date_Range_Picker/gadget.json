@@ -1,0 +1,20 @@
+{
+  "id": "publisher-text-box",
+  "title": "Date Range Picker",
+  "type": "gadget",
+  "category": "Widgets",
+  "thumbnail": "store://gadget/Date_Range_Picker/index.png",
+  "data": {
+    "url": "store://gadget/Date_Range_Picker/index.xml"
+  },
+  "styles": {
+    "borders": false,
+    "title": false
+  },
+  "notify": {
+    "timeRangeChangePublisher": {
+      "type": "message",
+      "description": "This notifies message generated in publisher"
+    }
+  }
+}

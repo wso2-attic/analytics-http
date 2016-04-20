@@ -1,0 +1,15 @@
+{
+  "id": "req-info-box",
+  "title": "AS Request Info-Box",
+  "type": "gadget",
+  "thumbnail": "store://gadget/req-info-box/images/index.jpg",
+  "data": {
+    "url": "store://gadget/req-info-box/req-info-box.xml"
+  },
+  "listen": {
+    "timeRangeChangeSubscriber": {
+      "type": "message",
+      "description": "This listens to  message received by the subscriber"
+    }
+  }
+} 

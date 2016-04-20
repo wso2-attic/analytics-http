@@ -1,0 +1,21 @@
+{
+  "id": "apps-list",
+  "title": "AS Statistics Table",
+  "type": "gadget",
+  "thumbnail": "store://gadget/data-table/images/index.jpg",
+  "data": {
+    "url": "store://gadget/data-table/data-table.xml"
+  },
+  "listen": {
+    "timeRangeChangeSubscriber": {
+      "type": "message",
+      "description": "This listens to  message received by the subscriber"
+    }
+  },
+  "notify": {
+    "webappPublisher": {
+      "type": "webappName",
+      "description": "This publishes webapp names to be received by the subscriber"
+    }
+  }
+}
