@@ -1,0 +1,15 @@
+{
+"id": "avg-res-stacked-line-chart",
+"title" : "Average Response",
+"type": "gadget",
+"thumbnail": "store://gadget/avg-res-stacked-line-chart/images/index.png",
+"data": {
+"url": "store://gadget/avg-res-stacked-line-chart/avg-res-stacked-line-chart.xml"
+},
+  "listen": {
+    "timeRangeChangeSubscriber": {
+      "type": "message",
+      "description": "This listens to  message received by the subscriber"
+    }
+  }
+} 

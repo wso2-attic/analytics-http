@@ -1,0 +1,15 @@
+{
+"id": "languages-list",
+"title" : "AS Language Table",
+"type": "gadget",
+"thumbnail": "store://gadget/languages-data-table/images/index.jpg",
+"data": {
+"url": "store://gadget/languages-data-table/languages-data-table.xml"
+},
+  "listen": {
+    "timeRangeChangeSubscriber": {
+      "type": "message",
+      "description": "This listens to  message received by the subscriber"
+    }
+  }
+} 

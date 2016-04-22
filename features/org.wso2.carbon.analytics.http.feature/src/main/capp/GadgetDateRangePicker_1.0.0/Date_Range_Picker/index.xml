@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Module>
+    <ModulePrefs title="Date Range Picker" description="g1" height="250">
+        <Require feature="dynamic-height"/>
+        <Require feature="pubsub-2"/>
+    </ModulePrefs>
+    <Content type="html">
+        <![CDATA[
+    <head>
+	<link rel="stylesheet" type="text/css" href="/portal/libs/bootstrap_3.3.5/css/bootstrap.min.css" />
+	<link rel="stylesheet" type="text/css" href="/portal/libs/theme-wso2_1.0/css/theme-wso2.css" />
+	<link rel="stylesheet" href="css/font-awesome.min.css" type="text/css">
+	<link rel="stylesheet" href="css/daterangepicker.css" type="text/css">
+    </head>
+    <body style="background: transparent;">
+    <div id="clearfix">
+	<div class="btn-group quick-selection pull-right" id ="date-select">
+            <button type="button" data-unit="hours" data-offset="1" class="btn btn-default type">Hour</button>
+            <button type="button" id="dayBtn" data-unit="days" data-offset="1" class="btn btn-default type active">Day</button>
+            <button type="button" id="weekBtn" data-unit="days" data-offset="7" class="btn btn-default type">Week</button>
+            <button type="button" id="monthBtn" data-unit="days" data-offset="29" class="btn btn-default type">Month</button>
+            <div id="reportrange" class="btn-group" role= "group">
+                <button type="button" class="btn btn-default type dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <i class="glyphicon glyphicon-calendar fa fa-calendar"></i> <span></span>
+                            <b class="caret"></b>
+                </button>
+            </div>
+        </div>
+    </div>
+    <script src="js/jquery-1.10.2.js"></script>
+    <script type="text/javascript" src="js/moment.min.js"></script>
+    <script type="text/javascript" src="js/daterangepicker.js"></script>
+	<script src="js/publisher-gadget.js"></script>
+       </body>
+       ]]>
+    </Content>
+</Module>
