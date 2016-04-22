@@ -99,7 +99,6 @@
             <plugin>
                 <groupId>org.wso2.maven</groupId>
                 <artifactId>carbon-p2-plugin</artifactId>
-                <version>1.5.3</version>
                 <executions>
                     <execution>
                         <id>p2-feature-generation</id>
@@ -108,8 +107,7 @@
                             <goal>p2-feature-gen</goal>
                         </goals>
                         <configuration>
-                            <id>org.wso2.analytics.http</id>
-
+                            <id>org.wso2.carbon.analytics.http</id>
                             <propertiesFile>../feature.properties</propertiesFile>
                             <adviceFile>
                                 <properties>
