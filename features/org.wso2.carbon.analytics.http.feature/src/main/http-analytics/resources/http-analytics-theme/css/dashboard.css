@@ -1,0 +1,46 @@
+body.dashboard {
+  background: #E4E7EA !important;
+}
+.gadget-wrapper{
+    background: transparent;
+}
+.widget .gadget-wrapper {
+   border: none;
+}
+
+.widget .ues-component-heading {
+   display: none !important;
+   height: 0;
+}
+.widget.form-control-widget {
+   height: 35px !important;
+}
+
+.info-widget .gadget-wrapper {
+    border: none;
+}
+
+.info-widget .ues-component-heading {
+    display: none !important;
+    height: 0;
+}
+.info-widget.form-control-widget {
+    height: 200px !important;
+}
+
+.ues-component-box.widget .gadget-wrapper {
+    background: transparent;
+}
+
+.no-heading-gadget .gadget-wrapper{
+    border: none;
+}
+
+.no-heading-gadget .ues-component-heading{
+    display: none !important;
+    height:0;
+}
+
+.page-actions > .btn-group > a[href*="http-monitoring/drilldown"] {
+    display: none;
+}
