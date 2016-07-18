@@ -470,7 +470,8 @@
         <carbon.p2.plugin.version>1.5.6</carbon.p2.plugin.version>
 
         <carbon.kernel.version>4.4.7</carbon.kernel.version>
-        <carbon.analytics.version>1.0.6-SNAPSHOT</carbon.analytics.version>
+        <carbon.analytics.version>1.1.0</carbon.analytics.version>
+        <carbon.shared.analytics.version>1.0.0</carbon.shared.analytics.version>
         <carbon.analytics.common.version>5.1.1-SNAPSHOT</carbon.analytics.common.version>
         <carbon.automationutils.version>4.4.1</carbon.automationutils.version>
         <carbon.automation.version>4.4.2</carbon.automation.version>
