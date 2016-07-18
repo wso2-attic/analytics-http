@@ -30,6 +30,17 @@
     <artifactId>org.wso2.carbon.analytics.http</artifactId>
     <packaging>bundle</packaging>
 
+    <dependencies>
+        <dependency>
+            <groupId>org.wso2.carbon.analytics</groupId>
+            <artifactId>org.wso2.carbon.analytics.spark.core</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>ua.parser.wso2</groupId>
+            <artifactId>ua-parser</artifactId>
+        </dependency>
+    </dependencies>
+
     <build>
         <plugins>
             <plugin>
@@ -40,15 +51,17 @@
                     <instructions>
                         <Bundle-SymbolicName>${project.artifactId}</Bundle-SymbolicName>
                         <Bundle-Name>${project.artifactId}</Bundle-Name>
-                        <Private-Package></Private-Package>
+                        <Bundle-Activator>org.wso2.carbon.analytics.http.internal.AnalyticsHTTPBundleActivator
+                        </Bundle-Activator>
+                        <Private-Package>org.wso2.carbon.analytics.http.internal.*</Private-Package>
                         <Import-Package>
+                            org.wso2.carbon.analytics.spark.core.udf.*;version="${carbon.analytics.version}",
+                            ua_parser.*;version="${ua.parser.version}",
                             *;resolution:=optional
                         </Import-Package>
                         <Export-Package>
-                            org.wso2.carbon.analytics.http.udf.*;
-                            version="${carbon.analytics.version}"
+                            org.wso2.carbon.analytics.http.udf.*; version="${http.analytics.version}"
                         </Export-Package>
-                        <DynamicImport-Package>*</DynamicImport-Package>
                     </instructions>
                 </configuration>
             </plugin>

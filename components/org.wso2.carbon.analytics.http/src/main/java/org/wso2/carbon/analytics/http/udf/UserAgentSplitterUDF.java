@@ -17,6 +17,7 @@ package org.wso2.carbon.analytics.http.udf;
  * under the License.
  */
 
+import org.wso2.carbon.analytics.spark.core.udf.CarbonUDF;
 import ua_parser.Client;
 import ua_parser.Parser;
 
@@ -29,11 +30,11 @@ import java.io.IOException;
  *
  * @since 6.0.0
  */
-public class UserAgentSplitter {
+public class UserAgentSplitterUDF implements CarbonUDF {
     Parser uaParser;
 
 
-    public UserAgentSplitter() throws IOException {
+    public UserAgentSplitterUDF() throws IOException {
         uaParser = new Parser();
     }
 

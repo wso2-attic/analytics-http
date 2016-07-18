@@ -110,6 +110,15 @@
                                 </featureArtifactDef>
                                 <!-- END - Analytics features -->
                                 <featureArtifactDef>
+                                    org.wso2.carbon.analytics.shared:org.wso2.carbon.analytics.shared.useragent.udf.feature:${carbon.shared.analytics.version}
+                                </featureArtifactDef>
+                                <featureArtifactDef>
+                                    org.wso2.carbon.analytics.shared:org.wso2.carbon.analytics.shared.spark.common.udf.feature:${carbon.shared.analytics.version}
+                                </featureArtifactDef>
+                                <featureArtifactDef>
+                                    org.wso2.carbon.analytics:org.wso2.carbon.analytics.spark.server.feature:${carbon.analytics.version}
+                                </featureArtifactDef>
+                                <featureArtifactDef>
                                     org.wso2.carbon.analytics.http:org.wso2.carbon.analytics.http.feature:${http.analytics.version}
                                 </featureArtifactDef>
                                 <featureArtifactDef>
@@ -399,6 +408,18 @@
                                 <feature>
                                     <id>org.wso2.carbon.dashboard.deployment.feature.group</id>
                                     <version>${carbon.dashboard.version}</version>
+                                </feature>
+                                <feature>
+                                    <id>org.wso2.carbon.analytics.shared.useragent.udf.feature.group</id>
+                                    <version>${carbon.shared.analytics.version}</version>
+                                </feature>
+                                <feature>
+                                    <id>org.wso2.carbon.analytics.shared.spark.common.udf.feature.group</id>
+                                    <version>${carbon.shared.analytics.version}</version>
+                                </feature>
+                                <feature>
+                                    <id>org.wso2.carbon.analytics.spark.server.feature.group</id>
+                                    <version>${carbon.analytics.version}</version>
                                 </feature>
                                 <feature>
                                     <id>org.wso2.carbon.analytics.http.feature.group</id>
