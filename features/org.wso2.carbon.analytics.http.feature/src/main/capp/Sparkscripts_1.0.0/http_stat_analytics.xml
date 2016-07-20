@@ -196,5 +196,6 @@
         WHERE lower(appType)='webapp'
         GROUP BY appName, meta_server_name,requestUri, substring(cast(timestamp/1000 as timestamp),0,16);
     </Script>
+    <CronExpression>0 0/1 * * * ? *</CronExpression>
 
 </Analytics>
