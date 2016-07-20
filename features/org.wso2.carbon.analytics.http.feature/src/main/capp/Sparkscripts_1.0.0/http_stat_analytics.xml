@@ -153,6 +153,16 @@
         country_facet FACET -i",
         primaryKeys "webappName,serverName,country,time"
         );
+        CREATE TEMPORARY TABLE REFERRER USING CarbonAnalytics OPTIONS (tableName "REFERRER", schema "
+        webappName STRING -i,
+        serverName STRING,
+        averageRequestCount INT,
+        referrer STRING,
+        time long -i,
+        all_facet FACET -i,
+        referrer_facet FACET -i",
+        primaryKeys "webappName,serverName,referrer,time"
+        );
         INSERT INTO TABLE REFERRER SELECT
         appName as webappName,
         meta_server_name as serverName,
