@@ -115,7 +115,7 @@ function getAppsStat(conditions, endTime) {
         app['lastHour'] = lastHour[webappName] || '-';
         app['lastDay'] = lastDay[webappName] || '-';
         app['totalRequests'] = results['SUM_' + AVERAGE_REQUEST_COUNT];
-        app['percentageError'] = (results['SUM_' + HTTP_ERROR_COUNT] / results['SUM_' + HTTP_SUCCESS_COUNT]).toFixed(2);
+        app['percentageError'] = (results['SUM_' + HTTP_ERROR_COUNT] * 100 / (results['SUM_' + HTTP_SUCCESS_COUNT] + results['SUM_' + HTTP_ERROR_COUNT])).toFixed(2);
 
         tempArray = [];
         for (key in app) {
