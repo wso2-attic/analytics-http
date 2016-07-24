@@ -207,7 +207,7 @@
             <extentionClasses>
                 <class>
                     <name>org.wso2.carbon.integration.common.extensions.carbonserver.CarbonServerExtension</name>
-                    <parameter name="-DportOffset" value="700" />
+                    <parameter name="-DportOffset" value="2500" />
                     <!--<parameter name="cmdArg" value="debug 5005" />-->
                 </class>
                 <!--<class>-->
