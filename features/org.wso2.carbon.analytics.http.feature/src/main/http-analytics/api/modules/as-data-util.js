@@ -92,16 +92,3 @@ function parseDate(input) {
     // new Date(year, month [, day [, hours[, minutes[, seconds[, ms]]]]])
     return new Date(parts[0], parts[1] - 1, parts[2]); // Note: months are 0-based
 }
-
-function parseDateTime(input) {
-    if (!input) {
-        return;
-    }
-    var dateTime = input.split(' ');
-    var date = dateTime[0].split('-');
-    var time = dateTime[1].split(':');
-
-    var date = new Date(date[0], date[1] - 1, date[2], time[0], time[1]);
-
-    return date.getTime();
-}

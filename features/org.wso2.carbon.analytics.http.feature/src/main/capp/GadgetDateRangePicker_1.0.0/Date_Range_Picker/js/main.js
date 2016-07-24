@@ -36,8 +36,8 @@ $(function() {
 
     function cb(start, end) {
         dateLabel.html(start.format('MMMM D, YYYY hh:mm A') + ' - ' + end.format('MMMM D, YYYY hh:mm A'));
-        var formattedEnd = formatDate(end);
-        var formattedStart = formatDate(start);
+        var formattedEnd = getTimeInUTC(end);
+        var formattedStart = getTimeInUTC(start);
 
         if (count != 0) {
             message = {
@@ -118,8 +118,8 @@ $(function() {
 
         console.log(message.timeFrom);
 
-        var formattedStart = formatDate(message.timeFrom);
-        var formattedEnd = formatDate(message.timeTo);
+        var formattedStart = getTimeInUTC(message.timeFrom);
+        var formattedEnd = getTimeInUTC(message.timeTo);
 
         messageTmp = {
             start: formattedStart.toString(),
@@ -156,8 +156,8 @@ gadgets.HubSettings.onConnect = function() {
 function onChartZoomed(data) {
     console.log(data); 
 
-    var formattedStart = formatDate(data.timeFrom);
-    var formattedEnd = formatDate(data.timeTo);
+    var formattedStart = getTimeInUTC(data.timeFrom);
+    var formattedEnd = getTimeInUTC(data.timeTo);
 
     message = {
         start: formattedStart.toString(),
@@ -201,7 +201,6 @@ $(window).load(function() {
     $('body').addClass('widget');
 });
 
-function formatDate(date){
-    var dateTmp = new Date(date);
-    return dateTmp.getFullYear() + '-' + (dateTmp.getMonth() + 1) + '-' + (dateTmp.getDate() + 1) + ' ' + dateTmp.getHours() + ':' + dateTmp.getMinutes();
+function getTimeInUTC (date){
+    return new Date(date).getTime();
 }
