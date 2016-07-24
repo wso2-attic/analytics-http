@@ -213,8 +213,8 @@
                     <host type="default">localhost</host>
                 </hosts>
                 <ports>
-                    <port type="http">11663</port>
-                    <port type="https">11343</port>
+                    <port type="http">12263</port>
+                    <port type="https">11943</port>
                 </ports>
                 <properties>
                 </properties>
@@ -225,8 +225,8 @@
                     <host type="default">localhost</host>
                 </hosts>
                 <ports>
-                    <port type="http">11663</port>
-                    <port type="https">11343</port>
+                    <port type="http">12263</port>
+                    <port type="https">11943</port>
                 </ports>
                 <properties>
                 </properties>
@@ -241,7 +241,7 @@
             <extentionClasses>
                 <class>
                     <name>org.wso2.carbon.automation.extensions.servers.carbonserver.CarbonServerExtension</name>
-                    <parameter name="-DportOffset" value="1900" />
+                    <parameter name="-DportOffset" value="2500" />
                     <!--<parameter name="cmdArg" value="debug 5005" />-->
                 </class>
                 <class>
