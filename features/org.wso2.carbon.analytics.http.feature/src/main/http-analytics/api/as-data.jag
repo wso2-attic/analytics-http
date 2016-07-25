@@ -46,13 +46,10 @@ var log = new Log("AS-DATA");
  */
 function buildConditions() {
     // default data range is the past 24 hours
-    var startTime = util.parseDateTime(request.getParameter('start_time')) || new Date() - 86400000;
-    //new Log().info("Request's start time: " +startTime);
-    var endTime = util.parseDateTime(request.getParameter('end_time')) || new Date();
-    //new Log().info("Request's end time: " +endTime);
+    var startTime = request.getParameter('start_time') || new Date() - 86400000;
+    var endTime = request.getParameter('end_time') || new Date();
     var node = request.getParameter('node');
     var webapp = request.getParameter('appname');
-    //new Log().info("Request's appname: " +webapp);
     var conditions = [];
 
     conditions.push(TIME + ': [' + Math.floor(startTime / 1000) + ' TO ' + Math.ceil(endTime / 1000) + ']');
@@ -63,7 +60,6 @@ function buildConditions() {
     if (webapp != null && webapp != 'null') {
         conditions.push(WEBAPP_NAME + ': "' + webapp + '"');
     }
-    new Log().info(conditions.join('AND'));
     return conditions.join(' AND ');
 }
 
@@ -81,7 +77,7 @@ function getAppsStat() {
     if (log.isDebugEnabled()) {
         log.debug('Retrieving applicaiton list');
     }
-    endTime = util.parseDateTime(request.getParameter('end_time')) || new Date();
+    endTime = request.getParameter('end_time') || new Date();
     appList.getAppsStat(conditions, Math.ceil(endTime / 1000));
 }
 
