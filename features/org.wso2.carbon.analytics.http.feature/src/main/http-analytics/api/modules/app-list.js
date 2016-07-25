@@ -127,7 +127,9 @@ function getAppsStat(conditions, endTime) {
     }
 
     print({
-        'data': appList,
+        'data': appList.sort (function(a,b) {
+            return a[0].localeCompare(b[0]);
+        }),
         'headings': getTableHeadings(),
         'orderColumn': ['1'],
         'applist': 'true'

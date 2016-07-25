@@ -88,7 +88,7 @@ function isTableExists(tableName) {
 }
 
 /**
- * Sends the reqeust to DAS
+ * Sends the request to DAS
  *
  * @param data            payload for the POST request
  * @param restResource    restResource of DAS REST API (ex: aggregates, search)
