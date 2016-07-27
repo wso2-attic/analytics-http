@@ -60,30 +60,31 @@
 </head>
 
 <body>
-        <div class="panel panel-one panel-stat">
-            <div class="panel-heading">
-             <div class="statistics info-box-i-four" style="display:none" >
-                	<div class="row">
-                  		<div class="col-xs-3" style="width: 25%;">
-                     		<small class="statistics-main">Errors</small>
-                    		<i class="fa fa-times-circle fa-3x"></i>
 
-                  		</div>
-                  		<div class="col-xs-6" style="height:59.5%;">
-                   			<span class="total-count"></span>
-                  		</div>
-                	</div><!-- row -->
-                	<div class="arrow-box"></div>
-                	<div class="row">
+<div class="container-fluid error-count">
+	<div class="top row">
 
-                  		<div class="col-xs-12 panel-bottom-box  right-radius left-radius  box-one-color">
-                  			<h4 class="error-percentage">0.00%</h4>
-                    		<small class="stat-label">&nbsp;</small>
-                  		</div>
-                	</div><!-- row -->
-              </div><!-- statistics box four-->
-            </div><!-- panel-heading -->
-        </div><!-- panel -->
+	    	<div class="col-xs-4 column">
+		    <small class="statistics-main">Errors</small>
+		    <i class="fa fa-times-circle fa-3x"></i>
+		</div>
+		<div class="col-xs-4 column" style="height:40%;">
+		    <span class="total-count"></span>
+		</div>
+		<div class="col-xs-4 column" style="height:40%;">
+		</div>
+
+    	</div>
+        <div class="arrow-box"></div>
+    	<div class="bottom row">
+
+		<div class="col-xs-12 panel-bottom-box  right-radius left-radius  box-one-color">
+  			<h4 class="error-percentage">0.00%</h4>
+    		<small class="stat-label">&nbsp;</small>
+  		</div>
+    	</div>
+</div>	
+
 </body>
 </html>
 

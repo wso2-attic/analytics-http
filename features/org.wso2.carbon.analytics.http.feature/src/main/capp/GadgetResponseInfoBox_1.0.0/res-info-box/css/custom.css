@@ -1,4 +1,9 @@
-body{background: #E4E7EA;font-family: 'Open Sans', sans-serif; color: #777}
+body{
+    background: #E4E7EA;
+    font-family: 'Open Sans', sans-serif;
+    color: #777;
+    overflow: hidden;
+}
 a, a:hover {
     color: #777;
     text-decoration: none;
@@ -272,48 +277,84 @@ ul li{list-style: none;}
 }
 
 .panel {
-    -moz-border-radius: 5px;
-    -webkit-border-radius: 5px;
-    border-radius: 5px;
+    -moz-border-radius: 0;
+    -webkit-border-radius: 0;
+    border-radius: 0;
     -moz-box-shadow: none;
     -webkit-box-shadow: none;
     box-shadow: none;
     background: #fcfcfc;
     border: 0;
-    -moz-box-shadow: 0 5px 0 rgba(12,12,12,0.03);
-    -webkit-box-shadow: 0 5px 0 rgba(12,12,12,0.03);
-    box-shadow: 0 5px 0 rgba(12,12,12,0.03);
+    margin-bottom: 0;
 }
 
 .panel-stat .panel-heading {
-    padding: 15px;
-    -moz-border-radius: 5px;
-    -webkit-border-radius: 5px;
-    border-radius: 5px;
+    padding: 0;
+    -moz-border-radius: 0;
+    -webkit-border-radius: 0;
+    border-radius: 0;
 }
 
-.panel-heading.request-count {
+.top {
+   height: 70%;
+   position: relative;
+}
+
+.bottom {
+   height: 30%;
+   position: relative;
+}
+
+.top > .column {
+     padding: 15px;
+}
+
+.bottom > .column {
+     padding: 5px 10px;
+}
+
+.request-count > .top {
     color: #fff;
     background-color: #54add1;
     border-color: #54add1;
 }
 
-.panel-heading.response-count {
+.response-count > .top {
     color: #fff;
     background-color: #1caf9a;
     border-color: #54add1;
 }
 
-.panel-heading.session-count {
+.session-count > .top {
     color: #fff;
     background-color: #e67e22;
     border-color: #b6651d;
 }
 
-.panel-heading.error-count {
+.error-count > .top {
     color: #fff;
     background-color: #e74c3c;
     border-color: #ac3b30;
+}
+
+.request-count > .bottom {
+    color: #fff;
+    background: #35677b;
+}
+
+.response-count > .bottom  {
+    color: #fff;
+    background: #167164;
+}
+
+.session-count > .bottom  {
+    color: #fff;
+    background: #b6651d;
+}
+
+.error-count > .bottom  {
+    color: #fff;
+    background: #ac3b30;
 }
 
 .statistics-main{
@@ -334,32 +375,10 @@ ul li{list-style: none;}
     border-left: 1px solid rgb(163, 163, 163);
 }
 
-.panel-bottom-box {
-    margin-top: 0px;
-    margin-bottom: -16px;
-    padding-top: 10px;
-}
-
-.request-count .box-one-color{
-    background: #35677b;
-}
-
-.response-count .box-one-color{
-    background: #167164;
-}
-
-.session-count .box-one-color{
-    background: #b6651d;
-}
-
-.error-count .box-one-color{
-    background: #ac3b30;
-}
-
-
 .panel-bottom-box h4{
     font-weight: 600;
     text-align: center;
+    margin: 15px 0 0;
 }
 
 .right-radius{
@@ -374,6 +393,7 @@ ul li{list-style: none;}
     text-align: right;
     float: right;
     font-size: 96%;
+    margin-top: -5px;
 }
 
 .arrow-box {
@@ -410,7 +430,8 @@ small.measure-label {
     font-size: 80%;
     position: absolute;
     z-index: 50;
-    left: 24px;
+    left: 5px;
+    top: 3px;
 }
 
 .panel-two i, .panel-three i, .panel-four i {
@@ -568,4 +589,11 @@ small.measure-label {
 
 .response-count i, .session-count i, .error-count i {
     margin: 6px 26px;
+}
+
+.response-time {
+    font-size: 3.5em;
+    font-weight: 600;
+    text-align: center;
+    padding-top: 21px;
 }

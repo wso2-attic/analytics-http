@@ -60,42 +60,45 @@
 </head>
 
 <body>
-        <div class="panel panel-one panel-stat">
-            <div class="panel-heading">
 
-                <div class="statistics info-box-i-one" style="display:none">
-                    <div class="row">
-                        <div class="col-xs-8">
-                            <small class="statistics-main">Total Requests</small>
-                            <h2 class="total-count">N/A</h2>
-                            <i class="fa fa-clock-o fa-3x info-box-i-two" style="display:none"></i>
-                        </div>
-                        <div class="col-xs-4"  style="height:40%;">
-                            <div id="placeholder" class="demo-placeholder" style="height:40%; width: 80%; "></div>
-                        </div>
-                    </div><!-- row -->
-                    <div class="arrow-box"></div>
-                    <div class="row">
-                        <small class="measure-label">Per min</small>
 
-                        <div class="col-xs-4 panel-bottom-box left-radius box-one-color">
-                            <h4 id="min-count">N/A</h4>
-                            <small class="stat-label">Min</small>
-                        </div>
+<div class="container-fluid response-count">
+	<div class="top row">
 
-                        <div class="col-xs-4 line-seperator panel-bottom-box box-one-color">
-                            <h4 class="avg-count">N/A</h4>
-                            <small class="stat-label">Avg</small>
-                        </div>
+        <div class="col-xs-3 column" style="height:40%;">
+		    <small class="statistics-main">Response Time</small>
+		    <i class="fa fa-clock-o fa-3x info-box-i-two" style="display:none"></i>
+        </div>
+	    <div class="col-xs-6 column">
+		    <h2 class="response-time"></h2>
+		</div>
+		<div class="col-xs-3 column" style="height:40%;">
+		    <div id="placeholder" class="demo-placeholder" style="height:40%; width: 60%; "></div>
+		</div>
 
-                        <div class="col-xs-4 line-seperator panel-bottom-box right-radius box-one-color">
-                            <h4 id="max-count">N/A</h4>
-                            <small class="stat-label">Max</small>
-                        </div>
-                    </div><!-- row -->
-                </div><!-- statistics box one and two-->
-           </div><!-- panel-heading -->
-        </div><!-- panel -->
+    	</div>
+        <div class="arrow-box"></div>
+    	<div class="bottom row">
+
+		<small class="measure-label">Per min</small>
+
+                <div class="col-xs-4 column panel-bottom-box box-one-color">
+                      <h4 id="min-count">N/A</h4>
+                      <small class="stat-label">Min</small>
+                </div>
+
+                <div class="col-xs-4 column line-seperator panel-bottom-box box-one-color">
+                      <h4 class="avg-count">N/A</h4>
+                      <small class="stat-label">Avg</small>
+                </div>
+
+                <div class="col-xs-4 column line-seperator panel-bottom-box box-one-color">
+                      <h4 id="max-count">N/A</h4>
+                      <small class="stat-label">Max</small>
+                </div>
+    	</div>
+</div>	
+
 </body>
 </html>
 
