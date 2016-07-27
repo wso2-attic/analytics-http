@@ -824,19 +824,728 @@
       }
     },
     {
-      "id": "page0",
-      "title": "Page 0",
+      "id": "drill-down",
+      "title": "drill-down",
       "layout": {
         "content": {
           "loggedIn": {
-            "blocks": []
+            "blocks": [
+              {
+                "id": "f900ad8133ec0bb1a1d9d85d7593bd85",
+                "x": 0,
+                "y": 10,
+                "width": 12,
+                "height": 5,
+                "banner": false
+              },
+              {
+                "id": "35dac6dcc05e79022f68907b09538f9f",
+                "x": 0,
+                "y": 4,
+                "width": 6,
+                "height": 6,
+                "banner": false
+              },
+              {
+                "id": "e3efa996dfb6818f5c11cbc003342891",
+                "x": 6,
+                "y": 4,
+                "width": 6,
+                "height": 6,
+                "banner": false
+              },
+              {
+                "id": "c0e1e7f476c1710b35ecf34042b815fa",
+                "x": 0,
+                "y": 0,
+                "width": 12,
+                "height": 1,
+                "banner": false
+              },
+              {
+                "id": "538f90005469a38adac662b66234b6c3",
+                "x": 3,
+                "y": 1,
+                "width": 3,
+                "height": 3,
+                "banner": false
+              },
+              {
+                "id": "7cf9a3bee6bcfa0b650e077ef2590812",
+                "x": 6,
+                "y": 1,
+                "width": 3,
+                "height": 3,
+                "banner": false
+              },
+              {
+                "id": "6b6d097b3da7a3dce79342d474908698",
+                "x": 9,
+                "y": 1,
+                "width": 3,
+                "height": 3,
+                "banner": false
+              },
+              {
+                "id": "531ef3131c7a41bc1c9c341f4c7307cc",
+                "x": 0,
+                "y": 1,
+                "width": 3,
+                "height": 3,
+                "banner": false
+              }
+            ]
           }
         },
         "fluidLayout": true
       },
       "isanon": false,
       "content": {
-        "default": {},
+        "default": {
+          "35dac6dcc05e79022f68907b09538f9f": [
+            {
+              "id": "browser-pie-chart-0",
+              "content": {
+                "id": "browser-pie-chart",
+                "title": "AS Browser Pie-chart",
+                "type": "gadget",
+                "thumbnail": "fs://gadget/browser-pie-chart/images/index.jpg",
+                "data": {
+                  "url": "fs://gadget/browser-pie-chart/browser-pie-chart.xml"
+                },
+                "listen": {
+                  "timeRangeChangeSubscriber": {
+                    "type": "message",
+                    "description": "This listens to  message received by the subscriber",
+                    "on": [
+                      {
+                        "from": "Date_Range_Picker-0",
+                        "event": "timeRangeChangePublisher"
+                      }
+                    ]
+                  }
+                },
+                "styles": {
+                  "no_heading": false,
+                  "hide_gadget": false,
+                  "titlePosition": "left",
+                  "title": "AS Browser Pie-chart"
+                },
+                "options": {
+                  "dataSource": {
+                    "type": "STRING",
+                    "title": "Data Source",
+                    "value": "../../../../../http-analytics/api/as-data.jag",
+                    "options": [],
+                    "required": false
+                  },
+                  "appname": {
+                    "type": "STRING",
+                    "title": "Web App Name",
+                    "value": "",
+                    "options": [],
+                    "required": false
+                  },
+                  "startTime": {
+                    "type": "STRING",
+                    "title": "Start time",
+                    "value": "",
+                    "options": [],
+                    "required": false
+                  },
+                  "endTime": {
+                    "type": "STRING",
+                    "title": "End time",
+                    "value": "",
+                    "options": [],
+                    "required": false
+                  },
+                  "node": {
+                    "type": "STRING",
+                    "title": "Node IP",
+                    "value": "",
+                    "options": [],
+                    "required": false
+                  },
+                  "updateGraph": {
+                    "type": "STRING",
+                    "title": "Update Interval (s)",
+                    "value": "No",
+                    "options": [],
+                    "required": false
+                  },
+                  "appStatType": {
+                    "type": "STRING",
+                    "title": "App Stat Type",
+                    "value": "browser",
+                    "options": [],
+                    "required": false
+                  }
+                },
+                "locale_titles": {
+                  "en-US": "AS Browser Pie-chart"
+                },
+                "settings": {
+                  "priority": "5",
+                  "timeoutInterval": "60000"
+                }
+              }
+            }
+          ],
+          "e3efa996dfb6818f5c11cbc003342891": [
+            {
+              "id": "http-codes-bar-chart-0",
+              "content": {
+                "id": "http-codes-bar-chart",
+                "title": "AS HTTP Codes Bar-Chart",
+                "type": "gadget",
+                "thumbnail": "fs://gadget/http-codes-bar-chart/images/index.jpg",
+                "data": {
+                  "url": "fs://gadget/http-codes-bar-chart/http-codes-bar-chart.xml"
+                },
+                "listen": {
+                  "timeRangeChangeSubscriber": {
+                    "type": "message",
+                    "description": "This listens to  message received by the subscriber",
+                    "on": [
+                      {
+                        "from": "Date_Range_Picker-0",
+                        "event": "timeRangeChangePublisher"
+                      }
+                    ]
+                  }
+                },
+                "styles": {
+                  "no_heading": false,
+                  "hide_gadget": false,
+                  "titlePosition": "left",
+                  "title": "AS HTTP Codes Bar-Chart"
+                },
+                "options": {
+                  "dataSource": {
+                    "type": "STRING",
+                    "title": "Data Source",
+                    "value": "../../../../../http-analytics/api/as-data.jag",
+                    "options": [],
+                    "required": false
+                  },
+                  "appname": {
+                    "type": "STRING",
+                    "title": "Web App Name",
+                    "value": "",
+                    "options": [],
+                    "required": false
+                  },
+                  "startTime": {
+                    "type": "STRING",
+                    "title": "Start time",
+                    "value": "",
+                    "options": [],
+                    "required": false
+                  },
+                  "endTime": {
+                    "type": "STRING",
+                    "title": "End time",
+                    "value": "",
+                    "options": [],
+                    "required": false
+                  },
+                  "node": {
+                    "type": "STRING",
+                    "title": "Node IP",
+                    "value": "",
+                    "options": [],
+                    "required": false
+                  },
+                  "updateGraph": {
+                    "type": "STRING",
+                    "title": "Update Interval (s)",
+                    "value": "No",
+                    "options": [],
+                    "required": false
+                  },
+                  "appStatType": {
+                    "type": "STRING",
+                    "title": "App Stat Type",
+                    "value": "top-http-status",
+                    "options": [],
+                    "required": false
+                  }
+                },
+                "locale_titles": {
+                  "en-US": "AS HTTP Codes Bar-Chart"
+                },
+                "settings": {
+                  "priority": "5",
+                  "timeoutInterval": "60000"
+                }
+              }
+            }
+          ],
+          "f900ad8133ec0bb1a1d9d85d7593bd85": [
+            {
+              "id": "contexts-list-0",
+              "content": {
+                "id": "contexts-list",
+                "title": "AS Context Table",
+                "type": "gadget",
+                "thumbnail": "fs://gadget/context-data-table/images/index.jpg",
+                "data": {
+                  "url": "fs://gadget/context-data-table/context-data-table.xml"
+                },
+                "listen": {
+                  "timeRangeChangeSubscriber": {
+                    "type": "message",
+                    "description": "This listens to  message received by the subscriber",
+                    "on": [
+                      {
+                        "from": "Date_Range_Picker-0",
+                        "event": "timeRangeChangePublisher"
+                      }
+                    ]
+                  }
+                },
+                "styles": {
+                  "no_heading": false,
+                  "hide_gadget": false,
+                  "titlePosition": "left",
+                  "title": "AS Context Table"
+                },
+                "options": {
+                  "dataSource": {
+                    "type": "STRING",
+                    "title": "Data Source",
+                    "value": "../../../../../http-analytics/api/as-data.jag",
+                    "options": [],
+                    "required": false
+                  },
+                  "appname": {
+                    "type": "STRING",
+                    "title": "Web App Name",
+                    "value": "",
+                    "options": [],
+                    "required": false
+                  },
+                  "updateGraph": {
+                    "type": "STRING",
+                    "title": "Update Interval (s)",
+                    "value": "No",
+                    "options": [],
+                    "required": false
+                  },
+                  "appStatType": {
+                    "type": "STRING",
+                    "title": "App Stat Type",
+                    "value": "context",
+                    "options": [],
+                    "required": false
+                  },
+                  "startTime": {
+                    "type": "STRING",
+                    "title": "Start time",
+                    "value": "",
+                    "options": [],
+                    "required": false
+                  },
+                  "endTime": {
+                    "type": "STRING",
+                    "title": "End time",
+                    "value": "",
+                    "options": [],
+                    "required": false
+                  },
+                  "node": {
+                    "type": "STRING",
+                    "title": "Node IP",
+                    "value": "",
+                    "options": [],
+                    "required": false
+                  }
+                },
+                "locale_titles": {
+                  "en-US": "AS Context Table"
+                },
+                "settings": {
+                  "priority": "5",
+                  "timeoutInterval": "60000"
+                }
+              }
+            }
+          ],
+          "c0e1e7f476c1710b35ecf34042b815fa": [
+            {
+              "id": "Date_Range_Picker-0",
+              "content": {
+                "id": "Date_Range_Picker",
+                "title": "Date Range Picker",
+                "type": "gadget",
+                "category": "Widgets",
+                "thumbnail": "fs://gadget/Date_Range_Picker/index.png",
+                "data": {
+                  "url": "fs://gadget/Date_Range_Picker/index.xml"
+                },
+                "styles": {
+                  "no_heading": true,
+                  "hide_gadget": false,
+                  "titlePosition": "left",
+                  "title": "Date Range Picker"
+                },
+                "notify": {
+                  "timeRangeChangePublisher": {
+                    "type": "message",
+                    "description": "This notifies message generated in publisher"
+                  }
+                },
+                "listen": {
+                  "chart-zoomed": {
+                    "type": "date-range",
+                    "description": "This notifies message generated in publisher"
+                  }
+                },
+                "options": {},
+                "locale_titles": {
+                  "en-US": "Date Range Picker"
+                },
+                "settings": {
+                  "priority": "5",
+                  "timeoutInterval": "60000"
+                }
+              }
+            }
+          ],
+          "531ef3131c7a41bc1c9c341f4c7307cc": [
+            {
+              "id": "req-info-box-0",
+              "content": {
+                "id": "req-info-box",
+                "title": "AS Request Info-Box",
+                "type": "gadget",
+                "thumbnail": "fs://gadget/req-info-box/images/index.jpg",
+                "data": {
+                  "url": "fs://gadget/req-info-box/req-info-box.xml"
+                },
+                "listen": {
+                  "timeRangeChangeSubscriber": {
+                    "type": "message",
+                    "description": "This listens to  message received by the subscriber",
+                    "on": [
+                      {
+                        "from": "Date_Range_Picker-0",
+                        "event": "timeRangeChangePublisher"
+                      }
+                    ]
+                  }
+                },
+                "styles": {
+                  "no_heading": true,
+                  "hide_gadget": false,
+                  "titlePosition": "left",
+                  "title": "AS Request Info-Box"
+                },
+                "options": {
+                  "dataSource": {
+                    "type": "STRING",
+                    "title": "Data Source",
+                    "value": "../../../../../http-analytics/api/as-data.jag",
+                    "options": [],
+                    "required": false
+                  },
+                  "startTime": {
+                    "type": "STRING",
+                    "title": "Start time",
+                    "value": "",
+                    "options": [],
+                    "required": false
+                  },
+                  "endTime": {
+                    "type": "STRING",
+                    "title": "End time",
+                    "value": "",
+                    "options": [],
+                    "required": false
+                  },
+                  "node": {
+                    "type": "STRING",
+                    "title": "Node IP",
+                    "value": "",
+                    "options": [],
+                    "required": false
+                  },
+                  "appStatType": {
+                    "type": "STRING",
+                    "title": "App Stat Type",
+                    "value": "request-count",
+                    "options": [],
+                    "required": false
+                  },
+                  "appname": {
+                    "type": "STRING",
+                    "title": "Web App Name",
+                    "value": "",
+                    "options": [],
+                    "required": false
+                  }
+                },
+                "locale_titles": {
+                  "en-US": "AS Request Info-Box"
+                },
+                "settings": {
+                  "priority": "5",
+                  "timeoutInterval": "60000"
+                }
+              }
+            }
+          ],
+          "538f90005469a38adac662b66234b6c3": [
+            {
+              "id": "res-info-box-0",
+              "content": {
+                "id": "res-info-box",
+                "title": "AS Response Info-Box",
+                "type": "gadget",
+                "thumbnail": "fs://gadget/res-info-box/images/index.jpg",
+                "data": {
+                  "url": "fs://gadget/res-info-box/res-info-box.xml"
+                },
+                "listen": {
+                  "timeRangeChangeSubscriber": {
+                    "type": "message",
+                    "description": "This listens to  message received by the subscriber",
+                    "on": [
+                      {
+                        "from": "Date_Range_Picker-0",
+                        "event": "timeRangeChangePublisher"
+                      }
+                    ]
+                  }
+                },
+                "styles": {
+                  "no_heading": true,
+                  "hide_gadget": false,
+                  "titlePosition": "left",
+                  "title": "AS Response Info-Box"
+                },
+                "options": {
+                  "dataSource": {
+                    "type": "STRING",
+                    "title": "Data Source",
+                    "value": "../../../../../http-analytics/api/as-data.jag",
+                    "options": [],
+                    "required": false
+                  },
+                  "startTime": {
+                    "type": "STRING",
+                    "title": "Start time",
+                    "value": "",
+                    "options": [],
+                    "required": false
+                  },
+                  "endTime": {
+                    "type": "STRING",
+                    "title": "End time",
+                    "value": "",
+                    "options": [],
+                    "required": false
+                  },
+                  "node": {
+                    "type": "STRING",
+                    "title": "Node IP",
+                    "value": "",
+                    "options": [],
+                    "required": false
+                  },
+                  "appStatType": {
+                    "type": "STRING",
+                    "title": "App Stat Type",
+                    "value": "response-count",
+                    "options": [],
+                    "required": false
+                  },
+                  "appname": {
+                    "type": "STRING",
+                    "title": "Web App Name",
+                    "value": "",
+                    "options": [],
+                    "required": false
+                  }
+                },
+                "locale_titles": {
+                  "en-US": "AS Response Info-Box"
+                },
+                "settings": {
+                  "priority": "5",
+                  "timeoutInterval": "60000"
+                }
+              }
+            }
+          ],
+          "7cf9a3bee6bcfa0b650e077ef2590812": [
+            {
+              "id": "session-info-box-0",
+              "content": {
+                "id": "session-info-box",
+                "title": "AS Session Info-Box",
+                "type": "gadget",
+                "thumbnail": "fs://gadget/session-info-box/images/index.jpg",
+                "data": {
+                  "url": "fs://gadget/session-info-box/session-info-box.xml"
+                },
+                "listen": {
+                  "timeRangeChangeSubscriber": {
+                    "type": "message",
+                    "description": "This listens to  message received by the subscriber",
+                    "on": [
+                      {
+                        "from": "Date_Range_Picker-0",
+                        "event": "timeRangeChangePublisher"
+                      }
+                    ]
+                  }
+                },
+                "styles": {
+                  "no_heading": true,
+                  "hide_gadget": false,
+                  "titlePosition": "left",
+                  "title": "AS Session Info-Box"
+                },
+                "options": {
+                  "dataSource": {
+                    "type": "STRING",
+                    "title": "Data Source",
+                    "value": "../../../../../http-analytics/api/as-data.jag",
+                    "options": [],
+                    "required": false
+                  },
+                  "startTime": {
+                    "type": "STRING",
+                    "title": "Start time",
+                    "value": "",
+                    "options": [],
+                    "required": false
+                  },
+                  "endTime": {
+                    "type": "STRING",
+                    "title": "End time",
+                    "value": "",
+                    "options": [],
+                    "required": false
+                  },
+                  "node": {
+                    "type": "STRING",
+                    "title": "Node IP",
+                    "value": "",
+                    "options": [],
+                    "required": false
+                  },
+                  "appStatType": {
+                    "type": "STRING",
+                    "title": "App Stat Type",
+                    "value": "session-count",
+                    "options": [],
+                    "required": false
+                  },
+                  "appname": {
+                    "type": "STRING",
+                    "title": "Web App Name",
+                    "value": "",
+                    "options": [],
+                    "required": false
+                  }
+                },
+                "locale_titles": {
+                  "en-US": "AS Session Info-Box"
+                },
+                "settings": {
+                  "priority": "5",
+                  "timeoutInterval": "60000"
+                }
+              }
+            }
+          ],
+          "6b6d097b3da7a3dce79342d474908698": [
+            {
+              "id": "error-info-box-0",
+              "content": {
+                "id": "error-info-box",
+                "title": "AS Error Info-Box",
+                "type": "gadget",
+                "thumbnail": "fs://gadget/error-info-box/images/index.jpg",
+                "data": {
+                  "url": "fs://gadget/error-info-box/error-info-box.xml"
+                },
+                "listen": {
+                  "timeRangeChangeSubscriber": {
+                    "type": "message",
+                    "description": "This listens to  message received by the subscriber",
+                    "on": [
+                      {
+                        "from": "Date_Range_Picker-0",
+                        "event": "timeRangeChangePublisher"
+                      }
+                    ]
+                  }
+                },
+                "styles": {
+                  "no_heading": true,
+                  "hide_gadget": false,
+                  "titlePosition": "left",
+                  "title": "AS Error Info-Box"
+                },
+                "options": {
+                  "dataSource": {
+                    "type": "STRING",
+                    "title": "Data Source",
+                    "value": "../../../../../http-analytics/api/as-data.jag",
+                    "options": [],
+                    "required": false
+                  },
+                  "startTime": {
+                    "type": "STRING",
+                    "title": "Start time",
+                    "value": "",
+                    "options": [],
+                    "required": false
+                  },
+                  "endTime": {
+                    "type": "STRING",
+                    "title": "End time",
+                    "value": "",
+                    "options": [],
+                    "required": false
+                  },
+                  "node": {
+                    "type": "STRING",
+                    "title": "Node IP",
+                    "value": "",
+                    "options": [],
+                    "required": false
+                  },
+                  "appStatType": {
+                    "type": "STRING",
+                    "title": "App Stat Type",
+                    "value": "error-count",
+                    "options": [],
+                    "required": false
+                  },
+                  "appname": {
+                    "type": "STRING",
+                    "title": "Web App Name",
+                    "value": "",
+                    "options": [],
+                    "required": false
+                  }
+                },
+                "locale_titles": {
+                  "en-US": "AS Error Info-Box"
+                },
+                "settings": {
+                  "priority": "5",
+                  "timeoutInterval": "60000"
+                }
+              }
+            }
+          ]
+        },
         "anon": {}
       }
     }
@@ -850,10 +1559,10 @@
       "subordinates": []
     },
     {
-      "id": "page0",
+      "id": "drill-down",
       "isanon": false,
       "ishidden": false,
-      "title": "Page 0",
+      "title": "drill-down",
       "subordinates": []
     }
   ],
@@ -865,7 +1574,7 @@
   "theme": "Default Theme",
   "shareDashboard": false,
   "isUserCustom": false,
-  "isEditorEnable": true,
+  "isEditorEnable": false,
   "banner": {
     "globalBannerExists": false,
     "customBannerExists": false
