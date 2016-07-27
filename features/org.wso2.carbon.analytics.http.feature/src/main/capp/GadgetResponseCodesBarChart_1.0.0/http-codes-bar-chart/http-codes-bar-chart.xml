@@ -67,7 +67,6 @@
 
 </head>
 <body>
-            <h2>HTTP Response Codes</h2>
 			<div id="placeholder" class="demo-placeholder" style="height:90%"></div>
 </body>
 </html>
