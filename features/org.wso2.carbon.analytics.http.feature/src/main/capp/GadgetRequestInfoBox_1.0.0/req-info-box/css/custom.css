@@ -534,7 +534,7 @@ small.measure-label {
 }
 
 .statistics span {
-    font-size: 2.5em;
+    font-size: 3.5em;
     font-weight: 600;
     position: relative;
     padding-top: 21px;
@@ -589,4 +589,11 @@ small.measure-label {
 
 .response-count i, .session-count i, .error-count i {
     margin: 6px 26px;
+}
+
+.total-count {
+    font-size: 3.5em;
+    font-weight: 600;
+    text-align: center;
+    padding-top: 21px;
 }

@@ -63,12 +63,14 @@
 <div class="container-fluid request-count">
 	<div class="top row">
 
-	    	<div class="col-xs-5 column">
+        <div class="col-xs-3 column" style="height:40%;">
 		    <small class="statistics-main">Total Requests</small>
+        </div>
+	    <div class="col-xs-6 column">
 		    <h2 class="total-count">N/A</h2>
 		    <i class="fa fa-clock-o fa-3x" style="display:none"></i>
 		</div>
-		<div class="col-xs-7 column" style="height:40%;">
+		<div class="col-xs-3 column" style="height:40%;">
 		    <div id="placeholder" class="demo-placeholder" style="height:40%; width: 60%; "></div>
 		</div>
 
