@@ -12,7 +12,7 @@
         <dependency artifact="GadgetAverageResponseLineChart" version="1.0.0" include="true" serverRole="DataAnalyticsServer"/>
         <dependency artifact="GadgetBrowserDataTable" version="1.0.0" include="true" serverRole="DataAnalyticsServer"/>
         <dependency artifact="GadgetBrowserPieChart" version="1.0.0" include="true" serverRole="DataAnalyticsServer"/>
-        <dependency artifact="GadgetContextDataTable" version="1.0.0" include="true" serverRole="DataAnalyticsServer"/>
+        <dependency artifact="GadgetContextsList" version="1.0.0" include="true" serverRole="DataAnalyticsServer"/>
         <dependency artifact="GadgetDateRangePicker" version="1.0.0" include="true" serverRole="DataAnalyticsServer"/>
         <dependency artifact="GadgetCommons" version="1.0.0" include="true" serverRole="DataAnalyticsServer"/>
         <dependency artifact="GadgetDeviceDataTable" version="1.0.0" include="true" serverRole="DataAnalyticsServer"/>
