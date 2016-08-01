@@ -57,7 +57,7 @@ function buildConditions() {
     if (node != null && node != 'All') {
         conditions.push(SERVER_NAME + ': "' + node + '"');
     }
-    if (webapp != null && webapp != 'null') {
+    if (webapp != null) {
         conditions.push(WEBAPP_NAME + ': "' + webapp + '"');
     }
     return conditions.join(' AND ');
