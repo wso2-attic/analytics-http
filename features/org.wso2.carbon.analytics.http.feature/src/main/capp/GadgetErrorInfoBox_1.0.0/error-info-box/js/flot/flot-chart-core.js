@@ -4,53 +4,14 @@ var chartData = [];
 var options;
 var plot;
 var node = pref.getString("node") || undefined;
-var start = pref.getString("startTime") || undefined;
-var end  = pref.getString("endTime") || undefined;
+var start = gadgetUtil.timeFrom();
+var end  = gadgetUtil.timeTo();
 var appname = pref.getString("appname") ||undefined;
+var statType = pref.getString("appStatType");
+
 $(function () {
-
-    getQueryParams(parent.document.location.href);
-
-    var pauseBtn = $("button.pause");
-    pauseBtn.click(function () {
-        $(this).toggleClass('btn-warning');
-        togglePause($(this));
-    });
-    $(".reset").click(function () {
-        fetchData();
-    });
-
     fetchData();
-
-    if (pref.getString("pause").toLowerCase() == "yes") {
-        document.getElementById("pauseBtn").style.visibility = 'visible';
-    }
-
-
 });
-function getQueryParams(url){
-    if(url.indexOf("?") > -1){
-        var vars = url.split('?');
-        var params = vars[1].split('&');
-
-        for (var i = 0; i < params.length; i++) {
-            var pair = params[i].split('=');
-            if (decodeURIComponent(pair[0]) == 'appname') {
-                appname = (decodeURIComponent(pair[1]));
-                console.log(appname);
-            }
-            if (decodeURIComponent(pair[0]) == 'start-time') {
-                start = (moment((decodeURIComponent(pair[1])), 'X').format('YYYY-MM-DD HH:mm'));
-                console.log((moment((decodeURIComponent(pair[1])), 'X').format('YYYY-MM-DD HH:mm')));
-            }
-            if (decodeURIComponent(pair[0]) == 'end-time') {
-                end = (moment((decodeURIComponent(pair[1])), 'X').format('YYYY-MM-DD HH:mm'));
-                console.log((moment((decodeURIComponent(pair[1])), 'X').format('YYYY-MM-DD HH:mm')));
-            }
-        }
-    }
-
-}
 
 $(window).load(function(){
     var parentWindow = window.parent.document,
@@ -58,27 +19,11 @@ $(window).load(function(){
     $(thisParentWrapper).closest('.ues-component-box').addClass('info-widget form-control-widget');
 });
 
-
-function togglePause(btnElm) {
-    if (btnElm.hasClass('btn-warning')) {
-        clearTimeout(delay);
-    }
-    else {
-        if (isNumber(pref.getString("updateGraph")) && !(pref.getString("updateGraph") == "0")) {
-            delay = setTimeout(function () {
-                fetchData()
-            },
-            pref.getString("updateGraph") * 1000);
-        }
-    }
-}
-
 var drawChart = function (data, options) {
 
     plot = $.plot("#placeholder", data, options);
 
     var previousPoint = null;
-
 
      $("#placeholder").bind("plothover", function (event, pos, item) {
 
@@ -86,7 +31,6 @@ var drawChart = function (data, options) {
             var str = "(" + pos.x.toFixed(2) + ", " + pos.y.toFixed(2) + ")";
             $("#hoverdata").text(str);
         }
-
 
         if (item) {
             if (previousPoint != item.dataIndex) {
@@ -110,30 +54,15 @@ var drawChart = function (data, options) {
 };
 
 function fetchData() {
-    var url = pref.getString("dataSource");
-    var statType = pref.getString("appStatType");
     $('.panel-heading').addClass(statType);
 
-    var data = {
+    gadgetUtil.fetchData(CONTEXT, {
         start_time: start,
         end_time: end,
-        node: node,
-        action: statType
-    };
-
-    if(appname!=""){
-        data.appname = appname;
-    }
-
-    $.ajax({
-        url: url,
-        type: "GET",
-        dataType: "json",
-        data: data,
-        success: onDataReceived
-    });
-    var pauseBtn = $("button.pause");
-    togglePause(pauseBtn);
+        node: gadgetUtil.node(),
+        action: statType,
+        appname: gadgetUtil.appName()
+    }, onDataReceived, onError);
 }
 function onDataReceived(data) {
     $('.total-count').text(data.total != undefined ? data.total.toLocaleString() : '');
@@ -180,6 +109,10 @@ function onDataReceived(data) {
             filterSeries(chartData);
         });
     }
+}
+
+function onError() {
+    console.error("Error in fetching data for error count info box.");
 }
 
 function showTooltip(x, y, contents) {

@@ -18,37 +18,23 @@
 
 var pref = new gadgets.Prefs();
 var node = pref.getString('node') || undefined;
-var start = pref.getString('startTime') || undefined;
-var end = pref.getString('endTime') || undefined;
+var start = gadgetUtil.timeFrom();
+var end = gadgetUtil.timeTo();
 
 var url = pref.getString('dataSource');
 
 var template;
 
 function fetchData() {
-    var url = pref.getString('dataSource');
-
-    var data = {
+    gadgetUtil.fetchData(CONTEXT, {
         start_time: start,
         end_time: end,
-        node: node,
+        node: gadgetUtil.node(),
         action: pref.getString('appStatType')
-    };
-    var appname = pref.getString('appname');
-    if (appname != '') {
-        data.appname = appname;
-    }
-    $.ajax({
-        url: url,
-        type: 'GET',
-        dataType: 'json',
-        data: data,
-        success: onDataReceived
-    });
+    }, onDataReceived, onError);
 }
 
 function onDataReceived(data) {
-    console.log("Data table");
     var tableData = data.data;
     var tableHeadings = data.headings;
     var orderColumn = data.orderColumn;
@@ -79,6 +65,10 @@ function onDataReceived(data) {
     }
 }
 
+function onError() {
+    console.error("Error while fetching applications list.");
+}
+
 $(window).load(function(){
     var parentWindow = window.parent.document,
         thisParentWrapper = $('#'+gadgets.rpc.RPC_ID, parentWindow).closest('.gadget-body');
@@ -91,33 +81,26 @@ function registerWebappSelect(table) {
         if ($(this).hasClass('selected')) {
             $(this).removeClass('selected');
         } else {
-            console.log("else!!!!!!");
             var param = '';
             if (node) {
                 param = 'node=' + node;
             }
+
             if (start && end) {
-                console.log("START: " +start + " END: " +end);
                 param = param + (param == '' ? '' : '&') +
-                        'start-time=' + moment(start, 'YYYY-MM-DD HH:mm').format('X') +
-                        '&end-time=' + moment(end, 'YYYY-MM-DD HH:mm').format('X');
+                        'timeFrom=' + start + '&timeTo=' + end;
             }
 
             var webapp = table.fnGetData(this)[0];
-            console.log(webapp);
             table.$('tr.selected').removeClass('selected');
             $(this).addClass('selected');
             var webappUrl = webapp;
             if (param != '?') {
-                console.log("there are parameters!!!!");
-                webappUrl = 'appname=' + webappUrl + '&' +  param;
+                webappUrl = 'webappName=' + webappUrl + '&' +  param;
             }
-            console.log(webappUrl);
 
-            var url = 'https://localhost:9446/portal/dashboards/http-monitoring/drilldown/?' + webappUrl;
+            var url = BASE_URL + "drill-down?" + webappUrl;
             window.open(url, '_parent');
-
-            //getQueryParams(webappUrl);
         }
     });
 }
@@ -167,12 +150,6 @@ function getTableHeader(tableHeadings) {
 
     return headingArray;
 }
-
-//function publishRedirectUrl(url) {
-//    gadgets.Hub.publish('webappPublisher', url);
-//}
-
-
 
 $(function () {
     fetchData();
