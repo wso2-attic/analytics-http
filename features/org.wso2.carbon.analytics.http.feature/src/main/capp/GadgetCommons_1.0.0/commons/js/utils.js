@@ -1,4 +1,4 @@
-var CONTEXT = "/portal/apis/data";
+var CONTEXT = "/http-analytics/api/as-data.jag";
 
 function getQueryString() {
     var queryStringKeyValue = window.parent.location.search.replace('?', '').split('&');
@@ -14,7 +14,7 @@ function getQueryString() {
 function fetchData(params, callback, error) {
     console.log("++ Fetching data from: " + new Date(params.timeFrom) + " To: " + new Date(params.timeTo));
     $.ajax({
-        url: "/portal/apis/esbanalytics" + "?type=" + params.type + "&timeFrom=" + params.timeFrom + "&timeTo=" + params.timeTo,
+        url: "/http-analytics/api/as-data.jag" + "?type=" + params.type + "&timeFrom=" + params.timeFrom + "&timeTo=" + params.timeTo,
         type: "GET",
         success: function(data) {
             callback(data);

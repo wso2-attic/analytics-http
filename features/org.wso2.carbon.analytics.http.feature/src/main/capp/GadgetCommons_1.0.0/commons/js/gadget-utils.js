@@ -15,21 +15,14 @@
  */
 
 /**
- * This Javascript module groups utility methods that are being used by all the gadgets in the ESB analytics dashboard
+ * This Javascript module groups utility methods that are being used by all the gadgets in the HTTP analytics dashboard
  */
 
-var CONTEXT = "/portal/apis/esbanalytics";
-var DASHBOARD_NAME = parent.ues.global.dashboard.id; //"esb-analytics"
+var CONTEXT = "/http-analytics/api/as-data.jag";
+var DASHBOARD_NAME = parent.ues.global.dashboard.id; //"http-analytics"
 var BASE_URL = getDashboardBaseUrl();
 
-var TYPE_LANDING = "landing";
-var TYPE_PROXY = "proxy";
-var TYPE_API = "api";
-var TYPE_SEQUENCE = "sequences";
-var TYPE_ENDPOINT = "endpoint";
-var TYPE_INBOUND_ENDPOINT = "inbound";
-var TYPE_MEDIATOR = "mediator";
-var TYPE_MESSAGE = "message";
+var LANDING_PAGE = "landing";
 
 var ROLE_TPS = "tps";
 var ROLE_LATENCY = "latency";
@@ -38,14 +31,6 @@ var ROLE_RATE = "rate";
 var PARAM_ID = "id";
 var PARAM_TYPE = "type";
 var PARAM_GADGET_ROLE = "role";
-
-var PROXY_PAGE_URL = BASE_URL + TYPE_PROXY;
-var API_PAGE_URL = BASE_URL + TYPE_API;
-var SEQUENCE_PAGE_URL = BASE_URL + TYPE_SEQUENCE;
-var ENDPOINT_PAGE_URL = BASE_URL + TYPE_ENDPOINT;
-var INBOUND_ENDPOINT_PAGE_URL = BASE_URL + TYPE_INBOUND_ENDPOINT;
-var MEDIATOR_PAGE_URL = BASE_URL + TYPE_MEDIATOR;
-var MESSAGE_PAGE_URL = BASE_URL + TYPE_MESSAGE;
 
 var COLOR_BLUE = "#438CAD";
 var COLOR_RED = "#D9534F";
@@ -98,7 +83,7 @@ function GadgetUtil() {
             pageName = lastSegment.substr(0, lastSegment.indexOf('?'));
         }
         if(!pageName || pageName === DASHBOARD_NAME) {
-            pageName = TYPE_LANDING;
+            pageName = LANDING_PAGE;
         }
         return pageName;
     };
@@ -152,8 +137,27 @@ function GadgetUtil() {
         return timeTo;
     };
 
+    this.appName = function() {
+        var webappName = null;
+        var qs = this.getQueryString();
+        if (qs.webappName != null) {
+            webappName = qs.webappName;
+        }
+        return webappName;
+    }
+
+    this.node = function() {
+        return "All";
+    }
+
     this.fetchData = function(context, params, callback, error) {
         var url = "?";
+
+        // if the page is the landing page, remove appname selection
+        if (this.getCurrentPageName() == LANDING_PAGE){
+            delete params.appname;
+        }
+
         for (var param in params) {
             url = url + param + "=" + params[param] + "&";
         }
@@ -161,6 +165,7 @@ function GadgetUtil() {
         $.ajax({
             url: context + url,
             type: "GET",
+            dataType: "json",
             success: function(data) {
                 callback(data);
             },
