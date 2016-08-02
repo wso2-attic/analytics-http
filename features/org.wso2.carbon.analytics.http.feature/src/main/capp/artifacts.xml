@@ -28,6 +28,7 @@
         <dependency artifact="GadgetAppsList" version="1.0.0" include="true" serverRole="DataAnalyticsServer"/>
         <dependency artifact="GadgetRequestInfoBox" version="1.0.0" include="true" serverRole="DataAnalyticsServer"/>
         <dependency artifact="GadgetResponseCodesBarChart" version="1.0.0" include="true" serverRole="DataAnalyticsServer"/>
+        <dependency artifact="GadgetResponseCodesHorizontalBarChart" version="1.0.0" include="true" serverRole="DataAnalyticsServer"/>
         <dependency artifact="GadgetResponseCodesDataTable" version="1.0.0" include="true" serverRole="DataAnalyticsServer"/>
         <dependency artifact="GadgetResponseInfoBox" version="1.0.0" include="true" serverRole="DataAnalyticsServer"/>
         <dependency artifact="GadgetSessionInfoBox" version="1.0.0" include="true" serverRole="DataAnalyticsServer"/>

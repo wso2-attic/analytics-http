@@ -311,23 +311,26 @@ function getHttpStatusStat(conditions) {
     if (results.length > 0) {
         for (i = 0; i < results.length && (i < 5); i++) {
             result = results[i];
-            dataArray.push([i, result[1]]);
-            ticks.push([i, result[0]]);
+            dataArray.push({'name': result[0], 'value': result[1]});
+//            ticks.push([i, result[0]]);
         }
     }
 
-    chartOptions = {
-        'xaxis': {
-            'ticks': ticks,
-            'axisLabel': 'Top 5 HTTP Response Codes'
-        },
-        'yaxis': {
-            'axisLabel': 'Number of Requests'
-        }
-    };
+    print({'message': dataArray});
+    return;
 
-    print([
-        {'series1': {'label': 's', 'data': dataArray}},
-        chartOptions
-    ]);
+//    chartOptions = {
+//        'xaxis': {
+//            'ticks': ticks,
+//            'axisLabel': 'Top 5 HTTP Response Codes'
+//        },
+//        'yaxis': {
+//            'axisLabel': 'Number of Requests'
+//        }
+//    };
+//
+//    print([
+//        {'series1': {'label': 's', 'data': dataArray}},
+//        chartOptions
+//    ]);
 }
