@@ -21,7 +21,7 @@ include('../constants.jag');
 var helper = require('as-data-util.js');
 
 function getContextTabularStat(conditions, tableHeadings, sortColumn){
-    print(helper.getTabularData(getContextStatData(conditions), tableHeadings, sortColumn));
+    print({'data':getContextStatData(conditions)});
 }
 
 function getReferrerTabularStat(conditions, tableHeadings, sortColumn){

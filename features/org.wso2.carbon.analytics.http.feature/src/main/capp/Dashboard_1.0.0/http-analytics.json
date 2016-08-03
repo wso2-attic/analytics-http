@@ -1165,14 +1165,14 @@
           ],
           "f900ad8133ec0bb1a1d9d85d7593bd85": [
             {
-              "id": "contexts-list-0",
+              "id": "context-table-0",
               "content": {
-                "id": "contexts-list",
-                "title": "AS Context Table",
+                "id": "context-table",
+                "title": "Context List",
                 "type": "gadget",
-                "thumbnail": "fs://gadget/context-data-table/images/index.jpg",
+                "thumbnail": "fs://gadget/context-table/images/index.jpg",
                 "data": {
-                  "url": "fs://gadget/context-data-table/context-data-table.xml"
+                  "url": "fs://gadget/context-table/index.xml"
                 },
                 "listen": {
                   "timeRangeChangeSubscriber": {
@@ -1190,7 +1190,7 @@
                   "no_heading": false,
                   "hide_gadget": false,
                   "titlePosition": "left",
-                  "title": "AS Context Table"
+                  "title": "Context List"
                 },
                 "options": {
                   "dataSource": {
@@ -1244,7 +1244,7 @@
                   }
                 },
                 "locale_titles": {
-                  "en-US": "AS Context Table"
+                  "en-US": "Context List"
                 },
                 "settings": {
                   "priority": "5",
