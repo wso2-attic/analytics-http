@@ -64,7 +64,7 @@
               {
                 "id": "d664e181ca6c591028d310799c1aa4bb",
                 "x": 0,
-                "y": 4,
+                "y": 7,
                 "width": 12,
                 "height": 6,
                 "banner": false
@@ -72,25 +72,25 @@
               {
                 "id": "7285191e5344c3d939104d0c79af6e9a",
                 "x": 8,
-                "y": 10,
+                "y": 4,
                 "width": 4,
-                "height": 4,
+                "height": 3,
                 "banner": false
               },
               {
                 "id": "b8cd3b837f3b49f9c6b5efe68dd09a93",
                 "x": 0,
-                "y": 10,
+                "y": 4,
                 "width": 4,
-                "height": 4,
+                "height": 3,
                 "banner": false
               },
               {
                 "id": "55ceb559d5b539ba0597124b12975f24",
                 "x": 4,
-                "y": 10,
+                "y": 4,
                 "width": 4,
-                "height": 4,
+                "height": 3,
                 "banner": false
               }
             ]
@@ -128,7 +128,21 @@
                 "listen": {
                   "chart-zoomed": {
                     "type": "date-range",
-                    "description": "This notifies message generated in publisher"
+                    "description": "This notifies message generated in publisher",
+                    "on": [
+                      {
+                        "from": "average-request-line-chart-vizgrammar-0",
+                        "event": "chart-zoomed"
+                      },
+                      {
+                        "from": "average-response-line-chart-vizgrammar-0",
+                        "event": "chart-zoomed"
+                      },
+                      {
+                        "from": "average-error-line-chart-vizgrammar-0",
+                        "event": "chart-zoomed"
+                      }
+                    ]
                   }
                 },
                 "options": {},
@@ -572,14 +586,14 @@
           ],
           "b8cd3b837f3b49f9c6b5efe68dd09a93": [
             {
-              "id": "avg-req-stacked-line-chart-0",
+              "id": "average-request-line-chart-vizgrammar-0",
               "content": {
-                "id": "avg-req-stacked-line-chart",
-                "title": "Average Request Count",
+                "id": "average-request-line-chart-vizgrammar",
+                "title": "Average request count over time",
                 "type": "gadget",
-                "thumbnail": "fs://gadget/avg-req-stacked-line-chart/images/index.png",
+                "thumbnail": "fs://gadget/usa-business-revenue/index.png",
                 "data": {
-                  "url": "fs://gadget/avg-req-stacked-line-chart/avg-req-stacked-line-chart.xml"
+                  "url": "fs://gadget/average-request-line-chart-vizgrammar/index.xml"
                 },
                 "listen": {
                   "timeRangeChangeSubscriber": {
@@ -593,13 +607,33 @@
                     ]
                   }
                 },
+                "notify": {
+                  "chart-zoomed": {
+                    "type": "date-range",
+                    "description": "This notifies message generated in publisher"
+                  }
+                },
                 "styles": {
                   "no_heading": false,
                   "hide_gadget": false,
                   "titlePosition": "left",
-                  "title": "Average Request Count"
+                  "title": "Average request count over time"
                 },
                 "options": {
+                  "refreshInterval": {
+                    "type": "STRING",
+                    "title": "Refresh Interval",
+                    "value": "1000000",
+                    "options": [],
+                    "required": false
+                  },
+                  "type": {
+                    "type": "STRING",
+                    "title": "Gadget Type",
+                    "value": "",
+                    "options": [],
+                    "required": true
+                  },
                   "dataSource": {
                     "type": "STRING",
                     "title": "Data Source",
@@ -644,7 +678,7 @@
                   }
                 },
                 "locale_titles": {
-                  "en-US": "Average Request Count"
+                  "en-US": "Average request count over time"
                 },
                 "settings": {
                   "priority": "5",
@@ -655,14 +689,14 @@
           ],
           "55ceb559d5b539ba0597124b12975f24": [
             {
-              "id": "avg-res-stacked-line-chart-0",
+              "id": "average-response-line-chart-vizgrammar-0",
               "content": {
-                "id": "avg-res-stacked-line-chart",
-                "title": "Average Response",
+                "id": "average-response-line-chart-vizgrammar",
+                "title": "Average response time over time",
                 "type": "gadget",
-                "thumbnail": "fs://gadget/avg-res-stacked-line-chart/images/index.png",
+                "thumbnail": "fs://gadget/usa-business-revenue/index.png",
                 "data": {
-                  "url": "fs://gadget/avg-res-stacked-line-chart/avg-res-stacked-line-chart.xml"
+                  "url": "fs://gadget/average-response-line-chart-vizgrammar/index.xml"
                 },
                 "listen": {
                   "timeRangeChangeSubscriber": {
@@ -676,13 +710,33 @@
                     ]
                   }
                 },
+                "notify": {
+                  "chart-zoomed": {
+                    "type": "date-range",
+                    "description": "This notifies message generated in publisher"
+                  }
+                },
                 "styles": {
                   "no_heading": false,
                   "hide_gadget": false,
                   "titlePosition": "left",
-                  "title": "Average Response"
+                  "title": "Average response time over time"
                 },
                 "options": {
+                  "refreshInterval": {
+                    "type": "STRING",
+                    "title": "Refresh Interval",
+                    "value": "1000000",
+                    "options": [],
+                    "required": false
+                  },
+                  "type": {
+                    "type": "STRING",
+                    "title": "Gadget Type",
+                    "value": "",
+                    "options": [],
+                    "required": true
+                  },
                   "dataSource": {
                     "type": "STRING",
                     "title": "Data Source",
@@ -727,7 +781,7 @@
                   }
                 },
                 "locale_titles": {
-                  "en-US": "Average Response"
+                  "en-US": "Average response time over time"
                 },
                 "settings": {
                   "priority": "5",
@@ -738,14 +792,14 @@
           ],
           "7285191e5344c3d939104d0c79af6e9a": [
             {
-              "id": "avg-error-stacked-line-chart-0",
+              "id": "average-error-line-chart-vizgrammar-0",
               "content": {
-                "id": "avg-error-stacked-line-chart",
-                "title": "Average Error Count",
+                "id": "average-error-line-chart-vizgrammar",
+                "title": "Average error count over time",
                 "type": "gadget",
-                "thumbnail": "fs://gadget/avg-error-stacked-line-chart/images/index.png",
+                "thumbnail": "fs://gadget/usa-business-revenue/index.png",
                 "data": {
-                  "url": "fs://gadget/avg-error-stacked-line-chart/avg-error-stacked-line-chart.xml"
+                  "url": "fs://gadget/average-error-line-chart-vizgrammar/index.xml"
                 },
                 "listen": {
                   "timeRangeChangeSubscriber": {
@@ -759,13 +813,33 @@
                     ]
                   }
                 },
+                "notify": {
+                  "chart-zoomed": {
+                    "type": "date-range",
+                    "description": "This notifies message generated in publisher"
+                  }
+                },
                 "styles": {
                   "no_heading": false,
                   "hide_gadget": false,
                   "titlePosition": "left",
-                  "title": "Average Error Count"
+                  "title": "Average error count over time"
                 },
                 "options": {
+                  "refreshInterval": {
+                    "type": "STRING",
+                    "title": "Refresh Interval",
+                    "value": "1000000",
+                    "options": [],
+                    "required": false
+                  },
+                  "type": {
+                    "type": "STRING",
+                    "title": "Gadget Type",
+                    "value": "",
+                    "options": [],
+                    "required": true
+                  },
                   "dataSource": {
                     "type": "STRING",
                     "title": "Data Source",
@@ -810,7 +884,7 @@
                   }
                 },
                 "locale_titles": {
-                  "en-US": "Average Error Count"
+                  "en-US": "Average error count over time"
                 },
                 "settings": {
                   "priority": "5",
@@ -1587,5 +1661,6 @@
     "customBannerExists": false
   },
   "landing": "landing",
-  "isanon": false
+  "isanon": false,
+  "defaultPriority": "5"
 }

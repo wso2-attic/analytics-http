@@ -50,21 +50,16 @@ function getTimeVaryingStat(conditions, type, color) {
     for (i = 0; i < results.length; i++) {
         row = results[i]['values'];
         var time = new Date(String(row[TIME_FACET][0]).replace(' ', 'T') + ':00.000Z').getTime();
-        dataArray.push([Number(time).toPrecision(), row[mappedParameters[2]]]);
+        dataArray.push({"time": Number(time).toPrecision(), "value":row[mappedParameters[2]]});
     }
 
-    // sorting the results
-    dataArray.sort(function (a, b) {
-        return Number(a[0]) - Number(b[0]);
-    });
+//    if (color != null) {
+//        chartOptions = {
+//            'colors': [color]
+//        }
+//    }
 
-    if (color != null) {
-        chartOptions = {
-            'colors': [color]
-        }
-    }
-
-    print([
-        {'series1': {'label': 's', 'data': dataArray}}, chartOptions
-    ]);
+    print(
+        {'message': dataArray}
+    );
 }
