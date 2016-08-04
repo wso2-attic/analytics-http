@@ -1,10 +1,10 @@
 {
-  "id": "context-table",
-  "title": "Context Table",
+  "id": "data-table",
+  "title": "Data Table",
   "type": "gadget",
   "thumbnail": "store://gadget/usa-business-revenue/index.png",
   "data": {
-    "url": "store://gadget/context-table/index.xml"
+    "url": "store://gadget/data-table/index.xml"
   },
   "listen": {
     "timeRangeChangeSubscriber": {

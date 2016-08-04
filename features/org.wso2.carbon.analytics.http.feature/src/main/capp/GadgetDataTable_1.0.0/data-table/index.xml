@@ -8,6 +8,10 @@
               display_name="App Stat Type"
               default_value="context">
     </UserPref>
+    <UserPref name="firstField"
+              display_name="Name of the first field of the table"
+              default_value="context">
+    </UserPref>
     <Content type="html">
         <![CDATA[
         <head>

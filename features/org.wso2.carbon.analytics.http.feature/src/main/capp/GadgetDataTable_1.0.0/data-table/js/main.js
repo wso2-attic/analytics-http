@@ -7,6 +7,7 @@ var node = gadgetUtil.node();
 var oTable;
 var SHARED_PARAM = "?shared=true&";
 var statType = pref.getString("appStatType");
+var firstField = pref.getString("firstField");
 
 $(function() {
     timeFrom = gadgetUtil.timeFrom();
@@ -24,7 +25,7 @@ $(function() {
         "processing": true,
         "serverSide": false,
         "columns" : [
-                    { title: "Context" },
+                    { title: firstField },
                     { title: "Number of requests" },
                     { title: "Percentage" }
         ],
