@@ -7,35 +7,22 @@
         <!--Spark Scripts -->
         <dependency artifact="Sparkscripts" version="1.0.0" include="true" serverRole="DataAnalyticsServer"/>
         <!-- Gadgets -->
-        <dependency artifact="GadgetAverageErrorLineChart" version="1.0.0" include="true" serverRole="DataAnalyticsServer"/>
         <dependency artifact="GadgetAverageErrorLineChartVizGrammar" version="1.0.0" include="true" serverRole="DataAnalyticsServer"/>
-        <dependency artifact="GadgetAverageRequestLineChart" version="1.0.0" include="true" serverRole="DataAnalyticsServer"/>
         <dependency artifact="GadgetAverageRequestLineChartVizGrammar" version="1.0.0" include="true" serverRole="DataAnalyticsServer"/>
-        <dependency artifact="GadgetAverageResponseLineChart" version="1.0.0" include="true" serverRole="DataAnalyticsServer"/>
         <dependency artifact="GadgetAverageResponseLineChartVizGrammar" version="1.0.0" include="true" serverRole="DataAnalyticsServer"/>
-        <dependency artifact="GadgetBrowserDataTable" version="1.0.0" include="true" serverRole="DataAnalyticsServer"/>
-        <dependency artifact="GadgetBrowserPieChart" version="1.0.0" include="true" serverRole="DataAnalyticsServer"/>
-        <dependency artifact="GadgetContextsList" version="1.0.0" include="true" serverRole="DataAnalyticsServer"/>
+        <dependency artifact="GadgetDataTable" version="1.0.0" include="true" serverRole="DataAnalyticsServer"/>
+        <dependency artifact="GadgetBrowserPieChartVizGrammar" version="1.0.0" include="true" serverRole="DataAnalyticsServer"/>
         <dependency artifact="GadgetDateRangePicker" version="1.0.0" include="true" serverRole="DataAnalyticsServer"/>
         <dependency artifact="GadgetCommons" version="1.0.0" include="true" serverRole="DataAnalyticsServer"/>
-        <dependency artifact="GadgetDeviceDataTable" version="1.0.0" include="true" serverRole="DataAnalyticsServer"/>
-        <dependency artifact="GadgetDevicePieChart" version="1.0.0" include="true" serverRole="DataAnalyticsServer"/>
         <dependency artifact="GadgetErrorInfoBox" version="1.0.0" include="true" serverRole="DataAnalyticsServer"/>
-        <dependency artifact="GadgetLanguagesBarChart" version="1.0.0" include="true" serverRole="DataAnalyticsServer"/>
-        <dependency artifact="GadgetLanguagesDataTable" version="1.0.0" include="true" serverRole="DataAnalyticsServer"/>
+        <dependency artifact="GadgetLanguagesHorizontalBarChart" version="1.0.0" include="true" serverRole="DataAnalyticsServer"/>
         <dependency artifact="GadgetLocation" version="1.0.0" include="true" serverRole="DataAnalyticsServer"/>
-        <dependency artifact="GadgetLocationDataTable" version="1.0.0" include="true" serverRole="DataAnalyticsServer"/>
-        <dependency artifact="GadgetOperatingSystemDataTable" version="1.0.0" include="true" serverRole="DataAnalyticsServer"/>
-        <dependency artifact="GadgetOperatingSystemPieChart" version="1.0.0" include="true" serverRole="DataAnalyticsServer"/>
-        <dependency artifact="GadgetReferrerDataTable" version="1.0.0" include="true" serverRole="DataAnalyticsServer"/>
-        <dependency artifact="GadgetReferrerTable_1.0.0" version="1.0.0" include="true" serverRole="DataAnalyticsServer"/>
         <dependency artifact="GadgetAppsList" version="1.0.0" include="true" serverRole="DataAnalyticsServer"/>
         <dependency artifact="GadgetRequestInfoBox" version="1.0.0" include="true" serverRole="DataAnalyticsServer"/>
-        <dependency artifact="GadgetResponseCodesBarChart" version="1.0.0" include="true" serverRole="DataAnalyticsServer"/>
         <dependency artifact="GadgetResponseCodesHorizontalBarChart" version="1.0.0" include="true" serverRole="DataAnalyticsServer"/>
-        <dependency artifact="GadgetResponseCodesDataTable" version="1.0.0" include="true" serverRole="DataAnalyticsServer"/>
         <dependency artifact="GadgetResponseInfoBox" version="1.0.0" include="true" serverRole="DataAnalyticsServer"/>
         <dependency artifact="GadgetSessionInfoBox" version="1.0.0" include="true" serverRole="DataAnalyticsServer"/>
+        <dependency artifact="GadgetSearchBox" version="1.0.0" include="true" serverRole="DataAnalyticsServer"/>
         <!-- Dashboard Definition -->
         <dependency artifact="Dashboard" version="1.0.0" include="true" serverRole="DataAnalyticsServer"/>
     </artifact>
