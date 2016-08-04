@@ -136,3 +136,10 @@ function getAppsStat(conditions, endTime) {
     });
 
 }
+
+function getAppsList(conditions) {
+    var apps = getUniqueValuesFromDAS(REQUEST_SUMMARY_TABLE, WEBAPP_NAME_FACET, conditions);
+    var categories = JSON.parse(apps).categories;
+    print({'message': Object.keys(categories)});
+
+}

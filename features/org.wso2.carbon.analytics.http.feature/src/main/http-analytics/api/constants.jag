@@ -29,6 +29,7 @@ var DAS_TABLES = 'availableTables';
 var AGGREGATE_RESOURCE = 'aggregates';
 var TABLE_RESOURCE = 'tables';
 var TABLE_EXISTS_RESOURCE = 'table_exists';
+var FACETS_RESOURCE = 'facets';
 
 // table names
 var REQUEST_SUMMARY_TABLE = 'REQUESTS_SUMMARY_PER_MINUTE';
@@ -64,7 +65,7 @@ var AVERAGE_RESPONSE_TIME = 'averageResponseTime';
 var SESSION_COUNT = 'sessionCount';
 var HTTP_SUCCESS_COUNT = 'httpSuccessCount';
 var HTTP_ERROR_COUNT = 'httpErrorCount';
-var WEBAPP_NAME = '_webappName';
+var WEBAPP_NAME = 'webappName';
 var WEBAPP_TYPE = 'webappType';
 var SERVER_NAME = 'serverName';
 var TIME = 'time';

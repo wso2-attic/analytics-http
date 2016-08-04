@@ -41,7 +41,7 @@ var conditions = buildConditions();
 var log = new Log("AS-DATA");
 
 /*
- build the ammendment to the prepared statement along with the parameter values based on
+ build the amendment to the prepared statement along with the parameter values based on
  start_time, end_time, node and webapp
  */
 function buildConditions() {
@@ -75,7 +75,7 @@ function getAppsStat() {
     var endTime;
     var appList = require('modules/app-list.js');
     if (log.isDebugEnabled()) {
-        log.debug('Retrieving applicaiton list');
+        log.debug('Retrieving application statistics');
     }
     endTime = request.getParameter('end_time') || new Date();
     appList.getAppsStat(conditions, Math.ceil(endTime / 1000));
@@ -251,6 +251,23 @@ function getInfoBoxErrorStat() {
     return infoBoxStat.getInfoBoxErrorStat(conditions);
 }
 
+function getAppsList() {
+    var appList = require('modules/app-list.js');
+    if (log.isDebugEnabled()) {
+        log.debug('Retrieving applications list');
+    }
+
+    // remove webappName from the conditions
+    var tempConditions = [];
+    conditions.split(' AND ').forEach(function(condition){
+        if (condition.split(':')[0].trim() != WEBAPP_NAME) {
+            tempConditions.push(condition);
+        }
+    })
+
+    return appList.getAppsList(tempConditions.join(' AND '));
+}
+
 var actionMapping = {
     'node-list': getNodeList,
     'apps': getAppsStat,
@@ -274,7 +291,8 @@ var actionMapping = {
     'request-count': getInfoBoxRequestStat,
     'response-count': getInfoBoxResponseStat,
     'session-count': getInfoBoxSessionStat,
-    'error-count': getInfoBoxErrorStat
+    'error-count': getInfoBoxErrorStat,
+    'apps-list': getAppsList
 };
 
 actionMapping[action]();

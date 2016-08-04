@@ -86,7 +86,7 @@ function getLanguageStatData(conditions) {
 }
 
 function getLanguageTabularStat(conditions, tableHeadings, sortColumn) {
-    print(helper.getTabularData(getLanguageStatData(conditions), tableHeadings, sortColumn));
+    print({'data': getLanguageStatData(conditions)});
 }
 
 function getCountryStatData(conditions) {
@@ -179,7 +179,7 @@ function drawCountryMap(conditions){
 }
 
 function getCountryTabularStat(conditions, tableHeadings, sortColumn) {
-    print(helper.getTabularData(getCountryStatData(conditions), tableHeadings, sortColumn));
+    print({'data': getCountryStatData(conditions)});
 
 }
 
@@ -196,23 +196,27 @@ function getLanguageStat(){
     if (results.length > 0) {
         for (i = 0; i < results.length && (i < 5); i++) {
             result = results[i];
-            dataArray.push([i, result[1]]);
-            ticks.push([i, result[0]]);
+            dataArray.push({'name': result[0], 'value': result[1]});
+//            ticks.push([i, result[0]]);
         }
     }
 
-    chartOptions = {
-        'xaxis': {
-            'ticks': ticks,
-            'axisLabel': 'Top 5 HTTP Response Codes'
-        },
-        'yaxis': {
-            'axisLabel': 'Number of requests'
-        }
-    };
+    print({'message': dataArray});
+    return;
 
-    print([
-        {'series1': {'label': 's', 'data': dataArray}},
-        chartOptions
-    ]);
+
+//    chartOptions = {
+//        'xaxis': {
+//            'ticks': ticks,
+//            'axisLabel': 'Top 5 HTTP Response Codes'
+//        },
+//        'yaxis': {
+//            'axisLabel': 'Number of requests'
+//        }
+//    };
+//
+//    print([
+//        {'series1': {'label': 's', 'data': dataArray}},
+//        chartOptions
+//    ]);
 }

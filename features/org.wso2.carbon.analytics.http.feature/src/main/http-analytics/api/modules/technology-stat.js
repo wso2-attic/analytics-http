@@ -216,22 +216,23 @@ function getOperatingStatData(conditions){
 
 
 function getHttpStatusTabularStat(conditions, tableHeadings, sortColumn) {
-    print(helper.getTabularData(getHttpStatusStatData(conditions), tableHeadings, sortColumn));
+    print({'data': getHttpStatusStatData(conditions)});
 }
 
 function getBrowserTabularStat(conditions, tableHeadings, sortColumn){
-    print(helper.getTabularData(getBrowserStatData(conditions), tableHeadings, sortColumn));}
+    print({'data': getBrowserStatData(conditions)});
+}
 
 function getDeviceTabularStat(conditions, tableHeadings, sortColumn){
-    print(helper.getTabularData(getDeviceStatData(conditions), tableHeadings,sortColumn));
+    print({'data': getDeviceStatData(conditions)});
 }
 
 function getOperatingSystemTabularStat(conditions, tableHeadings, sortColumn){
-    print(helper.getTabularData(getOperatingStatData(conditions), tableHeadings, sortColumn));
+    print({'data': getOperatingStatData(conditions)});
 }
 
 function getBrowserPieStat(conditions, visibleNumbers, groupName){
-    var dataObject = {};
+    var dataObject = [];
     var i, len;
     var row;
     var series;
@@ -244,12 +245,14 @@ function getBrowserPieStat(conditions, visibleNumbers, groupName){
 
     for (i = 0, len = shrinkedResults.length; i < len; i++) {
         row = shrinkedResults[i];
-        series = 'series' + i;
-        data = {'label': row[0][0], 'data': row[2]};
-        dataObject[series] = data;
+        data = {'name': row[0][0], 'value': row[2]};
+        dataObject.push(data);
     }
 
-    print([dataObject, chartOptions]);
+    print ({'message': dataObject});
+    return;
+
+//    print([dataObject, chartOptions]);
 
 }
 
