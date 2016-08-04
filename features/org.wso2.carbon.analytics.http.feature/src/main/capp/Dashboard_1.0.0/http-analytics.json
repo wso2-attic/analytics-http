@@ -907,32 +907,32 @@
               {
                 "id": "f900ad8133ec0bb1a1d9d85d7593bd85",
                 "x": 0,
-                "y": 10,
-                "width": 12,
-                "height": 5,
+                "y": 14,
+                "width": 6,
+                "height": 4,
                 "banner": false
               },
               {
                 "id": "35dac6dcc05e79022f68907b09538f9f",
                 "x": 0,
-                "y": 4,
-                "width": 6,
-                "height": 6,
+                "y": 7,
+                "width": 4,
+                "height": 4,
                 "banner": false
               },
               {
                 "id": "e3efa996dfb6818f5c11cbc003342891",
-                "x": 6,
-                "y": 4,
+                "x": 0,
+                "y": 11,
                 "width": 6,
-                "height": 6,
+                "height": 3,
                 "banner": false
               },
               {
                 "id": "c0e1e7f476c1710b35ecf34042b815fa",
-                "x": 0,
+                "x": 3,
                 "y": 0,
-                "width": 12,
+                "width": 9,
                 "height": 1,
                 "banner": false
               },
@@ -967,6 +967,70 @@
                 "width": 3,
                 "height": 3,
                 "banner": false
+              },
+              {
+                "id": "6a88d2ef3bedd45284ac87205f8fcc7b",
+                "x": 0,
+                "y": 4,
+                "width": 4,
+                "height": 3,
+                "banner": false
+              },
+              {
+                "id": "a1c34f3ebd0a98af9721d679dea50174",
+                "x": 4,
+                "y": 4,
+                "width": 4,
+                "height": 3,
+                "banner": false
+              },
+              {
+                "id": "ff05733c8d4b7a68eed78bfc69a3cd9a",
+                "x": 8,
+                "y": 4,
+                "width": 4,
+                "height": 3,
+                "banner": false
+              },
+              {
+                "id": "07354622b248dfe571c0b9e8c5ad8af2",
+                "x": 6,
+                "y": 11,
+                "width": 6,
+                "height": 3,
+                "banner": false
+              },
+              {
+                "id": "13ec4b7a159b0ff156464d5721b73692",
+                "x": 6,
+                "y": 14,
+                "width": 6,
+                "height": 4,
+                "banner": false
+              },
+              {
+                "id": "9ff27955f99df0a14331e6e72a5da5f4",
+                "x": 0,
+                "y": 0,
+                "width": 3,
+                "height": 1,
+                "banner": false
+              },
+              {
+                "id": "07b0f0f6609fc2fc8d3eb3dc8c9f06c5",
+                "x": 4,
+                "y": 7,
+                "width": 4,
+                "height": 4,
+                "banner": false
+              },
+              {
+                "id": "bb4cabedb72c4e976cd28eeefb2273eb",
+                "x": 8,
+                "y": 7,
+                "width": 4,
+                "height": 4,
+                "banner": false
               }
             ]
           }
@@ -978,14 +1042,14 @@
         "default": {
           "35dac6dcc05e79022f68907b09538f9f": [
             {
-              "id": "browser-pie-chart-0",
+              "id": "browser-pie-chart-vizgrammar-0",
               "content": {
-                "id": "browser-pie-chart",
-                "title": "AS Browser Pie-chart",
+                "id": "browser-pie-chart-vizgrammar",
+                "title": "Browser Pie Chart",
                 "type": "gadget",
-                "thumbnail": "fs://gadget/browser-pie-chart/images/index.jpg",
+                "thumbnail": "fs://gadget/usa-business-revenue/index.png",
                 "data": {
-                  "url": "fs://gadget/browser-pie-chart/browser-pie-chart.xml"
+                  "url": "fs://gadget/browser-pie-chart-vizgrammar/index.xml"
                 },
                 "listen": {
                   "timeRangeChangeSubscriber": {
@@ -1003,9 +1067,23 @@
                   "no_heading": false,
                   "hide_gadget": false,
                   "titlePosition": "left",
-                  "title": "AS Browser Pie-chart"
+                  "title": "Browser Statistics"
                 },
                 "options": {
+                  "refreshInterval": {
+                    "type": "STRING",
+                    "title": "Refresh Interval",
+                    "value": "1000000",
+                    "options": [],
+                    "required": false
+                  },
+                  "type": {
+                    "type": "STRING",
+                    "title": "Gadget Type",
+                    "value": "",
+                    "options": [],
+                    "required": true
+                  },
                   "dataSource": {
                     "type": "STRING",
                     "title": "Data Source",
@@ -1041,13 +1119,6 @@
                     "options": [],
                     "required": false
                   },
-                  "updateGraph": {
-                    "type": "STRING",
-                    "title": "Update Interval (s)",
-                    "value": "No",
-                    "options": [],
-                    "required": false
-                  },
                   "appStatType": {
                     "type": "STRING",
                     "title": "App Stat Type",
@@ -1057,7 +1128,7 @@
                   }
                 },
                 "locale_titles": {
-                  "en-US": "AS Browser Pie-chart"
+                  "en-US": "Browser Statistics"
                 },
                 "settings": {
                   "priority": "5",
@@ -1165,14 +1236,14 @@
           ],
           "f900ad8133ec0bb1a1d9d85d7593bd85": [
             {
-              "id": "context-table-0",
+              "id": "data-table-0",
               "content": {
-                "id": "context-table",
-                "title": "Context List",
+                "id": "data-table",
+                "title": "Data Table",
                 "type": "gadget",
-                "thumbnail": "fs://gadget/context-table/images/index.jpg",
+                "thumbnail": "fs://gadget/usa-business-revenue/index.png",
                 "data": {
-                  "url": "fs://gadget/context-table/index.xml"
+                  "url": "fs://gadget/data-table/index.xml"
                 },
                 "listen": {
                   "timeRangeChangeSubscriber": {
@@ -1193,27 +1264,6 @@
                   "title": "Context List"
                 },
                 "options": {
-                  "dataSource": {
-                    "type": "STRING",
-                    "title": "Data Source",
-                    "value": "../../../../../http-analytics/api/as-data.jag",
-                    "options": [],
-                    "required": false
-                  },
-                  "appname": {
-                    "type": "STRING",
-                    "title": "Web App Name",
-                    "value": "",
-                    "options": [],
-                    "required": false
-                  },
-                  "updateGraph": {
-                    "type": "STRING",
-                    "title": "Update Interval (s)",
-                    "value": "No",
-                    "options": [],
-                    "required": false
-                  },
                   "appStatType": {
                     "type": "STRING",
                     "title": "App Stat Type",
@@ -1221,24 +1271,10 @@
                     "options": [],
                     "required": false
                   },
-                  "startTime": {
+                  "firstField": {
                     "type": "STRING",
-                    "title": "Start time",
-                    "value": "",
-                    "options": [],
-                    "required": false
-                  },
-                  "endTime": {
-                    "type": "STRING",
-                    "title": "End time",
-                    "value": "",
-                    "options": [],
-                    "required": false
-                  },
-                  "node": {
-                    "type": "STRING",
-                    "title": "Node IP",
-                    "value": "",
+                    "title": "Name of the first field of the table",
+                    "value": "context",
                     "options": [],
                     "required": false
                   }
@@ -1280,7 +1316,21 @@
                 "listen": {
                   "chart-zoomed": {
                     "type": "date-range",
-                    "description": "This notifies message generated in publisher"
+                    "description": "This notifies message generated in publisher",
+                    "on": [
+                      {
+                        "from": "average-request-line-chart-vizgrammar-0",
+                        "event": "chart-zoomed"
+                      },
+                      {
+                        "from": "average-response-line-chart-vizgrammar-0",
+                        "event": "chart-zoomed"
+                      },
+                      {
+                        "from": "average-error-line-chart-vizgrammar-0",
+                        "event": "chart-zoomed"
+                      }
+                    ]
                   }
                 },
                 "options": {},
@@ -1625,6 +1675,2004 @@
                 }
               }
             }
+          ],
+          "6a88d2ef3bedd45284ac87205f8fcc7b": [
+            {
+              "id": "average-request-line-chart-vizgrammar-0",
+              "content": {
+                "id": "average-request-line-chart-vizgrammar",
+                "title": "Average request count over time",
+                "type": "gadget",
+                "thumbnail": "fs://gadget/usa-business-revenue/index.png",
+                "data": {
+                  "url": "fs://gadget/average-request-line-chart-vizgrammar/index.xml"
+                },
+                "listen": {
+                  "timeRangeChangeSubscriber": {
+                    "type": "message",
+                    "description": "This listens to  message received by the subscriber",
+                    "on": [
+                      {
+                        "from": "Date_Range_Picker-0",
+                        "event": "timeRangeChangePublisher"
+                      }
+                    ]
+                  }
+                },
+                "notify": {
+                  "chart-zoomed": {
+                    "type": "date-range",
+                    "description": "This notifies message generated in publisher"
+                  }
+                },
+                "styles": {
+                  "no_heading": false,
+                  "hide_gadget": false,
+                  "titlePosition": "left",
+                  "title": "Average request count over time"
+                },
+                "options": {
+                  "refreshInterval": {
+                    "type": "STRING",
+                    "title": "Refresh Interval",
+                    "value": "1000000",
+                    "options": [],
+                    "required": false
+                  },
+                  "type": {
+                    "type": "STRING",
+                    "title": "Gadget Type",
+                    "value": "",
+                    "options": [],
+                    "required": true
+                  },
+                  "dataSource": {
+                    "type": "STRING",
+                    "title": "Data Source",
+                    "value": "../../../../../http-analytics/api/as-data.jag",
+                    "options": [],
+                    "required": false
+                  },
+                  "appname": {
+                    "type": "STRING",
+                    "title": "Web App Name",
+                    "value": "",
+                    "options": [],
+                    "required": false
+                  },
+                  "startTime": {
+                    "type": "STRING",
+                    "title": "Start time",
+                    "value": "",
+                    "options": [],
+                    "required": false
+                  },
+                  "endTime": {
+                    "type": "STRING",
+                    "title": "End time",
+                    "value": "",
+                    "options": [],
+                    "required": false
+                  },
+                  "node": {
+                    "type": "STRING",
+                    "title": "Node IP",
+                    "value": "",
+                    "options": [],
+                    "required": false
+                  },
+                  "appStatType": {
+                    "type": "STRING",
+                    "title": "App Stat Type",
+                    "value": "request",
+                    "options": [],
+                    "required": false
+                  }
+                },
+                "locale_titles": {
+                  "en-US": "Average request count over time"
+                },
+                "settings": {
+                  "priority": "5",
+                  "timeoutInterval": "60000"
+                }
+              }
+            }
+          ],
+          "a1c34f3ebd0a98af9721d679dea50174": [
+            {
+              "id": "average-response-line-chart-vizgrammar-0",
+              "content": {
+                "id": "average-response-line-chart-vizgrammar",
+                "title": "Average response time over time",
+                "type": "gadget",
+                "thumbnail": "fs://gadget/usa-business-revenue/index.png",
+                "data": {
+                  "url": "fs://gadget/average-response-line-chart-vizgrammar/index.xml"
+                },
+                "listen": {
+                  "timeRangeChangeSubscriber": {
+                    "type": "message",
+                    "description": "This listens to  message received by the subscriber",
+                    "on": [
+                      {
+                        "from": "Date_Range_Picker-0",
+                        "event": "timeRangeChangePublisher"
+                      }
+                    ]
+                  }
+                },
+                "notify": {
+                  "chart-zoomed": {
+                    "type": "date-range",
+                    "description": "This notifies message generated in publisher"
+                  }
+                },
+                "styles": {
+                  "no_heading": false,
+                  "hide_gadget": false,
+                  "titlePosition": "left",
+                  "title": "Average response time over time"
+                },
+                "options": {
+                  "refreshInterval": {
+                    "type": "STRING",
+                    "title": "Refresh Interval",
+                    "value": "1000000",
+                    "options": [],
+                    "required": false
+                  },
+                  "type": {
+                    "type": "STRING",
+                    "title": "Gadget Type",
+                    "value": "",
+                    "options": [],
+                    "required": true
+                  },
+                  "dataSource": {
+                    "type": "STRING",
+                    "title": "Data Source",
+                    "value": "../../../../../http-analytics/api/as-data.jag",
+                    "options": [],
+                    "required": false
+                  },
+                  "appname": {
+                    "type": "STRING",
+                    "title": "Web App Name",
+                    "value": "",
+                    "options": [],
+                    "required": false
+                  },
+                  "startTime": {
+                    "type": "STRING",
+                    "title": "Start time",
+                    "value": "",
+                    "options": [],
+                    "required": false
+                  },
+                  "endTime": {
+                    "type": "STRING",
+                    "title": "End time",
+                    "value": "",
+                    "options": [],
+                    "required": false
+                  },
+                  "node": {
+                    "type": "STRING",
+                    "title": "Node IP",
+                    "value": "",
+                    "options": [],
+                    "required": false
+                  },
+                  "appStatType": {
+                    "type": "STRING",
+                    "title": "App Stat Type",
+                    "value": "response",
+                    "options": [],
+                    "required": false
+                  }
+                },
+                "locale_titles": {
+                  "en-US": "Average response time over time"
+                },
+                "settings": {
+                  "priority": "5",
+                  "timeoutInterval": "60000"
+                }
+              }
+            }
+          ],
+          "ff05733c8d4b7a68eed78bfc69a3cd9a": [
+            {
+              "id": "average-error-line-chart-vizgrammar-0",
+              "content": {
+                "id": "average-error-line-chart-vizgrammar",
+                "title": "Average error count over time",
+                "type": "gadget",
+                "thumbnail": "fs://gadget/usa-business-revenue/index.png",
+                "data": {
+                  "url": "fs://gadget/average-error-line-chart-vizgrammar/index.xml"
+                },
+                "listen": {
+                  "timeRangeChangeSubscriber": {
+                    "type": "message",
+                    "description": "This listens to  message received by the subscriber",
+                    "on": [
+                      {
+                        "from": "Date_Range_Picker-0",
+                        "event": "timeRangeChangePublisher"
+                      }
+                    ]
+                  }
+                },
+                "notify": {
+                  "chart-zoomed": {
+                    "type": "date-range",
+                    "description": "This notifies message generated in publisher"
+                  }
+                },
+                "styles": {
+                  "no_heading": false,
+                  "hide_gadget": false,
+                  "titlePosition": "left",
+                  "title": "Average error count over time"
+                },
+                "options": {
+                  "refreshInterval": {
+                    "type": "STRING",
+                    "title": "Refresh Interval",
+                    "value": "1000000",
+                    "options": [],
+                    "required": false
+                  },
+                  "type": {
+                    "type": "STRING",
+                    "title": "Gadget Type",
+                    "value": "",
+                    "options": [],
+                    "required": true
+                  },
+                  "dataSource": {
+                    "type": "STRING",
+                    "title": "Data Source",
+                    "value": "../../../../../http-analytics/api/as-data.jag",
+                    "options": [],
+                    "required": false
+                  },
+                  "appname": {
+                    "type": "STRING",
+                    "title": "Web App Name",
+                    "value": "",
+                    "options": [],
+                    "required": false
+                  },
+                  "startTime": {
+                    "type": "STRING",
+                    "title": "Start time",
+                    "value": "",
+                    "options": [],
+                    "required": false
+                  },
+                  "endTime": {
+                    "type": "STRING",
+                    "title": "End time",
+                    "value": "",
+                    "options": [],
+                    "required": false
+                  },
+                  "node": {
+                    "type": "STRING",
+                    "title": "Node IP",
+                    "value": "",
+                    "options": [],
+                    "required": false
+                  },
+                  "appStatType": {
+                    "type": "STRING",
+                    "title": "App Stat Type",
+                    "value": "error",
+                    "options": [],
+                    "required": false
+                  }
+                },
+                "locale_titles": {
+                  "en-US": "Average error count over time"
+                },
+                "settings": {
+                  "priority": "5",
+                  "timeoutInterval": "60000"
+                }
+              }
+            }
+          ],
+          "07354622b248dfe571c0b9e8c5ad8af2": [
+            {
+              "id": "languages-horizontal-bar-chart-0",
+              "content": {
+                "id": "languages-horizontal-bar-chart",
+                "title": "Top 5 Languages",
+                "type": "gadget",
+                "thumbnail": "fs://gadget/usa-business-revenue/index.png",
+                "data": {
+                  "url": "fs://gadget/languages-horizontal-bar-chart/index.xml"
+                },
+                "listen": {
+                  "timeRangeChangeSubscriber": {
+                    "type": "message",
+                    "description": "This listens to  message received by the subscriber",
+                    "on": [
+                      {
+                        "from": "Date_Range_Picker-0",
+                        "event": "timeRangeChangePublisher"
+                      }
+                    ]
+                  }
+                },
+                "styles": {
+                  "no_heading": false,
+                  "hide_gadget": false,
+                  "titlePosition": "left",
+                  "title": "Top 5 Languages"
+                },
+                "options": {
+                  "refreshInterval": {
+                    "type": "STRING",
+                    "title": "Refresh Interval",
+                    "value": "1000000",
+                    "options": [],
+                    "required": false
+                  },
+                  "type": {
+                    "type": "STRING",
+                    "title": "Gadget Type",
+                    "value": "",
+                    "options": [],
+                    "required": true
+                  },
+                  "dataSource": {
+                    "type": "STRING",
+                    "title": "Data Source",
+                    "value": "../../../../../http-analytics/api/as-data.jag",
+                    "options": [],
+                    "required": false
+                  },
+                  "appname": {
+                    "type": "STRING",
+                    "title": "Web App Name",
+                    "value": "",
+                    "options": [],
+                    "required": false
+                  },
+                  "startTime": {
+                    "type": "STRING",
+                    "title": "Start time",
+                    "value": "",
+                    "options": [],
+                    "required": false
+                  },
+                  "endTime": {
+                    "type": "STRING",
+                    "title": "End time",
+                    "value": "",
+                    "options": [],
+                    "required": false
+                  },
+                  "node": {
+                    "type": "STRING",
+                    "title": "Node IP",
+                    "value": "",
+                    "options": [],
+                    "required": false
+                  },
+                  "appStatType": {
+                    "type": "STRING",
+                    "title": "App Stat Type",
+                    "value": "language",
+                    "options": [],
+                    "required": false
+                  }
+                },
+                "locale_titles": {
+                  "en-US": "Top 5 Languages"
+                },
+                "settings": {
+                  "priority": "5",
+                  "timeoutInterval": "60000"
+                }
+              }
+            }
+          ],
+          "13ec4b7a159b0ff156464d5721b73692": [
+            {
+              "id": "data-table-1",
+              "content": {
+                "id": "data-table",
+                "title": "Data Table",
+                "type": "gadget",
+                "thumbnail": "fs://gadget/usa-business-revenue/index.png",
+                "data": {
+                  "url": "fs://gadget/data-table/index.xml"
+                },
+                "listen": {
+                  "timeRangeChangeSubscriber": {
+                    "type": "message",
+                    "description": "This listens to  message received by the subscriber",
+                    "on": [
+                      {
+                        "from": "Date_Range_Picker-0",
+                        "event": "timeRangeChangePublisher"
+                      }
+                    ]
+                  }
+                },
+                "styles": {
+                  "no_heading": false,
+                  "hide_gadget": false,
+                  "titlePosition": "left",
+                  "title": "Referrer List"
+                },
+                "options": {
+                  "appStatType": {
+                    "type": "STRING",
+                    "title": "App Stat Type",
+                    "value": "referrer",
+                    "options": [],
+                    "required": false
+                  },
+                  "firstField": {
+                    "type": "STRING",
+                    "title": "Name of the first field of the table",
+                    "value": "Referrer",
+                    "options": [],
+                    "required": false
+                  }
+                },
+                "locale_titles": {
+                  "en-US": "Referrer List"
+                },
+                "settings": {
+                  "priority": "5",
+                  "timeoutInterval": "60000"
+                }
+              }
+            }
+          ],
+          "9ff27955f99df0a14331e6e72a5da5f4": [
+            {
+              "id": "Search_Box-0",
+              "content": {
+                "id": "Search_Box",
+                "title": "Search Box",
+                "type": "widget",
+                "category": "Widgets",
+                "thumbnail": "fs://gadget/usa-business-revenue/index.png",
+                "data": {
+                  "url": "fs://gadget/Search_Box/index.xml"
+                },
+                "styles": {
+                  "no_heading": true,
+                  "hide_gadget": false,
+                  "titlePosition": "left",
+                  "title": "Search Box"
+                },
+                "options": {},
+                "locale_titles": {
+                  "en-US": "Search Box"
+                },
+                "settings": {
+                  "priority": "5",
+                  "timeoutInterval": "60000"
+                }
+              }
+            }
+          ]
+        },
+        "anon": {}
+      }
+    },
+    {
+      "id": "contextlist",
+      "title": "Context List",
+      "layout": {
+        "content": {
+          "loggedIn": {
+            "blocks": [
+              {
+                "id": "eecd3bf04f25663e460eeed7ca126100",
+                "x": 0,
+                "y": 1,
+                "width": 12,
+                "height": 10,
+                "banner": false
+              },
+              {
+                "id": "b1a12763b264eb132787909866566167",
+                "x": 0,
+                "y": 0,
+                "width": 3,
+                "height": 1,
+                "banner": false
+              },
+              {
+                "id": "60fefbcc83c11e27f2f2287572402eef",
+                "x": 3,
+                "y": 0,
+                "width": 9,
+                "height": 1,
+                "banner": false
+              }
+            ]
+          }
+        },
+        "fluidLayout": true
+      },
+      "isanon": false,
+      "content": {
+        "default": {
+          "bb106c9464f31ec040fb5e9aa8563bba": [],
+          "eecd3bf04f25663e460eeed7ca126100": [
+            {
+              "id": "data-table-1",
+              "content": {
+                "id": "data-table",
+                "title": "Data Table",
+                "type": "gadget",
+                "thumbnail": "fs://gadget/usa-business-revenue/index.png",
+                "data": {
+                  "url": "fs://gadget/data-table/index.xml"
+                },
+                "listen": {
+                  "timeRangeChangeSubscriber": {
+                    "type": "message",
+                    "description": "This listens to  message received by the subscriber",
+                    "on": [
+                      {
+                        "from": "Date_Range_Picker-0",
+                        "event": "timeRangeChangePublisher"
+                      }
+                    ]
+                  }
+                },
+                "styles": {
+                  "no_heading": false,
+                  "hide_gadget": false,
+                  "titlePosition": "left",
+                  "title": "Context List"
+                },
+                "options": {
+                  "appStatType": {
+                    "type": "STRING",
+                    "title": "App Stat Type",
+                    "value": "context",
+                    "options": [],
+                    "required": false
+                  },
+                  "firstField": {
+                    "type": "STRING",
+                    "title": "Name of the first field of the table",
+                    "value": "Context",
+                    "options": [],
+                    "required": false
+                  }
+                },
+                "locale_titles": {
+                  "en-US": "Context List"
+                },
+                "settings": {
+                  "priority": "5",
+                  "timeoutInterval": "60000"
+                }
+              }
+            }
+          ],
+          "b1a12763b264eb132787909866566167": [
+            {
+              "id": "Search_Box-0",
+              "content": {
+                "id": "Search_Box",
+                "title": "Search Box",
+                "type": "widget",
+                "category": "Widgets",
+                "thumbnail": "fs://gadget/usa-business-revenue/index.png",
+                "data": {
+                  "url": "fs://gadget/Search_Box/index.xml"
+                },
+                "styles": {
+                  "no_heading": true,
+                  "hide_gadget": false,
+                  "titlePosition": "left",
+                  "title": "Search Box"
+                },
+                "options": {},
+                "locale_titles": {
+                  "en-US": "Search Box"
+                },
+                "settings": {
+                  "priority": "5",
+                  "timeoutInterval": "60000"
+                }
+              }
+            }
+          ],
+          "60fefbcc83c11e27f2f2287572402eef": [
+            {
+              "id": "Date_Range_Picker-0",
+              "content": {
+                "id": "Date_Range_Picker",
+                "title": "Date Range Picker",
+                "type": "gadget",
+                "category": "Widgets",
+                "thumbnail": "fs://gadget/Date_Range_Picker/index.png",
+                "data": {
+                  "url": "fs://gadget/Date_Range_Picker/index.xml"
+                },
+                "styles": {
+                  "no_heading": true,
+                  "hide_gadget": false,
+                  "titlePosition": "left",
+                  "title": "Date Range Picker"
+                },
+                "notify": {
+                  "timeRangeChangePublisher": {
+                    "type": "message",
+                    "description": "This notifies message generated in publisher"
+                  }
+                },
+                "listen": {
+                  "chart-zoomed": {
+                    "type": "date-range",
+                    "description": "This notifies message generated in publisher"
+                  }
+                },
+                "options": {},
+                "locale_titles": {
+                  "en-US": "Date Range Picker"
+                },
+                "settings": {
+                  "priority": "5",
+                  "timeoutInterval": "60000"
+                }
+              }
+            }
+          ]
+        },
+        "anon": {}
+      }
+    },
+    {
+      "id": "referrerlist",
+      "title": "Referrer List",
+      "layout": {
+        "content": {
+          "loggedIn": {
+            "blocks": [
+              {
+                "id": "713946bd9248735711c9e62bc63a008c",
+                "x": 0,
+                "y": 1,
+                "width": 12,
+                "height": 10,
+                "banner": false
+              },
+              {
+                "id": "9e2db641015578662a36a05e0a0fd929",
+                "x": 3,
+                "y": 0,
+                "width": 9,
+                "height": 1,
+                "banner": false
+              },
+              {
+                "id": "7c5e6c712b97bed467a16c60cde3b877",
+                "x": 0,
+                "y": 0,
+                "width": 3,
+                "height": 1,
+                "banner": false
+              }
+            ]
+          }
+        },
+        "fluidLayout": true
+      },
+      "isanon": false,
+      "content": {
+        "default": {
+          "713946bd9248735711c9e62bc63a008c": [
+            {
+              "id": "data-table-0",
+              "content": {
+                "id": "data-table",
+                "title": "Data Table",
+                "type": "gadget",
+                "thumbnail": "fs://gadget/usa-business-revenue/index.png",
+                "data": {
+                  "url": "fs://gadget/data-table/index.xml"
+                },
+                "listen": {
+                  "timeRangeChangeSubscriber": {
+                    "type": "message",
+                    "description": "This listens to  message received by the subscriber",
+                    "on": [
+                      {
+                        "from": "Date_Range_Picker-0",
+                        "event": "timeRangeChangePublisher"
+                      }
+                    ]
+                  }
+                },
+                "styles": {
+                  "no_heading": false,
+                  "hide_gadget": false,
+                  "titlePosition": "left",
+                  "title": "Referrer List"
+                },
+                "options": {
+                  "appStatType": {
+                    "type": "STRING",
+                    "title": "App Stat Type",
+                    "value": "referrer",
+                    "options": [],
+                    "required": false
+                  },
+                  "firstField": {
+                    "type": "STRING",
+                    "title": "Name of the first field of the table",
+                    "value": "Referrer",
+                    "options": [],
+                    "required": false
+                  }
+                },
+                "locale_titles": {
+                  "en-US": "Referrer List"
+                },
+                "settings": {
+                  "priority": "5",
+                  "timeoutInterval": "60000"
+                }
+              }
+            }
+          ],
+          "9e2db641015578662a36a05e0a0fd929": [
+            {
+              "id": "Date_Range_Picker-0",
+              "content": {
+                "id": "Date_Range_Picker",
+                "title": "Date Range Picker",
+                "type": "gadget",
+                "category": "Widgets",
+                "thumbnail": "fs://gadget/Date_Range_Picker/index.png",
+                "data": {
+                  "url": "fs://gadget/Date_Range_Picker/index.xml"
+                },
+                "styles": {
+                  "no_heading": true,
+                  "hide_gadget": false,
+                  "titlePosition": "left",
+                  "title": "Date Range Picker"
+                },
+                "notify": {
+                  "timeRangeChangePublisher": {
+                    "type": "message",
+                    "description": "This notifies message generated in publisher"
+                  }
+                },
+                "listen": {
+                  "chart-zoomed": {
+                    "type": "date-range",
+                    "description": "This notifies message generated in publisher"
+                  }
+                },
+                "options": {},
+                "locale_titles": {
+                  "en-US": "Date Range Picker"
+                },
+                "settings": {
+                  "priority": "5",
+                  "timeoutInterval": "60000"
+                }
+              }
+            }
+          ],
+          "7c5e6c712b97bed467a16c60cde3b877": [
+            {
+              "id": "Search_Box-0",
+              "content": {
+                "id": "Search_Box",
+                "title": "Search Box",
+                "type": "widget",
+                "category": "Widgets",
+                "thumbnail": "fs://gadget/usa-business-revenue/index.png",
+                "data": {
+                  "url": "fs://gadget/Search_Box/index.xml"
+                },
+                "styles": {
+                  "no_heading": true,
+                  "hide_gadget": false,
+                  "titlePosition": "left",
+                  "title": "Search Box"
+                },
+                "options": {},
+                "locale_titles": {
+                  "en-US": "Search Box"
+                },
+                "settings": {
+                  "priority": "5",
+                  "timeoutInterval": "60000"
+                }
+              }
+            }
+          ]
+        },
+        "anon": {}
+      }
+    },
+    {
+      "id": "browser",
+      "title": "Browser",
+      "layout": {
+        "content": {
+          "loggedIn": {
+            "blocks": [
+              {
+                "id": "69a83fbe73b6cbb511001a8d8f4fb097",
+                "x": 0,
+                "y": 6,
+                "width": 12,
+                "height": 5,
+                "banner": false
+              },
+              {
+                "id": "cb071dfb60188a5852ce8c9dcd2d1dff",
+                "x": 0,
+                "y": 1,
+                "width": 12,
+                "height": 5,
+                "banner": false
+              },
+              {
+                "id": "11a96842f3bf1065fc103a27762b931b",
+                "x": 0,
+                "y": 0,
+                "width": 3,
+                "height": 1,
+                "banner": false
+              },
+              {
+                "id": "a008b1cf51a44bba842c0945fec0aa20",
+                "x": 3,
+                "y": 0,
+                "width": 9,
+                "height": 1,
+                "banner": false
+              }
+            ]
+          }
+        },
+        "fluidLayout": true
+      },
+      "isanon": false,
+      "content": {
+        "default": {
+          "11a96842f3bf1065fc103a27762b931b": [
+            {
+              "id": "Search_Box-0",
+              "content": {
+                "id": "Search_Box",
+                "title": "Search Box",
+                "type": "widget",
+                "category": "Widgets",
+                "thumbnail": "fs://gadget/usa-business-revenue/index.png",
+                "data": {
+                  "url": "fs://gadget/Search_Box/index.xml"
+                },
+                "styles": {
+                  "no_heading": true,
+                  "hide_gadget": false,
+                  "titlePosition": "left",
+                  "title": "Search Box"
+                },
+                "options": {},
+                "locale_titles": {
+                  "en-US": "Search Box"
+                },
+                "settings": {
+                  "priority": "5",
+                  "timeoutInterval": "60000"
+                }
+              }
+            }
+          ],
+          "a008b1cf51a44bba842c0945fec0aa20": [
+            {
+              "id": "Date_Range_Picker-0",
+              "content": {
+                "id": "Date_Range_Picker",
+                "title": "Date Range Picker",
+                "type": "gadget",
+                "category": "Widgets",
+                "thumbnail": "fs://gadget/Date_Range_Picker/index.png",
+                "data": {
+                  "url": "fs://gadget/Date_Range_Picker/index.xml"
+                },
+                "styles": {
+                  "no_heading": true,
+                  "hide_gadget": false,
+                  "titlePosition": "left",
+                  "title": "Date Range Picker"
+                },
+                "notify": {
+                  "timeRangeChangePublisher": {
+                    "type": "message",
+                    "description": "This notifies message generated in publisher"
+                  }
+                },
+                "listen": {
+                  "chart-zoomed": {
+                    "type": "date-range",
+                    "description": "This notifies message generated in publisher"
+                  }
+                },
+                "options": {},
+                "locale_titles": {
+                  "en-US": "Date Range Picker"
+                },
+                "settings": {
+                  "priority": "5",
+                  "timeoutInterval": "60000"
+                }
+              }
+            }
+          ],
+          "69a83fbe73b6cbb511001a8d8f4fb097": [
+            {
+              "id": "data-table-0",
+              "content": {
+                "id": "data-table",
+                "title": "Data Table",
+                "type": "gadget",
+                "thumbnail": "fs://gadget/usa-business-revenue/index.png",
+                "data": {
+                  "url": "fs://gadget/data-table/index.xml"
+                },
+                "listen": {
+                  "timeRangeChangeSubscriber": {
+                    "type": "message",
+                    "description": "This listens to  message received by the subscriber",
+                    "on": [
+                      {
+                        "from": "Date_Range_Picker-0",
+                        "event": "timeRangeChangePublisher"
+                      }
+                    ]
+                  }
+                },
+                "styles": {
+                  "no_heading": false,
+                  "hide_gadget": false,
+                  "titlePosition": "left",
+                  "title": "Browser Statistics"
+                },
+                "options": {
+                  "appStatType": {
+                    "type": "STRING",
+                    "title": "App Stat Type",
+                    "value": "browser-tabular",
+                    "options": [],
+                    "required": false
+                  },
+                  "firstField": {
+                    "type": "STRING",
+                    "title": "Name of the first field of the table",
+                    "value": "Browser",
+                    "options": [],
+                    "required": false
+                  }
+                },
+                "locale_titles": {
+                  "en-US": "Browser Statistics"
+                },
+                "settings": {
+                  "priority": "5",
+                  "timeoutInterval": "60000"
+                }
+              }
+            }
+          ],
+          "cb071dfb60188a5852ce8c9dcd2d1dff": [
+            {
+              "id": "browser-pie-chart-vizgrammar-0",
+              "content": {
+                "id": "browser-pie-chart-vizgrammar",
+                "title": "Browser Pie Chart",
+                "type": "gadget",
+                "thumbnail": "fs://gadget/usa-business-revenue/index.png",
+                "data": {
+                  "url": "fs://gadget/browser-pie-chart-vizgrammar/index.xml"
+                },
+                "listen": {
+                  "timeRangeChangeSubscriber": {
+                    "type": "message",
+                    "description": "This listens to  message received by the subscriber",
+                    "on": [
+                      {
+                        "from": "Date_Range_Picker-0",
+                        "event": "timeRangeChangePublisher"
+                      }
+                    ]
+                  }
+                },
+                "styles": {
+                  "no_heading": false,
+                  "hide_gadget": false,
+                  "titlePosition": "left",
+                  "title": "Browser Pie Chart"
+                },
+                "options": {
+                  "refreshInterval": {
+                    "type": "STRING",
+                    "title": "Refresh Interval",
+                    "value": "1000000",
+                    "options": [],
+                    "required": false
+                  },
+                  "type": {
+                    "type": "STRING",
+                    "title": "Gadget Type",
+                    "value": "",
+                    "options": [],
+                    "required": true
+                  },
+                  "dataSource": {
+                    "type": "STRING",
+                    "title": "Data Source",
+                    "value": "../../../../../http-analytics/api/as-data.jag",
+                    "options": [],
+                    "required": false
+                  },
+                  "appname": {
+                    "type": "STRING",
+                    "title": "Web App Name",
+                    "value": "",
+                    "options": [],
+                    "required": false
+                  },
+                  "startTime": {
+                    "type": "STRING",
+                    "title": "Start time",
+                    "value": "",
+                    "options": [],
+                    "required": false
+                  },
+                  "endTime": {
+                    "type": "STRING",
+                    "title": "End time",
+                    "value": "",
+                    "options": [],
+                    "required": false
+                  },
+                  "node": {
+                    "type": "STRING",
+                    "title": "Node IP",
+                    "value": "",
+                    "options": [],
+                    "required": false
+                  },
+                  "appStatType": {
+                    "type": "STRING",
+                    "title": "App Stat Type",
+                    "value": "browser",
+                    "options": [],
+                    "required": false
+                  }
+                },
+                "locale_titles": {
+                  "en-US": "Browser Pie Chart"
+                },
+                "settings": {
+                  "priority": "5",
+                  "timeoutInterval": "60000"
+                }
+              }
+            }
+          ]
+        },
+        "anon": {}
+      }
+    },
+    {
+      "id": "operationsystem",
+      "title": "Operating System",
+      "layout": {
+        "content": {
+          "loggedIn": {
+            "blocks": [
+              {
+                "id": "83f2e58d2f26a0955ffffa878d568348",
+                "x": 3,
+                "y": 0,
+                "width": 9,
+                "height": 1,
+                "banner": false
+              },
+              {
+                "id": "a835e6f415f513ef9900fe1dd7576ab6",
+                "x": 0,
+                "y": 0,
+                "width": 3,
+                "height": 1,
+                "banner": false
+              },
+              {
+                "id": "9dd03aef63afeb01611ed217f5aa27c1",
+                "x": 0,
+                "y": 6,
+                "width": 12,
+                "height": 5,
+                "banner": false
+              },
+              {
+                "id": "8d1f642bc2168351e14be84f77fc66f1",
+                "x": 0,
+                "y": 1,
+                "width": 12,
+                "height": 5,
+                "banner": false
+              }
+            ]
+          }
+        },
+        "fluidLayout": true
+      },
+      "isanon": false,
+      "content": {
+        "default": {
+          "a835e6f415f513ef9900fe1dd7576ab6": [
+            {
+              "id": "Search_Box-0",
+              "content": {
+                "id": "Search_Box",
+                "title": "Search Box",
+                "type": "widget",
+                "category": "Widgets",
+                "thumbnail": "fs://gadget/usa-business-revenue/index.png",
+                "data": {
+                  "url": "fs://gadget/Search_Box/index.xml"
+                },
+                "styles": {
+                  "no_heading": true,
+                  "hide_gadget": false,
+                  "titlePosition": "left",
+                  "title": "Search Box"
+                },
+                "options": {},
+                "locale_titles": {
+                  "en-US": "Search Box"
+                },
+                "settings": {
+                  "priority": "5",
+                  "timeoutInterval": "60000"
+                }
+              }
+            }
+          ],
+          "83f2e58d2f26a0955ffffa878d568348": [
+            {
+              "id": "Date_Range_Picker-0",
+              "content": {
+                "id": "Date_Range_Picker",
+                "title": "Date Range Picker",
+                "type": "gadget",
+                "category": "Widgets",
+                "thumbnail": "fs://gadget/Date_Range_Picker/index.png",
+                "data": {
+                  "url": "fs://gadget/Date_Range_Picker/index.xml"
+                },
+                "styles": {
+                  "no_heading": true,
+                  "hide_gadget": false,
+                  "titlePosition": "left",
+                  "title": "Date Range Picker"
+                },
+                "notify": {
+                  "timeRangeChangePublisher": {
+                    "type": "message",
+                    "description": "This notifies message generated in publisher"
+                  }
+                },
+                "listen": {
+                  "chart-zoomed": {
+                    "type": "date-range",
+                    "description": "This notifies message generated in publisher"
+                  }
+                },
+                "options": {},
+                "locale_titles": {
+                  "en-US": "Date Range Picker"
+                },
+                "settings": {
+                  "priority": "5",
+                  "timeoutInterval": "60000"
+                }
+              }
+            }
+          ],
+          "9dd03aef63afeb01611ed217f5aa27c1": [
+            {
+              "id": "data-table-0",
+              "content": {
+                "id": "data-table",
+                "title": "Data Table",
+                "type": "gadget",
+                "thumbnail": "fs://gadget/usa-business-revenue/index.png",
+                "data": {
+                  "url": "fs://gadget/data-table/index.xml"
+                },
+                "listen": {
+                  "timeRangeChangeSubscriber": {
+                    "type": "message",
+                    "description": "This listens to  message received by the subscriber",
+                    "on": [
+                      {
+                        "from": "Date_Range_Picker-0",
+                        "event": "timeRangeChangePublisher"
+                      }
+                    ]
+                  }
+                },
+                "styles": {
+                  "no_heading": false,
+                  "hide_gadget": false,
+                  "titlePosition": "left",
+                  "title": "Operating System Statistics"
+                },
+                "options": {
+                  "appStatType": {
+                    "type": "STRING",
+                    "title": "App Stat Type",
+                    "value": "operating-system-tabular",
+                    "options": [],
+                    "required": false
+                  },
+                  "firstField": {
+                    "type": "STRING",
+                    "title": "Name of the first field of the table",
+                    "value": "Operating System",
+                    "options": [],
+                    "required": false
+                  }
+                },
+                "locale_titles": {
+                  "en-US": "Operating System Statistics"
+                },
+                "settings": {
+                  "priority": "5",
+                  "timeoutInterval": "60000"
+                }
+              }
+            }
+          ]
+        },
+        "anon": {}
+      }
+    },
+    {
+      "id": "devicetype",
+      "title": "Device Type",
+      "layout": {
+        "content": {
+          "loggedIn": {
+            "blocks": [
+              {
+                "id": "f8b165441ffec7a850d1e9afa18bc2d0",
+                "x": 0,
+                "y": 6,
+                "width": 12,
+                "height": 5,
+                "banner": false
+              },
+              {
+                "id": "05142bac11d90045b0bad1fd81095dbc",
+                "x": 0,
+                "y": 1,
+                "width": 12,
+                "height": 5,
+                "banner": false
+              },
+              {
+                "id": "a09003bf34e624dd4aeb30722eef61a1",
+                "x": 0,
+                "y": 0,
+                "width": 3,
+                "height": 1,
+                "banner": false
+              },
+              {
+                "id": "72646f7cc9dd5f44e0b22abe9771fffb",
+                "x": 3,
+                "y": 0,
+                "width": 9,
+                "height": 1,
+                "banner": false
+              }
+            ]
+          }
+        },
+        "fluidLayout": true
+      },
+      "isanon": false,
+      "content": {
+        "default": {
+          "f8b165441ffec7a850d1e9afa18bc2d0": [
+            {
+              "id": "data-table-0",
+              "content": {
+                "id": "data-table",
+                "title": "Data Table",
+                "type": "gadget",
+                "thumbnail": "fs://gadget/usa-business-revenue/index.png",
+                "data": {
+                  "url": "fs://gadget/data-table/index.xml"
+                },
+                "listen": {
+                  "timeRangeChangeSubscriber": {
+                    "type": "message",
+                    "description": "This listens to  message received by the subscriber",
+                    "on": [
+                      {
+                        "from": "Date_Range_Picker-0",
+                        "event": "timeRangeChangePublisher"
+                      }
+                    ]
+                  }
+                },
+                "styles": {
+                  "no_heading": false,
+                  "hide_gadget": false,
+                  "titlePosition": "left",
+                  "title": "Device Type Statistics"
+                },
+                "options": {
+                  "appStatType": {
+                    "type": "STRING",
+                    "title": "App Stat Type",
+                    "value": "device-type-tabular",
+                    "options": [],
+                    "required": false
+                  },
+                  "firstField": {
+                    "type": "STRING",
+                    "title": "Name of the first field of the table",
+                    "value": "Device Type",
+                    "options": [],
+                    "required": false
+                  }
+                },
+                "locale_titles": {
+                  "en-US": "Device Type Statistics"
+                },
+                "settings": {
+                  "priority": "5",
+                  "timeoutInterval": "60000"
+                }
+              }
+            }
+          ],
+          "a09003bf34e624dd4aeb30722eef61a1": [
+            {
+              "id": "Search_Box-0",
+              "content": {
+                "id": "Search_Box",
+                "title": "Search Box",
+                "type": "widget",
+                "category": "Widgets",
+                "thumbnail": "fs://gadget/usa-business-revenue/index.png",
+                "data": {
+                  "url": "fs://gadget/Search_Box/index.xml"
+                },
+                "styles": {
+                  "no_heading": true,
+                  "hide_gadget": false,
+                  "titlePosition": "left",
+                  "title": "Search Box"
+                },
+                "options": {},
+                "locale_titles": {
+                  "en-US": "Search Box"
+                },
+                "settings": {
+                  "priority": "5",
+                  "timeoutInterval": "60000"
+                }
+              }
+            }
+          ],
+          "72646f7cc9dd5f44e0b22abe9771fffb": [
+            {
+              "id": "Date_Range_Picker-0",
+              "content": {
+                "id": "Date_Range_Picker",
+                "title": "Date Range Picker",
+                "type": "gadget",
+                "category": "Widgets",
+                "thumbnail": "fs://gadget/Date_Range_Picker/index.png",
+                "data": {
+                  "url": "fs://gadget/Date_Range_Picker/index.xml"
+                },
+                "styles": {
+                  "no_heading": true,
+                  "hide_gadget": false,
+                  "titlePosition": "left",
+                  "title": "Date Range Picker"
+                },
+                "notify": {
+                  "timeRangeChangePublisher": {
+                    "type": "message",
+                    "description": "This notifies message generated in publisher"
+                  }
+                },
+                "listen": {
+                  "chart-zoomed": {
+                    "type": "date-range",
+                    "description": "This notifies message generated in publisher"
+                  }
+                },
+                "options": {},
+                "locale_titles": {
+                  "en-US": "Date Range Picker"
+                },
+                "settings": {
+                  "priority": "5",
+                  "timeoutInterval": "60000"
+                }
+              }
+            }
+          ]
+        },
+        "anon": {}
+      }
+    },
+    {
+      "id": "language",
+      "title": "Language",
+      "layout": {
+        "content": {
+          "loggedIn": {
+            "blocks": [
+              {
+                "id": "51c6fdf7f2ee47123b4ebbb83ec8ba0c",
+                "x": 3,
+                "y": 0,
+                "width": 9,
+                "height": 1,
+                "banner": false
+              },
+              {
+                "id": "23a04ccd1b6dc81498c054327171797c",
+                "x": 0,
+                "y": 0,
+                "width": 3,
+                "height": 1,
+                "banner": false
+              },
+              {
+                "id": "ef6905edbe54690678b38196b09010c0",
+                "x": 0,
+                "y": 6,
+                "width": 12,
+                "height": 5,
+                "banner": false
+              },
+              {
+                "id": "5134554d2f3d7e2be2679f5e972a3054",
+                "x": 0,
+                "y": 1,
+                "width": 12,
+                "height": 5,
+                "banner": false
+              }
+            ]
+          }
+        },
+        "fluidLayout": true
+      },
+      "isanon": false,
+      "content": {
+        "default": {
+          "23a04ccd1b6dc81498c054327171797c": [
+            {
+              "id": "Search_Box-0",
+              "content": {
+                "id": "Search_Box",
+                "title": "Search Box",
+                "type": "widget",
+                "category": "Widgets",
+                "thumbnail": "fs://gadget/usa-business-revenue/index.png",
+                "data": {
+                  "url": "fs://gadget/Search_Box/index.xml"
+                },
+                "styles": {
+                  "no_heading": true,
+                  "hide_gadget": false,
+                  "titlePosition": "left",
+                  "title": "Search Box"
+                },
+                "options": {},
+                "locale_titles": {
+                  "en-US": "Search Box"
+                },
+                "settings": {
+                  "priority": "5",
+                  "timeoutInterval": "60000"
+                }
+              }
+            }
+          ],
+          "51c6fdf7f2ee47123b4ebbb83ec8ba0c": [
+            {
+              "id": "Date_Range_Picker-0",
+              "content": {
+                "id": "Date_Range_Picker",
+                "title": "Date Range Picker",
+                "type": "gadget",
+                "category": "Widgets",
+                "thumbnail": "fs://gadget/Date_Range_Picker/index.png",
+                "data": {
+                  "url": "fs://gadget/Date_Range_Picker/index.xml"
+                },
+                "styles": {
+                  "no_heading": true,
+                  "hide_gadget": false,
+                  "titlePosition": "left",
+                  "title": "Date Range Picker"
+                },
+                "notify": {
+                  "timeRangeChangePublisher": {
+                    "type": "message",
+                    "description": "This notifies message generated in publisher"
+                  }
+                },
+                "listen": {
+                  "chart-zoomed": {
+                    "type": "date-range",
+                    "description": "This notifies message generated in publisher"
+                  }
+                },
+                "options": {},
+                "locale_titles": {
+                  "en-US": "Date Range Picker"
+                },
+                "settings": {
+                  "priority": "5",
+                  "timeoutInterval": "60000"
+                }
+              }
+            }
+          ],
+          "ef6905edbe54690678b38196b09010c0": [
+            {
+              "id": "data-table-0",
+              "content": {
+                "id": "data-table",
+                "title": "Data Table",
+                "type": "gadget",
+                "thumbnail": "fs://gadget/usa-business-revenue/index.png",
+                "data": {
+                  "url": "fs://gadget/data-table/index.xml"
+                },
+                "listen": {
+                  "timeRangeChangeSubscriber": {
+                    "type": "message",
+                    "description": "This listens to  message received by the subscriber",
+                    "on": [
+                      {
+                        "from": "Date_Range_Picker-0",
+                        "event": "timeRangeChangePublisher"
+                      }
+                    ]
+                  }
+                },
+                "styles": {
+                  "no_heading": false,
+                  "hide_gadget": false,
+                  "titlePosition": "left",
+                  "title": "Language List"
+                },
+                "options": {
+                  "appStatType": {
+                    "type": "STRING",
+                    "title": "App Stat Type",
+                    "value": "language-tabular",
+                    "options": [],
+                    "required": false
+                  },
+                  "firstField": {
+                    "type": "STRING",
+                    "title": "Name of the first field of the table",
+                    "value": "Languages",
+                    "options": [],
+                    "required": false
+                  }
+                },
+                "locale_titles": {
+                  "en-US": "Language List"
+                },
+                "settings": {
+                  "priority": "5",
+                  "timeoutInterval": "60000"
+                }
+              }
+            }
+          ],
+          "5134554d2f3d7e2be2679f5e972a3054": [
+            {
+              "id": "languages-horizontal-bar-chart-0",
+              "content": {
+                "id": "languages-horizontal-bar-chart",
+                "title": "Top 5 Languages",
+                "type": "gadget",
+                "thumbnail": "fs://gadget/usa-business-revenue/index.png",
+                "data": {
+                  "url": "fs://gadget/languages-horizontal-bar-chart/index.xml"
+                },
+                "listen": {
+                  "timeRangeChangeSubscriber": {
+                    "type": "message",
+                    "description": "This listens to  message received by the subscriber",
+                    "on": [
+                      {
+                        "from": "Date_Range_Picker-0",
+                        "event": "timeRangeChangePublisher"
+                      }
+                    ]
+                  }
+                },
+                "styles": {
+                  "no_heading": false,
+                  "hide_gadget": false,
+                  "titlePosition": "left",
+                  "title": "Top 5 Languages"
+                },
+                "options": {
+                  "refreshInterval": {
+                    "type": "STRING",
+                    "title": "Refresh Interval",
+                    "value": "1000000",
+                    "options": [],
+                    "required": false
+                  },
+                  "type": {
+                    "type": "STRING",
+                    "title": "Gadget Type",
+                    "value": "",
+                    "options": [],
+                    "required": true
+                  },
+                  "dataSource": {
+                    "type": "STRING",
+                    "title": "Data Source",
+                    "value": "../../../../../http-analytics/api/as-data.jag",
+                    "options": [],
+                    "required": false
+                  },
+                  "appname": {
+                    "type": "STRING",
+                    "title": "Web App Name",
+                    "value": "",
+                    "options": [],
+                    "required": false
+                  },
+                  "startTime": {
+                    "type": "STRING",
+                    "title": "Start time",
+                    "value": "",
+                    "options": [],
+                    "required": false
+                  },
+                  "endTime": {
+                    "type": "STRING",
+                    "title": "End time",
+                    "value": "",
+                    "options": [],
+                    "required": false
+                  },
+                  "node": {
+                    "type": "STRING",
+                    "title": "Node IP",
+                    "value": "",
+                    "options": [],
+                    "required": false
+                  },
+                  "appStatType": {
+                    "type": "STRING",
+                    "title": "App Stat Type",
+                    "value": "language",
+                    "options": [],
+                    "required": false
+                  }
+                },
+                "locale_titles": {
+                  "en-US": "Top 5 Languages"
+                },
+                "settings": {
+                  "priority": "5",
+                  "timeoutInterval": "60000"
+                }
+              }
+            }
+          ]
+        },
+        "anon": {}
+      }
+    },
+    {
+      "id": "httpresponsecode",
+      "title": "HTTP Response Code",
+      "layout": {
+        "content": {
+          "loggedIn": {
+            "blocks": [
+              {
+                "id": "0e3f123c2f93f5df7c9fcd194f67d7a3",
+                "x": 0,
+                "y": 0,
+                "width": 3,
+                "height": 1,
+                "banner": false
+              },
+              {
+                "id": "cc8386d9b2e417a532da4cdc6e330f60",
+                "x": 3,
+                "y": 0,
+                "width": 9,
+                "height": 1,
+                "banner": false
+              },
+              {
+                "id": "06a66392f7737bf602e6b77e6d615ba9",
+                "x": 0,
+                "y": 6,
+                "width": 12,
+                "height": 5,
+                "banner": false
+              },
+              {
+                "id": "3b20e72f3077ac5e250d5e69f43aefe3",
+                "x": 0,
+                "y": 1,
+                "width": 12,
+                "height": 5,
+                "banner": false
+              }
+            ]
+          }
+        },
+        "fluidLayout": true
+      },
+      "isanon": false,
+      "content": {
+        "default": {
+          "0e3f123c2f93f5df7c9fcd194f67d7a3": [
+            {
+              "id": "Search_Box-0",
+              "content": {
+                "id": "Search_Box",
+                "title": "Search Box",
+                "type": "widget",
+                "category": "Widgets",
+                "thumbnail": "fs://gadget/usa-business-revenue/index.png",
+                "data": {
+                  "url": "fs://gadget/Search_Box/index.xml"
+                },
+                "styles": {
+                  "no_heading": true,
+                  "hide_gadget": false,
+                  "titlePosition": "left",
+                  "title": "Search Box"
+                },
+                "options": {},
+                "locale_titles": {
+                  "en-US": "Search Box"
+                },
+                "settings": {
+                  "priority": "5",
+                  "timeoutInterval": "60000"
+                }
+              }
+            }
+          ],
+          "cc8386d9b2e417a532da4cdc6e330f60": [
+            {
+              "id": "Date_Range_Picker-0",
+              "content": {
+                "id": "Date_Range_Picker",
+                "title": "Date Range Picker",
+                "type": "gadget",
+                "category": "Widgets",
+                "thumbnail": "fs://gadget/Date_Range_Picker/index.png",
+                "data": {
+                  "url": "fs://gadget/Date_Range_Picker/index.xml"
+                },
+                "styles": {
+                  "no_heading": true,
+                  "hide_gadget": false,
+                  "titlePosition": "left",
+                  "title": "Date Range Picker"
+                },
+                "notify": {
+                  "timeRangeChangePublisher": {
+                    "type": "message",
+                    "description": "This notifies message generated in publisher"
+                  }
+                },
+                "listen": {
+                  "chart-zoomed": {
+                    "type": "date-range",
+                    "description": "This notifies message generated in publisher"
+                  }
+                },
+                "options": {},
+                "locale_titles": {
+                  "en-US": "Date Range Picker"
+                },
+                "settings": {
+                  "priority": "5",
+                  "timeoutInterval": "60000"
+                }
+              }
+            }
+          ],
+          "3b20e72f3077ac5e250d5e69f43aefe3": [
+            {
+              "id": "http-codes-horizontal-bar-chart-0",
+              "content": {
+                "id": "http-codes-horizontal-bar-chart",
+                "title": "Top 5 HTTP Status Codes",
+                "type": "gadget",
+                "thumbnail": "fs://gadget/usa-business-revenue/index.png",
+                "data": {
+                  "url": "fs://gadget/http-codes-horizontal-bar-chart/index.xml"
+                },
+                "listen": {
+                  "timeRangeChangeSubscriber": {
+                    "type": "message",
+                    "description": "This listens to  message received by the subscriber",
+                    "on": [
+                      {
+                        "from": "Date_Range_Picker-0",
+                        "event": "timeRangeChangePublisher"
+                      }
+                    ]
+                  }
+                },
+                "styles": {
+                  "no_heading": false,
+                  "hide_gadget": false,
+                  "titlePosition": "left",
+                  "title": "Top 5 HTTP Status Codes"
+                },
+                "options": {
+                  "refreshInterval": {
+                    "type": "STRING",
+                    "title": "Refresh Interval",
+                    "value": "1000000",
+                    "options": [],
+                    "required": false
+                  },
+                  "type": {
+                    "type": "STRING",
+                    "title": "Gadget Type",
+                    "value": "",
+                    "options": [],
+                    "required": true
+                  },
+                  "dataSource": {
+                    "type": "STRING",
+                    "title": "Data Source",
+                    "value": "../../../../../http-analytics/api/as-data.jag",
+                    "options": [],
+                    "required": false
+                  },
+                  "appname": {
+                    "type": "STRING",
+                    "title": "Web App Name",
+                    "value": "",
+                    "options": [],
+                    "required": false
+                  },
+                  "startTime": {
+                    "type": "STRING",
+                    "title": "Start time",
+                    "value": "",
+                    "options": [],
+                    "required": false
+                  },
+                  "endTime": {
+                    "type": "STRING",
+                    "title": "End time",
+                    "value": "",
+                    "options": [],
+                    "required": false
+                  },
+                  "node": {
+                    "type": "STRING",
+                    "title": "Node IP",
+                    "value": "",
+                    "options": [],
+                    "required": false
+                  },
+                  "appStatType": {
+                    "type": "STRING",
+                    "title": "App Stat Type",
+                    "value": "top-http-status",
+                    "options": [],
+                    "required": false
+                  }
+                },
+                "locale_titles": {
+                  "en-US": "Top 5 HTTP Status Codes"
+                },
+                "settings": {
+                  "priority": "5",
+                  "timeoutInterval": "60000"
+                }
+              }
+            }
+          ],
+          "06a66392f7737bf602e6b77e6d615ba9": [
+            {
+              "id": "data-table-0",
+              "content": {
+                "id": "data-table",
+                "title": "Data Table",
+                "type": "gadget",
+                "thumbnail": "fs://gadget/usa-business-revenue/index.png",
+                "data": {
+                  "url": "fs://gadget/data-table/index.xml"
+                },
+                "listen": {
+                  "timeRangeChangeSubscriber": {
+                    "type": "message",
+                    "description": "This listens to  message received by the subscriber",
+                    "on": [
+                      {
+                        "from": "Date_Range_Picker-0",
+                        "event": "timeRangeChangePublisher"
+                      }
+                    ]
+                  }
+                },
+                "styles": {
+                  "no_heading": false,
+                  "hide_gadget": false,
+                  "titlePosition": "left",
+                  "title": "HTTP Statius Codes List"
+                },
+                "options": {
+                  "appStatType": {
+                    "type": "STRING",
+                    "title": "App Stat Type",
+                    "value": "top-http-status-tabular",
+                    "options": [],
+                    "required": false
+                  },
+                  "firstField": {
+                    "type": "STRING",
+                    "title": "Name of the first field of the table",
+                    "value": "HTTP Status Codes",
+                    "options": [],
+                    "required": false
+                  }
+                },
+                "locale_titles": {
+                  "en-US": "HTTP Statius Codes List"
+                },
+                "settings": {
+                  "priority": "5",
+                  "timeoutInterval": "60000"
+                }
+              }
+            }
           ]
         },
         "anon": {}
@@ -1642,8 +3690,57 @@
     {
       "id": "drill-down",
       "isanon": false,
-      "ishidden": false,
+      "ishidden": true,
       "title": "drill-down",
+      "subordinates": []
+    },
+    {
+      "id": "contextlist",
+      "isanon": false,
+      "ishidden": false,
+      "title": "Context List",
+      "subordinates": []
+    },
+    {
+      "id": "referrerlist",
+      "isanon": false,
+      "ishidden": false,
+      "title": "Referrer List",
+      "subordinates": []
+    },
+    {
+      "id": "browser",
+      "isanon": false,
+      "ishidden": false,
+      "title": "Browser",
+      "subordinates": []
+    },
+    {
+      "id": "operationsystem",
+      "isanon": false,
+      "ishidden": false,
+      "title": "Operating System",
+      "subordinates": []
+    },
+    {
+      "id": "devicetype",
+      "isanon": false,
+      "ishidden": false,
+      "title": "Device Type",
+      "subordinates": []
+    },
+    {
+      "id": "language",
+      "isanon": false,
+      "ishidden": false,
+      "title": "Language",
+      "subordinates": []
+    },
+    {
+      "id": "httpresponsecode",
+      "isanon": false,
+      "ishidden": false,
+      "title": "HTTP Response Code",
       "subordinates": []
     }
   ],
