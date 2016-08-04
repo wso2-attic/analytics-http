@@ -25,7 +25,7 @@ function getContextTabularStat(conditions, tableHeadings, sortColumn){
 }
 
 function getReferrerTabularStat(conditions, tableHeadings, sortColumn){
-    print(helper.getTabularData(getReferrerStatData(conditions), tableHeadings, sortColumn));
+    print({'data': getReferrerStatData(conditions)});
 }
 function getContextAllRequests(conditions){
 
@@ -118,7 +118,8 @@ function getReferrerStatData(conditions){
     if (results.length > 0) {
         for (i = 0; i < results.length; i++) {
             result = results[i]['values'];
-            output.push([result[REFERRER_FACET], result['SUM_' + AVERAGE_REQUEST_COUNT],
+            var referrer = (result[REFERRER_FACET] == 'null') ? "-" : result[REFERRER_FACET];
+            output.push([referrer, result['SUM_' + AVERAGE_REQUEST_COUNT],
                 (result['SUM_' + AVERAGE_REQUEST_COUNT]*100/total_request_count).toFixed(2)]);
         }
     }

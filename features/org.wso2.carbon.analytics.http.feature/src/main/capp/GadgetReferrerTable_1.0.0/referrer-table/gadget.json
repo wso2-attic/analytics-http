@@ -1,0 +1,15 @@
+{
+  "id": "referrer-table",
+  "title": "Referrer Table",
+  "type": "gadget",
+  "thumbnail": "store://gadget/usa-business-revenue/index.png",
+  "data": {
+    "url": "store://gadget/referrer-table/index.xml"
+  },
+  "listen": {
+    "timeRangeChangeSubscriber": {
+      "type": "message",
+      "description": "This listens to  message received by the subscriber"
+    }
+  }
+}

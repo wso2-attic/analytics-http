@@ -187,7 +187,7 @@ function getContextStat() {
     trafficStat.getContextTabularStat(conditions, ['Context', 'Request Count', 'Percentage'],CONTEXT_SORT);
 }
 
-function getReferralStat() {
+function getReferrerStat() {
     var trafficStat = require('modules/traffic-stat.js');
     if (log.isDebugEnabled()) {
         log.debug('Retrieving referral stat');
@@ -267,7 +267,7 @@ var actionMapping = {
     'country': getCountryStat,
     'country-tabular': getCountryTabularStat,
     'context': getContextStat,
-    'referral': getReferralStat,
+    'referrer': getReferrerStat,
     'request': getRequestStat,
     'response': getResponseStat,
     'error': getErrorStat,
