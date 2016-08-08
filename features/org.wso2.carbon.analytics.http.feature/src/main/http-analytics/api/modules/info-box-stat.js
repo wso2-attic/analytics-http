@@ -129,13 +129,14 @@ function getInfoBoxRequestStat(conditions) {
         output['avg'] = Math.round(results['AVG_' + AVERAGE_REQUEST_COUNT]);
         output['min'] = results['MIN_' + AVERAGE_REQUEST_COUNT]
     } else {
-        output['total'] = output['max'] = output['avg'] = output['min'] = 'N/A';
+        print({'message': ''});
+        return;
     }
 
     output['graph'] = getDataForInfoBoxBarChart('averageRequestCount', conditions);
 
 
-    print(output);
+    print({'message': output});
 }
 
 function getInfoBoxResponseStat(conditions) {
@@ -168,12 +169,13 @@ function getInfoBoxResponseStat(conditions) {
         output['avg'] = Math.round(results['AVG_' + AVERAGE_RESPONSE_TIME]);
         output['min'] = results['MIN_' + AVERAGE_RESPONSE_TIME];
     } else {
-        output['max'] = output['avg'] = output['min'] = 'N/A';
+        print({'message': ''});
+        return;
     }
 
     output['graph'] = getDataForInfoBoxBarChart('averageResponseTime', conditions);
 
-    print(output);
+    print({'message': output});
 }
 
 function getInfoBoxSessionStat(conditions) {
@@ -201,10 +203,11 @@ function getInfoBoxSessionStat(conditions) {
         output['total'] = results['SUM_' + SESSION_COUNT];
         output['avg'] = Math.round(results['AVG_' + SESSION_COUNT]);
     } else {
-        output['total'] = output['avg'] = 'N/A';
+        print({'message': ''});
+        return;
     }
 
-    print(output);
+    print({'message': output});
 }
 
 function getInfoBoxErrorStat(conditions) {
@@ -232,8 +235,9 @@ function getInfoBoxErrorStat(conditions) {
         output['percentage'] =
             (results['SUM_' + HTTP_ERROR_COUNT] * 100 / (results['SUM_' + HTTP_SUCCESS_COUNT] + results['SUM_' + HTTP_ERROR_COUNT])).toFixed(2) + '\x25';
     } else {
-        output['total'] = output['percentage'] = 'N/A';
+        print({'message': ''});
+        return;
     }
 
-    print(output);
+    print({'message': output});
 }

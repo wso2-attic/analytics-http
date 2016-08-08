@@ -72,49 +72,70 @@ function onError(){
 }
 
 function onDataReceived(data) {
-    $('.total-count').text(data.total != undefined ? data.total.toLocaleString() : '');
-    $('.measure-label').text(data.measure_label);
-    $('#max-count').text(data.max != undefined ? data.max.toLocaleString() : '');
-    $('.avg-count').text(data.avg != undefined ? data.avg.toLocaleString() : '');
-    $('#min-count').text(data.min != undefined ? data.min.toLocaleString() : '');
-    $('.statistics-main').text(data.title);
-    $('.error-percentage').text(data.percentage != undefined ? data.percentage.toLocaleString() : '');
-    if( data.graph){
-        chartData = {"label" : "count", "data" : data.graph};
-            options =
-            {
-                "legend": {
-                    "show": false
-                },
-                "series": {
-                    "shadowSize": 1,
-                    "bars": {
-                        "show": true,
-                        lineWidth: 0, // in pixels
-                        barWidth: 0.8, // in units of the x axis
-                        fill: true,
-                        fillColor: '#ffffff',
-                        align: "center" // "left", "right", or "center"
+    try{
+
+        if (data.message.length == 0) {
+            $("#canvas2").hide();
+            $("#canvas1").show();
+            $("#canvas1").html(gadgetUtil.getEmptyRecordsText());
+
+            return;
+        }
+
+        $("#canvas1").hide();
+        $("#canvas2").show();
+
+        data = data.message;
+
+        $('.total-count').text(data.total != undefined ? data.total.toLocaleString() : '');
+        $('.measure-label').text(data.measure_label);
+        $('#max-count').text(data.max != undefined ? data.max.toLocaleString() : '');
+        $('.avg-count').text(data.avg != undefined ? data.avg.toLocaleString() : '');
+        $('#min-count').text(data.min != undefined ? data.min.toLocaleString() : '');
+        $('.statistics-main').text(data.title);
+        $('.error-percentage').text(data.percentage != undefined ? data.percentage.toLocaleString() : '');
+
+        if( data.graph){
+            chartData = {"label" : "count", "data" : data.graph};
+                options =
+                {
+                    "legend": {
+                        "show": false
+                    },
+                    "series": {
+                        "shadowSize": 1,
+                        "bars": {
+                            "show": true,
+                            lineWidth: 0, // in pixels
+                            barWidth: 0.8, // in units of the x axis
+                            fill: true,
+                            fillColor: '#ffffff',
+                            align: "center" // "left", "right", or "center"
+                        }
+                    },
+                    "grid": {
+                        "show": false,
+                        hoverable: true,
+                        clickable: true
                     }
-                },
-                "grid": {
-                    "show": false,
-                    hoverable: true,
-                    clickable: true
-                }
-            };
-        var chartOptions = options;
-        var _chartData = [];
+                };
+            var chartOptions = options;
+            var _chartData = [];
 //    addSeriesCheckboxes(chartData);
-        $.each(chartData, function (key) {
-            _chartData.push(chartData[key]);
-        });
-        //console.info(chartData);
-        drawChart(_chartData, chartOptions);
-        var seriesContainer = $("#optionsRight");
-        seriesContainer.find(":checkbox").click(function () {
-            filterSeries(chartData);
-        });
+            $.each(chartData, function (key) {
+                _chartData.push(chartData[key]);
+            });
+            //console.info(chartData);
+            drawChart(_chartData, chartOptions);
+            var seriesContainer = $("#optionsRight");
+            seriesContainer.find(":checkbox").click(function () {
+                filterSeries(chartData);
+            });
+        }
+    } catch (e) {
+        $("#canvas2").hide();
+        $("#canvas1").show();
+        $("#canvas1").html(gadgetUtil.getErrorText(e));
     }
 }
 
