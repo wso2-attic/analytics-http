@@ -1,10 +1,10 @@
 {
-    "id": "browser-pie-chart-vizgrammar",
-    "title": "Browser Pie Chart",
+    "id": "pie-chart-vizgrammar",
+    "title": "Pie Chart",
     "type": "gadget",
     "thumbnail": "store://gadget/usa-business-revenue/index.png",
     "data": {
-        "url": "store://gadget/browser-pie-chart-vizgrammar/index.xml"
+        "url": "store://gadget/pie-chart-vizgrammar/index.xml"
     },
     "listen": {
         "timeRangeChangeSubscriber": {

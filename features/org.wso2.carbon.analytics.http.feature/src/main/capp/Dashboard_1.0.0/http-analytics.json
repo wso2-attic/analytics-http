@@ -1042,14 +1042,14 @@
         "default": {
           "35dac6dcc05e79022f68907b09538f9f": [
             {
-              "id": "browser-pie-chart-vizgrammar-0",
+              "id": "pie-chart-vizgrammar-0",
               "content": {
-                "id": "browser-pie-chart-vizgrammar",
+                "id": "pie-chart-vizgrammar",
                 "title": "Browser Pie Chart",
                 "type": "gadget",
                 "thumbnail": "fs://gadget/usa-business-revenue/index.png",
                 "data": {
-                  "url": "fs://gadget/browser-pie-chart-vizgrammar/index.xml"
+                  "url": "fs://gadget/pie-chart-vizgrammar/index.xml"
                 },
                 "listen": {
                   "timeRangeChangeSubscriber": {
@@ -2165,6 +2165,200 @@
                 }
               }
             }
+          ],
+          "07b0f0f6609fc2fc8d3eb3dc8c9f06c5": [
+            {
+              "id": "pie-chart-vizgrammar-1",
+              "content": {
+                "id": "pie-chart-vizgrammar",
+                "title": "Pie Chart",
+                "type": "gadget",
+                "thumbnail": "fs://gadget/usa-business-revenue/index.png",
+                "data": {
+                  "url": "fs://gadget/pie-chart-vizgrammar/index.xml"
+                },
+                "listen": {
+                  "timeRangeChangeSubscriber": {
+                    "type": "message",
+                    "description": "This listens to  message received by the subscriber",
+                    "on": [
+                      {
+                        "from": "Date_Range_Picker-0",
+                        "event": "timeRangeChangePublisher"
+                      }
+                    ]
+                  }
+                },
+                "styles": {
+                  "no_heading": false,
+                  "hide_gadget": false,
+                  "titlePosition": "left",
+                  "title": "Operating System Statistics"
+                },
+                "options": {
+                  "refreshInterval": {
+                    "type": "STRING",
+                    "title": "Refresh Interval",
+                    "value": "1000000",
+                    "options": [],
+                    "required": false
+                  },
+                  "type": {
+                    "type": "STRING",
+                    "title": "Gadget Type",
+                    "value": "",
+                    "options": [],
+                    "required": true
+                  },
+                  "dataSource": {
+                    "type": "STRING",
+                    "title": "Data Source",
+                    "value": "../../../../../http-analytics/api/as-data.jag",
+                    "options": [],
+                    "required": false
+                  },
+                  "appname": {
+                    "type": "STRING",
+                    "title": "Web App Name",
+                    "value": "",
+                    "options": [],
+                    "required": false
+                  },
+                  "startTime": {
+                    "type": "STRING",
+                    "title": "Start time",
+                    "value": "",
+                    "options": [],
+                    "required": false
+                  },
+                  "endTime": {
+                    "type": "STRING",
+                    "title": "End time",
+                    "value": "",
+                    "options": [],
+                    "required": false
+                  },
+                  "node": {
+                    "type": "STRING",
+                    "title": "Node IP",
+                    "value": "",
+                    "options": [],
+                    "required": false
+                  },
+                  "appStatType": {
+                    "type": "STRING",
+                    "title": "App Stat Type",
+                    "value": "operating-system",
+                    "options": [],
+                    "required": false
+                  }
+                },
+                "locale_titles": {
+                  "en-US": "Operating System Statistics"
+                },
+                "settings": {
+                  "priority": "5",
+                  "timeoutInterval": "60000"
+                }
+              }
+            }
+          ],
+          "bb4cabedb72c4e976cd28eeefb2273eb": [
+            {
+              "id": "pie-chart-vizgrammar-2",
+              "content": {
+                "id": "pie-chart-vizgrammar",
+                "title": "Pie Chart",
+                "type": "gadget",
+                "thumbnail": "fs://gadget/usa-business-revenue/index.png",
+                "data": {
+                  "url": "fs://gadget/pie-chart-vizgrammar/index.xml"
+                },
+                "listen": {
+                  "timeRangeChangeSubscriber": {
+                    "type": "message",
+                    "description": "This listens to  message received by the subscriber",
+                    "on": [
+                      {
+                        "from": "Date_Range_Picker-0",
+                        "event": "timeRangeChangePublisher"
+                      }
+                    ]
+                  }
+                },
+                "styles": {
+                  "no_heading": false,
+                  "hide_gadget": false,
+                  "titlePosition": "left",
+                  "title": "Device Type Statistics"
+                },
+                "options": {
+                  "refreshInterval": {
+                    "type": "STRING",
+                    "title": "Refresh Interval",
+                    "value": "1000000",
+                    "options": [],
+                    "required": false
+                  },
+                  "type": {
+                    "type": "STRING",
+                    "title": "Gadget Type",
+                    "value": "",
+                    "options": [],
+                    "required": true
+                  },
+                  "dataSource": {
+                    "type": "STRING",
+                    "title": "Data Source",
+                    "value": "../../../../../http-analytics/api/as-data.jag",
+                    "options": [],
+                    "required": false
+                  },
+                  "appname": {
+                    "type": "STRING",
+                    "title": "Web App Name",
+                    "value": "",
+                    "options": [],
+                    "required": false
+                  },
+                  "startTime": {
+                    "type": "STRING",
+                    "title": "Start time",
+                    "value": "",
+                    "options": [],
+                    "required": false
+                  },
+                  "endTime": {
+                    "type": "STRING",
+                    "title": "End time",
+                    "value": "",
+                    "options": [],
+                    "required": false
+                  },
+                  "node": {
+                    "type": "STRING",
+                    "title": "Node IP",
+                    "value": "",
+                    "options": [],
+                    "required": false
+                  },
+                  "appStatType": {
+                    "type": "STRING",
+                    "title": "App Stat Type",
+                    "value": "device-type",
+                    "options": [],
+                    "required": false
+                  }
+                },
+                "locale_titles": {
+                  "en-US": "Device Type Statistics"
+                },
+                "settings": {
+                  "priority": "5",
+                  "timeoutInterval": "60000"
+                }
+              }
+            }
           ]
         },
         "anon": {}
@@ -2523,14 +2717,6 @@
                 "banner": false
               },
               {
-                "id": "cb071dfb60188a5852ce8c9dcd2d1dff",
-                "x": 0,
-                "y": 1,
-                "width": 12,
-                "height": 5,
-                "banner": false
-              },
-              {
                 "id": "11a96842f3bf1065fc103a27762b931b",
                 "x": 0,
                 "y": 0,
@@ -2544,6 +2730,14 @@
                 "y": 0,
                 "width": 9,
                 "height": 1,
+                "banner": false
+              },
+              {
+                "id": "bfd525b53affc3b8431ee8bbb225ce53",
+                "x": 0,
+                "y": 1,
+                "width": 12,
+                "height": 5,
                 "banner": false
               }
             ]
@@ -2774,6 +2968,184 @@
                   "timeoutInterval": "60000"
                 }
               }
+            },
+            {
+              "id": "pie-chart-vizgrammar-0",
+              "content": {
+                "id": "pie-chart-vizgrammar",
+                "title": "Pie Chart",
+                "type": "gadget",
+                "thumbnail": "fs://gadget/usa-business-revenue/index.png",
+                "data": {
+                  "url": "fs://gadget/pie-chart-vizgrammar/index.xml"
+                },
+                "listen": {
+                  "timeRangeChangeSubscriber": {
+                    "type": "message",
+                    "description": "This listens to  message received by the subscriber",
+                    "on": [
+                      {
+                        "from": "Date_Range_Picker-0",
+                        "event": "timeRangeChangePublisher"
+                      }
+                    ]
+                  }
+                },
+                "styles": {
+                  "no_heading": true,
+                  "hide_gadget": false,
+                  "titlePosition": "left",
+                  "title": "Pie Chart"
+                },
+                "options": {
+                  "refreshInterval": {
+                    "type": "STRING",
+                    "title": "Refresh Interval",
+                    "value": "1000000",
+                    "options": [],
+                    "required": false
+                  },
+                  "type": {
+                    "type": "STRING",
+                    "title": "Gadget Type",
+                    "value": "",
+                    "options": [],
+                    "required": true
+                  },
+                  "dataSource": {
+                    "type": "STRING",
+                    "title": "Data Source",
+                    "value": "../../../../../http-analytics/api/as-data.jag",
+                    "options": [],
+                    "required": false
+                  },
+                  "appname": {
+                    "type": "STRING",
+                    "title": "Web App Name",
+                    "value": "",
+                    "options": [],
+                    "required": false
+                  },
+                  "startTime": {
+                    "type": "STRING",
+                    "title": "Start time",
+                    "value": "",
+                    "options": [],
+                    "required": false
+                  },
+                  "endTime": {
+                    "type": "STRING",
+                    "title": "End time",
+                    "value": "",
+                    "options": [],
+                    "required": false
+                  },
+                  "node": {
+                    "type": "STRING",
+                    "title": "Node IP",
+                    "value": "",
+                    "options": [],
+                    "required": false
+                  },
+                  "appStatType": {
+                    "type": "STRING",
+                    "title": "App Stat Type",
+                    "value": "browser",
+                    "options": [],
+                    "required": false
+                  }
+                },
+                "locale_titles": {
+                  "en-US": "Pie Chart"
+                },
+                "settings": {
+                  "priority": "5",
+                  "timeoutInterval": "60000"
+                }
+              }
+            }
+          ],
+          "bfd525b53affc3b8431ee8bbb225ce53": [
+            {
+              "id": "pie-chart-vizgrammar-0",
+              "content": {
+                "id": "pie-chart-vizgrammar",
+                "title": "Pie Chart",
+                "type": "gadget",
+                "thumbnail": "fs://gadget/usa-business-revenue/index.png",
+                "data": {
+                  "url": "fs://gadget/pie-chart-vizgrammar/index.xml"
+                },
+                "listen": {
+                  "timeRangeChangeSubscriber": {
+                    "type": "message",
+                    "description": "This listens to  message received by the subscriber"
+                  }
+                },
+                "styles": {
+                  "title": "Pie Chart",
+                  "borders": true
+                },
+                "options": {
+                  "refreshInterval": {
+                    "type": "STRING",
+                    "title": "Refresh Interval",
+                    "value": "1000000",
+                    "options": [],
+                    "required": false
+                  },
+                  "type": {
+                    "type": "STRING",
+                    "title": "Gadget Type",
+                    "value": "",
+                    "options": [],
+                    "required": true
+                  },
+                  "dataSource": {
+                    "type": "STRING",
+                    "title": "Data Source",
+                    "value": "../../../../../http-analytics/api/as-data.jag",
+                    "options": [],
+                    "required": false
+                  },
+                  "appname": {
+                    "type": "STRING",
+                    "title": "Web App Name",
+                    "value": "",
+                    "options": [],
+                    "required": false
+                  },
+                  "startTime": {
+                    "type": "STRING",
+                    "title": "Start time",
+                    "value": "",
+                    "options": [],
+                    "required": false
+                  },
+                  "endTime": {
+                    "type": "STRING",
+                    "title": "End time",
+                    "value": "",
+                    "options": [],
+                    "required": false
+                  },
+                  "node": {
+                    "type": "STRING",
+                    "title": "Node IP",
+                    "value": "",
+                    "options": [],
+                    "required": false
+                  },
+                  "appStatType": {
+                    "type": "STRING",
+                    "title": "App Stat Type",
+                    "value": "browser",
+                    "options": [],
+                    "required": false
+                  }
+                },
+                "locale_titles": {}
+              }
             }
           ]
         },
@@ -2951,6 +3323,103 @@
                 }
               }
             }
+          ],
+          "8d1f642bc2168351e14be84f77fc66f1": [
+            {
+              "id": "pie-chart-vizgrammar-0",
+              "content": {
+                "id": "pie-chart-vizgrammar",
+                "title": "Pie Chart",
+                "type": "gadget",
+                "thumbnail": "fs://gadget/usa-business-revenue/index.png",
+                "data": {
+                  "url": "fs://gadget/pie-chart-vizgrammar/index.xml"
+                },
+                "listen": {
+                  "timeRangeChangeSubscriber": {
+                    "type": "message",
+                    "description": "This listens to  message received by the subscriber",
+                    "on": [
+                      {
+                        "from": "Date_Range_Picker-0",
+                        "event": "timeRangeChangePublisher"
+                      }
+                    ]
+                  }
+                },
+                "styles": {
+                  "no_heading": true,
+                  "hide_gadget": false,
+                  "titlePosition": "left",
+                  "title": "Pie Chart"
+                },
+                "options": {
+                  "refreshInterval": {
+                    "type": "STRING",
+                    "title": "Refresh Interval",
+                    "value": "1000000",
+                    "options": [],
+                    "required": false
+                  },
+                  "type": {
+                    "type": "STRING",
+                    "title": "Gadget Type",
+                    "value": "",
+                    "options": [],
+                    "required": true
+                  },
+                  "dataSource": {
+                    "type": "STRING",
+                    "title": "Data Source",
+                    "value": "../../../../../http-analytics/api/as-data.jag",
+                    "options": [],
+                    "required": false
+                  },
+                  "appname": {
+                    "type": "STRING",
+                    "title": "Web App Name",
+                    "value": "",
+                    "options": [],
+                    "required": false
+                  },
+                  "startTime": {
+                    "type": "STRING",
+                    "title": "Start time",
+                    "value": "",
+                    "options": [],
+                    "required": false
+                  },
+                  "endTime": {
+                    "type": "STRING",
+                    "title": "End time",
+                    "value": "",
+                    "options": [],
+                    "required": false
+                  },
+                  "node": {
+                    "type": "STRING",
+                    "title": "Node IP",
+                    "value": "",
+                    "options": [],
+                    "required": false
+                  },
+                  "appStatType": {
+                    "type": "STRING",
+                    "title": "App Stat Type",
+                    "value": "operating-system",
+                    "options": [],
+                    "required": false
+                  }
+                },
+                "locale_titles": {
+                  "en-US": "Pie Chart"
+                },
+                "settings": {
+                  "priority": "5",
+                  "timeoutInterval": "60000"
+                }
+              }
+            }
           ]
         },
         "anon": {}
@@ -3120,6 +3589,103 @@
                 "options": {},
                 "locale_titles": {
                   "en-US": "Date Range Picker"
+                },
+                "settings": {
+                  "priority": "5",
+                  "timeoutInterval": "60000"
+                }
+              }
+            }
+          ],
+          "05142bac11d90045b0bad1fd81095dbc": [
+            {
+              "id": "pie-chart-vizgrammar-0",
+              "content": {
+                "id": "pie-chart-vizgrammar",
+                "title": "Pie Chart",
+                "type": "gadget",
+                "thumbnail": "fs://gadget/usa-business-revenue/index.png",
+                "data": {
+                  "url": "fs://gadget/pie-chart-vizgrammar/index.xml"
+                },
+                "listen": {
+                  "timeRangeChangeSubscriber": {
+                    "type": "message",
+                    "description": "This listens to  message received by the subscriber",
+                    "on": [
+                      {
+                        "from": "Date_Range_Picker-0",
+                        "event": "timeRangeChangePublisher"
+                      }
+                    ]
+                  }
+                },
+                "styles": {
+                  "no_heading": true,
+                  "hide_gadget": false,
+                  "titlePosition": "left",
+                  "title": "Pie Chart"
+                },
+                "options": {
+                  "refreshInterval": {
+                    "type": "STRING",
+                    "title": "Refresh Interval",
+                    "value": "1000000",
+                    "options": [],
+                    "required": false
+                  },
+                  "type": {
+                    "type": "STRING",
+                    "title": "Gadget Type",
+                    "value": "",
+                    "options": [],
+                    "required": true
+                  },
+                  "dataSource": {
+                    "type": "STRING",
+                    "title": "Data Source",
+                    "value": "../../../../../http-analytics/api/as-data.jag",
+                    "options": [],
+                    "required": false
+                  },
+                  "appname": {
+                    "type": "STRING",
+                    "title": "Web App Name",
+                    "value": "",
+                    "options": [],
+                    "required": false
+                  },
+                  "startTime": {
+                    "type": "STRING",
+                    "title": "Start time",
+                    "value": "",
+                    "options": [],
+                    "required": false
+                  },
+                  "endTime": {
+                    "type": "STRING",
+                    "title": "End time",
+                    "value": "",
+                    "options": [],
+                    "required": false
+                  },
+                  "node": {
+                    "type": "STRING",
+                    "title": "Node IP",
+                    "value": "",
+                    "options": [],
+                    "required": false
+                  },
+                  "appStatType": {
+                    "type": "STRING",
+                    "title": "App Stat Type",
+                    "value": "device-type",
+                    "options": [],
+                    "required": false
+                  }
+                },
+                "locale_titles": {
+                  "en-US": "Pie Chart"
                 },
                 "settings": {
                   "priority": "5",

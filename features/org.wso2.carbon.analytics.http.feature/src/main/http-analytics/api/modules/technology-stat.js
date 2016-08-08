@@ -257,7 +257,7 @@ function getBrowserPieStat(conditions, visibleNumbers, groupName){
 }
 
 function getDevicePieStat(conditions, visibleNumbers, groupName){
-    var dataObject = {};
+    var dataObject = [];
     var i, len;
     var row;
     var series;
@@ -270,16 +270,16 @@ function getDevicePieStat(conditions, visibleNumbers, groupName){
 
     for (i = 0, len = shrinkedResults.length; i < len; i++) {
         row = shrinkedResults[i];
-        series = 'series' + i;
-        data = {'label': row[0][0], 'data': row[2]};
-        dataObject[series] = data;
+        data = {'name': row[0][0], 'value': row[2]};
+        dataObject.push(data);
     }
 
-    print([dataObject, chartOptions]);
+    print({'message': dataObject});
+    return;
 }
 
 function getOperatingSystemPieStat(conditions, visibleNumbers, groupName){
-    var dataObject = {};
+    var dataObject = [];
     var i, len;
     var row;
     var series;
@@ -292,12 +292,12 @@ function getOperatingSystemPieStat(conditions, visibleNumbers, groupName){
 
     for (i = 0, len = shrinkedResults.length; i < len; i++) {
         row = shrinkedResults[i];
-        series = 'series' + i;
-        data = {'label': row[0][0], 'data': row[2]};
-        dataObject[series] = data;
+        data = {'name': row[0][0], 'value': row[2]};
+        dataObject.push(data);
     }
 
-    print([dataObject, chartOptions]);
+    print({'message': dataObject});
+    return;
 
 }
 
