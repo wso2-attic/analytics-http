@@ -1,6 +1,6 @@
 {
   "id": "apps-list",
-  "title": "AS Statistics Table",
+  "title": "Applications",
   "type": "gadget",
   "thumbnail": "store://gadget/apps-list/images/index.jpg",
   "data": {

@@ -493,7 +493,7 @@
               "id": "apps-list-0",
               "content": {
                 "id": "apps-list",
-                "title": "AS Statistics Table",
+                "title": "Applications",
                 "type": "gadget",
                 "thumbnail": "fs://gadget/apps-list/images/index.jpg",
                 "data": {
@@ -521,7 +521,7 @@
                   "no_heading": false,
                   "hide_gadget": false,
                   "titlePosition": "left",
-                  "title": "AS Statistics Table"
+                  "title": "Applications"
                 },
                 "options": {
                   "dataSource": {
@@ -575,7 +575,7 @@
                   }
                 },
                 "locale_titles": {
-                  "en-US": "AS Statistics Table"
+                  "en-US": "Applications"
                 },
                 "settings": {
                   "priority": "5",
