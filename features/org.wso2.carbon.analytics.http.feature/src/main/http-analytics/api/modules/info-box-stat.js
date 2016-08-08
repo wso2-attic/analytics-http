@@ -52,16 +52,16 @@ function getInfoBoxMiniChartStatStat(conditions, facet, field, operation) {
 
 
 function getDataForInfoBoxBarChart(type, conditions) {
-    var startTime = helper.parseDate(request.getParameter('start_time'));
-    var endTime = helper.parseDate(request.getParameter('end_time'));
+    var startTime = request.getParameter('start_time');
+    var endTime = request.getParameter('end_time');
     var timeDiff = 0;
     var i;
     var results, result;
     var operation, field;
     var arrList = [];
 
-    if (request.getParameter('start_time') != null && request.getParameter('end_time') != null) {
-        timeDiff = Math.abs((endTime.getTime() - startTime.getTime()) / 86400000);
+    if (startTime != null && endTime != null) {
+        timeDifference = endTime - startTime;
     }
 
     operation = 'SUM';
@@ -71,22 +71,49 @@ function getDataForInfoBoxBarChart(type, conditions) {
         field = AVERAGE_RESPONSE_TIME;
     }
 
-    if (timeDiff > 365) {
-        results = getInfoBoxMiniChartStatStat(conditions, YEAR_FACET, field, operation);
-    } else if (timeDiff > 30) {
-        results = getInfoBoxMiniChartStatStat(conditions, MONTH_FACET, field, operation);
-    } else if (timeDiff > 1) {
-        results = getInfoBoxMiniChartStatStat(conditions, DAY_FACET, field, operation);
-    } else {
-        results = getInfoBoxMiniChartStatStat(conditions, HOUR_FACET, field, operation);
+    // Decide the time unit for summarization based on the following conditions,
+    // if time difference is more than,
+    //      2 years -> year
+    //      2 months -> month
+    //      2 days -> day
+    //      2 hours -> hour
+    //      else -> minute
+    var facetField = TIME_FACET;
+    if (timeDifference >= 63072000000) {
+        facetField = YEAR_FACET;
+    } else if (timeDifference >= 5184000000) {
+        facetField = MONTH_FACET;
+    } else if (timeDifference >= 172800000) {
+        facetField = DAY_FACET;
+    } else if (timeDifference >= 7200000) {
+        facetField = HOUR_FACET;
     }
+
+    results = getInfoBoxMiniChartStatStat(conditions, facetField, field, operation);
+
+    var dateCompletionPostfix = ':00.000Z';
+
+    if (facetField == YEAR_FACET) {
+        dateCompletionPostfix = '-00-00T00:00:00.000Z';
+    } else if (facetField == MONTH_FACET) {
+        dateCompletionPostfix = '-00T00:00:00.000Z';
+    } else if (facetField == DAY_FACET) {
+        dateCompletionPostfix = 'T00:00:00.000Z';
+    } else if (facetField == HOUR_FACET) {
+        dateCompletionPostfix = ':00:00.000Z';
+    }
+
+    results.sort(function (a,b) {
+        return (new Date(a[0].replace(' ', 'T') + dateCompletionPostfix)
+        - new Date(b[0].replace(' ', 'T') + dateCompletionPostfix));
+    });
 
     for (i = 0; i < results.length; i++) {
         result = results[i];
         var tempData = [];
         tempData[0] = i;
         tempData[1] = result[1];
-        tempData[2] = result[0] + ' : ' + result[1];
+        tempData[2] = result[0].replace(' ', 'T') + dateCompletionPostfix;
         arrList.push(tempData);
     }
 
