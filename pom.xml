@@ -472,7 +472,7 @@
         <carbon.kernel.version>4.4.7</carbon.kernel.version>
         <carbon.analytics.version>1.1.0</carbon.analytics.version>
         <carbon.shared.analytics.version>1.0.0</carbon.shared.analytics.version>
-        <carbon.analytics.common.version>5.1.1-SNAPSHOT</carbon.analytics.common.version>
+        <carbon.analytics.common.version>5.1.1</carbon.analytics.common.version>
         <carbon.automationutils.version>4.4.1</carbon.automationutils.version>
         <carbon.automation.version>4.4.2</carbon.automation.version>
         <carbon.registry.version>4.5.5</carbon.registry.version>
@@ -482,7 +482,7 @@
 	    <carbon.identity.saml2.version>5.1.1</carbon.identity.saml2.version>
         <carbon.commons.version>4.5.4</carbon.commons.version>
         <carbon.data.version>4.3.6-SNAPSHOT</carbon.data.version>
-        <carbon.event-processing.version>2.1.1-SNAPSHOT</carbon.event-processing.version>
+        <carbon.event-processing.version>2.1.2</carbon.event-processing.version>
         <carbon.dashboard.version>2.0.0</carbon.dashboard.version>
         <carbon.metrics.version>1.2.2</carbon.metrics.version>
         <siddhi.version>3.1.0</siddhi.version>
@@ -519,7 +519,6 @@
         <commons.io.version>2.4</commons.io.version>
         <axis2.version>1.6.1.wso2v11</axis2.version>
         <gson.version>2.3.1</gson.version>
-        <shindig.version>1.0.20-SNAPSHOT</shindig.version>
         <slf4j.log4j12.version>1.6.1</slf4j.log4j12.version>
         <slf4j.api.version>1.6.1</slf4j.api.version>
         <cipher.tool.version>1.0.0-wso2v3</cipher.tool.version>
