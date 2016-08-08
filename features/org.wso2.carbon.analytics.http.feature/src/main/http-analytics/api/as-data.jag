@@ -46,8 +46,8 @@ var log = new Log("AS-DATA");
  */
 function buildConditions() {
     // default data range is the past 24 hours
-    var startTime = request.getParameter('start_time') || new Date() - 86400000;
-    var endTime = request.getParameter('end_time') || new Date();
+    var startTime = getStartTime();
+    var endTime = getEndTime();
     var node = request.getParameter('node');
     var webapp = request.getParameter('appname');
     var conditions = [];
@@ -61,6 +61,14 @@ function buildConditions() {
         conditions.push(WEBAPP_NAME + ': "' + webapp + '"');
     }
     return conditions.join(' AND ');
+}
+
+function getStartTime() {
+    return request.getParameter('start_time');
+}
+
+function getEndTime() {
+    return request.getParameter('end_time');
 }
 
 function getNodeList() {
@@ -200,7 +208,7 @@ function getRequestStat() {
     if (log.isDebugEnabled()) {
         log.debug('Retrieving request count stat');
     }
-    timeVaryingStat.getTimeVaryingStat(conditions, 'request');
+    timeVaryingStat.getTimeVaryingStat(conditions, 'request', getStartTime(), getEndTime());
 }
 
 function getResponseStat() {
@@ -208,7 +216,7 @@ function getResponseStat() {
     if (log.isDebugEnabled()) {
         log.debug('Retrieving response time stat');
     }
-    timeVaryingStat.getTimeVaryingStat(conditions, 'response', '#bacf0b');
+    timeVaryingStat.getTimeVaryingStat(conditions, 'response', getStartTime(), getEndTime(), '#bacf0b');
 }
 
 function getErrorStat() {
@@ -216,7 +224,7 @@ function getErrorStat() {
     if (log.isDebugEnabled()) {
         log.debug('Retrieving error count stat');
     }
-    timeVaryingStat.getTimeVaryingStat(conditions, 'error', '#e7912a');
+    timeVaryingStat.getTimeVaryingStat(conditions, 'error', getStartTime(), getEndTime(), '#e7912a');
 }
 
 function getInfoBoxRequestStat() {
