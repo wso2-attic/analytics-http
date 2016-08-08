@@ -359,6 +359,7 @@ ul li{list-style: none;}
 
 .statistics-main{
     font-size: 1.02em;
+    font-weight: bold;
 }
 
 .statistics h2{margin-top: 0px;text-align: right; font-weight: 600;margin-bottom: 20px;}
@@ -367,7 +368,7 @@ ul li{list-style: none;}
     font-size: 3.5em;
     font-weight: 600;
     position: relative;
-    padding-top: 21px;
+    padding-top: 32px;
     display: block;
     text-align: center;
 }
@@ -388,7 +389,7 @@ ul li{list-style: none;}
 .panel-bottom-box h4{
     font-weight: 600;
     text-align: center;
-    margin: 15px 0 0;
+    margin: 20px 0 0;
 }
 
 .right-radius{
@@ -540,7 +541,7 @@ small.measure-label {
 }
 
 .h4-stat-label {
-    padding: 10px;
+    padding: 20px;
 }
 
 .statistics span {

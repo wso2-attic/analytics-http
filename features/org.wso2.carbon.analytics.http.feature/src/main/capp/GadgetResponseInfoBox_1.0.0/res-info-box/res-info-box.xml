@@ -70,11 +70,8 @@
                         <small class="statistics-main">Response Time</small>
                         <i class="fa fa-clock-o fa-3x info-box-i-two" style="display:none"></i>
                     </div>
-                    <div class="col-xs-6 column">
-                        <h2 class="response-time"></h2>
-                    </div>
-                    <div class="col-xs-3 column" style="height:40%;">
-                        <div id="placeholder" class="demo-placeholder" style="height:40%; width: 60%; "></div>
+                    <div class="col-xs-9 column" style="height:60%;">
+                        <div id="placeholder" class="demo-placeholder" style="height:60%; width: 80%; "></div>
                     </div>
                 </div>
                 <div class="arrow-box"></div>

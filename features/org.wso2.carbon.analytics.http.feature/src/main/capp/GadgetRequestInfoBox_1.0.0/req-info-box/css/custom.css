@@ -359,6 +359,7 @@ ul li{list-style: none;}
 
 .statistics-main{
     font-size: 1.02em;
+    font-weight: bold;
 }
 
 .statistics h2{margin-top: 0px;text-align: right; font-weight: 600;margin-bottom: 20px;}
