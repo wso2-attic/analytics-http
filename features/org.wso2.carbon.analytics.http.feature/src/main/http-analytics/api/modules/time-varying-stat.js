@@ -77,7 +77,7 @@ function getTimeVaryingStat(conditions, type, startTime, endTime, color) {
     } else if (facetField == DAY_FACET) {
         dateCompletionPostfix = 'T00:00:00.000Z';
     } else if (facetField == HOUR_FACET) {
-        dateCompletionPostfix = '00:00.000Z';
+        dateCompletionPostfix = ':00:00.000Z';
     }
 
     for (i = 0; i < results.length; i++) {
