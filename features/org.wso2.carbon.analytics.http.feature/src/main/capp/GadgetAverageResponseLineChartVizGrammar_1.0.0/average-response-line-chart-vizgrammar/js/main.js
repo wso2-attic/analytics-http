@@ -41,14 +41,14 @@ function onData(data) {
         }
         var schema = [{
             "metadata": {
-                "names": ["Time", "Response Time"],
+                "names": ["Time", "Response Time (ms)"],
                 "types": ["time", "linear"]
             },
             "data": []
         }];
         var chartConfig = {
             x: "Time",
-            charts: [{ type: "line", range: "true", y: "Response Time"}],
+            charts: [{ type: "line", range: "true", y: "Response Time (ms)"}],
             width: $('body').width(),
             height: $('body').height(),
             padding: { "top": 20, "left": 50, "bottom": 50, "right": 20 },
