@@ -138,7 +138,7 @@ function GadgetUtil() {
     };
 
     this.appName = function() {
-        var webappName = null;
+        var webappName = '';
         var qs = this.getQueryString();
         if (qs.webappName != null) {
             webappName = qs.webappName;
