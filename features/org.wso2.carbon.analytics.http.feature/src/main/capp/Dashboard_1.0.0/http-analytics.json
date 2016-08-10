@@ -907,7 +907,7 @@
               {
                 "id": "f900ad8133ec0bb1a1d9d85d7593bd85",
                 "x": 0,
-                "y": 14,
+                "y": 19,
                 "width": 6,
                 "height": 4,
                 "banner": false
@@ -1003,7 +1003,7 @@
               {
                 "id": "13ec4b7a159b0ff156464d5721b73692",
                 "x": 6,
-                "y": 14,
+                "y": 19,
                 "width": 6,
                 "height": 4,
                 "banner": false
@@ -1030,6 +1030,14 @@
                 "y": 7,
                 "width": 4,
                 "height": 4,
+                "banner": false
+              },
+              {
+                "id": "880ad92ff78c2db62d34a17b0c905b0a",
+                "x": 0,
+                "y": 14,
+                "width": 12,
+                "height": 5,
                 "banner": false
               }
             ]
@@ -2352,6 +2360,103 @@
                 },
                 "locale_titles": {
                   "en-US": "Device Type Statistics"
+                },
+                "settings": {
+                  "priority": "5",
+                  "timeoutInterval": "60000"
+                }
+              }
+            }
+          ],
+          "880ad92ff78c2db62d34a17b0c905b0a": [
+            {
+              "id": "geolocation-map-vizgrammar-0",
+              "content": {
+                "id": "geolocation-map-vizgrammar",
+                "title": "Geo Location Map",
+                "type": "gadget",
+                "thumbnail": "fs://gadget/usa-business-revenue/index.png",
+                "data": {
+                  "url": "fs://gadget/geolocation-map-vizgrammar/index.xml"
+                },
+                "listen": {
+                  "timeRangeChangeSubscriber": {
+                    "type": "message",
+                    "description": "This listens to  message received by the subscriber",
+                    "on": [
+                      {
+                        "from": "Date_Range_Picker-0",
+                        "event": "timeRangeChangePublisher"
+                      }
+                    ]
+                  }
+                },
+                "styles": {
+                  "no_heading": false,
+                  "hide_gadget": false,
+                  "titlePosition": "left",
+                  "title": "Geo Location Map"
+                },
+                "options": {
+                  "refreshInterval": {
+                    "type": "STRING",
+                    "title": "Refresh Interval",
+                    "value": "1000000",
+                    "options": [],
+                    "required": false
+                  },
+                  "type": {
+                    "type": "STRING",
+                    "title": "Gadget Type",
+                    "value": "",
+                    "options": [],
+                    "required": true
+                  },
+                  "dataSource": {
+                    "type": "STRING",
+                    "title": "Data Source",
+                    "value": "../../../../../http-analytics/api/as-data.jag",
+                    "options": [],
+                    "required": false
+                  },
+                  "appname": {
+                    "type": "STRING",
+                    "title": "Web App Name",
+                    "value": "",
+                    "options": [],
+                    "required": false
+                  },
+                  "startTime": {
+                    "type": "STRING",
+                    "title": "Start time",
+                    "value": "",
+                    "options": [],
+                    "required": false
+                  },
+                  "endTime": {
+                    "type": "STRING",
+                    "title": "End time",
+                    "value": "",
+                    "options": [],
+                    "required": false
+                  },
+                  "node": {
+                    "type": "STRING",
+                    "title": "Node IP",
+                    "value": "",
+                    "options": [],
+                    "required": false
+                  },
+                  "appStatType": {
+                    "type": "STRING",
+                    "title": "App Stat Type",
+                    "value": "country",
+                    "options": [],
+                    "required": false
+                  }
+                },
+                "locale_titles": {
+                  "en-US": "Geo Location Map"
                 },
                 "settings": {
                   "priority": "5",
@@ -4243,6 +4348,279 @@
         },
         "anon": {}
       }
+    },
+    {
+      "id": "geolocation",
+      "title": "Geo Location",
+      "layout": {
+        "content": {
+          "loggedIn": {
+            "blocks": [
+              {
+                "id": "f3f729d1ef5de4a0928ad7b45552fd37",
+                "x": 0,
+                "y": 0,
+                "width": 3,
+                "height": 1,
+                "banner": false
+              },
+              {
+                "id": "689446a49581c4b52749dc78335c662d",
+                "x": 3,
+                "y": 0,
+                "width": 9,
+                "height": 1,
+                "banner": false
+              },
+              {
+                "id": "19a2635b8210b2d34848f1ad61bbe982",
+                "x": 0,
+                "y": 6,
+                "width": 12,
+                "height": 5,
+                "banner": false
+              },
+              {
+                "id": "57ae149947028be1a724745fc0858081",
+                "x": 0,
+                "y": 1,
+                "width": 12,
+                "height": 5,
+                "banner": false
+              }
+            ]
+          }
+        },
+        "fluidLayout": true
+      },
+      "isanon": false,
+      "content": {
+        "default": {
+          "f3f729d1ef5de4a0928ad7b45552fd37": [
+            {
+              "id": "Search_Box-0",
+              "content": {
+                "id": "Search_Box",
+                "title": "Search Box",
+                "type": "widget",
+                "category": "Widgets",
+                "thumbnail": "fs://gadget/usa-business-revenue/index.png",
+                "data": {
+                  "url": "fs://gadget/Search_Box/index.xml"
+                },
+                "styles": {
+                  "no_heading": true,
+                  "hide_gadget": false,
+                  "titlePosition": "left",
+                  "title": "Search Box"
+                },
+                "options": {},
+                "locale_titles": {
+                  "en-US": "Search Box"
+                },
+                "settings": {
+                  "priority": "5",
+                  "timeoutInterval": "60000"
+                }
+              }
+            }
+          ],
+          "689446a49581c4b52749dc78335c662d": [
+            {
+              "id": "Date_Range_Picker-0",
+              "content": {
+                "id": "Date_Range_Picker",
+                "title": "Date Range Picker",
+                "type": "gadget",
+                "category": "Widgets",
+                "thumbnail": "fs://gadget/Date_Range_Picker/index.png",
+                "data": {
+                  "url": "fs://gadget/Date_Range_Picker/index.xml"
+                },
+                "styles": {
+                  "no_heading": true,
+                  "hide_gadget": false,
+                  "titlePosition": "left",
+                  "title": "Date Range Picker"
+                },
+                "notify": {
+                  "timeRangeChangePublisher": {
+                    "type": "message",
+                    "description": "This notifies message generated in publisher"
+                  }
+                },
+                "listen": {
+                  "chart-zoomed": {
+                    "type": "date-range",
+                    "description": "This notifies message generated in publisher"
+                  }
+                },
+                "options": {},
+                "locale_titles": {
+                  "en-US": "Date Range Picker"
+                },
+                "settings": {
+                  "priority": "5",
+                  "timeoutInterval": "60000"
+                }
+              }
+            }
+          ],
+          "57ae149947028be1a724745fc0858081": [
+            {
+              "id": "geolocation-map-vizgrammar-0",
+              "content": {
+                "id": "geolocation-map-vizgrammar",
+                "title": "Geo Location Map",
+                "type": "gadget",
+                "thumbnail": "fs://gadget/usa-business-revenue/index.png",
+                "data": {
+                  "url": "fs://gadget/geolocation-map-vizgrammar/index.xml"
+                },
+                "listen": {
+                  "timeRangeChangeSubscriber": {
+                    "type": "message",
+                    "description": "This listens to  message received by the subscriber",
+                    "on": [
+                      {
+                        "from": "Date_Range_Picker-0",
+                        "event": "timeRangeChangePublisher"
+                      }
+                    ]
+                  }
+                },
+                "styles": {
+                  "no_heading": true,
+                  "hide_gadget": false,
+                  "titlePosition": "left",
+                  "title": "Geo Location Map"
+                },
+                "options": {
+                  "refreshInterval": {
+                    "type": "STRING",
+                    "title": "Refresh Interval",
+                    "value": "1000000",
+                    "options": [],
+                    "required": false
+                  },
+                  "type": {
+                    "type": "STRING",
+                    "title": "Gadget Type",
+                    "value": "",
+                    "options": [],
+                    "required": true
+                  },
+                  "dataSource": {
+                    "type": "STRING",
+                    "title": "Data Source",
+                    "value": "../../../../../http-analytics/api/as-data.jag",
+                    "options": [],
+                    "required": false
+                  },
+                  "appname": {
+                    "type": "STRING",
+                    "title": "Web App Name",
+                    "value": "",
+                    "options": [],
+                    "required": false
+                  },
+                  "startTime": {
+                    "type": "STRING",
+                    "title": "Start time",
+                    "value": "",
+                    "options": [],
+                    "required": false
+                  },
+                  "endTime": {
+                    "type": "STRING",
+                    "title": "End time",
+                    "value": "",
+                    "options": [],
+                    "required": false
+                  },
+                  "node": {
+                    "type": "STRING",
+                    "title": "Node IP",
+                    "value": "",
+                    "options": [],
+                    "required": false
+                  },
+                  "appStatType": {
+                    "type": "STRING",
+                    "title": "App Stat Type",
+                    "value": "country",
+                    "options": [],
+                    "required": false
+                  }
+                },
+                "locale_titles": {
+                  "en-US": "Geo Location Map"
+                },
+                "settings": {
+                  "priority": "5",
+                  "timeoutInterval": "60000"
+                }
+              }
+            }
+          ],
+          "19a2635b8210b2d34848f1ad61bbe982": [
+            {
+              "id": "data-table-0",
+              "content": {
+                "id": "data-table",
+                "title": "Data Table",
+                "type": "gadget",
+                "thumbnail": "fs://gadget/usa-business-revenue/index.png",
+                "data": {
+                  "url": "fs://gadget/data-table/index.xml"
+                },
+                "listen": {
+                  "timeRangeChangeSubscriber": {
+                    "type": "message",
+                    "description": "This listens to  message received by the subscriber",
+                    "on": [
+                      {
+                        "from": "Date_Range_Picker-0",
+                        "event": "timeRangeChangePublisher"
+                      }
+                    ]
+                  }
+                },
+                "styles": {
+                  "no_heading": false,
+                  "hide_gadget": false,
+                  "titlePosition": "left",
+                  "title": "Data Table"
+                },
+                "options": {
+                  "appStatType": {
+                    "type": "STRING",
+                    "title": "App Stat Type",
+                    "value": "country-tabular",
+                    "options": [],
+                    "required": false
+                  },
+                  "firstField": {
+                    "type": "STRING",
+                    "title": "Name of the first field of the table",
+                    "value": "Country",
+                    "options": [],
+                    "required": false
+                  }
+                },
+                "locale_titles": {
+                  "en-US": "Data Table"
+                },
+                "settings": {
+                  "priority": "5",
+                  "timeoutInterval": "60000"
+                }
+              }
+            }
+          ]
+        },
+        "anon": {}
+      }
     }
   ],
   "menu": [
@@ -4307,6 +4685,13 @@
       "isanon": false,
       "ishidden": false,
       "title": "HTTP Response Code",
+      "subordinates": []
+    },
+    {
+      "id": "geolocation",
+      "isanon": false,
+      "ishidden": false,
+      "title": "Geo Location",
       "subordinates": []
     }
   ],

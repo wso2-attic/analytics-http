@@ -91,6 +91,7 @@ function getLanguageTabularStat(conditions, tableHeadings, sortColumn) {
 
 function getCountryStatData(conditions) {
     var output = [];
+    var country;
     var i, total_request_count;
     var results, result;
 
@@ -113,7 +114,12 @@ function getCountryStatData(conditions) {
     if (results.length > 0) {
         for (i = 0; i < results.length; i++) {
             result = results[i]['values'];
-            output.push([result[COUNTRY_FACET], result['SUM_' + AVERAGE_REQUEST_COUNT],
+            country = result[COUNTRY_FACET];
+
+            if (country == EMPTY_FACET_VALUE) {
+                country = 'Other';
+            }
+            output.push([country, result['SUM_' + AVERAGE_REQUEST_COUNT],
                 (result['SUM_' + AVERAGE_REQUEST_COUNT]*100/total_request_count).toFixed(2)]);
         }
     }
@@ -123,16 +129,11 @@ function getCountryStatData(conditions) {
 }
 
 function getCountryCodeStatData(){
-    var output = {};
-    var i, total_request_count;
+    var dataArray = [];
+    var country;
+    var i;
     var results, result;
 
-    total_request_count = getCountryAllRequests(conditions);
-
-    if(total_request_count <= 0){
-        return;
-
-    }
     results = getAggregateDataFromDAS(COUNTRY_TABLE, conditions, "0", COUNTRY_FACET, [
         {
             "fieldName": AVERAGE_REQUEST_COUNT,
@@ -146,15 +147,15 @@ function getCountryCodeStatData(){
     if (results.length > 0) {
         for (i = 0; i < results.length; i++) {
             result = results[i]['values'];
+            country = result[COUNTRY_FACET][0];
 
-            var countryCode = countryCodeLookUp(result[COUNTRY_FACET]);
-            if(countryCode != null){
-                output[countryCode] = (result['SUM_' + AVERAGE_REQUEST_COUNT]*100/total_request_count).toFixed(2);
+            if (country != EMPTY_FACET_VALUE) {
+                dataArray.push({'name': country, 'value': result['SUM_' + AVERAGE_REQUEST_COUNT]});
             }
         }
     }
 
-    return output;
+    return dataArray;
 }
 
 function countryCodeLookUp(country){
@@ -175,7 +176,7 @@ function drawCountryMap(conditions){
     var i, len;
     var row;
     var results = getCountryCodeStatData(conditions);
-    print(results);
+    print({'message': results});
 }
 
 function getCountryTabularStat(conditions, tableHeadings, sortColumn) {

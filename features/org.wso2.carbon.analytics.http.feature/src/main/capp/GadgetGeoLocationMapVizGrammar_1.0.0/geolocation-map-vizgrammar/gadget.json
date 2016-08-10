@@ -1,0 +1,15 @@
+{
+    "id": "geolocation-map-vizgrammar",
+    "title": "Geo Location Map",
+    "type": "gadget",
+    "thumbnail": "store://gadget/usa-business-revenue/index.png",
+    "data": {
+        "url": "store://gadget/geolocation-map-vizgrammar/index.xml"
+    },
+    "listen": {
+        "timeRangeChangeSubscriber": {
+            "type": "message",
+            "description": "This listens to  message received by the subscriber"
+        }
+    }
+}

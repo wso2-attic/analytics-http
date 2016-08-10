@@ -69,4 +69,6 @@ var WEBAPP_NAME = 'webappName';
 var WEBAPP_TYPE = 'webappType';
 var SERVER_NAME = 'serverName';
 var TIME = 'time';
+
+var EMPTY_FACET_VALUE = 'EMPTY_FACET_VALUE!';
 %>
