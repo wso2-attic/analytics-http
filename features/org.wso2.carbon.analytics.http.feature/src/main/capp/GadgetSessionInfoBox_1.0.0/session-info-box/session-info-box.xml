@@ -83,7 +83,7 @@
                         <small class="stat-label">&nbsp;</small>
                     </div>
                     <div class="col-xs-4 panel-bottom-box  right-radius  box-one-color">
-                        <h4 class="avg-count">120</h4>
+                        <h4 class="avg-count"></h4>
                         <small class="stat-label">&nbsp;</small>
                     </div>
                 </div>
