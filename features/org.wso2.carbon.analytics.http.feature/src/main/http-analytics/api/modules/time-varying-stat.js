@@ -43,9 +43,15 @@ function getTimeVaryingStat(conditions, type, startTime, endTime, color) {
     var dataArray = [];
     var i;
     var row;
+    var time;
+
+    startTime = Number(startTime) * 1000;
+    endTime = Number(endTime) * 1000;
+
     var mappedParameters = parameterMapping[type];
 
     var timeDifference = endTime - startTime;
+    var unitTime = 60000; // 1 minute
 
     // Decide the time unit for summarization based on the following conditions,
     // if time difference is more than,
@@ -57,33 +63,62 @@ function getTimeVaryingStat(conditions, type, startTime, endTime, color) {
     var facetField = TIME_FACET;
     if (timeDifference >= 63072000000) {
         facetField = YEAR_FACET;
+        unitTime = 31536000000;
     } else if (timeDifference >= 5184000000) {
         facetField = MONTH_FACET;
+        unitTime = 2592000000;
     } else if (timeDifference >= 172800000) {
         facetField = DAY_FACET;
+        unitTime = 86400000;
     } else if (timeDifference >= 7200000) {
         facetField = HOUR_FACET;
+        unitTime = 3600000;
     }
 
     var results = JSON.parse(getTimeVaryingStatData(conditions, mappedParameters, facetField));
     var chartOptions = {};
 
-    var dateCompletionPostfix = ':00.000Z';
-
-    if (facetField == YEAR_FACET) {
-        dateCompletionPostfix = '-00-00T00:00:00.000Z';
-    } else if (facetField == MONTH_FACET) {
-        dateCompletionPostfix = '-00T00:00:00.000Z';
-    } else if (facetField == DAY_FACET) {
-        dateCompletionPostfix = 'T00:00:00.000Z';
-    } else if (facetField == HOUR_FACET) {
-        dateCompletionPostfix = ':00:00.000Z';
-    }
+    var timeArray = [];
 
     for (i = 0; i < results.length; i++) {
         row = results[i]['values'];
-        var time = new Date(String(row[facetField][0]).replace(' ', 'T') + dateCompletionPostfix).getTime();
+
+        timeArray = String(row[facetField][0]).replace(' ', '-').replace(':','-').split('-');
+        // fill empty elements of the time array
+        for(var j = timeArray.length; j <= 6; j++) {
+            timeArray.push(0);
+        }
+
+        // subtract 1 from month
+        timeArray[1] = Number(timeArray[1]) - 1;
+
+        time = new Date(timeArray[0], timeArray[1], timeArray[2], timeArray[3],timeArray[4]).getTime();
         dataArray.push({"time": Number(time).toPrecision(), "value":row[mappedParameters[2]]});
+    }
+
+    // if dataArray is empty, return
+    if (dataArray.length == 0) {
+        print({'message': []});
+        return;
+    }
+
+    // sort dataArray
+    dataArray.sort(function (a,b) {
+        return a['time'] - b['time'];
+    })
+
+    // finding the proper starting time
+    startTime = Math.ceil(Number(dataArray[0]['time']) / unitTime) * unitTime;
+
+    // fill the zero values
+    var dataArrayIndex = 0;
+    for (i = startTime; i <= endTime + unitTime; i += unitTime) {
+        if ((dataArrayIndex < dataArray.length)&& (dataArray[dataArrayIndex]['time'] == Number(i).toPrecision())) {
+            dataArrayIndex++;
+            continue;
+        }
+
+        dataArray.push({'time': Number(i).toPrecision(), 'value': 0});
     }
 
 //    if (color != null) {

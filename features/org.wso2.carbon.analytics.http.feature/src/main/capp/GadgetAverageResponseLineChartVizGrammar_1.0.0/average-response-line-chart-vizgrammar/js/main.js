@@ -61,10 +61,8 @@ function onData(data) {
             return parseFloat(a.time) - parseFloat(b.time);
         });
 
-        var timezoneOffset = new Date().getTimezoneOffset()*60*1000;
-
         data.message.forEach(function(row, i) {
-            schema[0].data.push([new Date(parseFloat(row.time) + timezoneOffset).getTime(), row.value]);
+            schema[0].data.push([new Date(parseFloat(row.time)).getTime(), row.value]);
         });
 
 //        var onChartClick = function(event, item) {

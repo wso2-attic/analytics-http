@@ -52,7 +52,7 @@ function buildConditions() {
     var webapp = request.getParameter('appname');
     var conditions = [];
 
-    conditions.push(TIME + ': [' + Math.floor(startTime / 1000) + ' TO ' + Math.ceil(endTime / 1000) + ']');
+    conditions.push(TIME + ': [' + startTime + ' TO ' + endTime + ']');
 
     if (node != null && node != 'All') {
         conditions.push(SERVER_NAME + ': "' + node + '"');
@@ -64,11 +64,11 @@ function buildConditions() {
 }
 
 function getStartTime() {
-    return request.getParameter('start_time');
+    return Math.floor(request.getParameter('start_time') / 1000);
 }
 
 function getEndTime() {
-    return request.getParameter('end_time');
+    return Math.floor(request.getParameter('end_time') / 1000);
 }
 
 function getNodeList() {
