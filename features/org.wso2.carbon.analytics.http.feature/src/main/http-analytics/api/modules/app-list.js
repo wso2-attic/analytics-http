@@ -69,7 +69,7 @@ function getTableHeadings() {
             'sub': ['Last minute', 'Last hour', 'Last day']
         },
         'Total number of requests',
-        'Percentage error'
+        'Error Percentage'
     ];
 }
 
