@@ -131,15 +131,15 @@
                     "description": "This notifies message generated in publisher",
                     "on": [
                       {
-                        "from": "average-request-line-chart-vizgrammar-0",
+                        "from": "time-varying-line-chart-0",
                         "event": "chart-zoomed"
                       },
                       {
-                        "from": "average-response-line-chart-vizgrammar-0",
+                        "from": "time-varying-line-chart-1",
                         "event": "chart-zoomed"
                       },
                       {
-                        "from": "average-error-line-chart-vizgrammar-0",
+                        "from": "time-varying-line-chart-2",
                         "event": "chart-zoomed"
                       }
                     ]
@@ -586,14 +586,14 @@
           ],
           "b8cd3b837f3b49f9c6b5efe68dd09a93": [
             {
-              "id": "average-request-line-chart-vizgrammar-0",
+              "id": "time-varying-line-chart-0",
               "content": {
-                "id": "average-request-line-chart-vizgrammar",
-                "title": "Average request count over time",
+                "id": "time-varying-line-chart",
+                "title": "Time Varying Line Chart",
                 "type": "gadget",
                 "thumbnail": "fs://gadget/usa-business-revenue/index.png",
                 "data": {
-                  "url": "fs://gadget/average-request-line-chart-vizgrammar/index.xml"
+                  "url": "fs://gadget/time-varying-line-chart/index.xml"
                 },
                 "listen": {
                   "timeRangeChangeSubscriber": {
@@ -617,7 +617,7 @@
                   "no_heading": false,
                   "hide_gadget": false,
                   "titlePosition": "left",
-                  "title": "Average request count over time"
+                  "title": "Total request count over time"
                 },
                 "options": {
                   "refreshInterval": {
@@ -675,10 +675,24 @@
                     "value": "request",
                     "options": [],
                     "required": false
+                  },
+                  "yAxisLabel": {
+                    "type": "STRING",
+                    "title": "Y Axis Label of the chart",
+                    "value": "Request Count",
+                    "options": [],
+                    "required": false
+                  },
+                  "chartColor": {
+                    "type": "STRING",
+                    "title": "Color of the chart",
+                    "value": "#438CAD",
+                    "options": [],
+                    "required": false
                   }
                 },
                 "locale_titles": {
-                  "en-US": "Average request count over time"
+                  "en-US": "Total request count over time"
                 },
                 "settings": {
                   "priority": "5",
@@ -689,14 +703,14 @@
           ],
           "55ceb559d5b539ba0597124b12975f24": [
             {
-              "id": "average-response-line-chart-vizgrammar-0",
+              "id": "time-varying-line-chart-1",
               "content": {
-                "id": "average-response-line-chart-vizgrammar",
-                "title": "Average response time over time",
+                "id": "time-varying-line-chart",
+                "title": "Time Varying Line Chart",
                 "type": "gadget",
                 "thumbnail": "fs://gadget/usa-business-revenue/index.png",
                 "data": {
-                  "url": "fs://gadget/average-response-line-chart-vizgrammar/index.xml"
+                  "url": "fs://gadget/time-varying-line-chart/index.xml"
                 },
                 "listen": {
                   "timeRangeChangeSubscriber": {
@@ -778,6 +792,20 @@
                     "value": "response",
                     "options": [],
                     "required": false
+                  },
+                  "yAxisLabel": {
+                    "type": "STRING",
+                    "title": "Y Axis Label of the chart",
+                    "value": "Response Time (ms)",
+                    "options": [],
+                    "required": false
+                  },
+                  "chartColor": {
+                    "type": "STRING",
+                    "title": "Color of the chart",
+                    "value": "#5CB85C",
+                    "options": [],
+                    "required": false
                   }
                 },
                 "locale_titles": {
@@ -792,14 +820,14 @@
           ],
           "7285191e5344c3d939104d0c79af6e9a": [
             {
-              "id": "average-error-line-chart-vizgrammar-0",
+              "id": "time-varying-line-chart-2",
               "content": {
-                "id": "average-error-line-chart-vizgrammar",
-                "title": "Average error count over time",
+                "id": "time-varying-line-chart",
+                "title": "Time Varying Line Chart",
                 "type": "gadget",
                 "thumbnail": "fs://gadget/usa-business-revenue/index.png",
                 "data": {
-                  "url": "fs://gadget/average-error-line-chart-vizgrammar/index.xml"
+                  "url": "fs://gadget/time-varying-line-chart/index.xml"
                 },
                 "listen": {
                   "timeRangeChangeSubscriber": {
@@ -823,7 +851,7 @@
                   "no_heading": false,
                   "hide_gadget": false,
                   "titlePosition": "left",
-                  "title": "Average error count over time"
+                  "title": "Total error count over time"
                 },
                 "options": {
                   "refreshInterval": {
@@ -881,10 +909,24 @@
                     "value": "error",
                     "options": [],
                     "required": false
+                  },
+                  "yAxisLabel": {
+                    "type": "STRING",
+                    "title": "Y Axis Label of the chart",
+                    "value": "Error Count",
+                    "options": [],
+                    "required": false
+                  },
+                  "chartColor": {
+                    "type": "STRING",
+                    "title": "Color of the chart",
+                    "value": "#D9534F",
+                    "options": [],
+                    "required": false
                   }
                 },
                 "locale_titles": {
-                  "en-US": "Average error count over time"
+                  "en-US": "Total error count over time"
                 },
                 "settings": {
                   "priority": "5",
@@ -1341,15 +1383,15 @@
                     "description": "This notifies message generated in publisher",
                     "on": [
                       {
-                        "from": "average-request-line-chart-vizgrammar-0",
+                        "from": "time-varying-line-chart-0",
                         "event": "chart-zoomed"
                       },
                       {
-                        "from": "average-response-line-chart-vizgrammar-0",
+                        "from": "time-varying-line-chart-1",
                         "event": "chart-zoomed"
                       },
                       {
-                        "from": "average-error-line-chart-vizgrammar-0",
+                        "from": "time-varying-line-chart-2",
                         "event": "chart-zoomed"
                       }
                     ]
@@ -1700,14 +1742,14 @@
           ],
           "6a88d2ef3bedd45284ac87205f8fcc7b": [
             {
-              "id": "average-request-line-chart-vizgrammar-0",
+              "id": "time-varying-line-chart-0",
               "content": {
-                "id": "average-request-line-chart-vizgrammar",
-                "title": "Average request count over time",
+                "id": "time-varying-line-chart",
+                "title": "Time Varying Line Chart",
                 "type": "gadget",
                 "thumbnail": "fs://gadget/usa-business-revenue/index.png",
                 "data": {
-                  "url": "fs://gadget/average-request-line-chart-vizgrammar/index.xml"
+                  "url": "fs://gadget/time-varying-line-chart/index.xml"
                 },
                 "listen": {
                   "timeRangeChangeSubscriber": {
@@ -1731,7 +1773,7 @@
                   "no_heading": false,
                   "hide_gadget": false,
                   "titlePosition": "left",
-                  "title": "Average request count over time"
+                  "title": "Total request count over time"
                 },
                 "options": {
                   "refreshInterval": {
@@ -1789,10 +1831,24 @@
                     "value": "request",
                     "options": [],
                     "required": false
+                  },
+                  "yAxisLabel": {
+                    "type": "STRING",
+                    "title": "Y Axis Label of the chart",
+                    "value": "Request Count",
+                    "options": [],
+                    "required": false
+                  },
+                  "chartColor": {
+                    "type": "STRING",
+                    "title": "Color of the chart",
+                    "value": "#438CAD",
+                    "options": [],
+                    "required": false
                   }
                 },
                 "locale_titles": {
-                  "en-US": "Average request count over time"
+                  "en-US": "Total request count over time"
                 },
                 "settings": {
                   "priority": "5",
@@ -1803,14 +1859,14 @@
           ],
           "a1c34f3ebd0a98af9721d679dea50174": [
             {
-              "id": "average-response-line-chart-vizgrammar-0",
+              "id": "time-varying-line-chart-1",
               "content": {
-                "id": "average-response-line-chart-vizgrammar",
-                "title": "Average response time over time",
+                "id": "time-varying-line-chart",
+                "title": "Time Varying Line Chart",
                 "type": "gadget",
                 "thumbnail": "fs://gadget/usa-business-revenue/index.png",
                 "data": {
-                  "url": "fs://gadget/average-response-line-chart-vizgrammar/index.xml"
+                  "url": "fs://gadget/time-varying-line-chart/index.xml"
                 },
                 "listen": {
                   "timeRangeChangeSubscriber": {
@@ -1892,6 +1948,20 @@
                     "value": "response",
                     "options": [],
                     "required": false
+                  },
+                  "yAxisLabel": {
+                    "type": "STRING",
+                    "title": "Y Axis Label of the chart",
+                    "value": "Response Time (ms)",
+                    "options": [],
+                    "required": false
+                  },
+                  "chartColor": {
+                    "type": "STRING",
+                    "title": "Color of the chart",
+                    "value": "#5CB85C",
+                    "options": [],
+                    "required": false
                   }
                 },
                 "locale_titles": {
@@ -1906,14 +1976,14 @@
           ],
           "ff05733c8d4b7a68eed78bfc69a3cd9a": [
             {
-              "id": "average-error-line-chart-vizgrammar-0",
+              "id": "time-varying-line-chart-2",
               "content": {
-                "id": "average-error-line-chart-vizgrammar",
-                "title": "Average error count over time",
+                "id": "time-varying-line-chart",
+                "title": "Time Varying Line Chart",
                 "type": "gadget",
                 "thumbnail": "fs://gadget/usa-business-revenue/index.png",
                 "data": {
-                  "url": "fs://gadget/average-error-line-chart-vizgrammar/index.xml"
+                  "url": "fs://gadget/time-varying-line-chart/index.xml"
                 },
                 "listen": {
                   "timeRangeChangeSubscriber": {
@@ -1937,7 +2007,7 @@
                   "no_heading": false,
                   "hide_gadget": false,
                   "titlePosition": "left",
-                  "title": "Average error count over time"
+                  "title": "Total error count over time"
                 },
                 "options": {
                   "refreshInterval": {
@@ -1995,10 +2065,24 @@
                     "value": "error",
                     "options": [],
                     "required": false
+                  },
+                  "yAxisLabel": {
+                    "type": "STRING",
+                    "title": "Y Axis Label of the chart",
+                    "value": "Error  Count",
+                    "options": [],
+                    "required": false
+                  },
+                  "chartColor": {
+                    "type": "STRING",
+                    "title": "Color of the chart",
+                    "value": "#D9534F",
+                    "options": [],
+                    "required": false
                   }
                 },
                 "locale_titles": {
-                  "en-US": "Average error count over time"
+                  "en-US": "Total error count over time"
                 },
                 "settings": {
                   "priority": "5",
@@ -4781,5 +4865,6 @@
     "customBannerExists": false
   },
   "landing": "landing",
-  "isanon": false
+  "isanon": false,
+  "defaultPriority": "5"
 }

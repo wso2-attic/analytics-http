@@ -1,10 +1,10 @@
 {
-    "id": "average-request-line-chart-vizgrammar",
-    "title": "Average request count over time",
+    "id": "time-varying-line-chart",
+    "title": "Time Varying Line Chart",
     "type": "gadget",
     "thumbnail": "store://gadget/usa-business-revenue/index.png",
     "data": {
-        "url": "store://gadget/average-request-line-chart-vizgrammar/index.xml"
+        "url": "store://gadget/time-varying-line-chart/index.xml"
     },
     "listen": {
         "timeRangeChangeSubscriber": {

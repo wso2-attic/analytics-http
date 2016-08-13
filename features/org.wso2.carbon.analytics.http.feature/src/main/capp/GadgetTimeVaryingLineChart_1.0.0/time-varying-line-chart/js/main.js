@@ -8,6 +8,8 @@ var appname = gadgetUtil.appName();;
 var statType = pref.getString("appStatType");
 var rangeStart;
 var rangeEnd;
+var yAxisLabel = pref.getString("yAxisLabel");
+var chartColor = pref.getString("chartColor");
 
 $(function() {
     fetchData();
@@ -41,19 +43,19 @@ function onData(data) {
         }
         var schema = [{
             "metadata": {
-                "names": ["Time", "Error Count"],
+                "names": ["Time", yAxisLabel],
                 "types": ["time", "linear"]
             },
             "data": []
         }];
         var chartConfig = {
             x: "Time",
-            charts: [{ type: "line", range: "true", y: "Error Count"}],
+            charts: [{ type: "line", range: "true", y: yAxisLabel}],
             width: $('body').width(),
             height: $('body').height(),
             padding: { "top": 20, "left": 50, "bottom": 50, "right": 20 },
-            rangeColor: COLOR_RED,
-            colorScale: [COLOR_RED]
+            rangeColor: chartColor,
+            colorScale: [chartColor]
         };
 
         // sorting the results

@@ -31,7 +31,15 @@
     </UserPref>
     <UserPref name="appStatType"
               display_name="App Stat Type"
-              default_value="error">
+              default_value="request">
+    </UserPref>
+    <UserPref name="yAxisLabel"
+              display_name="Y Axis Label of the chart"
+              default_value="Request Count">
+    </UserPref>
+    <UserPref name="chartColor"
+              display_name="Color of the chart"
+              default_value="blue">
     </UserPref>
 
 
