@@ -2947,7 +2947,7 @@
                   }
                 },
                 "styles": {
-                  "no_heading": false,
+                  "no_heading": true,
                   "hide_gadget": false,
                   "titlePosition": "left",
                   "title": "Browser Statistics"
@@ -2978,198 +2978,6 @@
               }
             }
           ],
-          "cb071dfb60188a5852ce8c9dcd2d1dff": [
-            {
-              "id": "browser-pie-chart-vizgrammar-0",
-              "content": {
-                "id": "browser-pie-chart-vizgrammar",
-                "title": "Browser Pie Chart",
-                "type": "gadget",
-                "thumbnail": "fs://gadget/usa-business-revenue/index.png",
-                "data": {
-                  "url": "fs://gadget/browser-pie-chart-vizgrammar/index.xml"
-                },
-                "listen": {
-                  "timeRangeChangeSubscriber": {
-                    "type": "message",
-                    "description": "This listens to  message received by the subscriber",
-                    "on": [
-                      {
-                        "from": "Date_Range_Picker-0",
-                        "event": "timeRangeChangePublisher"
-                      }
-                    ]
-                  }
-                },
-                "styles": {
-                  "no_heading": false,
-                  "hide_gadget": false,
-                  "titlePosition": "left",
-                  "title": "Browser Pie Chart"
-                },
-                "options": {
-                  "refreshInterval": {
-                    "type": "STRING",
-                    "title": "Refresh Interval",
-                    "value": "1000000",
-                    "options": [],
-                    "required": false
-                  },
-                  "type": {
-                    "type": "STRING",
-                    "title": "Gadget Type",
-                    "value": "",
-                    "options": [],
-                    "required": true
-                  },
-                  "dataSource": {
-                    "type": "STRING",
-                    "title": "Data Source",
-                    "value": "../../../../../http-analytics/api/as-data.jag",
-                    "options": [],
-                    "required": false
-                  },
-                  "appname": {
-                    "type": "STRING",
-                    "title": "Web App Name",
-                    "value": "",
-                    "options": [],
-                    "required": false
-                  },
-                  "startTime": {
-                    "type": "STRING",
-                    "title": "Start time",
-                    "value": "",
-                    "options": [],
-                    "required": false
-                  },
-                  "endTime": {
-                    "type": "STRING",
-                    "title": "End time",
-                    "value": "",
-                    "options": [],
-                    "required": false
-                  },
-                  "node": {
-                    "type": "STRING",
-                    "title": "Node IP",
-                    "value": "",
-                    "options": [],
-                    "required": false
-                  },
-                  "appStatType": {
-                    "type": "STRING",
-                    "title": "App Stat Type",
-                    "value": "browser",
-                    "options": [],
-                    "required": false
-                  }
-                },
-                "locale_titles": {
-                  "en-US": "Browser Pie Chart"
-                },
-                "settings": {
-                  "priority": "5",
-                  "timeoutInterval": "60000"
-                }
-              }
-            },
-            {
-              "id": "pie-chart-vizgrammar-0",
-              "content": {
-                "id": "pie-chart-vizgrammar",
-                "title": "Pie Chart",
-                "type": "gadget",
-                "thumbnail": "fs://gadget/usa-business-revenue/index.png",
-                "data": {
-                  "url": "fs://gadget/pie-chart-vizgrammar/index.xml"
-                },
-                "listen": {
-                  "timeRangeChangeSubscriber": {
-                    "type": "message",
-                    "description": "This listens to  message received by the subscriber",
-                    "on": [
-                      {
-                        "from": "Date_Range_Picker-0",
-                        "event": "timeRangeChangePublisher"
-                      }
-                    ]
-                  }
-                },
-                "styles": {
-                  "no_heading": true,
-                  "hide_gadget": false,
-                  "titlePosition": "left",
-                  "title": "Pie Chart"
-                },
-                "options": {
-                  "refreshInterval": {
-                    "type": "STRING",
-                    "title": "Refresh Interval",
-                    "value": "1000000",
-                    "options": [],
-                    "required": false
-                  },
-                  "type": {
-                    "type": "STRING",
-                    "title": "Gadget Type",
-                    "value": "",
-                    "options": [],
-                    "required": true
-                  },
-                  "dataSource": {
-                    "type": "STRING",
-                    "title": "Data Source",
-                    "value": "../../../../../http-analytics/api/as-data.jag",
-                    "options": [],
-                    "required": false
-                  },
-                  "appname": {
-                    "type": "STRING",
-                    "title": "Web App Name",
-                    "value": "",
-                    "options": [],
-                    "required": false
-                  },
-                  "startTime": {
-                    "type": "STRING",
-                    "title": "Start time",
-                    "value": "",
-                    "options": [],
-                    "required": false
-                  },
-                  "endTime": {
-                    "type": "STRING",
-                    "title": "End time",
-                    "value": "",
-                    "options": [],
-                    "required": false
-                  },
-                  "node": {
-                    "type": "STRING",
-                    "title": "Node IP",
-                    "value": "",
-                    "options": [],
-                    "required": false
-                  },
-                  "appStatType": {
-                    "type": "STRING",
-                    "title": "App Stat Type",
-                    "value": "browser",
-                    "options": [],
-                    "required": false
-                  }
-                },
-                "locale_titles": {
-                  "en-US": "Pie Chart"
-                },
-                "settings": {
-                  "priority": "5",
-                  "timeoutInterval": "60000"
-                }
-              }
-            }
-          ],
           "bfd525b53affc3b8431ee8bbb225ce53": [
             {
               "id": "pie-chart-vizgrammar-0",
@@ -3184,12 +2992,15 @@
                 "listen": {
                   "timeRangeChangeSubscriber": {
                     "type": "message",
-                    "description": "This listens to  message received by the subscriber"
+                    "description": "This listens to  message received by the subscriber",
+                    "on": []
                   }
                 },
                 "styles": {
-                  "title": "Pie Chart",
-                  "borders": true
+                  "no_heading": false,
+                  "hide_gadget": false,
+                  "titlePosition": "left",
+                  "title": "Browser Statistics"
                 },
                 "options": {
                   "refreshInterval": {
@@ -3249,7 +3060,13 @@
                     "required": false
                   }
                 },
-                "locale_titles": {}
+                "locale_titles": {
+                  "en-US": "Browser Statistics"
+                },
+                "settings": {
+                  "priority": "5",
+                  "timeoutInterval": "60000"
+                }
               }
             }
           ]
@@ -3398,7 +3215,7 @@
                   }
                 },
                 "styles": {
-                  "no_heading": false,
+                  "no_heading": true,
                   "hide_gadget": false,
                   "titlePosition": "left",
                   "title": "Operating System Statistics"
@@ -3453,10 +3270,10 @@
                   }
                 },
                 "styles": {
-                  "no_heading": true,
+                  "no_heading": false,
                   "hide_gadget": false,
                   "titlePosition": "left",
-                  "title": "Pie Chart"
+                  "title": "Operating System Statistics"
                 },
                 "options": {
                   "refreshInterval": {
@@ -3517,7 +3334,7 @@
                   }
                 },
                 "locale_titles": {
-                  "en-US": "Pie Chart"
+                  "en-US": "Operating System Statistics"
                 },
                 "settings": {
                   "priority": "5",
@@ -3601,10 +3418,10 @@
                   }
                 },
                 "styles": {
-                  "no_heading": false,
+                  "no_heading": true,
                   "hide_gadget": false,
                   "titlePosition": "left",
-                  "title": "Device Type Statistics"
+                  "title": "Data Table"
                 },
                 "options": {
                   "appStatType": {
@@ -3623,7 +3440,7 @@
                   }
                 },
                 "locale_titles": {
-                  "en-US": "Device Type Statistics"
+                  "en-US": ""
                 },
                 "settings": {
                   "priority": "5",
@@ -3726,10 +3543,10 @@
                   }
                 },
                 "styles": {
-                  "no_heading": true,
+                  "no_heading": false,
                   "hide_gadget": false,
                   "titlePosition": "left",
-                  "title": "Pie Chart"
+                  "title": "Device Type Statistics"
                 },
                 "options": {
                   "refreshInterval": {
@@ -3790,7 +3607,7 @@
                   }
                 },
                 "locale_titles": {
-                  "en-US": "Pie Chart"
+                  "en-US": "Device Type Statistics"
                 },
                 "settings": {
                   "priority": "5",
@@ -4220,7 +4037,7 @@
                   "no_heading": false,
                   "hide_gadget": false,
                   "titlePosition": "left",
-                  "title": "Top 5 HTTP Status Codes"
+                  "title": "Top 5 HTTP Response Codes"
                 },
                 "options": {
                   "refreshInterval": {
@@ -4281,7 +4098,7 @@
                   }
                 },
                 "locale_titles": {
-                  "en-US": "Top 5 HTTP Status Codes"
+                  "en-US": "Top 5 HTTP Response Codes"
                 },
                 "settings": {
                   "priority": "5",
@@ -4317,7 +4134,7 @@
                   "no_heading": false,
                   "hide_gadget": false,
                   "titlePosition": "left",
-                  "title": "HTTP Statius Codes List"
+                  "title": "HTTP Response Code List"
                 },
                 "options": {
                   "appStatType": {
@@ -4336,7 +4153,7 @@
                   }
                 },
                 "locale_titles": {
-                  "en-US": "HTTP Statius Codes List"
+                  "en-US": "HTTP Response Code List"
                 },
                 "settings": {
                   "priority": "5",
@@ -4490,10 +4307,10 @@
                   }
                 },
                 "styles": {
-                  "no_heading": true,
+                  "no_heading": false,
                   "hide_gadget": false,
                   "titlePosition": "left",
-                  "title": "Geo Location Map"
+                  "title": "Geo Location Statistics"
                 },
                 "options": {
                   "refreshInterval": {
@@ -4554,7 +4371,7 @@
                   }
                 },
                 "locale_titles": {
-                  "en-US": "Geo Location Map"
+                  "en-US": "Geo Location Statistics"
                 },
                 "settings": {
                   "priority": "5",
@@ -4587,7 +4404,7 @@
                   }
                 },
                 "styles": {
-                  "no_heading": false,
+                  "no_heading": true,
                   "hide_gadget": false,
                   "titlePosition": "left",
                   "title": "Data Table"
@@ -4709,6 +4526,5 @@
     "customBannerExists": false
   },
   "landing": "landing",
-  "isanon": false,
-  "defaultPriority": "5"
+  "isanon": false
 }
