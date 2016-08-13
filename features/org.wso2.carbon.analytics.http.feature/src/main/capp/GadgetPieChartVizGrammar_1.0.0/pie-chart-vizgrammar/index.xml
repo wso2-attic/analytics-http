@@ -33,6 +33,10 @@
               display_name="App Stat Type"
               default_value="browser">
     </UserPref>
+    <UserPref name="targetPage"
+              display_name="Page to navigate to once clicked on the chart"
+              default_value="browser">
+    </UserPref>
 
 
     <Content type="html">

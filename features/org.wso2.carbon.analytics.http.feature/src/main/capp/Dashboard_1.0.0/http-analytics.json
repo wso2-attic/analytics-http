@@ -1175,6 +1175,13 @@
                     "value": "browser",
                     "options": [],
                     "required": false
+                  },
+                  "targetPage": {
+                    "type": "STRING",
+                    "title": "Target Page",
+                    "value": "browser",
+                    "options": [],
+                    "required": false
                   }
                 },
                 "locale_titles": {
@@ -1284,6 +1291,13 @@
                     "type": "STRING",
                     "title": "Color of the bar chart",
                     "value": "#438CAD",
+                    "options": [],
+                    "required": false
+                  },
+                  "targetPage": {
+                    "type": "STRING",
+                    "title": "Target Page",
+                    "value": "httpresponsecode",
                     "options": [],
                     "required": false
                   }
@@ -2190,6 +2204,13 @@
                     "value": "#5CB85C",
                     "options": [],
                     "required": false
+                  },
+                  "targetPage": {
+                    "type": "STRING",
+                    "title": "Target Page",
+                    "value": "language",
+                    "options": [],
+                    "required": false
                   }
                 },
                 "locale_titles": {
@@ -2480,6 +2501,13 @@
                     "value": "operating-system",
                     "options": [],
                     "required": false
+                  },
+                  "targetPage": {
+                    "type": "STRING",
+                    "title": "Target Page",
+                    "value": "operatingsystem",
+                    "options": [],
+                    "required": false
                   }
                 },
                 "locale_titles": {
@@ -2577,6 +2605,13 @@
                     "value": "device-type",
                     "options": [],
                     "required": false
+                  },
+                  "targetPage": {
+                    "type": "STRING",
+                    "title": "Target Page",
+                    "value": "devicetype",
+                    "options": [],
+                    "required": false
                   }
                 },
                 "locale_titles": {
@@ -2672,6 +2707,13 @@
                     "type": "STRING",
                     "title": "App Stat Type",
                     "value": "country",
+                    "options": [],
+                    "required": false
+                  },
+                  "targetPage": {
+                    "type": "STRING",
+                    "title": "Target Page",
+                    "value": "geolocation",
                     "options": [],
                     "required": false
                   }
@@ -3296,7 +3338,7 @@
       }
     },
     {
-      "id": "operationsystem",
+      "id": "operatingsystem",
       "title": "Operating System",
       "layout": {
         "content": {
@@ -3550,6 +3592,13 @@
                     "type": "STRING",
                     "title": "App Stat Type",
                     "value": "operating-system",
+                    "options": [],
+                    "required": false
+                  },
+                  "targetPage": {
+                    "type": "STRING",
+                    "title": "Page to navigate to once clicked on the chart",
+                    "value": "operatingsystem",
                     "options": [],
                     "required": false
                   }
@@ -3823,6 +3872,13 @@
                     "type": "STRING",
                     "title": "App Stat Type",
                     "value": "device-type",
+                    "options": [],
+                    "required": false
+                  },
+                  "targetPage": {
+                    "type": "STRING",
+                    "title": "Page to navigate to once clicked on the chart",
+                    "value": "devicetype",
                     "options": [],
                     "required": false
                   }
@@ -4110,6 +4166,13 @@
                     "type": "STRING",
                     "title": "Color of the bar chart",
                     "value": "#5CB85C",
+                    "options": [],
+                    "required": false
+                  },
+                  "targetPage": {
+                    "type": "STRING",
+                    "title": "Page to navigate to once clicked on the chart",
+                    "value": "language",
                     "options": [],
                     "required": false
                   }
@@ -4434,6 +4497,13 @@
                     "value": "#438CAD",
                     "options": [],
                     "required": false
+                  },
+                  "targetPage": {
+                    "type": "STRING",
+                    "title": "Page to navigate to once clicked on the chart",
+                    "value": "httpresponsecode",
+                    "options": [],
+                    "required": false
                   }
                 },
                 "locale_titles": {
@@ -4707,6 +4777,13 @@
                     "value": "country",
                     "options": [],
                     "required": false
+                  },
+                  "targetPage": {
+                    "type": "STRING",
+                    "title": "Page to navigate to once clicked on the chart",
+                    "value": "geolocation",
+                    "options": [],
+                    "required": false
                   }
                 },
                 "locale_titles": {
@@ -4816,7 +4893,7 @@
       "subordinates": []
     },
     {
-      "id": "operationsystem",
+      "id": "operatingsystem",
       "isanon": false,
       "ishidden": false,
       "title": "Operating System",
@@ -4865,6 +4942,5 @@
     "customBannerExists": false
   },
   "landing": "landing",
-  "isanon": false,
-  "defaultPriority": "5"
+  "isanon": false
 }

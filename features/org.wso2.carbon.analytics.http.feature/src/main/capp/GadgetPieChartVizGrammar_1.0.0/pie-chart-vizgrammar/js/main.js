@@ -5,6 +5,7 @@ var timeTo = gadgetUtil.timeTo();
 var node = gadgetUtil.node();
 var appname = gadgetUtil.appName();;
 var statType = pref.getString("appStatType");
+var targetPage = pref.getString("targetPage");
 
 $(function() {
     fetchData();
@@ -57,28 +58,16 @@ function onData(data) {
             schema[0].data.push([parseFloat(row.value), row.name]);
         });
 
-//        var onChartClick = function(event, item) {
-//            var id = -1;
-//            if (item != null) {
-//                id = item.datum.name;
-//            }
-//            var baseUrl = config.targetUrl;
-//            var urlParameters = gadgetUtil.getUrlParameters();
-//            if (urlParameters != null) {
-//                baseUrl += urlParameters + "&";
-//            } else {
-//                baseUrl += "?";
-//            }
-//            var targetUrl =  baseUrl + PARAM_ID + "=" + id + "&timeFrom=" + timeFrom + "&timeTo=" + timeTo;
-//            if (timeUnit != null) {
-//                targetUrl += "&timeUnit=" + timeUnit;
-//            }
-//            parent.window.location = targetUrl;
-//        };
+        var onChartClick = function(event, item) {
+            if (targetPage != gadgetUtil.getCurrentPageName()) {
+                var targetUrl = BASE_URL + targetPage + "?" + gadgetUtil.getQueryStringAsString();
+                parent.window.location = targetUrl;
+            }
+        };
         var chart = new vizg(schema, chartConfig);
 
         $("#canvas").empty();
-        chart.draw("#canvas");
+        chart.draw("#canvas", [{ type: "click", callback: onChartClick }]);
     } catch (e) {
         $("#canvas").html(gadgetUtil.getErrorText(e));
     }
