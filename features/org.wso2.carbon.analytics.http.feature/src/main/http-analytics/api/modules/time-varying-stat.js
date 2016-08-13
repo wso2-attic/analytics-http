@@ -39,14 +39,14 @@ function getTimeVaryingStatData(conditions, mappedParameters, facetField) {
     return results;
 }
 
-function getTimeVaryingStat(conditions, type, startTime, endTime, color) {
+function getTimeVaryingStat(conditions, type, color) {
     var dataArray = [];
     var i;
     var row;
     var time;
 
-    startTime = Number(startTime) * 1000;
-    endTime = Number(endTime) * 1000;
+    startTime = Number(conditions.timeFrom) * 1000;
+    endTime = Number(conditions.timeTo) * 1000;
 
     var mappedParameters = parameterMapping[type];
 

@@ -32,7 +32,7 @@ include('constants.jag');
  * @param aggregateFields   information about aggregated fields
  * @returns {*}
  */
-function getAggregateDataFromDAS(tableName, query, aggregateLevel, facetField, aggregateFields) {
+function getAggregateDataFromDAS(tableName, conditions, aggregateLevel, facetField, aggregateFields) {
 
     if (!isTableExists(tableName)) {
                 return ;
@@ -40,7 +40,7 @@ function getAggregateDataFromDAS(tableName, query, aggregateLevel, facetField, a
 
     var data = {
         "tableName": tableName,
-        "query": query,
+        "query": getQuery(conditions),
         "aggregateLevel": aggregateLevel,
         "groupByField": facetField,
         "aggregateFields": aggregateFields
@@ -58,7 +58,7 @@ function getAggregateDataFromDAS(tableName, query, aggregateLevel, facetField, a
  * @param query             query parameter as a string
  * @returns {*}
  */
-function getUniqueValuesFromDAS(tableName, fieldName, query) {
+function getUniqueValuesFromDAS(tableName, fieldName, conditions) {
 
     if (!isTableExists(tableName)) {
                 return ;
@@ -68,7 +68,7 @@ function getUniqueValuesFromDAS(tableName, fieldName, query) {
         "tableName": tableName,
         "fieldName": fieldName,
         "categoryPath": [],
-        "query": query
+        "query": getQuery(conditions)
     };
 
     var log = new Log("DB");
@@ -191,6 +191,26 @@ function getAuthorizationHeader() {
     }
 
     return javax.xml.bind.DatatypeConverter.printBase64Binary(new java.lang.String(username + ":" + password).getBytes());
+}
+
+/**
+ * Returns the query string composed from the conditions passed.
+ *
+ * @param conditions    Object holding the conditions
+ * @returns {string}    Query string containing the conditions
+ */
+function getQuery(conditions) {
+    var query = [];
+
+    query.push(TIME + ': [' + conditions.timeFrom + ' TO ' + conditions.timeTo + ']');
+
+    if (conditions.node) {
+        query.push(SERVER_NAME + ': "' + conditions.node+ '"');
+    }
+    if (conditions.appName) {
+        query.push(WEBAPP_NAME + ': "' + conditions.appName + '"');
+    }
+    return query.join(' AND ');
 }
 
 %>

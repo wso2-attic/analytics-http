@@ -46,21 +46,21 @@ var log = new Log("AS-DATA");
  */
 function buildConditions() {
     // default data range is the past 24 hours
-    var startTime = getStartTime();
-    var endTime = getEndTime();
+    var conditions = {};
+    conditions['timeFrom'] = getStartTime();
+    conditions['timeTo'] = getEndTime();
+
     var node = request.getParameter('node');
-    var webapp = request.getParameter('appname');
-    var conditions = [];
-
-    conditions.push(TIME + ': [' + startTime + ' TO ' + endTime + ']');
-
     if (node != null && node != 'All') {
-        conditions.push(SERVER_NAME + ': "' + node + '"');
+        conditions['node'] = node;
     }
-    if (webapp != null) {
-        conditions.push(WEBAPP_NAME + ': "' + webapp + '"');
+
+    var appName = request.getParameter('appname');
+    if (appName != null) {
+        conditions['appName'] = appName;
     }
-    return conditions.join(' AND ');
+
+    return conditions;
 }
 
 function getStartTime() {
@@ -208,7 +208,7 @@ function getRequestStat() {
     if (log.isDebugEnabled()) {
         log.debug('Retrieving request count stat');
     }
-    timeVaryingStat.getTimeVaryingStat(conditions, 'request', getStartTime(), getEndTime());
+    timeVaryingStat.getTimeVaryingStat(conditions, 'request');
 }
 
 function getResponseStat() {
@@ -216,7 +216,7 @@ function getResponseStat() {
     if (log.isDebugEnabled()) {
         log.debug('Retrieving response time stat');
     }
-    timeVaryingStat.getTimeVaryingStat(conditions, 'response', getStartTime(), getEndTime(), '#bacf0b');
+    timeVaryingStat.getTimeVaryingStat(conditions, 'response', '#bacf0b');
 }
 
 function getErrorStat() {
@@ -224,7 +224,7 @@ function getErrorStat() {
     if (log.isDebugEnabled()) {
         log.debug('Retrieving error count stat');
     }
-    timeVaryingStat.getTimeVaryingStat(conditions, 'error', getStartTime(), getEndTime(), '#e7912a');
+    timeVaryingStat.getTimeVaryingStat(conditions, 'error', '#e7912a');
 }
 
 function getInfoBoxRequestStat() {
@@ -266,14 +266,9 @@ function getAppsList() {
     }
 
     // remove webappName from the conditions
-    var tempConditions = [];
-    conditions.split(' AND ').forEach(function(condition){
-        if (condition.split(':')[0].trim() != WEBAPP_NAME) {
-            tempConditions.push(condition);
-        }
-    })
-
-    return appList.getAppsList(tempConditions.join(' AND '));
+    tempConditions = JSON.parse(JSON.stringify(conditions));
+    delete(tempConditions.appName);
+    return appList.getAppsList(tempConditions);
 }
 
 var actionMapping = {

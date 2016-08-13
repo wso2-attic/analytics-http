@@ -27,10 +27,9 @@ function getPastStat(conditions, endTime, timePeriod) {
     var startTime;
 
     // replace the time condition in the query
-    reg = /\d+ TO \d+/;
     startTime = endTime - timePeriod;
-
-    conditions = conditions.replace(reg, startTime + ' TO ' + endTime);
+    conditions.startTime = startTime;
+    conditions.endTime = endTime;
 
     results = getAggregateDataFromDAS(REQUEST_SUMMARY_TABLE, conditions, "0", WEBAPP_NAME_FACET, [
         {
