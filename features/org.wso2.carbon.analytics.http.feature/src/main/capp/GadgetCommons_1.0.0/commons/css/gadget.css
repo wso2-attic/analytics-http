@@ -195,6 +195,23 @@ div.dataTables_processing {
     margin: 20px 0 0 0;
 }
 
+.table > tbody > tr > td {
+    border-top: 1px solid #ddd;
+}
+
+.dark .table > tbody > tr > td {
+    border-top: 1px solid #353C48;
+}
+
+.table.table-clickable > tbody > tr:hover > td {
+    background-color: #bcbcbc;
+    cursor: pointer;
+}
+
+.dark .table.table-clickable > tbody > tr:hover > td {
+    background-color: #353C48;
+}
+
 .pagination > .active > a,
 .pagination > .active > a:focus,
 .pagination > .active > a:hover,
@@ -218,6 +235,20 @@ body.dark .pagination > li.active > span:hover,
 body.dark .pagination > li.active > a:hover {
     color: #E3E5E6;
     border-color: #353C48;
+}
+
+body.dark .pagination > li > span:hover,
+body.dark .pagination > li > a:hover,
+body.dark .pagination > li > span:focus,
+body.dark .pagination > li > a:focus {
+    background-color: #353C48;
+}
+
+body.dark .pagination > li.active > span:hover,
+body.dark .pagination > li.active > a:hover,
+body.dark .pagination > li.active > span:focus,
+body.dark .pagination > li.active > a:focus {
+    background-color: #438CAD;
 }
 
 .pagination > li > span:hover,
