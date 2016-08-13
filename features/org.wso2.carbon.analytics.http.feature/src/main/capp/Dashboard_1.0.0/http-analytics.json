@@ -1147,14 +1147,14 @@
           ],
           "e3efa996dfb6818f5c11cbc003342891": [
             {
-              "id": "http-codes-horizontal-bar-chart-0",
+              "id": "horizontal-bar-chart-1",
               "content": {
-                "id": "http-codes-horizontal-bar-chart",
-                "title": "Top 5 HTTP Status Codes",
+                "id": "horizontal-bar-chart",
+                "title": "Horizontal Bar Chart",
                 "type": "gadget",
                 "thumbnail": "fs://gadget/usa-business-revenue/index.png",
                 "data": {
-                  "url": "fs://gadget/http-codes-horizontal-bar-chart/index.xml"
+                  "url": "fs://gadget/horizontal-bar-chart/index.xml"
                 },
                 "listen": {
                   "timeRangeChangeSubscriber": {
@@ -1172,7 +1172,7 @@
                   "no_heading": false,
                   "hide_gadget": false,
                   "titlePosition": "left",
-                  "title": "Top 5 HTTP Status Codes"
+                  "title": "Top 5 HTTP Response Codes"
                 },
                 "options": {
                   "refreshInterval": {
@@ -1230,10 +1230,24 @@
                     "value": "top-http-status",
                     "options": [],
                     "required": false
+                  },
+                  "yAxisLabel": {
+                    "type": "STRING",
+                    "title": "Y Axis Label of the chart",
+                    "value": "HTTP Response Code",
+                    "options": [],
+                    "required": false
+                  },
+                  "chartColor": {
+                    "type": "STRING",
+                    "title": "Color of the bar chart",
+                    "value": "#438CAD",
+                    "options": [],
+                    "required": false
                   }
                 },
                 "locale_titles": {
-                  "en-US": "Top 5 HTTP Status Codes"
+                  "en-US": "Top 5 HTTP Response Codes"
                 },
                 "settings": {
                   "priority": "5",
@@ -1995,14 +2009,14 @@
           ],
           "07354622b248dfe571c0b9e8c5ad8af2": [
             {
-              "id": "languages-horizontal-bar-chart-0",
+              "id": "horizontal-bar-chart-0",
               "content": {
-                "id": "languages-horizontal-bar-chart",
-                "title": "Top 5 Languages",
+                "id": "horizontal-bar-chart",
+                "title": "Horizontal Bar Chart",
                 "type": "gadget",
                 "thumbnail": "fs://gadget/usa-business-revenue/index.png",
                 "data": {
-                  "url": "fs://gadget/languages-horizontal-bar-chart/index.xml"
+                  "url": "fs://gadget/horizontal-bar-chart/index.xml"
                 },
                 "listen": {
                   "timeRangeChangeSubscriber": {
@@ -2076,6 +2090,129 @@
                     "type": "STRING",
                     "title": "App Stat Type",
                     "value": "language",
+                    "options": [],
+                    "required": false
+                  },
+                  "yAxisLabel": {
+                    "type": "STRING",
+                    "title": "Y Axis Label of the chart",
+                    "value": "Language",
+                    "options": [],
+                    "required": false
+                  },
+                  "chartColor": {
+                    "type": "STRING",
+                    "title": "Color of the bar chart",
+                    "value": "#5CB85C",
+                    "options": [],
+                    "required": false
+                  }
+                },
+                "locale_titles": {
+                  "en-US": "Top 5 Languages"
+                },
+                "settings": {
+                  "priority": "5",
+                  "timeoutInterval": "60000"
+                }
+              }
+            },
+            {
+              "id": "horizontal-bar-chart-1",
+              "content": {
+                "id": "horizontal-bar-chart",
+                "title": "Horizontal Bar Chart",
+                "type": "gadget",
+                "thumbnail": "fs://gadget/usa-business-revenue/index.png",
+                "data": {
+                  "url": "fs://gadget/horizontal-bar-chart/index.xml"
+                },
+                "listen": {
+                  "timeRangeChangeSubscriber": {
+                    "type": "message",
+                    "description": "This listens to  message received by the subscriber",
+                    "on": [
+                      {
+                        "from": "Date_Range_Picker-0",
+                        "event": "timeRangeChangePublisher"
+                      }
+                    ]
+                  }
+                },
+                "styles": {
+                  "no_heading": false,
+                  "hide_gadget": false,
+                  "titlePosition": "left",
+                  "title": "Top 5 Languages"
+                },
+                "options": {
+                  "refreshInterval": {
+                    "type": "STRING",
+                    "title": "Refresh Interval",
+                    "value": "1000000",
+                    "options": [],
+                    "required": false
+                  },
+                  "type": {
+                    "type": "STRING",
+                    "title": "Gadget Type",
+                    "value": "",
+                    "options": [],
+                    "required": true
+                  },
+                  "dataSource": {
+                    "type": "STRING",
+                    "title": "Data Source",
+                    "value": "../../../../../http-analytics/api/as-data.jag",
+                    "options": [],
+                    "required": false
+                  },
+                  "appname": {
+                    "type": "STRING",
+                    "title": "Web App Name",
+                    "value": "",
+                    "options": [],
+                    "required": false
+                  },
+                  "startTime": {
+                    "type": "STRING",
+                    "title": "Start time",
+                    "value": "",
+                    "options": [],
+                    "required": false
+                  },
+                  "endTime": {
+                    "type": "STRING",
+                    "title": "End time",
+                    "value": "",
+                    "options": [],
+                    "required": false
+                  },
+                  "node": {
+                    "type": "STRING",
+                    "title": "Node IP",
+                    "value": "",
+                    "options": [],
+                    "required": false
+                  },
+                  "appStatType": {
+                    "type": "STRING",
+                    "title": "App Stat Type",
+                    "value": "language",
+                    "options": [],
+                    "required": false
+                  },
+                  "yAxisLabel": {
+                    "type": "STRING",
+                    "title": "Y Axis Label of the chart",
+                    "value": "Language",
+                    "options": [],
+                    "required": false
+                  },
+                  "chartColor": {
+                    "type": "STRING",
+                    "title": "Color of the bar chart",
+                    "value": "#5CB85C",
                     "options": [],
                     "required": false
                   }
@@ -3794,14 +3931,14 @@
           ],
           "5134554d2f3d7e2be2679f5e972a3054": [
             {
-              "id": "languages-horizontal-bar-chart-0",
+              "id": "horizontal-bar-chart-0",
               "content": {
-                "id": "languages-horizontal-bar-chart",
-                "title": "Top 5 Languages",
+                "id": "horizontal-bar-chart",
+                "title": "Horizontal Bar Chart",
                 "type": "gadget",
                 "thumbnail": "fs://gadget/usa-business-revenue/index.png",
                 "data": {
-                  "url": "fs://gadget/languages-horizontal-bar-chart/index.xml"
+                  "url": "fs://gadget/horizontal-bar-chart/index.xml"
                 },
                 "listen": {
                   "timeRangeChangeSubscriber": {
@@ -3877,6 +4014,20 @@
                     "value": "language",
                     "options": [],
                     "required": false
+                  },
+                  "yAxisLabel": {
+                    "type": "STRING",
+                    "title": "Y Axis Label of the chart",
+                    "value": "Language",
+                    "options": [],
+                    "required": false
+                  },
+                  "chartColor": {
+                    "type": "STRING",
+                    "title": "Color of the bar chart",
+                    "value": "#5CB85C",
+                    "options": [],
+                    "required": false
                   }
                 },
                 "locale_titles": {
@@ -3886,6 +4037,101 @@
                   "priority": "5",
                   "timeoutInterval": "60000"
                 }
+              }
+            },
+            {
+              "id": "horizontal-bar-chart-0",
+              "content": {
+                "id": "horizontal-bar-chart",
+                "title": "Horizontal Bar Chart",
+                "type": "gadget",
+                "thumbnail": "fs://gadget/usa-business-revenue/index.png",
+                "data": {
+                  "url": "fs://gadget/horizontal-bar-chart/index.xml"
+                },
+                "listen": {
+                  "timeRangeChangeSubscriber": {
+                    "type": "message",
+                    "description": "This listens to  message received by the subscriber"
+                  }
+                },
+                "styles": {
+                  "title": "Horizontal Bar Chart",
+                  "borders": true
+                },
+                "options": {
+                  "refreshInterval": {
+                    "type": "STRING",
+                    "title": "Refresh Interval",
+                    "value": "1000000",
+                    "options": [],
+                    "required": false
+                  },
+                  "type": {
+                    "type": "STRING",
+                    "title": "Gadget Type",
+                    "value": "",
+                    "options": [],
+                    "required": true
+                  },
+                  "dataSource": {
+                    "type": "STRING",
+                    "title": "Data Source",
+                    "value": "../../../../../http-analytics/api/as-data.jag",
+                    "options": [],
+                    "required": false
+                  },
+                  "appname": {
+                    "type": "STRING",
+                    "title": "Web App Name",
+                    "value": "",
+                    "options": [],
+                    "required": false
+                  },
+                  "startTime": {
+                    "type": "STRING",
+                    "title": "Start time",
+                    "value": "",
+                    "options": [],
+                    "required": false
+                  },
+                  "endTime": {
+                    "type": "STRING",
+                    "title": "End time",
+                    "value": "",
+                    "options": [],
+                    "required": false
+                  },
+                  "node": {
+                    "type": "STRING",
+                    "title": "Node IP",
+                    "value": "",
+                    "options": [],
+                    "required": false
+                  },
+                  "appStatType": {
+                    "type": "STRING",
+                    "title": "App Stat Type",
+                    "value": "language",
+                    "options": [],
+                    "required": false
+                  },
+                  "yAxisLabel": {
+                    "type": "STRING",
+                    "title": "Y Axis Label of the chart",
+                    "value": "Language",
+                    "options": [],
+                    "required": false
+                  },
+                  "chartColor": {
+                    "type": "STRING",
+                    "title": "Color of the bar chart",
+                    "value": "green",
+                    "options": [],
+                    "required": false
+                  }
+                },
+                "locale_titles": {}
               }
             }
           ]
@@ -4012,25 +4258,20 @@
           ],
           "3b20e72f3077ac5e250d5e69f43aefe3": [
             {
-              "id": "http-codes-horizontal-bar-chart-0",
+              "id": "horizontal-bar-chart-0",
               "content": {
-                "id": "http-codes-horizontal-bar-chart",
-                "title": "Top 5 HTTP Status Codes",
+                "id": "horizontal-bar-chart",
+                "title": "Horizontal Bar Chart",
                 "type": "gadget",
                 "thumbnail": "fs://gadget/usa-business-revenue/index.png",
                 "data": {
-                  "url": "fs://gadget/http-codes-horizontal-bar-chart/index.xml"
+                  "url": "fs://gadget/horizontal-bar-chart/index.xml"
                 },
                 "listen": {
                   "timeRangeChangeSubscriber": {
                     "type": "message",
                     "description": "This listens to  message received by the subscriber",
-                    "on": [
-                      {
-                        "from": "Date_Range_Picker-0",
-                        "event": "timeRangeChangePublisher"
-                      }
-                    ]
+                    "on": []
                   }
                 },
                 "styles": {
@@ -4093,6 +4334,20 @@
                     "type": "STRING",
                     "title": "App Stat Type",
                     "value": "top-http-status",
+                    "options": [],
+                    "required": false
+                  },
+                  "yAxisLabel": {
+                    "type": "STRING",
+                    "title": "Y Axis Label of the chart",
+                    "value": "HTTP Response Code",
+                    "options": [],
+                    "required": false
+                  },
+                  "chartColor": {
+                    "type": "STRING",
+                    "title": "Color of the bar chart",
+                    "value": "#438CAD",
                     "options": [],
                     "required": false
                   }

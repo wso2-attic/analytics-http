@@ -5,6 +5,8 @@ var timeTo = gadgetUtil.timeTo();
 var node = gadgetUtil.node();
 var appname = gadgetUtil.appName();;
 var statType = pref.getString("appStatType");
+var yAxisLabel = pref.getString("yAxisLabel");
+var chartColor = pref.getString("chartColor")
 
 $(function() {
     fetchData();
@@ -37,22 +39,22 @@ function onData(data) {
         }
         var schema = [{
             "metadata": {
-                "names": ["HTTP Response Code", "Request Count"],
+                "names": [yAxisLabel, "Request Count"],
                 "types": ["ordinal", "linear"]
             },
             "data": []
         }];
         var chartConfig = {
             type: "bar",
-            x: "HTTP Response Code",
+            x: yAxisLabel,
             charts: [{ type: "bar", y: "Request Count", orientation: "left" }],
             grid: false,
             width: $('body').width(),
             height: $('body').height(),
-            colorScale: [COLOR_BLUE],
+            colorScale: [chartColor],
             padding: { "top": 30, "left": 60, "bottom": 60, "right": 30 },
             textColor:"#000000",
-            text:"HTTP Response Code",
+            text:yAxisLabel,
             textAlign:"left",
             xAxisStrokeSize:0,
             xAxisFontSize:0

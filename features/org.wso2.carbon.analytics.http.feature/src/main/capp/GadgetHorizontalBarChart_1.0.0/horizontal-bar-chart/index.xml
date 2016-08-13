@@ -33,6 +33,14 @@
               display_name="App Stat Type"
               default_value="language">
     </UserPref>
+    <UserPref name="yAxisLabel"
+              display_name="Y Axis Label of the chart"
+              default_value="Language">
+    </UserPref>
+    <UserPref name="chartColor"
+              display_name="Color of the bar chart"
+              default_value="green">
+    </UserPref>
 
 
     <Content type="html">

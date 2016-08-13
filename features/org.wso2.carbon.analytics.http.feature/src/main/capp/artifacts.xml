@@ -7,21 +7,19 @@
         <!--Spark Scripts -->
         <dependency artifact="Sparkscripts" version="1.0.0" include="true" serverRole="DataAnalyticsServer"/>
         <!-- Gadgets -->
-        <dependency artifact="GadgetAverageErrorLineChartVizGrammar" version="1.0.0" include="true" serverRole="DataAnalyticsServer"/>
         <dependency artifact="GadgetAverageRequestLineChartVizGrammar" version="1.0.0" include="true" serverRole="DataAnalyticsServer"/>
         <dependency artifact="GadgetAverageResponseLineChartVizGrammar" version="1.0.0" include="true" serverRole="DataAnalyticsServer"/>
+        <dependency artifact="GadgetAverageErrorLineChartVizGrammar" version="1.0.0" include="true" serverRole="DataAnalyticsServer"/>
         <dependency artifact="GadgetDataTable" version="1.0.0" include="true" serverRole="DataAnalyticsServer"/>
         <dependency artifact="GadgetPieChartVizGrammar" version="1.0.0" include="true" serverRole="DataAnalyticsServer"/>
         <dependency artifact="GadgetDateRangePicker" version="1.0.0" include="true" serverRole="DataAnalyticsServer"/>
         <dependency artifact="GadgetCommons" version="1.0.0" include="true" serverRole="DataAnalyticsServer"/>
-        <dependency artifact="GadgetErrorInfoBox" version="1.0.0" include="true" serverRole="DataAnalyticsServer"/>
-        <dependency artifact="GadgetLanguagesHorizontalBarChart" version="1.0.0" include="true" serverRole="DataAnalyticsServer"/>
-        <dependency artifact="GadgetLocation" version="1.0.0" include="true" serverRole="DataAnalyticsServer"/>
+        <dependency artifact="GadgetHorizontalBarChart" version="1.0.0" include="true" serverRole="DataAnalyticsServer"/>
         <dependency artifact="GadgetAppsList" version="1.0.0" include="true" serverRole="DataAnalyticsServer"/>
         <dependency artifact="GadgetRequestInfoBox" version="1.0.0" include="true" serverRole="DataAnalyticsServer"/>
-        <dependency artifact="GadgetResponseCodesHorizontalBarChart" version="1.0.0" include="true" serverRole="DataAnalyticsServer"/>
         <dependency artifact="GadgetResponseInfoBox" version="1.0.0" include="true" serverRole="DataAnalyticsServer"/>
         <dependency artifact="GadgetSessionInfoBox" version="1.0.0" include="true" serverRole="DataAnalyticsServer"/>
+        <dependency artifact="GadgetErrorInfoBox" version="1.0.0" include="true" serverRole="DataAnalyticsServer"/>
         <dependency artifact="GadgetSearchBox" version="1.0.0" include="true" serverRole="DataAnalyticsServer"/>
         <dependency artifact="GadgetGeoLocationMapVizGrammar" version="1.0.0" include="true" serverRole="DataAnalyticsServer"/>
         <!-- Dashboard Definition -->

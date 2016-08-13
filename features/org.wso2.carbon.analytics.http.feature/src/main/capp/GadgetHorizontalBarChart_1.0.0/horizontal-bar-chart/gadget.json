@@ -1,10 +1,10 @@
 {
-    "id": "http-codes-horizontal-bar-chart",
-    "title": "Top 5 HTTP Status Codes",
+    "id": "horizontal-bar-chart",
+    "title": "Horizontal Bar Chart",
     "type": "gadget",
     "thumbnail": "store://gadget/usa-business-revenue/index.png",
     "data": {
-        "url": "store://gadget/http-codes-horizontal-bar-chart/index.xml"
+        "url": "store://gadget/horizontal-bar-chart/index.xml"
     },
     "listen": {
         "timeRangeChangeSubscriber": {
