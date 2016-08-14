@@ -39,6 +39,8 @@ var COLOR_GREEN = "#5CB85C";
 var PARENT_WINDOW = window.parent.document;
 var PARAM_SHARED = "shared=true"
 
+var ALL_APPLICATIONS_TEXT = 'All-Applications';
+
 function getDashboardBaseUrl() {
     var currentUrl = window.parent.location.href;
     var BaseUrlRegex = new RegExp(".*?(portal.*dashboards)");
@@ -148,12 +150,12 @@ function GadgetUtil() {
     };
 
     this.appName = function() {
-        var webappName = '';
         var qs = this.getQueryString();
-        if (qs.webappName != null) {
-            webappName = qs.webappName;
+        // skip if all applications is selected
+        if (qs.webappName == null || qs.webappName == ALL_APPLICATIONS_TEXT) {
+            return '';
         }
-        return webappName;
+        return qs.webappName;
     }
 
     this.node = function() {

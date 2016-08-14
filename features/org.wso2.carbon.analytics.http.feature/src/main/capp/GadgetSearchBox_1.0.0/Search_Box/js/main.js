@@ -21,6 +21,12 @@ $(function() {
     }, onData, onError);
 
     function onData(response) {
+
+        // Add all applications text to the list
+        if (response.message) {
+            response.message.push(ALL_APPLICATIONS_TEXT);
+        }
+
         $('.typeahead').typeahead({
             hint: true,
             highlight: true,
