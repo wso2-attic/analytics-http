@@ -244,6 +244,10 @@ function GadgetUtil() {
         return null;
     };
 
+    this.removeUrlParam = function(id) {
+        return this.getUrlParameters().replace(new RegExp('(' + id + '=)[^\\&]+'),'');
+    }
+
     this.isSharedDashboard = function() {
         var href = parent.window.location.href;
         return href.includes(PARAM_SHARED);
