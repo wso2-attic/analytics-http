@@ -38,7 +38,7 @@ $(function() {
 
             var href = parent.window.location.href;
             if(qs[PARAM_ID]) {
-                href = href.replace(/(webappName=)[^\&]+/, '$1' + item);
+                href = href.replace(new RegExp('(webappName=)[^\\&]+'), '$1' + item)
             } else {
                 href = href + "?" + PARAM_ID + "=" + item;
             }
