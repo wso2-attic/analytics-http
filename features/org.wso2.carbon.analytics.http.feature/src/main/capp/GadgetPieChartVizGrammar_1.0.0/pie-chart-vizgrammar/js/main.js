@@ -6,6 +6,7 @@ var node = gadgetUtil.node();
 var appname = gadgetUtil.appName();;
 var statType = pref.getString("appStatType");
 var targetPage = pref.getString("targetPage");
+var categoryName = pref.getString("categoryName");
 
 $(function() {
     fetchData();
@@ -39,19 +40,21 @@ function onData(data) {
         }
         var schema = [{
             "metadata": {
-                "names": ["Percentage", "Browser"],
+                "names": ["Percentage", categoryName],
                 "types": ["linear", "ordinal"]
             },
             "data": []
         }];
 
         var chartConfig = {
-            charts: [{ type: "arc", x: "Percentage", color: "Browser", mode: "donut"}],
+            charts: [{ type: "arc", x: "Percentage", color: categoryName, mode: "donut"}],
             padding: { top:10, right:200, bottom:10, left:10 },
             width: $('body').width()-50,
             height: $('body').height(),
             legend: true,
             percentage: true,
+            tooltip: {"enabled":true, "color":"#e5f2ff", "type":"symbol", "content":[categoryName,"Percentage"],
+            "label":true}
         };
 
         data.message.forEach(function(row, i) {

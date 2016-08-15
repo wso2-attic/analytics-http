@@ -1182,6 +1182,13 @@
                     "value": "browser",
                     "options": [],
                     "required": false
+                  },
+                  "categoryName": {
+                    "type": "STRING",
+                    "title": "Category Name",
+                    "value": "Browser",
+                    "options": [],
+                    "required": false
                   }
                 },
                 "locale_titles": {
@@ -2508,6 +2515,13 @@
                     "value": "operatingsystem",
                     "options": [],
                     "required": false
+                  },
+                  "categoryName": {
+                    "type": "STRING",
+                    "title": "Category Name",
+                    "value": "Operating System",
+                    "options": [],
+                    "required": false
                   }
                 },
                 "locale_titles": {
@@ -2610,6 +2624,13 @@
                     "type": "STRING",
                     "title": "Target Page",
                     "value": "devicetype",
+                    "options": [],
+                    "required": false
+                  },
+                  "categoryName": {
+                    "type": "STRING",
+                    "title": "Category Name",
+                    "value": "Device Type",
                     "options": [],
                     "required": false
                   }
@@ -3321,6 +3342,13 @@
                     "value": "browser",
                     "options": [],
                     "required": false
+                  },
+                  "categoryName": {
+                    "type": "STRING",
+                    "title": "Category Name",
+                    "value": "Browser",
+                    "options": [],
+                    "required": false
                   }
                 },
                 "locale_titles": {
@@ -3601,6 +3629,13 @@
                     "value": "operatingsystem",
                     "options": [],
                     "required": false
+                  },
+                  "categoryName": {
+                    "type": "STRING",
+                    "title": "Category Name",
+                    "value": "Operating System",
+                    "options": [],
+                    "required": false
                   }
                 },
                 "locale_titles": {
@@ -3879,6 +3914,13 @@
                     "type": "STRING",
                     "title": "Page to navigate to once clicked on the chart",
                     "value": "devicetype",
+                    "options": [],
+                    "required": false
+                  },
+                  "categoryName": {
+                    "type": "STRING",
+                    "title": "Category Name",
+                    "value": "Device Type",
                     "options": [],
                     "required": false
                   }

@@ -37,7 +37,10 @@
               display_name="Page to navigate to once clicked on the chart"
               default_value="browser">
     </UserPref>
-
+    <UserPref name="categoryName"
+              display_name="Name of the category"
+              default_value="Browser">
+    </UserPref>
 
     <Content type="html">
         <![CDATA[
