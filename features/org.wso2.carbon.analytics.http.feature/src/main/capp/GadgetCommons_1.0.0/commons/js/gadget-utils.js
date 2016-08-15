@@ -64,16 +64,6 @@ function GadgetUtil() {
         
     };
 
-    this.getQueryStringAsString = function() {
-        var parameters = [];
-        var queryObject  = this.getQueryString();
-        Object.getOwnPropertyNames(queryObject).forEach(function(item, i) {
-            parameters.push(item + '=' + queryObject[item]);
-        })
-
-        return parameters.join('&')
-    }
-
     this.getChart = function(chartType) {
         var chart = null;
         charts.forEach(function(item, i) {
