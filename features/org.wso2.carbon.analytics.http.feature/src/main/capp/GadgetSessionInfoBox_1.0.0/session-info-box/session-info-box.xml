@@ -66,8 +66,10 @@
         <div id="canvas2">
             <div class="container-fluid session-count">
                 <div class="top row">
-                    <div class="col-xs-3 column">
+                    <div class="col-xs-12 column" style="padding-bottom:0;">
                         <small class="statistics-main">Sessions</small>
+                    </div>
+                    <div class="col-xs-3 column">
                         <i class="fa fa-group fa-3x"></i>
                     </div>
                     <div class="col-xs-6 column" style="height:40%;">

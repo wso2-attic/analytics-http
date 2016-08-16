@@ -66,8 +66,10 @@
         <div id="canvas2">
             <div class="container-fluid error-count">
                 <div class="top row">
-                    <div class="col-xs-4 column">
+                    <div class="col-xs-12 column" style="padding-bottom:0;">
                         <small class="statistics-main">Errors</small>
+                    </div>
+                    <div class="col-xs-4 column">
                         <i class="fa fa-times-circle fa-3x"></i>
                     </div>
                     <div class="col-xs-4 column" style="height:40%;">

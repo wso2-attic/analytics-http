@@ -358,8 +358,7 @@ ul li{list-style: none;}
 }
 
 .statistics-main{
-    font-size: 1.02em;
-    font-weight: bold;
+    font-size: 1.52em;
 }
 
 .statistics h2{margin-top: 0px;text-align: right; font-weight: 600;margin-bottom: 20px;}
@@ -368,7 +367,7 @@ ul li{list-style: none;}
     font-size: 3.5em;
     font-weight: 600;
     position: relative;
-    padding-top: 32px;
+    padding-top: 7px;
     display: block;
     text-align: center;
 }
