@@ -3641,7 +3641,7 @@
       }
     },
     {
-      "id": "operationsystem",
+      "id": "operatingsystem",
       "title": "Operating System",
       "layout": {
         "content": {
@@ -5452,7 +5452,7 @@
       "subordinates": []
     },
     {
-      "id": "operationsystem",
+      "id": "operatingsystem",
       "isanon": false,
       "ishidden": false,
       "title": "Operating System",
