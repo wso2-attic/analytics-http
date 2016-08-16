@@ -525,6 +525,12 @@
                     "description": "This publishes webapp names to be received by the subscriber"
                   }
                 },
+                "toolbarButtons":{
+                  "default":{
+                    "maximize": true,
+                    "configurations": false
+                  }
+                },
                 "styles": {
                   "no_heading": false,
                   "hide_gadget": false,
@@ -619,6 +625,12 @@
                   "chart-zoomed": {
                     "type": "date-range",
                     "description": "This notifies message generated in publisher"
+                  }
+                },
+                "toolbarButtons":{
+                  "default":{
+                    "maximize": true,
+                    "configurations": false
                   }
                 },
                 "styles": {
@@ -738,6 +750,12 @@
                     "description": "This notifies message generated in publisher"
                   }
                 },
+                "toolbarButtons":{
+                  "default":{
+                    "maximize": true,
+                    "configurations": false
+                  }
+                },
                 "styles": {
                   "no_heading": false,
                   "hide_gadget": false,
@@ -853,6 +871,12 @@
                   "chart-zoomed": {
                     "type": "date-range",
                     "description": "This notifies message generated in publisher"
+                  }
+                },
+                "toolbarButtons":{
+                  "default":{
+                    "maximize": true,
+                    "configurations": false
                   }
                 },
                 "styles": {
@@ -1166,6 +1190,12 @@
                     ]
                   }
                 },
+                "toolbarButtons":{
+                  "default":{
+                    "maximize": true,
+                    "configurations": false
+                  }
+                },
                 "styles": {
                   "no_heading": false,
                   "hide_gadget": false,
@@ -1261,6 +1291,12 @@
                         "event": "timeRangeChangePublisher"
                       }
                     ]
+                  }
+                },
+                "toolbarButtons":{
+                  "default":{
+                    "maximize": true,
+                    "configurations": false
                   }
                 },
                 "styles": {
@@ -1372,6 +1408,12 @@
                         "event": "timeRangeChangePublisher"
                       }
                     ]
+                  }
+                },
+                "toolbarButtons":{
+                  "default":{
+                    "maximize": true,
+                    "configurations": false
                   }
                 },
                 "styles": {
@@ -1822,6 +1864,12 @@
                     "description": "This notifies message generated in publisher"
                   }
                 },
+                "toolbarButtons":{
+                  "default":{
+                    "maximize": true,
+                    "configurations": false
+                  }
+                },
                 "styles": {
                   "no_heading": false,
                   "hide_gadget": false,
@@ -1937,6 +1985,12 @@
                   "chart-zoomed": {
                     "type": "date-range",
                     "description": "This notifies message generated in publisher"
+                  }
+                },
+                "toolbarButtons":{
+                  "default":{
+                    "maximize": true,
+                    "configurations": false
                   }
                 },
                 "styles": {
@@ -2056,6 +2110,12 @@
                     "description": "This notifies message generated in publisher"
                   }
                 },
+                "toolbarButtons":{
+                  "default":{
+                    "maximize": true,
+                    "configurations": false
+                  }
+                },
                 "styles": {
                   "no_heading": false,
                   "hide_gadget": false,
@@ -2167,6 +2227,12 @@
                     ]
                   }
                 },
+                "toolbarButtons":{
+                  "default":{
+                    "maximize": true,
+                    "configurations": false
+                  }
+                },
                 "styles": {
                   "no_heading": false,
                   "hide_gadget": false,
@@ -2274,6 +2340,12 @@
                         "event": "timeRangeChangePublisher"
                       }
                     ]
+                  }
+                },
+                "toolbarButtons":{
+                  "default":{
+                    "maximize": true,
+                    "configurations": false
                   }
                 },
                 "styles": {
@@ -2387,6 +2459,12 @@
                     ]
                   }
                 },
+                "toolbarButtons":{
+                  "default":{
+                    "maximize": true,
+                    "configurations": false
+                  }
+                },
                 "styles": {
                   "no_heading": false,
                   "hide_gadget": false,
@@ -2469,6 +2547,12 @@
                         "event": "timeRangeChangePublisher"
                       }
                     ]
+                  }
+                },
+                "toolbarButtons":{
+                  "default":{
+                    "maximize": true,
+                    "configurations": false
                   }
                 },
                 "styles": {
@@ -2568,6 +2652,12 @@
                     ]
                   }
                 },
+                "toolbarButtons":{
+                  "default":{
+                    "maximize": true,
+                    "configurations": false
+                  }
+                },
                 "styles": {
                   "no_heading": false,
                   "hide_gadget": false,
@@ -2663,6 +2753,12 @@
                         "event": "timeRangeChangePublisher"
                       }
                     ]
+                  }
+                },
+                "toolbarButtons":{
+                  "default":{
+                    "maximize": true,
+                    "configurations": false
                   }
                 },
                 "styles": {
@@ -2849,6 +2945,12 @@
                         "event": "timeRangeChangePublisher"
                       }
                     ]
+                  }
+                },
+                "toolbarButtons":{
+                  "default":{
+                    "maximize": true,
+                    "configurations": false
                   }
                 },
                 "styles": {
@@ -3062,6 +3164,12 @@
                         "event": "timeRangeChangePublisher"
                       }
                     ]
+                  }
+                },
+                "toolbarButtons":{
+                  "default":{
+                    "maximize": true,
+                    "configurations": false
                   }
                 },
                 "styles": {
@@ -3355,6 +3463,12 @@
                     ]
                   }
                 },
+                "toolbarButtons":{
+                  "default":{
+                    "maximize": true,
+                    "configurations": false
+                  }
+                },
                 "styles": {
                   "no_heading": true,
                   "hide_gadget": false,
@@ -3403,6 +3517,12 @@
                     "type": "message",
                     "description": "This listens to  message received by the subscriber",
                     "on": []
+                  }
+                },
+                "toolbarButtons":{
+                  "default":{
+                    "maximize": true,
+                    "configurations": false
                   }
                 },
                 "styles": {
@@ -3668,6 +3788,12 @@
                     ]
                   }
                 },
+                "toolbarButtons":{
+                  "default":{
+                    "maximize": true,
+                    "configurations": false
+                  }
+                },
                 "styles": {
                   "no_heading": true,
                   "hide_gadget": false,
@@ -3721,6 +3847,12 @@
                         "event": "timeRangeChangePublisher"
                       }
                     ]
+                  }
+                },
+                "toolbarButtons":{
+                  "default":{
+                    "maximize": true,
+                    "configurations": false
                   }
                 },
                 "styles": {
@@ -3916,6 +4048,12 @@
                     ]
                   }
                 },
+                "toolbarButtons":{
+                  "default":{
+                    "maximize": true,
+                    "configurations": false
+                  }
+                },
                 "styles": {
                   "no_heading": true,
                   "hide_gadget": false,
@@ -4039,6 +4177,12 @@
                         "event": "timeRangeChangePublisher"
                       }
                     ]
+                  }
+                },
+                "toolbarButtons":{
+                  "default":{
+                    "maximize": true,
+                    "configurations": false
                   }
                 },
                 "styles": {
@@ -4304,6 +4448,12 @@
                     ]
                   }
                 },
+                "toolbarButtons":{
+                  "default":{
+                    "maximize": true,
+                    "configurations": false
+                  }
+                },
                 "styles": {
                   "no_heading": false,
                   "hide_gadget": false,
@@ -4357,6 +4507,12 @@
                         "event": "timeRangeChangePublisher"
                       }
                     ]
+                  }
+                },
+                "toolbarButtons":{
+                  "default":{
+                    "maximize": true,
+                    "configurations": false
                   }
                 },
                 "styles": {
@@ -4460,6 +4616,12 @@
                   "timeRangeChangeSubscriber": {
                     "type": "message",
                     "description": "This listens to  message received by the subscriber"
+                  }
+                },
+                "toolbarButtons":{
+                  "default":{
+                    "maximize": true,
+                    "configurations": false
                   }
                 },
                 "styles": {
@@ -4726,6 +4888,12 @@
                     "on": []
                   }
                 },
+                "toolbarButtons":{
+                  "default":{
+                    "maximize": true,
+                    "configurations": false
+                  }
+                },
                 "styles": {
                   "no_heading": false,
                   "hide_gadget": false,
@@ -4835,6 +5003,12 @@
                         "event": "timeRangeChangePublisher"
                       }
                     ]
+                  }
+                },
+                "toolbarButtons":{
+                  "default":{
+                    "maximize": true,
+                    "configurations": false
                   }
                 },
                 "styles": {
@@ -5058,6 +5232,12 @@
                     ]
                   }
                 },
+                "toolbarButtons":{
+                  "default":{
+                    "maximize": true,
+                    "configurations": false
+                  }
+                },
                 "styles": {
                   "no_heading": false,
                   "hide_gadget": false,
@@ -5153,6 +5333,12 @@
                         "event": "timeRangeChangePublisher"
                       }
                     ]
+                  }
+                },
+                "toolbarButtons":{
+                  "default":{
+                    "maximize": true,
+                    "configurations": false
                   }
                 },
                 "styles": {

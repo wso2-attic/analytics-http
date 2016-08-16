@@ -17,5 +17,11 @@
       "type": "webappName",
       "description": "This publishes webapp names to be received by the subscriber"
     }
+  },
+  "toolbarButtons":{
+    "default":{
+      "maximize": true,
+      "configurations": false
+    }
   }
 }
