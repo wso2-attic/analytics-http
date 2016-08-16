@@ -525,11 +525,13 @@
                     "description": "This publishes webapp names to be received by the subscriber"
                   }
                 },
-                "toolbarButtons":{
-                  "default":{
+                "toolbarButtons": {
+                  "default": {
                     "maximize": true,
                     "configurations": false
-                  }
+                  },
+                  "custom": [],
+                  "isDropdownView": false
                 },
                 "styles": {
                   "no_heading": false,
@@ -627,11 +629,13 @@
                     "description": "This notifies message generated in publisher"
                   }
                 },
-                "toolbarButtons":{
-                  "default":{
+                "toolbarButtons": {
+                  "default": {
                     "maximize": true,
                     "configurations": false
-                  }
+                  },
+                  "custom": [],
+                  "isDropdownView": false
                 },
                 "styles": {
                   "no_heading": false,
@@ -750,11 +754,13 @@
                     "description": "This notifies message generated in publisher"
                   }
                 },
-                "toolbarButtons":{
-                  "default":{
+                "toolbarButtons": {
+                  "default": {
                     "maximize": true,
                     "configurations": false
-                  }
+                  },
+                  "custom": [],
+                  "isDropdownView": false
                 },
                 "styles": {
                   "no_heading": false,
@@ -873,11 +879,13 @@
                     "description": "This notifies message generated in publisher"
                   }
                 },
-                "toolbarButtons":{
-                  "default":{
+                "toolbarButtons": {
+                  "default": {
                     "maximize": true,
                     "configurations": false
-                  }
+                  },
+                  "custom": [],
+                  "isDropdownView": false
                 },
                 "styles": {
                   "no_heading": false,
@@ -1190,11 +1198,13 @@
                     ]
                   }
                 },
-                "toolbarButtons":{
-                  "default":{
+                "toolbarButtons": {
+                  "default": {
                     "maximize": true,
                     "configurations": false
-                  }
+                  },
+                  "custom": [],
+                  "isDropdownView": false
                 },
                 "styles": {
                   "no_heading": false,
@@ -1258,6 +1268,20 @@
                     "value": "browser",
                     "options": [],
                     "required": false
+                  },
+                  "targetPage": {
+                    "type": "STRING",
+                    "title": "Page to navigate to once clicked on the chart",
+                    "value": "browser",
+                    "options": [],
+                    "required": false
+                  },
+                  "categoryName": {
+                    "type": "STRING",
+                    "title": "Name of the category",
+                    "value": "Browser",
+                    "options": [],
+                    "required": false
                   }
                 },
                 "locale_titles": {
@@ -1293,11 +1317,13 @@
                     ]
                   }
                 },
-                "toolbarButtons":{
-                  "default":{
+                "toolbarButtons": {
+                  "default": {
                     "maximize": true,
                     "configurations": false
-                  }
+                  },
+                  "custom": [],
+                  "isDropdownView": false
                 },
                 "styles": {
                   "no_heading": false,
@@ -1375,6 +1401,13 @@
                     "value": "#438CAD",
                     "options": [],
                     "required": false
+                  },
+                  "targetPage": {
+                    "type": "STRING",
+                    "title": "Page to navigate to once clicked on the chart",
+                    "value": "httpresponsecode",
+                    "options": [],
+                    "required": false
                   }
                 },
                 "locale_titles": {
@@ -1410,11 +1443,13 @@
                     ]
                   }
                 },
-                "toolbarButtons":{
-                  "default":{
+                "toolbarButtons": {
+                  "default": {
                     "maximize": true,
                     "configurations": false
-                  }
+                  },
+                  "custom": [],
+                  "isDropdownView": false
                 },
                 "styles": {
                   "no_heading": false,
@@ -1864,11 +1899,13 @@
                     "description": "This notifies message generated in publisher"
                   }
                 },
-                "toolbarButtons":{
-                  "default":{
+                "toolbarButtons": {
+                  "default": {
                     "maximize": true,
                     "configurations": false
-                  }
+                  },
+                  "custom": [],
+                  "isDropdownView": false
                 },
                 "styles": {
                   "no_heading": false,
@@ -1987,11 +2024,13 @@
                     "description": "This notifies message generated in publisher"
                   }
                 },
-                "toolbarButtons":{
-                  "default":{
+                "toolbarButtons": {
+                  "default": {
                     "maximize": true,
                     "configurations": false
-                  }
+                  },
+                  "custom": [],
+                  "isDropdownView": false
                 },
                 "styles": {
                   "no_heading": false,
@@ -2110,11 +2149,13 @@
                     "description": "This notifies message generated in publisher"
                   }
                 },
-                "toolbarButtons":{
-                  "default":{
+                "toolbarButtons": {
+                  "default": {
                     "maximize": true,
                     "configurations": false
-                  }
+                  },
+                  "custom": [],
+                  "isDropdownView": false
                 },
                 "styles": {
                   "no_heading": false,
@@ -2227,11 +2268,13 @@
                     ]
                   }
                 },
-                "toolbarButtons":{
-                  "default":{
+                "toolbarButtons": {
+                  "default": {
                     "maximize": true,
                     "configurations": false
-                  }
+                  },
+                  "custom": [],
+                  "isDropdownView": false
                 },
                 "styles": {
                   "no_heading": false,
@@ -2309,6 +2352,13 @@
                     "value": "#5CB85C",
                     "options": [],
                     "required": false
+                  },
+                  "targetPage": {
+                    "type": "STRING",
+                    "title": "Page to navigate to once clicked on the chart",
+                    "value": "language",
+                    "options": [],
+                    "required": false
                   }
                 },
                 "locale_titles": {
@@ -2342,8 +2392,8 @@
                     ]
                   }
                 },
-                "toolbarButtons":{
-                  "default":{
+                "toolbarButtons": {
+                  "default": {
                     "maximize": true,
                     "configurations": false
                   }
@@ -2459,11 +2509,13 @@
                     ]
                   }
                 },
-                "toolbarButtons":{
-                  "default":{
+                "toolbarButtons": {
+                  "default": {
                     "maximize": true,
                     "configurations": false
-                  }
+                  },
+                  "custom": [],
+                  "isDropdownView": false
                 },
                 "styles": {
                   "no_heading": false,
@@ -2549,11 +2601,13 @@
                     ]
                   }
                 },
-                "toolbarButtons":{
-                  "default":{
+                "toolbarButtons": {
+                  "default": {
                     "maximize": true,
                     "configurations": false
-                  }
+                  },
+                  "custom": [],
+                  "isDropdownView": false
                 },
                 "styles": {
                   "no_heading": false,
@@ -2617,6 +2671,20 @@
                     "value": "operating-system",
                     "options": [],
                     "required": false
+                  },
+                  "targetPage": {
+                    "type": "STRING",
+                    "title": "Page to navigate to once clicked on the chart",
+                    "value": "operatingsystem",
+                    "options": [],
+                    "required": false
+                  },
+                  "categoryName": {
+                    "type": "STRING",
+                    "title": "Name of the category",
+                    "value": "Operating System",
+                    "options": [],
+                    "required": false
                   }
                 },
                 "locale_titles": {
@@ -2652,11 +2720,13 @@
                     ]
                   }
                 },
-                "toolbarButtons":{
-                  "default":{
+                "toolbarButtons": {
+                  "default": {
                     "maximize": true,
                     "configurations": false
-                  }
+                  },
+                  "custom": [],
+                  "isDropdownView": false
                 },
                 "styles": {
                   "no_heading": false,
@@ -2720,6 +2790,20 @@
                     "value": "device-type",
                     "options": [],
                     "required": false
+                  },
+                  "targetPage": {
+                    "type": "STRING",
+                    "title": "Page to navigate to once clicked on the chart",
+                    "value": "devicetype",
+                    "options": [],
+                    "required": false
+                  },
+                  "categoryName": {
+                    "type": "STRING",
+                    "title": "Name of the category",
+                    "value": "Device Type",
+                    "options": [],
+                    "required": false
                   }
                 },
                 "locale_titles": {
@@ -2755,11 +2839,13 @@
                     ]
                   }
                 },
-                "toolbarButtons":{
-                  "default":{
+                "toolbarButtons": {
+                  "default": {
                     "maximize": true,
                     "configurations": false
-                  }
+                  },
+                  "custom": [],
+                  "isDropdownView": false
                 },
                 "styles": {
                   "no_heading": false,
@@ -2821,6 +2907,13 @@
                     "type": "STRING",
                     "title": "App Stat Type",
                     "value": "country",
+                    "options": [],
+                    "required": false
+                  },
+                  "targetPage": {
+                    "type": "STRING",
+                    "title": "Page to navigate to once clicked on the chart",
+                    "value": "geolocation",
                     "options": [],
                     "required": false
                   }
@@ -2947,8 +3040,8 @@
                     ]
                   }
                 },
-                "toolbarButtons":{
-                  "default":{
+                "toolbarButtons": {
+                  "default": {
                     "maximize": true,
                     "configurations": false
                   }
@@ -3166,8 +3259,8 @@
                     ]
                   }
                 },
-                "toolbarButtons":{
-                  "default":{
+                "toolbarButtons": {
+                  "default": {
                     "maximize": true,
                     "configurations": false
                   }
@@ -3463,8 +3556,8 @@
                     ]
                   }
                 },
-                "toolbarButtons":{
-                  "default":{
+                "toolbarButtons": {
+                  "default": {
                     "maximize": true,
                     "configurations": false
                   }
@@ -3519,8 +3612,8 @@
                     "on": []
                   }
                 },
-                "toolbarButtons":{
-                  "default":{
+                "toolbarButtons": {
+                  "default": {
                     "maximize": true,
                     "configurations": false
                   }
@@ -3585,6 +3678,20 @@
                     "type": "STRING",
                     "title": "App Stat Type",
                     "value": "browser",
+                    "options": [],
+                    "required": false
+                  },
+                  "targetPage": {
+                    "type": "STRING",
+                    "title": "Page to navigate to once clicked on the chart",
+                    "value": "browser",
+                    "options": [],
+                    "required": false
+                  },
+                  "categoryName": {
+                    "type": "STRING",
+                    "title": "Name of the category",
+                    "value": "Browser",
                     "options": [],
                     "required": false
                   }
@@ -3788,11 +3895,13 @@
                     ]
                   }
                 },
-                "toolbarButtons":{
-                  "default":{
+                "toolbarButtons": {
+                  "default": {
                     "maximize": true,
                     "configurations": false
-                  }
+                  },
+                  "custom": [],
+                  "isDropdownView": false
                 },
                 "styles": {
                   "no_heading": true,
@@ -3849,11 +3958,13 @@
                     ]
                   }
                 },
-                "toolbarButtons":{
-                  "default":{
+                "toolbarButtons": {
+                  "default": {
                     "maximize": true,
                     "configurations": false
-                  }
+                  },
+                  "custom": [],
+                  "isDropdownView": false
                 },
                 "styles": {
                   "no_heading": false,
@@ -3915,6 +4026,20 @@
                     "type": "STRING",
                     "title": "App Stat Type",
                     "value": "operating-system",
+                    "options": [],
+                    "required": false
+                  },
+                  "targetPage": {
+                    "type": "STRING",
+                    "title": "Page to navigate to once clicked on the chart",
+                    "value": "operatingsystem",
+                    "options": [],
+                    "required": false
+                  },
+                  "categoryName": {
+                    "type": "STRING",
+                    "title": "Name of the category",
+                    "value": "Operating System",
                     "options": [],
                     "required": false
                   }
@@ -4048,8 +4173,8 @@
                     ]
                   }
                 },
-                "toolbarButtons":{
-                  "default":{
+                "toolbarButtons": {
+                  "default": {
                     "maximize": true,
                     "configurations": false
                   }
@@ -4179,8 +4304,8 @@
                     ]
                   }
                 },
-                "toolbarButtons":{
-                  "default":{
+                "toolbarButtons": {
+                  "default": {
                     "maximize": true,
                     "configurations": false
                   }
@@ -4245,6 +4370,20 @@
                     "type": "STRING",
                     "title": "App Stat Type",
                     "value": "device-type",
+                    "options": [],
+                    "required": false
+                  },
+                  "targetPage": {
+                    "type": "STRING",
+                    "title": "Page to navigate to once clicked on the chart",
+                    "value": "devicetype",
+                    "options": [],
+                    "required": false
+                  },
+                  "categoryName": {
+                    "type": "STRING",
+                    "title": "Name of the category",
+                    "value": "Device Type",
                     "options": [],
                     "required": false
                   }
@@ -4448,8 +4587,8 @@
                     ]
                   }
                 },
-                "toolbarButtons":{
-                  "default":{
+                "toolbarButtons": {
+                  "default": {
                     "maximize": true,
                     "configurations": false
                   }
@@ -4509,8 +4648,8 @@
                     ]
                   }
                 },
-                "toolbarButtons":{
-                  "default":{
+                "toolbarButtons": {
+                  "default": {
                     "maximize": true,
                     "configurations": false
                   }
@@ -4591,6 +4730,13 @@
                     "value": "#5CB85C",
                     "options": [],
                     "required": false
+                  },
+                  "targetPage": {
+                    "type": "STRING",
+                    "title": "Page to navigate to once clicked on the chart",
+                    "value": "language",
+                    "options": [],
+                    "required": false
                   }
                 },
                 "locale_titles": {
@@ -4618,8 +4764,8 @@
                     "description": "This listens to  message received by the subscriber"
                   }
                 },
-                "toolbarButtons":{
-                  "default":{
+                "toolbarButtons": {
+                  "default": {
                     "maximize": true,
                     "configurations": false
                   }
@@ -4888,8 +5034,8 @@
                     "on": []
                   }
                 },
-                "toolbarButtons":{
-                  "default":{
+                "toolbarButtons": {
+                  "default": {
                     "maximize": true,
                     "configurations": false
                   }
@@ -4970,6 +5116,13 @@
                     "value": "#438CAD",
                     "options": [],
                     "required": false
+                  },
+                  "targetPage": {
+                    "type": "STRING",
+                    "title": "Page to navigate to once clicked on the chart",
+                    "value": "httpresponsecode",
+                    "options": [],
+                    "required": false
                   }
                 },
                 "locale_titles": {
@@ -5005,8 +5158,8 @@
                     ]
                   }
                 },
-                "toolbarButtons":{
-                  "default":{
+                "toolbarButtons": {
+                  "default": {
                     "maximize": true,
                     "configurations": false
                   }
@@ -5232,8 +5385,8 @@
                     ]
                   }
                 },
-                "toolbarButtons":{
-                  "default":{
+                "toolbarButtons": {
+                  "default": {
                     "maximize": true,
                     "configurations": false
                   }
@@ -5300,6 +5453,13 @@
                     "value": "country",
                     "options": [],
                     "required": false
+                  },
+                  "targetPage": {
+                    "type": "STRING",
+                    "title": "Page to navigate to once clicked on the chart",
+                    "value": "geolocation",
+                    "options": [],
+                    "required": false
                   }
                 },
                 "locale_titles": {
@@ -5335,8 +5495,8 @@
                     ]
                   }
                 },
-                "toolbarButtons":{
-                  "default":{
+                "toolbarButtons": {
+                  "default": {
                     "maximize": true,
                     "configurations": false
                   }
