@@ -223,7 +223,7 @@ function getInfoBoxSessionStat(conditions) {
     if (results != null) {
         results = JSON.parse(results)[0];
     }
-    output['title'] = 'Session';
+    output['title'] = 'Sessions';
 
     if (results != null && results['values']['SUM_' + SESSION_COUNT] != null) {
         results = results['values'];
