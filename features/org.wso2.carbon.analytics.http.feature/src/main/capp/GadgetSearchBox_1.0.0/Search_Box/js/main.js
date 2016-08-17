@@ -37,12 +37,13 @@ $(function() {
         }).on('typeahead:selected', function(evt, item) {
 
             var href = parent.window.location.href;
-            if(qs[PARAM_ID]) {
+            if (jQuery.isEmptyObject(qs)) {
+                href = href + "?" + PARAM_ID + "=" + item;
+            } else if (qs[PARAM_ID]) {
                 href = href.replace(new RegExp('(webappName=)[^\\&]+'), '$1' + item)
             } else {
-                href = href + "?" + PARAM_ID + "=" + item;
+                href = href + "&" + PARAM_ID + "=" + item;
             }
-            console.log(href);
             parent.window.location = href;
         }).on('typeahead:open', function(evt, item) {
             wso2.gadgets.controls.resizeGadget({
