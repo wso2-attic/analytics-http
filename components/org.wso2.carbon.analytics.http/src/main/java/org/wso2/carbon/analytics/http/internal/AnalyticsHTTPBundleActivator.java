@@ -22,6 +22,7 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.osgi.framework.BundleActivator;
 import org.osgi.framework.BundleContext;
+import org.wso2.carbon.analytics.http.udf.GeoLocationResolverUDF;
 import org.wso2.carbon.analytics.http.udf.UserAgentSplitterUDF;
 import org.wso2.carbon.analytics.spark.core.udf.CarbonUDF;
 
@@ -37,6 +38,7 @@ public class AnalyticsHTTPBundleActivator implements BundleActivator {
 
         try {
             bundleContext.registerService(CarbonUDF.class, new UserAgentSplitterUDF(), null);
+            bundleContext.registerService(CarbonUDF.class, new GeoLocationResolverUDF(), null);
         } catch (Throwable e) {
             log.error("Error in starting analytics http bundle: " + e.getMessage(), e);
         }
