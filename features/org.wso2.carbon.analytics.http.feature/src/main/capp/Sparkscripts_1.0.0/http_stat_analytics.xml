@@ -20,7 +20,8 @@
         day_facet FACET -i,
         hour_facet FACET -i,
         webappName_facet FACET -i",
-        primaryKeys "webappName,serverName,time"
+        primaryKeys "webappName,serverName,time",
+        incrementalParams "REQUESTS_SUMMARY_PER_MINUTE, MINUTE"
         );
         INSERT INTO TABLE REQUESTS_SUMMARY_PER_MINUTE SELECT
         appName as webappName,
@@ -40,6 +41,8 @@
         facet1(substring(cast(first(timestamp)/1000 as timestamp),0,13)),
         facet1(appName)
         FROM HttpStat GROUP BY appName, appType,meta_server_name, substring(cast(timestamp/1000 as timestamp),0,16);
+        INCREMENTAL_TABLE_COMMIT REQUESTS_SUMMARY_PER_MINUTE;
+
         CREATE TEMPORARY TABLE HTTP_STATUS USING CarbonAnalytics OPTIONS (tableName "HTTP_STATUS", schema "
         webappName STRING -i,
         serverName STRING,
@@ -48,7 +51,8 @@
         time long -i,
         all_facet FACET -i,
         responseHttpStatusCode_facet FACET -i",
-        primaryKeys "webappName,serverName,responseHttpStatusCode,time"
+        primaryKeys "webappName,serverName,responseHttpStatusCode,time",
+        incrementalParams "HTTP_STATUS, MINUTE"
         );
         INSERT INTO TABLE HTTP_STATUS SELECT
         appName as webappName,
@@ -59,6 +63,8 @@
         facet1(1),
         facet1(responseHttpStatusCode)
         FROM HttpStat GROUP BY appName, meta_server_name, responseHttpStatusCode, substring(cast(timestamp/1000 as timestamp),0,16);
+        INCREMENTAL_TABLE_COMMIT HTTP_STATUS;
+
         CREATE TEMPORARY TABLE LANGUAGE USING CarbonAnalytics OPTIONS (tableName "LANGUAGE", schema "
         webappName STRING -i,
         serverName STRING,
@@ -67,7 +73,8 @@
         time long -i,
         all_facet FACET -i,
         language_facet FACET -i",
-        primaryKeys "webappName,serverName,language,time"
+        primaryKeys "webappName,serverName,language,time",
+        incrementalParams "LANGUAGE, MINUTE"
         );
         INSERT INTO TABLE LANGUAGE SELECT
         appName as webappName,
@@ -80,6 +87,8 @@
         FROM HttpStat
         WHERE lower(appType)='webapp'
         GROUP BY appName, meta_server_name, language, substring(cast(timestamp/1000 as timestamp),0,16);
+        INCREMENTAL_TABLE_COMMIT LANGUAGE;
+
         CREATE TEMPORARY TABLE USER_AGENT_FAMILY USING CarbonAnalytics OPTIONS (tableName "USER_AGENT_FAMILY", schema "
         webappName STRING -i,
         serverName STRING,
@@ -88,7 +97,8 @@
         time long -i,
         all_facet FACET -i,
         userAgentFamily_facet FACET -i",
-        primaryKeys "webappName,serverName,userAgentFamily,time"
+        primaryKeys "webappName,serverName,userAgentFamily,time",
+        incrementalParams "USER_AGENT_FAMILY, MINUTE"
         );
         INSERT INTO TABLE USER_AGENT_FAMILY SELECT
         appName as webappName,
@@ -101,6 +111,8 @@
         FROM HttpStat
         WHERE lower(appType)='webapp'
         GROUP BY appName, meta_server_name,extractUserAgentFamily(userAgent) , substring(cast(timestamp/1000 as timestamp),0,16);
+        INCREMENTAL_TABLE_COMMIT USER_AGENT_FAMILY;
+
         CREATE TEMPORARY TABLE OPERATING_SYSTEM USING CarbonAnalytics OPTIONS (tableName "OPERATING_SYSTEM", schema "
         webappName STRING -i,
         serverName STRING,
@@ -109,7 +121,8 @@
         time long -i,
         all_facet FACET -i,
         operatingSystem_facet FACET -i",
-        primaryKeys "webappName,serverName,operatingSystem,time"
+        primaryKeys "webappName,serverName,operatingSystem,time",
+        incrementalParams "OPERATING_SYSTEM, MINUTE"
         );
         INSERT INTO TABLE OPERATING_SYSTEM SELECT
         appName as webappName,
@@ -122,6 +135,8 @@
         FROM HttpStat
         WHERE lower(appType)='webapp'
         GROUP BY appName, meta_server_name,extractOSFamily(userAgent) , substring(cast(timestamp/1000 as timestamp),0,16);
+        INCREMENTAL_TABLE_COMMIT OPERATING_SYSTEM;
+
         CREATE TEMPORARY TABLE DEVICE_TYPE USING CarbonAnalytics OPTIONS (tableName "DEVICE_TYPE", schema "
         webappName STRING -i,
         serverName STRING,
@@ -130,7 +145,8 @@
         time long -i,
         all_facet FACET -i,
         deviceCategory_facet FACET -i",
-        primaryKeys "webappName,serverName,deviceCategory,time"
+        primaryKeys "webappName,serverName,deviceCategory,time",
+        incrementalParams "DEVICE_TYPE, MINUTE"
         );
         INSERT INTO TABLE DEVICE_TYPE SELECT
         appName as webappName,
@@ -143,6 +159,8 @@
         FROM HttpStat
         WHERE lower(appType)='webapp'
         GROUP BY appName, meta_server_name,extractDeviceFamily(userAgent) , substring(cast(timestamp/1000 as timestamp),0,16);
+        INCREMENTAL_TABLE_COMMIT DEVICE_TYPE;
+
         CREATE TEMPORARY TABLE COUNTRY USING CarbonAnalytics OPTIONS (tableName "COUNTRY", schema "
         webappName STRING -i,
         serverName STRING,
@@ -151,8 +169,10 @@
         time long -i,
         all_facet FACET -i,
         country_facet FACET -i",
-        primaryKeys "webappName,serverName,country,time"
+        primaryKeys "webappName,serverName,country,time",
+        incrementalParams "COUNTRY, MINUTE"
         );
+
         CREATE TEMPORARY TABLE REFERRER USING CarbonAnalytics OPTIONS (tableName "REFERRER", schema "
         webappName STRING -i,
         serverName STRING,
@@ -161,7 +181,8 @@
         time long -i,
         all_facet FACET -i,
         referrer_facet FACET -i",
-        primaryKeys "webappName,serverName,referrer,time"
+        primaryKeys "webappName,serverName,referrer,time",
+        incrementalParams "REFERRER, MINUTE"
         );
         INSERT INTO TABLE REFERRER SELECT
         appName as webappName,
@@ -174,6 +195,8 @@
         FROM HttpStat
         WHERE lower(appType)='webapp'
         GROUP BY appName, meta_server_name,referrer, substring(cast(timestamp/1000 as timestamp),0,16);
+        INCREMENTAL_TABLE_COMMIT REFERRER;
+
         CREATE TEMPORARY TABLE WEBAPP_CONTEXT USING CarbonAnalytics OPTIONS (tableName "WEBAPP_CONTEXT", schema "
         webappName STRING -i,
         serverName STRING,
@@ -182,7 +205,8 @@
         time long -i,
         all_facet FACET -i,
         webappcontext_facet FACET -i",
-        primaryKeys "webappName,serverName,webappcontext,time"
+        primaryKeys "webappName,serverName,webappcontext,time",
+        incrementalParams "WEBAPP_CONTEXT, MINUTE"
         );
         INSERT INTO TABLE WEBAPP_CONTEXT SELECT
         appName as webappName,
@@ -195,6 +219,7 @@
         FROM HttpStat
         WHERE lower(appType)='webapp'
         GROUP BY appName, meta_server_name,requestUri, substring(cast(timestamp/1000 as timestamp),0,16);
+        INCREMENTAL_TABLE_COMMIT WEBAPP_CONTEXT;
     </Script>
     <CronExpression>0 0/1 * * * ? *</CronExpression>
 
