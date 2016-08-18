@@ -2,7 +2,7 @@
 <Analytics>
     <Name>http-stat-analytics</Name>
     <Script>
-        CREATE TEMPORARY TABLE AsHttpStat USING CarbonAnalytics OPTIONS (tableName "ORG_WSO2_HTTP_STATS");
+        CREATE TEMPORARY TABLE HttpStat USING CarbonAnalytics OPTIONS (tableName "ORG_WSO2_HTTP_STATS");
         CREATE TEMPORARY TABLE REQUESTS_SUMMARY_PER_MINUTE USING CarbonAnalytics OPTIONS (tableName "REQUESTS_SUMMARY_PER_MINUTE", schema "
         webappName STRING -i,
         webappType STRING,
@@ -39,7 +39,7 @@
         facet1(substring(cast(first(timestamp)/1000 as timestamp),0,10)),
         facet1(substring(cast(first(timestamp)/1000 as timestamp),0,13)),
         facet1(appName)
-        FROM AsHttpStat GROUP BY appName, appType,meta_server_name, substring(cast(timestamp/1000 as timestamp),0,16);
+        FROM HttpStat GROUP BY appName, appType,meta_server_name, substring(cast(timestamp/1000 as timestamp),0,16);
         CREATE TEMPORARY TABLE HTTP_STATUS USING CarbonAnalytics OPTIONS (tableName "HTTP_STATUS", schema "
         webappName STRING -i,
         serverName STRING,
@@ -58,7 +58,7 @@
         cast(first(timestamp)/1000 as timestamp) as time,
         facet1(1),
         facet1(responseHttpStatusCode)
-        FROM AsHttpStat GROUP BY appName, meta_server_name, responseHttpStatusCode, substring(cast(timestamp/1000 as timestamp),0,16);
+        FROM HttpStat GROUP BY appName, meta_server_name, responseHttpStatusCode, substring(cast(timestamp/1000 as timestamp),0,16);
         CREATE TEMPORARY TABLE LANGUAGE USING CarbonAnalytics OPTIONS (tableName "LANGUAGE", schema "
         webappName STRING -i,
         serverName STRING,
@@ -77,7 +77,7 @@
         cast(first(timestamp)/1000 as timestamp) as time,
         facet1(1),
         facet1(language)
-        FROM AsHttpStat
+        FROM HttpStat
         WHERE lower(appType)='webapp'
         GROUP BY appName, meta_server_name, language, substring(cast(timestamp/1000 as timestamp),0,16);
         CREATE TEMPORARY TABLE USER_AGENT_FAMILY USING CarbonAnalytics OPTIONS (tableName "USER_AGENT_FAMILY", schema "
@@ -98,7 +98,7 @@
         cast(first(timestamp)/1000 as timestamp) as time,
         facet1(1),
         facet1(first(extractUserAgentFamily(userAgent)))
-        FROM AsHttpStat
+        FROM HttpStat
         WHERE lower(appType)='webapp'
         GROUP BY appName, meta_server_name,extractUserAgentFamily(userAgent) , substring(cast(timestamp/1000 as timestamp),0,16);
         CREATE TEMPORARY TABLE OPERATING_SYSTEM USING CarbonAnalytics OPTIONS (tableName "OPERATING_SYSTEM", schema "
@@ -119,7 +119,7 @@
         cast(first(timestamp)/1000 as timestamp) as time,
         facet1(1),
         facet1(first(extractOSFamily(userAgent)))
-        FROM AsHttpStat
+        FROM HttpStat
         WHERE lower(appType)='webapp'
         GROUP BY appName, meta_server_name,extractOSFamily(userAgent) , substring(cast(timestamp/1000 as timestamp),0,16);
         CREATE TEMPORARY TABLE DEVICE_TYPE USING CarbonAnalytics OPTIONS (tableName "DEVICE_TYPE", schema "
@@ -140,7 +140,7 @@
         cast(first(timestamp)/1000 as timestamp) as time,
         facet1(1),
         facet1(first(extractDeviceFamily(userAgent)))
-        FROM AsHttpStat
+        FROM HttpStat
         WHERE lower(appType)='webapp'
         GROUP BY appName, meta_server_name,extractDeviceFamily(userAgent) , substring(cast(timestamp/1000 as timestamp),0,16);
         CREATE TEMPORARY TABLE COUNTRY USING CarbonAnalytics OPTIONS (tableName "COUNTRY", schema "
@@ -171,7 +171,7 @@
         cast(first(timestamp)/1000 as timestamp) as time,
         facet1(1),
         facet1(referrer)
-        FROM AsHttpStat
+        FROM HttpStat
         WHERE lower(appType)='webapp'
         GROUP BY appName, meta_server_name,referrer, substring(cast(timestamp/1000 as timestamp),0,16);
         CREATE TEMPORARY TABLE WEBAPP_CONTEXT USING CarbonAnalytics OPTIONS (tableName "WEBAPP_CONTEXT", schema "
@@ -192,7 +192,7 @@
         cast(first(timestamp)/1000 as timestamp) as time,
         facet1(1),
         facet1(first(requestUri))
-        FROM AsHttpStat
+        FROM HttpStat
         WHERE lower(appType)='webapp'
         GROUP BY appName, meta_server_name,requestUri, substring(cast(timestamp/1000 as timestamp),0,16);
     </Script>
