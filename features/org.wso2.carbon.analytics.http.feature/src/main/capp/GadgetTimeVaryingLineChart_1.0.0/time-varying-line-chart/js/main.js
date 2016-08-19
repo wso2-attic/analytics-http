@@ -53,9 +53,10 @@ function onData(data) {
             charts: [{ type: "line", range: "true", y: yAxisLabel}],
             width: $('body').width(),
             height: $('body').height(),
-            padding: { "top": 20, "left": 50, "bottom": 50, "right": 20 },
+            padding: { "top": 20, "left": 60, "bottom": 55, "right": -30 },
             rangeColor: chartColor,
-            colorScale: [chartColor]
+            colorScale: [chartColor],
+            xAxisAngle: true
         };
 
         // sorting the results
