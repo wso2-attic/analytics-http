@@ -41,7 +41,8 @@ $(function() {
             dataType: "json",
             type: "GET"
         },
-        "order": [[ 1, "desc" ]]
+        "order": [[ 1, "desc" ]],
+        "scrollY": $('body').height() * .5
     });
 
     $('#tblMessages').on('error.dt', function ( e, settings, techNote, message ) {
