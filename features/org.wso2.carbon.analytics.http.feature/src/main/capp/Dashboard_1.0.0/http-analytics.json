@@ -5591,20 +5591,6 @@
       "subordinates": []
     },
     {
-      "id": "contextlist",
-      "isanon": false,
-      "ishidden": false,
-      "title": "Context List",
-      "subordinates": []
-    },
-    {
-      "id": "referrerlist",
-      "isanon": false,
-      "ishidden": false,
-      "title": "Referrer List",
-      "subordinates": []
-    },
-    {
       "id": "browser",
       "isanon": false,
       "ishidden": false,
@@ -5626,13 +5612,6 @@
       "subordinates": []
     },
     {
-      "id": "language",
-      "isanon": false,
-      "ishidden": false,
-      "title": "Language",
-      "subordinates": []
-    },
-    {
       "id": "httpresponsecode",
       "isanon": false,
       "ishidden": false,
@@ -5640,10 +5619,31 @@
       "subordinates": []
     },
     {
+      "id": "language",
+      "isanon": false,
+      "ishidden": false,
+      "title": "Language",
+      "subordinates": []
+    },
+    {
       "id": "geolocation",
       "isanon": false,
       "ishidden": false,
       "title": "Geo Location",
+      "subordinates": []
+    },
+    {
+      "id": "contextlist",
+      "isanon": false,
+      "ishidden": false,
+      "title": "Context List",
+      "subordinates": []
+    },
+    {
+      "id": "referrerlist",
+      "isanon": false,
+      "ishidden": false,
+      "title": "Referrer List",
       "subordinates": []
     }
   ],
