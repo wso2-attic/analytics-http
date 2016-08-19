@@ -48,8 +48,8 @@ function onData(data) {
 
         var chartConfig = {
             charts: [{ type: "arc", x: "Percentage", color: categoryName, mode: "donut"}],
-            padding: { top:10, right:200, bottom:10, left:10 },
-            width: $('body').width()-50,
+            padding: { top:10, right:50, bottom:10, left:10 },
+            width: $('body').width(),
             height: $('body').height(),
             legend: true,
             percentage: true,

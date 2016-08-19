@@ -51,8 +51,8 @@ var arc = function(dataTable, config) {
         }
       ]
     });
-
-      var scales =  [];
+      
+      var scales =  []; 
 
       if (config.colorDomain == -1) {
          config.colorDomain = {"data":  config.title, "field": this.metadata.names[config.color]};
@@ -60,20 +60,20 @@ var arc = function(dataTable, config) {
 
 
        var colorScale = {
-                    "name": "color",
-                    "type": "ordinal",
+                    "name": "color", 
+                    "type": "ordinal", 
                     "domain": config.colorDomain,
                     "range": config.colorScale
                       };
       scales.push(colorScale);
 
 
-      if (config.percentage &&
+      if (config.percentage && 
         (config.mode == "pie" || config.mode == "donut")) {
         marks.push(getPieText(config, this.metadata));
       } else if (config.percentage) {
         //Push complimentary value to fill the arc
-        dataTable.push(
+        dataTable.push(    
             {
           "name": "arc",
           "values": [{"type": "YES"}]
@@ -82,7 +82,7 @@ var arc = function(dataTable, config) {
       }
 
       marks.push(getPieMark(config, this.metadata));
-
+      
       var legendTitle = "Legend";
 
       if (config.title != "table") {
@@ -92,7 +92,7 @@ var arc = function(dataTable, config) {
       if (this.config.legend) {
          this.spec.legends = getLegend(this.config);
       }
-
+      
       this.spec.width = config.width;
       this.spec.height = config.height;
       this.spec.data = dataTable;
@@ -150,14 +150,14 @@ arc.prototype.insert = function(data) {
     for (i = 0; i < data.length; i++) {
           this.view.data(this.config.title)
            .update(
-            function(d) {
-              return d[color] == data[i][color];
-            },
-            x,
-            function(d) {
+            function(d) { 
+              return d[color] == data[i][color]; 
+            }, 
+            x, 
+            function(d) { 
               updated = true;
-              return data[i][x];
-            });
+              return data[i][x]; 
+            });  
         }
 
         if (updated == false) {
@@ -174,7 +174,7 @@ arc.prototype.getSpec = function() {
 
 function getPieMark(config, metadata){
         var innerRadius;
-        if (config.mode == "donut") {
+        if (config.mode == "donut") { 
           var innerRadius = config.height / 5 * ( 1 + config.innerRadius);
         } else if (config.mode == "pie") {
           var innerRadius = 0;
@@ -347,7 +347,7 @@ var area = function(dataTable, config) {
          signals = getRangeSignals(config, signals);
          marks = getRangeMark(config, marks);
       }
-
+      
       this.spec.width = config.width;
       this.spec.height = config.height;
       this.spec.axes = axes;
@@ -380,15 +380,15 @@ area.prototype.draw = function(div, callbacks) {
 area.prototype.insert = function(data) {
     //Removing events when max value is enabled
     if (this.config.maxLength != -1 && this.config.maxLength <  (this.view.data(this.config.title).values().length + data.length)) {
-        var removeFunction = (function(d) {
-          return d[this.metadata.names[this.config.x]] == oldData;
+        var removeFunction = (function(d) { 
+          return d[this.metadata.names[this.config.x]] == oldData; 
         }).bind(this);
 
         for (i = 0; i < data.length; i++) {
           var oldData = this.view.data(this.config.title).values()[i][this.metadata.names[this.config.x]];
-          this.view.data(this.config.title).remove(removeFunction);
+          this.view.data(this.config.title).remove(removeFunction);  
         }
-    }
+    } 
 
      this.view.data(this.config.title).insert(data);
      this.view.update();
@@ -513,7 +513,7 @@ var bar = function(dataTable, config) {
         xAxesType = "x";
         yAxesType = "y";
       }
-
+      
       if (config.color != -1) {
         var legendTitle = "Legend";
       if (config.title != "table") {
@@ -524,8 +524,8 @@ var bar = function(dataTable, config) {
           }
 
           var colorScale = {
-            "name": "color",
-            "type": "ordinal",
+            "name": "color", 
+            "type": "ordinal", 
             "domain": config.colorDomain,
             "range": config.colorScale
           };
@@ -555,7 +555,7 @@ var bar = function(dataTable, config) {
             yColumn = this.metadata.names[config.y];
             yDomain = config.title;
         }
-
+        
         if (this.config.legend) {
           this.spec.legends = getLegend(this.config);
         }
@@ -587,7 +587,7 @@ var bar = function(dataTable, config) {
           };
 
 
-
+      
       scales.push(xScale);
       scales.push(yScale);
 
@@ -645,7 +645,7 @@ var bar = function(dataTable, config) {
         }
 
 
-        dataTable.push(
+        dataTable.push(   
           {
             "name": "selectedPoints",
             "modify": [
@@ -732,7 +732,7 @@ bar.prototype.insert = function(data) {
             var isValueMatched = false;
             this.view.data(this.config.title).update(function(d) {
                     if (color == null) {
-                      return d[xAxis] == data[i][xAxis];
+                      return d[xAxis] == data[i][xAxis]; 
                     } else {
                       return d[xAxis] == data[i][xAxis] &&  d[color] == data[i][color];
                     }
@@ -779,7 +779,7 @@ bar.prototype.insert = function(data) {
             var isValueMatched = false;
             this.view.data(this.config.title).update(function(d) {
                   if (color == null) {
-                    return  d[xAxis] == data[i][xAxis];
+                    return  d[xAxis] == data[i][xAxis]; 
                   } else {
                     return  d[xAxis] == data[i][xAxis] &&  d[color] == data[i][color];
                   }
@@ -847,7 +847,7 @@ function getBarMark(config, metadata){
                     }
                   }
               };
-
+      
 
   return mark;
 }
@@ -861,9 +861,9 @@ function getStackBarMark(config, metadata){
         "from": {
           "data": config.title,
           "transform": [
-            { "type": "stack",
-              "groupby": [metadata.names[config.x]],
-              "sortby": [metadata.names[config.color]],
+            { "type": "stack", 
+              "groupby": [metadata.names[config.x]], 
+              "sortby": [metadata.names[config.color]], 
               "field":metadata.names[config.y]}
           ]
         },
@@ -890,9 +890,9 @@ function getStackBarMark(config, metadata){
         "from": {
           "data": config.title,
           "transform": [
-            { "type": "stack",
-              "groupby": [metadata.names[config.x]],
-              "sortby": [metadata.names[config.color]],
+            { "type": "stack", 
+              "groupby": [metadata.names[config.x]], 
+              "sortby": [metadata.names[config.color]], 
               "field":metadata.names[config.y]}
           ]
         },
@@ -914,7 +914,7 @@ function getStackBarMark(config, metadata){
   }
 
 
-
+      
 
   return mark;
 }
@@ -1029,7 +1029,7 @@ function calculateBarGap(config){
   return  -config.barGap * (xWidth/widthWeight);
 
 };var vizg = function(dataTable, config) {
-	dataTable = buildTable(dataTable);
+	dataTable = buildTable(dataTable); 
 	if (typeof config.charts !== "undefined" && config.charts.length == 1) {
 		//Set chart config properties for main
 		for (var property in config.charts[0]) {
@@ -1129,7 +1129,7 @@ var line = function(dataTable, config) {
          signals = getRangeSignals(config, signals);
          marks = getRangeMark(config, marks);
       }
-
+      
       this.spec.width = config.width;
       this.spec.height = config.height;
       this.spec.axes = axes;
@@ -1162,15 +1162,15 @@ line.prototype.draw = function(div, callbacks) {
 line.prototype.insert = function(data) {
     //Removing events when max value is enabled
     if (this.config.maxLength != -1 && this.config.maxLength <  (this.view.data(this.config.title).values().length + data.length)) {
-        var removeFunction = (function(d) {
-          return d[this.metadata.names[this.config.x]] == oldData;
+        var removeFunction = (function(d) { 
+          return d[this.metadata.names[this.config.x]] == oldData; 
         }).bind(this);
 
         for (i = 0; i < data.length; i++) {
           var oldData = this.view.data(this.config.title).values()[i][this.metadata.names[this.config.x]];
-          this.view.data(this.config.title).remove(removeFunction);
+          this.view.data(this.config.title).remove(removeFunction);  
         }
-    }
+    } 
 
      this.view.data(this.config.title).insert(data);
      this.view.update();
@@ -1320,6 +1320,49 @@ function getLineMark(config, metadata){
         "range":  config.colorScale
     };
 
+          if (config.highlight == "single" || config.highlight == "multi") {
+
+        var multiTest;
+
+        if (config.highlight == "multi") {
+          multiTest = "!multi";
+        } else {
+          multiTest = "multi";
+        }
+
+
+        dataTable.push(   
+          {
+            "name": "selectedPoints",
+            "modify": [
+              {"type": "clear", "test": multiTest},
+              {"type": "toggle", "signal": "clickedPoint", "field": "id"}
+            ]
+          });
+
+          signals.push(    {
+              "name": "clickedPoint",
+              "init": 0,
+              "verbose": true,
+              "streams": [{"type": "click", "expr": "datum._id"}]
+            },
+            {
+              "name": "multi",
+              "init": false,
+              "verbose": true,
+              "streams": [{"type": "click", "expr": "datum._id"}]
+            });
+
+         
+            marks[0].properties.update.fillOpacity = [
+            {
+              "test": "indata('selectedPoints', datum._id, 'id')",
+              "value": 1
+            },{"value":config.selectionOpacity}
+          ];
+  
+      }
+
     var scales =  [cScale];
 
     this.spec.width = config.width;
@@ -1330,6 +1373,7 @@ function getLineMark(config, metadata){
     this.spec.marks = marks;
     this.spec.predicates = predicates;
     this.spec.legends = legends;
+    this.spec.signals = signals;
 
 };
 
@@ -1590,7 +1634,7 @@ function loadGeoMapCodes(url){
             geoMapCodes = JSON.parse(xobj.responseText);
           }
     };
-    xobj.send(null);
+    xobj.send(null); 
 
     return geoMapCodes;
 }
@@ -1633,7 +1677,7 @@ number.prototype.draw = function(div) {
   var textContent = "";
 
   if (this.data != null && this.data.length != 0) {
-      textContent = this.data[this.data.length - 1][this.metadata.names[this.config.x]];
+      textContent = this.data[this.data.length - 1][this.metadata.names[this.config.x]];    
   }
 
   var divContent = "<p class='title" + contentId + "'>" + this.config.title+ "</p>"
@@ -1703,7 +1747,7 @@ number.prototype.insert = function(data) {
 
     marks.push(getScatterMark(config, this.metadata));
 
-    if (this.config.legend
+    if (this.config.legend 
         && this.metadata.types[config.color] != "linear") {
          this.spec.legends = getLegend(this.config);
     }
@@ -1734,7 +1778,7 @@ scatter.prototype.draw = function(div, callbacks) {
        }
 
     }).bind(this);
-
+    
     if(this.config.maxLength != -1){
         var dataset = this.spec.data[0].values;
         var maxValue = this.config.maxLength;
@@ -1946,7 +1990,7 @@ table.prototype.draw = function(div) {
 
       // set up the table header
       table.append('thead').attr("align", "center")
-          .append('tr')
+          .append('tr') 
           .selectAll('th')
               .data(this.config.columnTitles)
           .enter()
@@ -1960,8 +2004,8 @@ table.prototype.draw = function(div) {
       .html(function(column) {
           return column.charAt(0).toUpperCase() + column.substr(1);
       });
-
-
+  
+      
       };
 
 table.prototype.insert = function(data) {
@@ -1972,7 +2016,7 @@ table.prototype.insert = function(data) {
 table.prototype.setupData = function (dataset, config) {
     var data = [];
     var allColumns = this.metadata.names;
-
+    
     //Select specified columns from dataset
     for (var i = 0; i < dataset.length; i++) {
         var row = {};
@@ -2004,7 +2048,7 @@ table.prototype.setupData = function (dataset, config) {
             d3.select('#tableChart-'+config.title)
                   .selectAll('td')
                       .attr('bgcolor',
-                        function(d) {
+                        function(d) { 
                             var column = d.key  || d.column;
 
                                 var color;
@@ -2026,7 +2070,7 @@ table.prototype.setupData = function (dataset, config) {
                                       var colorDomain;
 
                                if (config.colorDomain == -1) {
-                                colorDomain = [d3.min(d3.select('#tableChart-'+config.title) .selectAll('tr') .data(), function(d) { return d[column]; }),
+                                colorDomain = [d3.min(d3.select('#tableChart-'+config.title) .selectAll('tr') .data(), function(d) { return d[column]; }), 
                                               d3.max(d3.select('#tableChart-'+config.title) .selectAll('tr') .data(), function(d) { return d[column]; })]
 
                                } else {
@@ -2043,24 +2087,24 @@ table.prototype.setupData = function (dataset, config) {
                                 var colorScale = d3.scale.ordinal()
                                                 .range(color)
                                                 .domain(colorDomain);
-                                return colorScale(d.value);
+                                return colorScale(d.value); 
 
                             } else if (config.color == "*" || column == allColumns[config.color]){
 
                                 var colorScale = d3.scale.linear()
                                                 .range(['#f2f2f2', color[colorIndex]])
-                                                .domain([d3.min(d3.select('#tableChart-'+config.title) .selectAll('tr') .data(), function(d) { return d[column]; }),
+                                                .domain([d3.min(d3.select('#tableChart-'+config.title) .selectAll('tr') .data(), function(d) { return d[column]; }), 
                                                          d3.max(d3.select('#tableChart-'+config.title) .selectAll('tr') .data(), function(d) { return d[column]; })]
                                                         );
-
-                                return colorScale(d.value);
+                                
+                                return colorScale(d.value); 
                             }
 
             });
     }
 
-
-
+                
+              
     entertd.append('span')
     var td = rows.selectAll('td')
     .style({"padding": "0px 10px 0px 10px"})
@@ -2069,19 +2113,19 @@ table.prototype.setupData = function (dataset, config) {
         .attr('class', function (d) { return d.key })
 
 
-
+    
 
     td.select('span')
         .html(function(d) {
             return d.value
         })
-    //Remove data items when it hits maxLength
+    //Remove data items when it hits maxLength 
     if (config.maxLength != -1 && d3.select('tbody').selectAll('tr').data().length > config.maxLength) {
           var allowedDataset = d3.select('tbody').selectAll('tr').data().slice(d3.select('tbody').selectAll('tr').data().length- config.maxLength, config.maxLength);
-          d3.select('tbody').selectAll('tr').data(allowedDataset,
-            function(d) {
-              return(d);
-            })
+          d3.select('tbody').selectAll('tr').data(allowedDataset, 
+            function(d) { 
+              return(d); 
+            })  
           .remove();
     }
 };var extend = function (defaults, options) {
@@ -2101,7 +2145,7 @@ table.prototype.setupData = function (dataset, config) {
 };
 
 function checkConfig(config, metadata){
-
+    
     if (config.color == null) {
 		config.color = -1;
 	} else if (config.color != "*"){
@@ -2119,14 +2163,14 @@ function checkConfig(config, metadata){
         mapType: -1,
         mode: "group",
         //color hex array or string: category10, 10c, category20, category20b, category20c
-        colorScale: "category10",
+        colorScale: "category10", 
         colorDomain: -1,
         maxLength: -1,
         markSize: 2,
         fillOpacity: 1,
         innerRadius:0,
         //string: canvas or svg
-        renderer: "svg",
+        renderer: "svg", 
         padding: {"top": 10, "left": 50, "bottom": 40, "right": 0},
         dateFormat: "%x %X",
         range:false,
@@ -2190,15 +2234,15 @@ function checkConfig(config, metadata){
 
 
     };
-
+    
     if (typeof vizgSettings != 'undefined'){
         defaults = extend(defaults, vizgSettings);
     }
 
     config = extend(defaults, config);
 
-    if (config.legend) {
-        config.padding.right = 60;
+    if (config.legend && config.padding.right < 60) {
+        config.padding.right += 60;
     }
 
     config.height = config.height  - (config.padding.top + config.padding.bottom);
@@ -2213,7 +2257,7 @@ function checkConfig(config, metadata){
 	  config.x = metadata.names.indexOf(config.x);
     config.y = metadata.names.indexOf(config.y);
     config.text = metadata.names.indexOf(config.text);
-
+    
     if (config.xScaleDomain == null) {
       config.xScaleDomain = {"data":  config.title, "field": metadata.names[config.x]};
     }
@@ -2221,7 +2265,7 @@ function checkConfig(config, metadata){
     if (config.yScaleDomain == null) {
       config.yScaleDomain = {"data":  config.title, "field": metadata.names[config.y]};
     }
-
+    
     return config;
 }
 
@@ -2251,7 +2295,7 @@ function buildData(data, metadata) {
 function getSymbolMark(config, metadata) {
 
   var fill;
-  if (config.color != -1) {
+  if (config.color != -1) { 
       fill =  {"scale": "color", "field": metadata.names[config.color]};
   } else {
       fill = {"value":config.markColor};
@@ -2300,7 +2344,7 @@ function getSymbolMark(config, metadata) {
             "fill": fill,
             "size": {"value": config.markSize},
             "fillOpacity": {"value": config.fillOpacity}
-          },
+          }, 
           "hover" : {
             "cursor": {"value": config.hoverCursor}
           }
@@ -2408,7 +2452,7 @@ function bindTooltip(div,markType,eventObj, config, metaData, keyList){
 };
 
 function createTooltip(div) {
-   document.getElementById(div.replace("#", "")).innerHTML = document.getElementById(div.replace("#", "")).innerHTML
+   document.getElementById(div.replace("#", "")).innerHTML = document.getElementById(div.replace("#", "")).innerHTML 
         + "<div id= "+div.replace("#", "")+"-tooltip class='chart-tooltip'></div>";
 }
 
@@ -2418,12 +2462,12 @@ function bindTooltip(div, view, config, metadata){
       if (item != null && item.mark.marktype == config.tooltip.type) {
         var row =  item.datum;
         if (item.datum != null && item.datum.a != null) {
-           row = item.datum.a;
+           row = item.datum.a; 
         }
 
         var tooltipDiv = document.getElementById(div.replace("#", "")+"-tooltip");
         var tooltipContent = "";
-
+    
         if (row[metadata.names[config.x]]!= null) {
           var content;
 
@@ -2439,9 +2483,9 @@ function bindTooltip(div, view, config, metadata){
               tooltipContent += "<b>"+ metadata.names[config.x] +"</b> : "+content+"<br/>" ;
 
             if (row[metadata.names[config.y]] != null) {
-                    tooltipContent += "<b>"+ metadata.names[config.y] + "</b> : "+row[metadata.names[config.y]]+"<br/>"
+                    tooltipContent += "<b>"+ metadata.names[config.y] + "</b> : "+row[metadata.names[config.y]]+"<br/>" 
                 }
-
+            
             } else {
                 //check all specified column and add them as tooltip content
                 for (var i = 0; i < config.tooltip.content.length; i++) {
@@ -2461,8 +2505,8 @@ function bindTooltip(div, view, config, metadata){
 
         }
 
-
-        }
+       
+        } 
 
 
         if (tooltipContent != "") {
@@ -2490,8 +2534,8 @@ function bindTooltip(div, view, config, metadata){
           if (e.clientY - (cumulativeOffset(document.getElementById(div.replace("#", ""))).top + 500) >  document.getElementById(div.replace("#", "")).offsetHeight) {
             tooltipDiv.style.top = (e.clientY - 400) + 'px';
           }
-
-        };
+        
+        }; 
       }
     })
     .on("mouseout", function(event, item) {
@@ -2518,7 +2562,7 @@ function cumulativeOffset(element) {
 
 function getXYAxes(config, xAxesType, xScale, yAxesType, yScale) {
     var xProp = {"ticks": {
-                   "stroke": {"value": config.xAxisColor},
+                   "stroke": {"value": config.xAxisColor}, 
                    "strokeWidth":{"value":config.xAxisStrokeSize}
                  },
                  "labels": {
@@ -2534,7 +2578,7 @@ function getXYAxes(config, xAxesType, xScale, yAxesType, yScale) {
                    "strokeWidth": {"value": config.xAxisSize}
                  }};
     var yProp =  {"ticks": {
-                   "stroke": {"value": config.yAxisColor},
+                   "stroke": {"value": config.yAxisColor}, 
                    "strokeWidth":{"value":config.yAxisStrokeSize}
                  },
                  "labels": {
@@ -2549,7 +2593,7 @@ function getXYAxes(config, xAxesType, xScale, yAxesType, yScale) {
                    "stroke": {"value": config.yAxisColor},
                    "strokeWidth": {"value": config.yAxisSize}
                  }};
-
+    
     if (config.xAxisAngle) {
         xProp.labels.angle = {"value": 45};
         xProp.labels.align = {"value": "left"};
@@ -2563,21 +2607,21 @@ function getXYAxes(config, xAxesType, xScale, yAxesType, yScale) {
     }
 
     var axes =  [
-      {
-        "type": xAxesType,
+      { 
+        "type": xAxesType, 
         "scale": xScale,
-        "grid": config.grid,
-        "format" : config.xFormat,
-        "ticks" : config.xTicks,
+        "grid": config.grid, 
+        "format" : config.xFormat, 
+        "ticks" : config.xTicks, 
         "title": config.xTitle,
         "properties": xProp
       },
       {
-        "type": yAxesType,
-        "scale": yScale,
-        "grid": config.grid,
-        "format" : config.yFormat,
-        "ticks" : config.yTicks,
+        "type": yAxesType, 
+        "scale": yScale, 
+        "grid": config.grid, 
+        "format" : config.yFormat, 
+        "ticks" : config.yTicks, 
         "title": config.yTitle,
         "properties": yProp
       }
@@ -2615,8 +2659,8 @@ function getRangeSignals(config, signals) {
     signals.push({
             "name": "range_start",
             "streams": [{
-              "type": "mousedown",
-              "expr": "eventX()",
+              "type": "mousedown", 
+              "expr": "eventX()", 
               "scale": {"name": "x", "invert": true}
             }]
           });
@@ -2706,7 +2750,7 @@ function drawChart(div, obj, callbacks) {
               }
           } else {
             obj.view.on(callbacks[i].type, callbacks[i].callback);
-          }
+          }          
         }
       }
     }).bind(obj);
@@ -2723,7 +2767,7 @@ var stack = function(dataTable, config) {
       spec.axes = [spec.axes[0]];
       spec.axes[0].grid = false;
 
-      spec.data.push(
+      spec.data.push(   
                 {
                   "name": "selectedPoints",
                   "modify": [
@@ -2768,13 +2812,14 @@ var stack = function(dataTable, config) {
 };
 
 stack.prototype.draw = function(div, callbacks) {
-       this.barChart.draw(div, callbacks);
+       this.barChart.draw(div, callbacks); 
 };
 
 stack.prototype.insert = function(data) {
-     this.barChart.insert(data);
+     this.barChart.insert(data); 
 };
 
 stack.prototype.getSpec = function() {
   return  this.barChart.getSpec();
 };
+
