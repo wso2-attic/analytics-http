@@ -104,9 +104,18 @@ document.body.onmouseup = function() {
     // div.innerHTML = "<p> Start : " + rangeStart + "</p>" + "<p> End : " + rangeEnd + "</p>";
 
     if((rangeStart) && (rangeEnd) && (rangeStart.toString() !== rangeEnd.toString())){
+    	var timeFrom = new Date(rangeStart).getTime();
+	var timeTo = new Date(rangeEnd).getTime();
+
+	if (timeFrom > timeTo) {
+		var temp = timeFrom;
+		timeFrom = timeTo;
+		timeTo = temp;
+	}
+
         var message = {
-            timeFrom: new Date(rangeStart).getTime(),
-            timeTo: new Date(rangeEnd).getTime(),
+            timeFrom: timeFrom,
+            timeTo: timeTo,
             timeUnit: "Custom"
         };
 
