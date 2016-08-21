@@ -43,7 +43,7 @@ var drawChart = function (data, options) {
                     y = item.datapoint[1];
 
 //                showTooltip(item.pageX, item.pageY,y,item.series.data[item.dataIndex][2]);
-//                showTooltip(item.pageX, item.pageY,item.series.data[item.dataIndex][2]);
+                showTooltip(item.pageX, item.pageY,item.series.data[item.dataIndex][2]);
             }
         } else {
             $("#tooltip").remove();
