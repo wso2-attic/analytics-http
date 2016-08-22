@@ -5031,14 +5031,21 @@
                   "timeRangeChangeSubscriber": {
                     "type": "message",
                     "description": "This listens to  message received by the subscriber",
-                    "on": []
+                    "on": [
+                      {
+                        "from": "Date_Range_Picker-0",
+                        "event": "timeRangeChangePublisher"
+                      }
+                    ]
                   }
                 },
                 "toolbarButtons": {
                   "default": {
                     "maximize": true,
                     "configurations": false
-                  }
+                  },
+                  "custom": [],
+                  "isDropdownView": false
                 },
                 "styles": {
                   "no_heading": false,
@@ -5162,7 +5169,9 @@
                   "default": {
                     "maximize": true,
                     "configurations": false
-                  }
+                  },
+                  "custom": [],
+                  "isDropdownView": false
                 },
                 "styles": {
                   "no_heading": false,
@@ -5661,6 +5670,5 @@
     "customBannerExists": false
   },
   "landing": "landing",
-  "isanon": false,
-  "defaultPriority": "5"
+  "isanon": false
 }
