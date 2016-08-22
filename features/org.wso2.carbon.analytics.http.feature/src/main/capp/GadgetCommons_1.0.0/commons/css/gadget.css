@@ -208,6 +208,10 @@ div.dataTables_processing {
     cursor: pointer;
 }
 
+.numericColumn {
+    text-align: right;
+}
+
 .dark .table.table-clickable > tbody > tr:hover > td {
     background-color: #353C48;
 }

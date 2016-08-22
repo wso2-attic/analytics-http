@@ -24,11 +24,11 @@ $(function() {
              '>',
         "processing": true,
         "serverSide": false,
-        "columns" : [
-                    { title: firstField },
-                    { title: "Number of requests" },
-                    { title: "Percentage" }
-        ],
+	"columnDefs" : [
+		{title: firstField, targets: [0]},
+		{title: "Number of requests", targets: [1], className: "numericColumn"},
+		{title: "Perentage", targets: [2], className: "numericColumn"}
+	],
         "ajax": {
             "url" : CONTEXT,
             "data" : function (d) {
