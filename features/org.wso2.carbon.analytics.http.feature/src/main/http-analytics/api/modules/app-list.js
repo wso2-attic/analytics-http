@@ -61,7 +61,7 @@ function matchPastStatWithApp(webappName, pastDataArray) {
 
 function getTableHeadings() {
     return [
-        'Application / Service',
+        'Applications / Services',
         'Type',
         {
             'parent': 'Average request count',
