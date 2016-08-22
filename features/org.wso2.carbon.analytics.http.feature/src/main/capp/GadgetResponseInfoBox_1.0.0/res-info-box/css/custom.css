@@ -602,3 +602,8 @@ small.measure-label {
     top: 17px;
     height: 60%;
 }
+
+#tooltip {
+     background-color: black;
+}
+

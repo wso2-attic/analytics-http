@@ -113,7 +113,7 @@ function getDataForInfoBoxBarChart(type, conditions) {
         var tempData = [];
         tempData[0] = i;
         tempData[1] = result[1];
-        tempData[2] = result[0].replace(' ', 'T') + dateCompletionPostfix;
+        tempData[2] = Number(new Date(result[0].replace(' ', 'T') + dateCompletionPostfix).getTime()).toPrecision();
         arrList.push(tempData);
     }
 

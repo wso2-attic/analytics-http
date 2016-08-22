@@ -20,7 +20,15 @@ $(window).load(function(){
 
 var drawChart = function (data, options) {
 
-    plot = $.plot("#placeholder", data, options);
+	dataTemp = ['count'];
+        dataTemp[1] = [];
+     
+        data[1].forEach(function(item) {
+        	dataTemp[1].push([item[0], item[1]]);
+	});
+
+
+    plot = $.plot("#placeholder", dataTemp, options);
 
     var previousPoint = null;
 
@@ -40,10 +48,12 @@ var drawChart = function (data, options) {
 
                 $("#tooltip").remove();
                 var x = item.datapoint[0],
-                    y = item.datapoint[1];
+                    y = item.datapoint[1],
+		    time = data[1][item.dataIndex][2];
+  1 
 
 //                showTooltip(item.pageX, item.pageY,y,item.series.data[item.dataIndex][2]);
-                showTooltip(item.pageX, item.pageY,item.series.data[item.dataIndex][2]);
+                showTooltip(item.pageX, item.pageY, 'Date:' + new Date(parseFloat(time)) + '<br/>Response Time: '  + y + 'ms');
             }
         } else {
             $("#tooltip").remove();

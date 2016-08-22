@@ -597,3 +597,7 @@ small.measure-label {
     text-align: right;
     padding-top: 10px;
 }
+
+#tooltip {
+    background-color: black;
+}
