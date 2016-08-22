@@ -245,7 +245,11 @@ function GadgetUtil() {
     };
 
     this.removeUrlParam = function(id) {
-        return this.getUrlParameters().replace(new RegExp('(' + id + '=)[^\\&]+'),'');
+    	var urlParameters = this.getUrlParameters();
+	if (urlParameters != null &&  urlParameters[id]) {
+        	return this.getUrlParameters().replace(new RegExp('(' + id + '=)[^\\&]+'),'');
+	}
+	return '';
     }
 
     this.isSharedDashboard = function() {
