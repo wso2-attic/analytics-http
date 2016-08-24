@@ -1,7 +1,3 @@
-body.dark svg.marks .mark-group .background {
-    fill: #121822 !important;
-}
-
 body.dark svg.marks .mark-group .mark-text text {
     fill: #c3cbdb !important;
 }
