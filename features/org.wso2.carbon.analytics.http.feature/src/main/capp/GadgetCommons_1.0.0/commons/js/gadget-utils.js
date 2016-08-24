@@ -74,20 +74,30 @@ function GadgetUtil() {
         return chart;
     };
 
+    // method implementation should be improved once the meta data API is introduced in DS
+    // https://wso2.org/jira/browse/UES-1036
     this.getCurrentPageName = function() {
-        var pageName,type;
+        var pageName = $('#ues-pages ul li.active a',window.parent.document).html();
+        if (!pageName) {
+            return '';
+        }
+        return pageName;
+    }
+
+    this.getCurrentPageUrl = function() {
+        var pageUrl;
         var href = parent.window.location.href;
         href = href.replace(/\/\?/,"?");
         var lastSegment = href.substr(href.lastIndexOf('/') + 1);
         if (lastSegment.indexOf('?') == -1) {
-            pageName = lastSegment;
+            pageUrl = lastSegment;
         } else {
-            pageName = lastSegment.substr(0, lastSegment.indexOf('?'));
+            pageUrl = lastSegment.substr(0, lastSegment.indexOf('?'));
         }
-        if(!pageName || pageName === DASHBOARD_NAME) {
-            pageName = LANDING_PAGE;
+        if(!pageUrl || pageUrl === DASHBOARD_NAME) {
+            pageUrl = LANDING_PAGE;
         }
-        return pageName;
+        return pageUrl;
     };
 
     this.getRequestType = function(pageName,chart) {
@@ -156,7 +166,7 @@ function GadgetUtil() {
         var url = "?";
 
         // if the page is the landing page, remove appname selection
-        if (this.getCurrentPageName() == LANDING_PAGE){
+        if (this.getCurrentPageUrl() == LANDING_PAGE){
             delete params.appname;
         }
 

@@ -62,7 +62,7 @@ function onData(data) {
         });
 
         var onChartClick = function(event, item) {
-            if (targetPage != gadgetUtil.getCurrentPageName()) {
+            if (targetPage != gadgetUtil.getCurrentPageUrl()) {
                 var targetUrl = BASE_URL + targetPage + gadgetUtil.getUrlParameters();
                 parent.window.location = targetUrl;
             }

@@ -2,7 +2,6 @@ var pref = new gadgets.Prefs();
 var chartData = [];
 var options;
 var plot;
-var page = gadgetUtil.getCurrentPageName();
 var node = pref.getString("node") || undefined;
 var start = gadgetUtil.timeFrom();
 var end  = gadgetUtil.timeTo();
