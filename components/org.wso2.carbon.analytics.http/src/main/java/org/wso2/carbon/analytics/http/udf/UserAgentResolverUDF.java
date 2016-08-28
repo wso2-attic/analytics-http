@@ -18,25 +18,14 @@ package org.wso2.carbon.analytics.http.udf;
  */
 
 import org.wso2.carbon.analytics.spark.core.udf.CarbonUDF;
-import ua_parser.Client;
-import ua_parser.Parser;
-
-import java.io.IOException;
+import ua_parser.*;
 
 /**
- * This is an implementation of ua Parser Java Library
- * to extract user agent information from a given
- * user agent string.
+ * This UDF is to resolve browser, operating system and device type from user agent HTTP header.
  *
  * @since 6.0.0
  */
-public class UserAgentSplitterUDF implements CarbonUDF {
-    Parser uaParser;
-
-
-    public UserAgentSplitterUDF() throws IOException {
-        uaParser = new Parser();
-    }
+public class UserAgentResolverUDF implements CarbonUDF {
 
     /**
      * Gets the user agent family from given user agent string.
@@ -45,8 +34,14 @@ public class UserAgentSplitterUDF implements CarbonUDF {
      * @return the user agent family
      */
     public String extractUserAgentFamily(String uaString) {
-        Client c = uaParser.parse(uaString);
-        return c.userAgent.family;
+        Parser parser = UserAgentResolverInitializer.getInstance().getUaParser();
+        if (parser != null) {
+            UserAgent userAgent = parser.parseUserAgent(uaString);
+            if (userAgent != null) {
+                return userAgent.family;
+            }
+        }
+        return null;
     }
 
 
@@ -57,8 +52,14 @@ public class UserAgentSplitterUDF implements CarbonUDF {
      * @return the operating system
      */
     public String extractOSFamily(String uaString) {
-        Client c = uaParser.parse(uaString);
-        return c.os.family;
+        Parser parser = UserAgentResolverInitializer.getInstance().getUaParser();
+        if (parser != null) {
+            OS os = parser.parseOS(uaString);
+            if (os != null) {
+                return os.family;
+            }
+        }
+        return null;
     }
 
     /**
@@ -68,7 +69,13 @@ public class UserAgentSplitterUDF implements CarbonUDF {
      * @return the device type
      */
     public String extractDeviceFamily(String uaString) {
-        Client c = uaParser.parse(uaString);
-        return c.device.family;
+        Parser parser = UserAgentResolverInitializer.getInstance().getUaParser();
+        if (parser != null) {
+            Device device = parser.parseDevice(uaString);
+            if (device != null) {
+                return device.family;
+            }
+        }
+        return null;
     }
 }
