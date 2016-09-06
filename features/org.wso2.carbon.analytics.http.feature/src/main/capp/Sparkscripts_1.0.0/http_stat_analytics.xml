@@ -172,6 +172,18 @@
         primaryKeys "webappName,serverName,country,time",
         incrementalParams "COUNTRY, MINUTE"
         );
+        INSERT INTO TABLE COUNTRY SELECT
+        appName as webappName,
+        meta_server_name as serverName,
+        count(requestUri) as averageRequestCount ,
+        first(getCountry(remoteAddress)),
+        cast(first(timestamp)/1000 as timestamp) as time,
+        facet1(1),
+        facet1(first(getCountry(remoteAddress)))
+        FROM HttpStat
+        WHERE lower(appType)='webapp'
+        GROUP BY appName, meta_server_name,getCountry(remoteAddress), substring(cast(timestamp/1000 as timestamp),0,16);
+        INCREMENTAL_TABLE_COMMIT COUNTRY;
 
         CREATE TEMPORARY TABLE REFERRER USING CarbonAnalytics OPTIONS (tableName "REFERRER", schema "
         webappName STRING -i,
