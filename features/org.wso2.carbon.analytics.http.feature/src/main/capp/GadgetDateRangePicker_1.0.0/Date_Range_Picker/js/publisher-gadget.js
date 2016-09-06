@@ -33,7 +33,6 @@ $(function() {
 
 var callbackDateRangePicker = function (start, end,label) {
     $('#reportrange span').html(start.format('MMMM D, YYYY') + ' - ' + end.format('MMMM D, YYYY'));
-    console.log("Date range chosen: " + start.format('YYYY-MM-DD') + ' to ' + end.format('YYYY-MM-DD'));
     publish(start,end);
 };
 

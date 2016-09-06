@@ -1,15 +1,30 @@
-var href = parent.window.location.href,
-    hrefLastSegment = href.substr(href.lastIndexOf('/') + 1),
-    resolveURI = parent.ues.global.dashboard.id == hrefLastSegment ? '../' : '../../';
+/*
+ * Copyright (c) 2016, WSO2 Inc. (http://www.wso2.org) All Rights Reserved.
+ *
+ * WSO2 Inc. licenses this file to you under the Apache License,
+ * Version 2.0 (the "License"); you may not use this file except
+ * in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing,
+ * software distributed under the License is distributed on an
+ * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ * KIND, either express or implied. See the License for the
+ * specific language governing permissions and limitations
+ * under the License.
+ */
 
-var SHARED_PARAM = "&shared=true";
+var href = parent.window.location.href
+
 var PARAM_ID = "webappName";
 
-$(function() {
+$(function () {
     var qs = gadgetUtil.getQueryString();
 
-    if(qs[PARAM_ID] != null) {
-            $("#txtSearch").val(qs[PARAM_ID]);
+    if (qs[PARAM_ID] != null) {
+        $("#txtSearch").val(qs[PARAM_ID]);
     }
 
     $("#txtSearch").attr('placeholder', 'Search webapps ...');
@@ -31,10 +46,10 @@ $(function() {
             hint: true,
             highlight: true,
             minLength: 0
-        },{
+        }, {
             name: 'proxyName',
             source: substringMatcher(response.message)
-        }).on('typeahead:selected', function(evt, item) {
+        }).on('typeahead:selected',function (evt, item) {
 
             var href = parent.window.location.href;
             if (jQuery.isEmptyObject(qs)) {
@@ -45,11 +60,11 @@ $(function() {
                 href = href + "&" + PARAM_ID + "=" + item;
             }
             parent.window.location = href;
-        }).on('typeahead:open', function(evt, item) {
+        }).on('typeahead:open',function (evt, item) {
             wso2.gadgets.controls.resizeGadget({
                 height: "200px"
-            }); 
-        }).on('typeahead:close', function(evt, item) {
+            });
+        }).on('typeahead:close',function (evt, item) {
             wso2.gadgets.controls.restoreGadget();
         }).focus().blur();
     }
@@ -58,7 +73,7 @@ $(function() {
 
     }
 
-    var substringMatcher = function(strs) {
+    var substringMatcher = function (strs) {
         return function findMatches(q, cb) {
             var matches, substringRegex;
 
@@ -70,7 +85,7 @@ $(function() {
 
             // iterate through the pool of strings and for any string that
             // contains the substring `q`, add it to the `matches` array
-            $.each(strs, function(i, str) {
+            $.each(strs, function (i, str) {
                 if (substrRegex.test(str)) {
                     matches.push(str);
                 }

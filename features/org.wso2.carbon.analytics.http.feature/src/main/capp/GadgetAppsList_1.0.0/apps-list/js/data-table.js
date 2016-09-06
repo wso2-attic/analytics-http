@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2005-2014, WSO2 Inc. (http://www.wso2.org) All Rights Reserved.
+ * Copyright (c) 2016, WSO2 Inc. (http://www.wso2.org) All Rights Reserved.
  *
  * WSO2 Inc. licenses this file to you under the Apache License,
  * Version 2.0 (the "License"); you may not use this file except
@@ -17,11 +17,10 @@
  */
 
 var pref = new gadgets.Prefs();
-var node = pref.getString('node') || undefined;
+var statType = pref.getString('statType');
 var start = gadgetUtil.timeFrom();
 var end = gadgetUtil.timeTo();
-
-var url = pref.getString('dataSource');
+var node = gadgetUtil.node();
 
 var template;
 
@@ -30,7 +29,7 @@ function fetchData() {
         start_time: start,
         end_time: end,
         node: gadgetUtil.node(),
-        action: pref.getString('appStatType')
+        action: statType
     }, onDataReceived, onError);
 }
 
@@ -69,15 +68,14 @@ function onError() {
     console.error("Error while fetching applications list.");
 }
 
-$(window).load(function(){
+$(window).load(function () {
     var parentWindow = window.parent.document,
-        thisParentWrapper = $('#'+gadgets.rpc.RPC_ID, parentWindow).closest('.gadget-body');
+        thisParentWrapper = $('#' + gadgets.rpc.RPC_ID, parentWindow).closest('.gadget-body');
     $(thisParentWrapper).closest('.ues-component-box').addClass('no-heading-gadget ues-component-heading');
 });
 
 function registerWebappSelect(table) {
     table.find('tbody').on('click', 'tr', function () {
-        console.log("table clicked!");
         if ($(this).hasClass('selected')) {
             $(this).removeClass('selected');
         } else {
@@ -88,7 +86,7 @@ function registerWebappSelect(table) {
 
             if (start && end) {
                 param = param + (param == '' ? '' : '&') +
-                        'timeFrom=' + start + '&timeTo=' + end;
+                    'timeFrom=' + start + '&timeTo=' + end;
             }
 
             var webapp = table.fnGetData(this)[0];
@@ -96,7 +94,7 @@ function registerWebappSelect(table) {
             $(this).addClass('selected');
             var webappUrl = webapp;
             if (param != '?') {
-                webappUrl = 'webappName=' + webappUrl + '&' +  param;
+                webappUrl = 'webappName=' + webappUrl + '&' + param;
             }
 
             var url = BASE_URL + "drill-down?" + webappUrl;
@@ -169,27 +167,11 @@ gadgets.HubSettings.onConnect = function () {
 
     gadgets.Hub.subscribe('timeRangeChangeSubscriber',
         function (topic, data, subscriberData) {
-            //alert("Subscriber just received dates " +data.start + " and " +data.end);
             start = data.start;
             end = data.end;
             fetchData();
         }
     );
-
-    //gadgets.Hub.subscribe('wso2.gadgets.charts.timeRangeChange',
-    //        function (topic, data, subscriberData) {
-    //            start = data.start.format('YYYY-MM-DD HH:mm');
-    //            end = data.end.format('YYYY-MM-DD HH:mm');
-    //            fetchData();
-    //        }
-    //);
-
-    //gadgets.Hub.subscribe('wso2.gadgets.charts.ipChange',
-    //        function (topic, data, subscriberData) {
-    //            node = data;
-    //            fetchData();
-    //        }
-    //);
 };
 
 

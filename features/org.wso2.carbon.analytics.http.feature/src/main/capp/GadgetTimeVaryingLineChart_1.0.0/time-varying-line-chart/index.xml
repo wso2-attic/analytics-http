@@ -5,32 +5,8 @@
         <Require feature="dynamic-height"/>
         <Require feature="setprefs"/>
     </ModulePrefs>
-    <UserPref name="refreshInterval"
-              display_name="Refresh Interval"
-              default_value="1000000"/>
-    <UserPref name="type" display_name="Gadget Type" required="true"/>
-    <UserPref name="dataSource"
-              display_name="Data Source"
-              default_value="../../../../../http-analytics/api/as-data.jag">
-    </UserPref>
-    <UserPref name="appname"
-              display_name="Web App Name"
-              default_value="">
-    </UserPref>
-    <UserPref name="startTime"
-              display_name="Start time"
-              default_value="">
-    </UserPref>
-    <UserPref name="endTime"
-              display_name="End time"
-              default_value="">
-    </UserPref>
-    <UserPref name="node"
-              display_name="Node IP"
-              default_value="">
-    </UserPref>
-    <UserPref name="appStatType"
-              display_name="App Stat Type"
+    <UserPref name="statType"
+              display_name="Stat Type"
               default_value="request">
     </UserPref>
     <UserPref name="yAxisLabel"

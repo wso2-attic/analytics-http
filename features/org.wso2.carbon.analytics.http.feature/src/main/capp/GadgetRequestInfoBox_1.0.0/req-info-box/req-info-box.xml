@@ -9,29 +9,9 @@
         <Require feature="pubsub-2"/>
         <Require feature="dynamic-height"/>
     </ModulePrefs>
-    <UserPref name="dataSource"
-              display_name="Data Source"
-              default_value="../../../../../http-analytics/api/as-data.jag">
-    </UserPref>
-    <UserPref name="startTime"
-              display_name="Start time"
-              default_value="">
-    </UserPref>
-    <UserPref name="endTime"
-              display_name="End time"
-              default_value="">
-    </UserPref>
-    <UserPref name="node"
-              display_name="Node IP"
-              default_value="">
-    </UserPref>
-    <UserPref name="appStatType"
-              display_name="App Stat Type"
+    <UserPref name="statType"
+              display_name="Stat Type"
               default_value="request-count">
-    </UserPref>
-    <UserPref name="appname"
-              display_name="Web App Name"
-              default_value="">
     </UserPref>
     <Content type="html">
         <![CDATA[
@@ -59,7 +39,7 @@
         <script language="javascript" type="text/javascript" src="js/flot/jquery.flot.orderBars.js"></script>
         <script language="javascript" type="text/javascript" src="js/flot/jquery.flot.time.js"></script>
         <script src="../commons/js/gadget-utils.js"></script>
-        <script language="javascript" type="text/javascript" src="js/flot/flot-chart-core.js"></script>
+        <script language="javascript" type="text/javascript" src="js/main.js"></script>
     </head>
     <body>
         <div id="canvas1"></div>

@@ -1,17 +1,35 @@
+/*
+ * Copyright (c) 2016, WSO2 Inc. (http://www.wso2.org) All Rights Reserved.
+ *
+ * WSO2 Inc. licenses this file to you under the Apache License,
+ * Version 2.0 (the "License"); you may not use this file except
+ * in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing,
+ * software distributed under the License is distributed on an
+ * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ * KIND, either express or implied. See the License for the
+ * specific language governing permissions and limitations
+ * under the License.
+ */
+
 var TOPIC = "timeRangeChangeSubscriber";
 var PUBLISHER_TOPIC = "chart-zoomed";
 var pref = new gadgets.Prefs();
 var timeFrom = gadgetUtil.timeFrom();
 var timeTo = gadgetUtil.timeTo();
 var node = gadgetUtil.node();
-var appname = gadgetUtil.appName();;
-var statType = pref.getString("appStatType");
+var appname = gadgetUtil.appName();
+var statType = pref.getString("statType");
 var rangeStart;
 var rangeEnd;
 var yAxisLabel = pref.getString("yAxisLabel");
 var chartColor = pref.getString("chartColor");
 
-$(function() {
+$(function () {
     fetchData();
 });
 
@@ -25,8 +43,8 @@ function fetchData() {
     }, onData, onError);
 }
 
-gadgets.HubSettings.onConnect = function() {
-    gadgets.Hub.subscribe(TOPIC, function(topic, data, subscriberData) {
+gadgets.HubSettings.onConnect = function () {
+    gadgets.Hub.subscribe(TOPIC, function (topic, data, subscriberData) {
         timeFrom = data.start;
         timeTo = data.end;
         fetchData();
@@ -41,16 +59,20 @@ function onData(data) {
             $("#canvas").html(gadgetUtil.getEmptyRecordsText());
             return;
         }
-        var schema = [{
-            "metadata": {
-                "names": ["Time", yAxisLabel],
-                "types": ["time", "linear"]
-            },
-            "data": []
-        }];
+        var schema = [
+            {
+                "metadata": {
+                    "names": ["Time", yAxisLabel],
+                    "types": ["time", "linear"]
+                },
+                "data": []
+            }
+        ];
         var chartConfig = {
             x: "Time",
-            charts: [{ type: "line", range: "true", y: yAxisLabel}],
+            charts: [
+                { type: "line", range: "true", y: yAxisLabel}
+            ],
             width: $('body').width(),
             height: $('body').height(),
             padding: { "top": 20, "left": 60, "bottom": 55, "right": -30 },
@@ -64,32 +86,16 @@ function onData(data) {
             return parseFloat(a.time) - parseFloat(b.time);
         });
 
-        data.message.forEach(function(row, i) {
+        data.message.forEach(function (row, i) {
             schema[0].data.push([new Date(parseFloat(row.time)).getTime(), row.value]);
         });
 
-//        var onChartClick = function(event, item) {
-//            var id = -1;
-//            if (item != null) {
-//                id = item.datum.name;
-//            }
-//            var baseUrl = config.targetUrl;
-//            var urlParameters = gadgetUtil.getUrlParameters();
-//            if (urlParameters != null) {
-//                baseUrl += urlParameters + "&";
-//            } else {
-//                baseUrl += "?";
-//            }
-//            var targetUrl =  baseUrl + PARAM_ID + "=" + id + "&timeFrom=" + timeFrom + "&timeTo=" + timeTo;
-//            if (timeUnit != null) {
-//                targetUrl += "&timeUnit=" + timeUnit;
-//            }
-//            parent.window.location = targetUrl;
-//        };
         var chart = new vizg(schema, chartConfig);
 
         $("#canvas").empty();
-        chart.draw("#canvas",[{type:"range", callback:onRangeSelected}]);
+        chart.draw("#canvas", [
+            {type: "range", callback: onRangeSelected}
+        ]);
     } catch (e) {
         $("#canvas").html(gadgetUtil.getErrorText(e));
     }
@@ -99,19 +105,16 @@ function onError(msg) {
     $("#canvas").html(gadgetUtil.getErrorText(msg));
 };
 
-document.body.onmouseup = function() {
-    // var div = document.getElementById("dChart");
-    // div.innerHTML = "<p> Start : " + rangeStart + "</p>" + "<p> End : " + rangeEnd + "</p>";
+document.body.onmouseup = function () {
+    if ((rangeStart) && (rangeEnd) && (rangeStart.toString() !== rangeEnd.toString())) {
+        var timeFrom = new Date(rangeStart).getTime();
+        var timeTo = new Date(rangeEnd).getTime();
 
-    if((rangeStart) && (rangeEnd) && (rangeStart.toString() !== rangeEnd.toString())){
-    	var timeFrom = new Date(rangeStart).getTime();
-	var timeTo = new Date(rangeEnd).getTime();
-
-	if (timeFrom > timeTo) {
-		var temp = timeFrom;
-		timeFrom = timeTo;
-		timeTo = temp;
-	}
+        if (timeFrom > timeTo) {
+            var temp = timeFrom;
+            timeFrom = timeTo;
+            timeTo = temp;
+        }
 
         var message = {
             timeFrom: timeFrom,
@@ -124,7 +127,7 @@ document.body.onmouseup = function() {
 }
 
 
-var onRangeSelected = function(start, end) {
+var onRangeSelected = function (start, end) {
     rangeStart = start;
     rangeEnd = end;
 };

@@ -4,8 +4,8 @@
         <Require feature="pubsub-2"/>
         <Require feature="dynamic-height"/>
     </ModulePrefs>
-    <UserPref name="appStatType"
-              display_name="App Stat Type"
+    <UserPref name="statType"
+              display_name="Stat Type"
               default_value="context">
     </UserPref>
     <UserPref name="firstField"

@@ -1,3 +1,21 @@
+/*
+ * Copyright (c) 2016, WSO2 Inc. (http://www.wso2.org) All Rights Reserved.
+ *
+ * WSO2 Inc. licenses this file to you under the Apache License,
+ * Version 2.0 (the "License"); you may not use this file except
+ * in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing,
+ * software distributed under the License is distributed on an
+ * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ * KIND, either express or implied. See the License for the
+ * specific language governing permissions and limitations
+ * under the License.
+ */
+
 var href = parent.window.location.href,
     hrefLastSegment = href.substr(href.lastIndexOf('/') + 1),
     resolveURI = parent.ues.global.dashboard.id == hrefLastSegment ? '../' : '../../',
@@ -5,7 +23,7 @@ var href = parent.window.location.href,
     gadgetWrapper = $('#' + gadgets.rpc.RPC_ID, parentWindow).closest('.grid-stack-item');
 
 var TOPIC = "timeRangeChangePublisher";
-$(function() {
+$(function () {
     var dateLabel = $('#reportrange'),
         datePickerBtn = $('#btnCustomRange');
     //if there are url elemements present, use them. Otherwis use last hour
@@ -52,16 +70,16 @@ $(function() {
             $(datePickerBtn).addClass("active");
         }
     }
-    
-    $(datePickerBtn).on('apply.daterangepicker', function(ev, picker) {
+
+    $(datePickerBtn).on('apply.daterangepicker', function (ev, picker) {
         cb(picker.startDate, picker.endDate);
     });
-    
-    $(datePickerBtn).on('show.daterangepicker', function(ev, picker) {
+
+    $(datePickerBtn).on('show.daterangepicker', function (ev, picker) {
         $(this).attr('aria-expanded', 'true');
     });
-    
-    $(datePickerBtn).on('hide.daterangepicker', function(ev, picker) {
+
+    $(datePickerBtn).on('hide.daterangepicker', function (ev, picker) {
         $(this).attr('aria-expanded', 'false');
     });
 
@@ -71,15 +89,15 @@ $(function() {
         "alwaysShowCalendars": true,
         "opens": "left"
     });
-    
-    $("#date-select [role=date-update]").click(function(){
-        
+
+    $("#date-select [role=date-update]").click(function () {
+
         $("#date-select button").removeClass("active");
         $("#date-select [data-value=" + $(this).data('value') + "]").addClass("active");
         $('#btnDropdown > span:first-child').html($(this).html());
         $('#btnDropdown').addClass('active');
-        
-        switch($(this).data('value')){
+
+        switch ($(this).data('value')) {
             case 'LastHour':
                 dateLabel.html(moment().subtract(1, 'hours').format('MMMM D, YYYY hh:mm A') + ' - ' + moment().format('MMMM D, YYYY hh:mm A'));
                 message = {
@@ -116,8 +134,6 @@ $(function() {
                 return;
         }
 
-        console.log(message.timeFrom);
-
         var formattedStart = getTimeInUTC(message.timeFrom);
         var formattedEnd = getTimeInUTC(message.timeTo);
 
@@ -126,20 +142,18 @@ $(function() {
             end: formattedEnd.toString()
         };
 
-        console.log(messageTmp);
-
         gadgets.Hub.publish(TOPIC, messageTmp);
-        
+
         $(gadgetWrapper).removeClass('btn-dropdown-menu-open');
         $('#btnDropdown').attr('aria-expanded', 'false');
     });
-    
-    $('#btnDropdown').click(function() {
-        if($(gadgetWrapper).hasClass('btn-dropdown-menu-open')){
+
+    $('#btnDropdown').click(function () {
+        if ($(gadgetWrapper).hasClass('btn-dropdown-menu-open')) {
             $(gadgetWrapper).removeClass('btn-dropdown-menu-open');
             $(this).attr('aria-expanded', 'false');
         }
-        else{
+        else {
             $(gadgetWrapper).addClass('btn-dropdown-menu-open');
             $(this).attr('aria-expanded', 'true');
         }
@@ -147,15 +161,13 @@ $(function() {
 
 });
 
-gadgets.HubSettings.onConnect = function() {
-    gadgets.Hub.subscribe("chart-zoomed", function(topic, data, subscriberData) {
+gadgets.HubSettings.onConnect = function () {
+    gadgets.Hub.subscribe("chart-zoomed", function (topic, data, subscriberData) {
         onChartZoomed(data);
     });
 };
 
 function onChartZoomed(data) {
-    console.log(data); 
-
     var formattedStart = getTimeInUTC(data.timeFrom);
     var formattedEnd = getTimeInUTC(data.timeTo);
 
@@ -174,22 +186,22 @@ function onChartZoomed(data) {
     }
 };
 
-$(window).resize(function() {
-    if(($('body').attr('media-screen') == 'md') || ($('body').attr('media-screen') == 'lg')){
+$(window).resize(function () {
+    if (($('body').attr('media-screen') == 'md') || ($('body').attr('media-screen') == 'lg')) {
         $(gadgetWrapper).removeClass('btn-dropdown-menu-open');
         $('#btnDropdown').attr('aria-expanded', 'false');
     }
 });
 
-$(window).load(function() {
+$(window).load(function () {
     var datePicker = $('.daterangepicker'),
         dropdown = $('ul.dropdown-menu');
-    
-    $('body').click(function(e){
+
+    $('body').click(function (e) {
         if ((!dropdown.is(e.target) && dropdown.has(e.target).length === 0)
             && (!$('#btnDropdown').is(e.target) && $('#btnDropdown').has(e.target).length === 0)) {
-                $(gadgetWrapper).removeClass('btn-dropdown-menu-open');
-                $('#btnDropdown').attr('aria-expanded', 'false');
+            $(gadgetWrapper).removeClass('btn-dropdown-menu-open');
+            $('#btnDropdown').attr('aria-expanded', 'false');
         }
     });
 
@@ -201,6 +213,6 @@ $(window).load(function() {
     $('body').addClass('widget');
 });
 
-function getTimeInUTC (date){
+function getTimeInUTC(date) {
     return new Date(date).getTime();
 }

@@ -18,8 +18,8 @@
             "description": "This notifies message generated in publisher"
         }
     },
-    "toolbarButtons":{
-        "default":{
+    "toolbarButtons": {
+        "default": {
             "maximize": true,
             "configurations": false
         }

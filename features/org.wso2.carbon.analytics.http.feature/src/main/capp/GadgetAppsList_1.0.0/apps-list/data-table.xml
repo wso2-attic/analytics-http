@@ -5,32 +5,9 @@
                  description="A generic data table gadget. This gadget can render data tables with one/two rows of header. This gadget can be reused as an iframe in any web page as it is self contained">
         <Require feature="pubsub-2"/>
     </ModulePrefs>
-    <UserPref name="dataSource"
-              display_name="Data Source"
-              default_value="../../../../../http-analytics/api/as-data.jag">
-    </UserPref>
-    <UserPref name="appname"
-              display_name="Web App Name"
-              default_value="">
-    </UserPref>
-    <UserPref name="updateGraph" display_name="Update Interval (s)"
-              default_value="No">
-    </UserPref>
-    <UserPref name="appStatType"
-              display_name="App Stat Type"
+    <UserPref name="statType"
+              display_name="Stat Type"
               default_value="apps">
-    </UserPref>
-    <UserPref name="startTime"
-              display_name="Start time"
-              default_value="">
-    </UserPref>
-    <UserPref name="endTime"
-              display_name="End time"
-              default_value="">
-    </UserPref>
-    <UserPref name="node"
-              display_name="Node IP"
-              default_value="">
     </UserPref>
     <Content type="html">
         <![CDATA[

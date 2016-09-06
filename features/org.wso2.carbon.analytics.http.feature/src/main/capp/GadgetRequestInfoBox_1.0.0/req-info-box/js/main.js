@@ -1,37 +1,53 @@
+/*
+ * Copyright (c) 2016, WSO2 Inc. (http://www.wso2.org) All Rights Reserved.
+ *
+ * WSO2 Inc. licenses this file to you under the Apache License,
+ * Version 2.0 (the "License"); you may not use this file except
+ * in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing,
+ * software distributed under the License is distributed on an
+ * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ * KIND, either express or implied. See the License for the
+ * specific language governing permissions and limitations
+ * under the License.
+ */
+
 var pref = new gadgets.Prefs();
 var chartData = [];
 var options;
 var plot;
-var node = pref.getString("node") || undefined;
 var start = gadgetUtil.timeFrom();
-var end  = gadgetUtil.timeTo();
-var appname = pref.getString("appname") ||undefined;
-var statType = pref.getString("appStatType");
+var end = gadgetUtil.timeTo();
+var statType = pref.getString("statType");
 
 $(function () {
     fetchData();
 });
 
-$(window).load(function(){
+$(window).load(function () {
     var parentWindow = window.parent.document,
-        thisParentWrapper = $('#'+gadgets.rpc.RPC_ID, parentWindow).closest('.gadget-body');
+        thisParentWrapper = $('#' + gadgets.rpc.RPC_ID, parentWindow).closest('.gadget-body');
     $(thisParentWrapper).closest('.ues-component-box').addClass('info-widget form-control-widget');
 });
 
 var drawChart = function (data, options) {
-	dataTemp = ['count'];
-	dataTemp[1] = [];
+    dataTemp = ['count'];
+    dataTemp[1] = [];
 
-	data[1].forEach(function(item) {
-		dataTemp[1].push([item[0], item[1]]);
-	});
+    data[1].forEach(function (item) {
+        dataTemp[1].push([item[0], item[1]]);
+    });
 
     plot = $.plot("#placeholder", dataTemp, options);
 
     var previousPoint = null;
 
 
-     $("#placeholder").bind("plothover", function (event, pos, item) {
+    $("#placeholder").bind("plothover", function (event, pos, item) {
 
         if ($("#enablePosition:checked").length > 0) {
             var str = "(" + pos.x.toFixed(2) + ", " + pos.y.toFixed(2) + ")";
@@ -47,9 +63,8 @@ var drawChart = function (data, options) {
                 $("#tooltip").remove();
                 var x = item.datapoint[0],
                     y = item.datapoint[1],
-		    time = data[1][item.dataIndex][2];
+                    time = data[1][item.dataIndex][2];
 
-//                showTooltip(item.pageX, item.pageY,y,item.series.data[item.dataIndex][2]);
                 showTooltip(item.pageX, item.pageY, 'Date:' + new Date(parseFloat(time)) + '<br/>Request Count: ' + y);
             }
         } else {
@@ -73,12 +88,12 @@ function fetchData() {
     }, onDataReceived, onError);
 }
 
-function onError(){
+function onError() {
     console.error("Error in fetching data for the request count info box.");
 }
 
 function onDataReceived(data) {
-    try{
+    try {
 
         if (data.message.length == 0) {
             $("#canvas2").hide();
@@ -101,37 +116,35 @@ function onDataReceived(data) {
         $('.statistics-main').text(data.title);
         $('.error-percentage').text(data.percentage != undefined ? data.percentage.toLocaleString() : '');
 
-        if( data.graph){
-            chartData = {"label" : "count", "data" : data.graph};
-                options =
-                {
-                    "legend": {
-                        "show": false
-                    },
-                    "series": {
-                        "shadowSize": 1,
-                        "bars": {
-                            "show": true,
-                            lineWidth: 0, // in pixels
-                            barWidth: 0.8, // in units of the x axis
-                            fill: true,
-                            fillColor: '#ffffff',
-                            align: "center" // "left", "right", or "center"
-                        }
-                    },
-                    "grid": {
-                        "show": false,
-                        hoverable: true,
-                        clickable: true
+        if (data.graph) {
+            chartData = {"label": "count", "data": data.graph};
+            options =
+            {
+                "legend": {
+                    "show": false
+                },
+                "series": {
+                    "shadowSize": 1,
+                    "bars": {
+                        "show": true,
+                        lineWidth: 0, // in pixels
+                        barWidth: 0.8, // in units of the x axis
+                        fill: true,
+                        fillColor: '#ffffff',
+                        align: "center" // "left", "right", or "center"
                     }
-                };
+                },
+                "grid": {
+                    "show": false,
+                    hoverable: true,
+                    clickable: true
+                }
+            };
             var chartOptions = options;
             var _chartData = [];
-//    addSeriesCheckboxes(chartData);
             $.each(chartData, function (key) {
                 _chartData.push(chartData[key]);
             });
-            //console.info(chartData);
             drawChart(_chartData, chartOptions);
             var seriesContainer = $("#optionsRight");
             seriesContainer.find(":checkbox").click(function () {
@@ -184,21 +197,6 @@ gadgets.HubSettings.onConnect = function () {
             fetchData();
         }
     );
-
-    //gadgets.Hub.subscribe('wso2.gadgets.charts.timeRangeChange',
-    //    function (topic, data, subscriberData) {
-    //        start = data.start.format('YYYY-MM-DD HH:mm');
-    //        end = data.end.format('YYYY-MM-DD HH:mm');
-    //        fetchData();
-    //    }
-    //);
-    //
-    //gadgets.Hub.subscribe('wso2.gadgets.charts.ipChange',
-    //    function (topic, data, subscriberData) {
-    //        node = data;
-    //        fetchData();
-    //    }
-    //);
 
 };
 

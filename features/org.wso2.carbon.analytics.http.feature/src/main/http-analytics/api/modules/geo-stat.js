@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2014, WSO2 Inc. (http://www.wso2.org) All Rights Reserved.
+ * Copyright (c) 2016, WSO2 Inc. (http://www.wso2.org) All Rights Reserved.
  *
  * WSO2 Inc. licenses this file to you under the Apache License,
  * Version 2.0 (the "License"); you may not use this file except
@@ -19,7 +19,6 @@
 include('../db.jag');
 include('../constants.jag');
 var helper = require('as-data-util.js');
-var countryCodes = require('../../resources/countries.json');
 
 function getLanguageAllRequests(conditions){
     var results = getAggregateDataFromDAS(LANGUAGE_TABLE, conditions, "0", ALL_FACET, [
@@ -158,19 +157,6 @@ function getCountryCodeStatData(){
     return dataArray;
 }
 
-function countryCodeLookUp(country){
-
-    var countryCodeObject = countryCodes;
-    for(var key in countryCodeObject){
-        if(countryCodeObject[key] == country){
-            return key;
-        }
-    }
-
-    return null;
-}
-
-
 function drawCountryMap(conditions){
     var dataObject = {};
     var i, len;
@@ -198,26 +184,9 @@ function getLanguageStat(){
         for (i = 0; i < results.length && (i < 5); i++) {
             result = results[i];
             dataArray.push({'name': result[0], 'value': result[1]});
-//            ticks.push([i, result[0]]);
         }
     }
 
     print({'message': dataArray});
     return;
-
-
-//    chartOptions = {
-//        'xaxis': {
-//            'ticks': ticks,
-//            'axisLabel': 'Top 5 HTTP Response Codes'
-//        },
-//        'yaxis': {
-//            'axisLabel': 'Number of requests'
-//        }
-//    };
-//
-//    print([
-//        {'series1': {'label': 's', 'data': dataArray}},
-//        chartOptions
-//    ]);
 }

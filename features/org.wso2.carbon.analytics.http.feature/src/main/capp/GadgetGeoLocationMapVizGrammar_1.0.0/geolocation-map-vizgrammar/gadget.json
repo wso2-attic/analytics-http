@@ -12,8 +12,8 @@
             "description": "This listens to  message received by the subscriber"
         }
     },
-    "toolbarButtons":{
-        "default":{
+    "toolbarButtons": {
+        "default": {
             "maximize": true,
             "configurations": false
         }
