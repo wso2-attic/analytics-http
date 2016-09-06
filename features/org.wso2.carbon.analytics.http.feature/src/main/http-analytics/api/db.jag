@@ -71,9 +71,6 @@ function getUniqueValuesFromDAS(tableName, fieldName, conditions) {
         "query": getQuery(conditions)
     };
 
-    var log = new Log("DB");
-    log.info(data);
-
     return sendDASRequest(data, FACETS_RESOURCE, 'POST');
 
 }
