@@ -37,6 +37,11 @@ function getShrinkedResultset(resultset, significantRecordCount, groupName) {
     var percentage = 0;
     var i;
 
+    // sort in descending order
+    resultset.sort(function(a,b){
+        return b[1] - a[1];
+    })
+
     if (significantRecordCount >= resultset.length) {
         return resultset;
     }
