@@ -68,55 +68,7 @@
             <EnableScoreParam>false</EnableScoreParam>
             <Type>STRING</Type>
         </ColumnDefinition>
-
-        <!--<ColumnDefinition>-->
-            <!--<Name>userAgentFamily</Name>-->
-            <!--<EnableIndexing>false</EnableIndexing>-->
-            <!--<IsPrimaryKey>false</IsPrimaryKey>-->
-            <!--<EnableScoreParam>false</EnableScoreParam>-->
-            <!--<Type>STRING</Type>-->
-        <!--</ColumnDefinition>-->
-
-        <!--<ColumnDefinition>-->
-            <!--<Name>userAgentVersion</Name>-->
-            <!--<EnableIndexing>false</EnableIndexing>-->
-            <!--<IsPrimaryKey>false</IsPrimaryKey>-->
-            <!--<EnableScoreParam>false</EnableScoreParam>-->
-            <!--<Type>STRING</Type>-->
-        <!--</ColumnDefinition>-->
-
-        <!--<ColumnDefinition>-->
-            <!--<Name>operatingSystem</Name>-->
-            <!--<EnableIndexing>false</EnableIndexing>-->
-            <!--<IsPrimaryKey>false</IsPrimaryKey>-->
-            <!--<EnableScoreParam>false</EnableScoreParam>-->
-            <!--<Type>STRING</Type>-->
-        <!--</ColumnDefinition>-->
-
-        <!--<ColumnDefinition>-->
-            <!--<Name>operatingSystemVersion</Name>-->
-            <!--<EnableIndexing>false</EnableIndexing>-->
-            <!--<IsPrimaryKey>false</IsPrimaryKey>-->
-            <!--<EnableScoreParam>false</EnableScoreParam>-->
-            <!--<Type>STRING</Type>-->
-        <!--</ColumnDefinition>-->
-
-        <!--<ColumnDefinition>-->
-            <!--<Name>deviceCategory</Name>-->
-            <!--<EnableIndexing>false</EnableIndexing>-->
-            <!--<IsPrimaryKey>false</IsPrimaryKey>-->
-            <!--<EnableScoreParam>false</EnableScoreParam>-->
-            <!--<Type>STRING</Type>-->
-        <!--</ColumnDefinition>-->
-
-        <!--<ColumnDefinition>-->
-            <!--<Name>country</Name>-->
-            <!--<EnableIndexing>false</EnableIndexing>-->
-            <!--<IsPrimaryKey>false</IsPrimaryKey>-->
-            <!--<EnableScoreParam>false</EnableScoreParam>-->
-            <!--<Type>STRING</Type>-->
-        <!--</ColumnDefinition>-->
-
+        
         <ColumnDefinition>
             <Name>appType</Name>
             <EnableIndexing>false</EnableIndexing>
