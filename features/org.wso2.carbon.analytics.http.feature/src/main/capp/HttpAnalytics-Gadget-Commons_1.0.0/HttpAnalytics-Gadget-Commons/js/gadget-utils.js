@@ -214,6 +214,16 @@ function GadgetUtil() {
             '</div>';
     };
 
+    this.getNoValidCountryDataText = function () {
+        return '<div class="status-message">' +
+            '<div class="message message-info">' +
+            '<h4><i class="icon fw fw-info"></i>No valid data found for the country statistics</h4>' +
+            '<p>Most probably the MaxMind GeoLite2 Country database is not present at <WSO2_ANALYTICS_HOME>/repository/resources/. Please refer the HTTP Analytics documentation for more ' +
+            'information on how to enable geo location analytics.</p>' +
+            '</div>' +
+            '</div>';
+    };
+
     this.getCookie = function (cname) {
         var name = cname + "=";
         var ca = parent.document.cookie.split(';');

@@ -118,6 +118,11 @@ function getCountryStatData(conditions) {
             if (country == EMPTY_FACET_VALUE) {
                 country = 'Other';
             }
+
+            if (country == 'null') {
+                continue;
+            }
+
             output.push([country, result['SUM_' + AVERAGE_REQUEST_COUNT],
                 (result['SUM_' + AVERAGE_REQUEST_COUNT]*100/total_request_count).toFixed(2)]);
         }
@@ -144,6 +149,11 @@ function getCountryCodeStatData(){
     results = JSON.parse(results);
 
     if (results.length > 0) {
+
+        if (results.length == 1 && results[0]['values'][COUNTRY_FACET][0] == 'null'){
+            return NO_VALID_DATA_FOR_GEOLOCATION;
+        }
+
         for (i = 0; i < results.length; i++) {
             result = results[i]['values'];
             country = result[COUNTRY_FACET][0];

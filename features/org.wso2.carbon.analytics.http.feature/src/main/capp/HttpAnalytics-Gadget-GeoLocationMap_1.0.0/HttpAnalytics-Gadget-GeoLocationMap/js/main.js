@@ -55,6 +55,13 @@ function onData(data) {
             $("#canvas").html(gadgetUtil.getEmptyRecordsText());
             return;
         }
+
+
+        if (data.message == "NO_VALID_DATA_FOR_GEOLOCATION") {
+            $("#canvas").html(gadgetUtil.getNoValidCountryDataText());
+            return;
+        }
+
         var schema = [
             {
                 "metadata": {
