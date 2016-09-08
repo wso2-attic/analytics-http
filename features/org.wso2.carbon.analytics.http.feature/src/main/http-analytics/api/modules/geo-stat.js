@@ -84,7 +84,7 @@ function getLanguageStatData(conditions) {
     return output;
 }
 
-function getLanguageTabularStat(conditions, tableHeadings, sortColumn) {
+function getLanguageTabularStat(conditions) {
     print({'data': getLanguageStatData(conditions)});
 }
 
@@ -165,7 +165,7 @@ function drawCountryMap(conditions){
     print({'message': results});
 }
 
-function getCountryTabularStat(conditions, tableHeadings, sortColumn) {
+function getCountryTabularStat(conditions) {
     print({'data': getCountryStatData(conditions)});
 
 }

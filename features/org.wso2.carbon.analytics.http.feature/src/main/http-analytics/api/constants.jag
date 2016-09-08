@@ -42,7 +42,6 @@ var REFERRER_TABLE = 'HTTP_REFERRER';
 var USER_AGENT_FAMILY_TABLE = 'HTTP_BROWSER';
 var WEBAPP_CONTEXT_TABLE = 'HTTP_WEBAPP_CONTEXT';
 
-
 // field names
 var ALL_FACET = 'all_facet';
 var TIME_FACET = 'time_facet';
@@ -71,4 +70,10 @@ var SERVER_NAME = 'serverName';
 var TIME = 'time';
 
 var EMPTY_FACET_VALUE = 'EMPTY_FACET_VALUE!';
+
+// Significant number of records to be displayed in charts
+var BROWSER_SIGNIFICANT = 4;
+var OS_SIGNIFICANT = 4;
+var DEVICE_TYPE_SIGNIFICANT = 4;
+
 %>

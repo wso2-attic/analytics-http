@@ -20,11 +20,11 @@ include('../db.jag');
 include('../constants.jag');
 var helper = require('as-data-util.js');
 
-function getContextTabularStat(conditions, tableHeadings, sortColumn){
+function getContextTabularStat(conditions){
     print({'data':getContextStatData(conditions)});
 }
 
-function getReferrerTabularStat(conditions, tableHeadings, sortColumn){
+function getReferrerTabularStat(conditions){
     print({'data': getReferrerStatData(conditions)});
 }
 function getContextAllRequests(conditions){

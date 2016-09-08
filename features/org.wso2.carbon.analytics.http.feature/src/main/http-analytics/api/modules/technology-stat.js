@@ -215,19 +215,19 @@ function getOperatingStatData(conditions){
 
 
 
-function getHttpStatusTabularStat(conditions, tableHeadings, sortColumn) {
+function getHttpStatusTabularStat(conditions) {
     print({'data': getHttpStatusStatData(conditions)});
 }
 
-function getBrowserTabularStat(conditions, tableHeadings, sortColumn){
+function getBrowserTabularStat(conditions){
     print({'data': getBrowserStatData(conditions)});
 }
 
-function getDeviceTabularStat(conditions, tableHeadings, sortColumn){
+function getDeviceTabularStat(conditions){
     print({'data': getDeviceStatData(conditions)});
 }
 
-function getOperatingSystemTabularStat(conditions, tableHeadings, sortColumn){
+function getOperatingSystemTabularStat(conditions){
     print({'data': getOperatingStatData(conditions)});
 }
 
