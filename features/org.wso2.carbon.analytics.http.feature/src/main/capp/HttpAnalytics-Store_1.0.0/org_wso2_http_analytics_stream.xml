@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <EventStoreConfiguration>
     <Source>
-        <StreamId>org.wso2.http.stats:1.0.0</StreamId>
+        <StreamId>org.wso2.http.analytics.stream:1.0.0</StreamId>
     </Source>
     <RecordStoreName>EVENT_STORE</RecordStoreName>
     <TableSchema>
         <ColumnDefinition>
-            <Name>meta_server_address</Name>
+            <Name>metaServerAddress</Name>
             <EnableIndexing>false</EnableIndexing>
             <IsPrimaryKey>false</IsPrimaryKey>
             <EnableScoreParam>false</EnableScoreParam>
@@ -14,7 +14,7 @@
         </ColumnDefinition>
 
         <ColumnDefinition>
-            <Name>meta_server_name</Name>
+            <Name>metaServerName</Name>
             <EnableIndexing>false</EnableIndexing>
             <IsPrimaryKey>false</IsPrimaryKey>
             <EnableScoreParam>false</EnableScoreParam>
@@ -68,7 +68,7 @@
             <EnableScoreParam>false</EnableScoreParam>
             <Type>STRING</Type>
         </ColumnDefinition>
-        
+
         <ColumnDefinition>
             <Name>appType</Name>
             <EnableIndexing>false</EnableIndexing>

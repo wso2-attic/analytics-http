@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <Analytics>
-    <Name>http-stat-analytics</Name>
+    <Name>HttpAnalytics-SparkScript</Name>
     <Script>
-        CREATE TEMPORARY TABLE HttpStat USING CarbonAnalytics OPTIONS (tableName "ORG_WSO2_HTTP_STATS");
-        CREATE TEMPORARY TABLE REQUESTS_SUMMARY_PER_MINUTE USING CarbonAnalytics OPTIONS (tableName "REQUESTS_SUMMARY_PER_MINUTE", schema "
+        CREATE TEMPORARY TABLE HTTP_STATISTICS USING CarbonAnalytics OPTIONS (tableName "ORG_WSO2_HTTP_ANALYTICS_STREAM");
+        CREATE TEMPORARY TABLE HTTP_REQUESTS_SUMMARY_PER_MINUTE USING CarbonAnalytics OPTIONS (tableName "HTTP_REQUESTS_SUMMARY_PER_MINUTE", schema "
         webappName STRING -i,
         webappType STRING,
         serverName STRING,
@@ -21,12 +21,12 @@
         hour_facet FACET -i,
         webappName_facet FACET -i",
         primaryKeys "webappName,serverName,time",
-        incrementalParams "REQUESTS_SUMMARY_PER_MINUTE, MINUTE"
+        incrementalParams "HTTP_REQUESTS_SUMMARY_PER_MINUTE, MINUTE"
         );
-        INSERT INTO TABLE REQUESTS_SUMMARY_PER_MINUTE SELECT
+        INSERT INTO TABLE HTTP_REQUESTS_SUMMARY_PER_MINUTE SELECT
         appName as webappName,
         appType as webappType,
-        meta_server_name as serverName,
+        metaServerName as serverName,
         count(requestUri) as averageRequestCount ,
         avg(responseTime) as averageResponseTime,
         sum(if(responseHttpStatusCode&lt;400, 1, 0)) as httpSuccessCount,
@@ -40,10 +40,10 @@
         facet1(substring(cast(first(timestamp)/1000 as timestamp),0,10)),
         facet1(substring(cast(first(timestamp)/1000 as timestamp),0,13)),
         facet1(appName)
-        FROM HttpStat GROUP BY appName, appType,meta_server_name, substring(cast(timestamp/1000 as timestamp),0,16);
-        INCREMENTAL_TABLE_COMMIT REQUESTS_SUMMARY_PER_MINUTE;
+        FROM HTTP_STATISTICS GROUP BY appName, appType,metaServerName, substring(cast(timestamp/1000 as timestamp),0,16);
+        INCREMENTAL_TABLE_COMMIT HTTP_REQUESTS_SUMMARY_PER_MINUTE;
 
-        CREATE TEMPORARY TABLE HTTP_STATUS USING CarbonAnalytics OPTIONS (tableName "HTTP_STATUS", schema "
+        CREATE TEMPORARY TABLE HTTP_RESPONSE_STATUS USING CarbonAnalytics OPTIONS (tableName "HTTP_RESPONSE_STATUS", schema "
         webappName STRING -i,
         serverName STRING,
         averageRequestCount INT,
@@ -52,20 +52,20 @@
         all_facet FACET -i,
         responseHttpStatusCode_facet FACET -i",
         primaryKeys "webappName,serverName,responseHttpStatusCode,time",
-        incrementalParams "HTTP_STATUS, MINUTE"
+        incrementalParams "HTTP_RESPONSE_STATUS, MINUTE"
         );
-        INSERT INTO TABLE HTTP_STATUS SELECT
+        INSERT INTO TABLE HTTP_RESPONSE_STATUS SELECT
         appName as webappName,
-        meta_server_name as serverName,
+        metaServerName as serverName,
         count(requestUri) as averageRequestCount ,
         responseHttpStatusCode,
         cast(first(timestamp)/1000 as timestamp) as time,
         facet1(1),
         facet1(responseHttpStatusCode)
-        FROM HttpStat GROUP BY appName, meta_server_name, responseHttpStatusCode, substring(cast(timestamp/1000 as timestamp),0,16);
-        INCREMENTAL_TABLE_COMMIT HTTP_STATUS;
+        FROM HTTP_STATISTICS GROUP BY appName, metaServerName, responseHttpStatusCode, substring(cast(timestamp/1000 as timestamp),0,16);
+        INCREMENTAL_TABLE_COMMIT HTTP_RESPONSE_STATUS;
 
-        CREATE TEMPORARY TABLE LANGUAGE USING CarbonAnalytics OPTIONS (tableName "LANGUAGE", schema "
+        CREATE TEMPORARY TABLE HTTP_LANGUAGE USING CarbonAnalytics OPTIONS (tableName "HTTP_LANGUAGE", schema "
         webappName STRING -i,
         serverName STRING,
         averageRequestCount INT,
@@ -74,22 +74,22 @@
         all_facet FACET -i,
         language_facet FACET -i",
         primaryKeys "webappName,serverName,language,time",
-        incrementalParams "LANGUAGE, MINUTE"
+        incrementalParams "HTTP_LANGUAGE, MINUTE"
         );
-        INSERT INTO TABLE LANGUAGE SELECT
+        INSERT INTO TABLE HTTP_LANGUAGE SELECT
         appName as webappName,
-        meta_server_name as serverName,
+        metaServerName as serverName,
         count(requestUri) as averageRequestCount ,
         language,
         cast(first(timestamp)/1000 as timestamp) as time,
         facet1(1),
         facet1(language)
-        FROM HttpStat
+        FROM HTTP_STATISTICS
         WHERE lower(appType)='webapp'
-        GROUP BY appName, meta_server_name, language, substring(cast(timestamp/1000 as timestamp),0,16);
-        INCREMENTAL_TABLE_COMMIT LANGUAGE;
+        GROUP BY appName, metaServerName, language, substring(cast(timestamp/1000 as timestamp),0,16);
+        INCREMENTAL_TABLE_COMMIT HTTP_LANGUAGE;
 
-        CREATE TEMPORARY TABLE USER_AGENT_FAMILY USING CarbonAnalytics OPTIONS (tableName "USER_AGENT_FAMILY", schema "
+        CREATE TEMPORARY TABLE HTTP_BROWSER USING CarbonAnalytics OPTIONS (tableName "HTTP_BROWSER", schema "
         webappName STRING -i,
         serverName STRING,
         averageRequestCount INT,
@@ -98,22 +98,22 @@
         all_facet FACET -i,
         userAgentFamily_facet FACET -i",
         primaryKeys "webappName,serverName,userAgentFamily,time",
-        incrementalParams "USER_AGENT_FAMILY, MINUTE"
+        incrementalParams "HTTP_BROWSER, MINUTE"
         );
-        INSERT INTO TABLE USER_AGENT_FAMILY SELECT
+        INSERT INTO TABLE HTTP_BROWSER SELECT
         appName as webappName,
-        meta_server_name as serverName,
+        metaServerName as serverName,
         count(requestUri) as averageRequestCount ,
         first(extractUserAgentFamily(userAgent)),
         cast(first(timestamp)/1000 as timestamp) as time,
         facet1(1),
         facet1(first(extractUserAgentFamily(userAgent)))
-        FROM HttpStat
+        FROM HTTP_STATISTICS
         WHERE lower(appType)='webapp'
-        GROUP BY appName, meta_server_name,extractUserAgentFamily(userAgent) , substring(cast(timestamp/1000 as timestamp),0,16);
-        INCREMENTAL_TABLE_COMMIT USER_AGENT_FAMILY;
+        GROUP BY appName, metaServerName,extractUserAgentFamily(userAgent) , substring(cast(timestamp/1000 as timestamp),0,16);
+        INCREMENTAL_TABLE_COMMIT HTTP_BROWSER;
 
-        CREATE TEMPORARY TABLE OPERATING_SYSTEM USING CarbonAnalytics OPTIONS (tableName "OPERATING_SYSTEM", schema "
+        CREATE TEMPORARY TABLE HTTP_OPERATING_SYSTEM USING CarbonAnalytics OPTIONS (tableName "HTTP_OPERATING_SYSTEM", schema "
         webappName STRING -i,
         serverName STRING,
         averageRequestCount INT,
@@ -122,22 +122,22 @@
         all_facet FACET -i,
         operatingSystem_facet FACET -i",
         primaryKeys "webappName,serverName,operatingSystem,time",
-        incrementalParams "OPERATING_SYSTEM, MINUTE"
+        incrementalParams "HTTP_OPERATING_SYSTEM, MINUTE"
         );
-        INSERT INTO TABLE OPERATING_SYSTEM SELECT
+        INSERT INTO TABLE HTTP_OPERATING_SYSTEM SELECT
         appName as webappName,
-        meta_server_name as serverName,
+        metaServerName as serverName,
         count(requestUri) as averageRequestCount ,
         first(extractOSFamily(userAgent)),
         cast(first(timestamp)/1000 as timestamp) as time,
         facet1(1),
         facet1(first(extractOSFamily(userAgent)))
-        FROM HttpStat
+        FROM HTTP_STATISTICS
         WHERE lower(appType)='webapp'
-        GROUP BY appName, meta_server_name,extractOSFamily(userAgent) , substring(cast(timestamp/1000 as timestamp),0,16);
-        INCREMENTAL_TABLE_COMMIT OPERATING_SYSTEM;
+        GROUP BY appName, metaServerName,extractOSFamily(userAgent) , substring(cast(timestamp/1000 as timestamp),0,16);
+        INCREMENTAL_TABLE_COMMIT HTTP_OPERATING_SYSTEM;
 
-        CREATE TEMPORARY TABLE DEVICE_TYPE USING CarbonAnalytics OPTIONS (tableName "DEVICE_TYPE", schema "
+        CREATE TEMPORARY TABLE HTTP_DEVICE_TYPE USING CarbonAnalytics OPTIONS (tableName "HTTP_DEVICE_TYPE", schema "
         webappName STRING -i,
         serverName STRING,
         averageRequestCount INT,
@@ -146,22 +146,22 @@
         all_facet FACET -i,
         deviceCategory_facet FACET -i",
         primaryKeys "webappName,serverName,deviceCategory,time",
-        incrementalParams "DEVICE_TYPE, MINUTE"
+        incrementalParams "HTTP_DEVICE_TYPE, MINUTE"
         );
-        INSERT INTO TABLE DEVICE_TYPE SELECT
+        INSERT INTO TABLE HTTP_DEVICE_TYPE SELECT
         appName as webappName,
-        meta_server_name as serverName,
+        metaServerName as serverName,
         count(requestUri) as averageRequestCount ,
         first(extractDeviceFamily(userAgent)),
         cast(first(timestamp)/1000 as timestamp) as time,
         facet1(1),
         facet1(first(extractDeviceFamily(userAgent)))
-        FROM HttpStat
+        FROM HTTP_STATISTICS
         WHERE lower(appType)='webapp'
-        GROUP BY appName, meta_server_name,extractDeviceFamily(userAgent) , substring(cast(timestamp/1000 as timestamp),0,16);
-        INCREMENTAL_TABLE_COMMIT DEVICE_TYPE;
+        GROUP BY appName, metaServerName,extractDeviceFamily(userAgent) , substring(cast(timestamp/1000 as timestamp),0,16);
+        INCREMENTAL_TABLE_COMMIT HTTP_DEVICE_TYPE;
 
-        CREATE TEMPORARY TABLE COUNTRY USING CarbonAnalytics OPTIONS (tableName "COUNTRY", schema "
+        CREATE TEMPORARY TABLE HTTP_GEOLOCATION USING CarbonAnalytics OPTIONS (tableName "HTTP_GEOLOCATION", schema "
         webappName STRING -i,
         serverName STRING,
         averageRequestCount INT,
@@ -170,22 +170,22 @@
         all_facet FACET -i,
         country_facet FACET -i",
         primaryKeys "webappName,serverName,country,time",
-        incrementalParams "COUNTRY, MINUTE"
+        incrementalParams "HTTP_GEOLOCATION, MINUTE"
         );
-        INSERT INTO TABLE COUNTRY SELECT
+        INSERT INTO TABLE HTTP_GEOLOCATION SELECT
         appName as webappName,
-        meta_server_name as serverName,
+        metaServerName as serverName,
         count(requestUri) as averageRequestCount ,
         first(getCountry(remoteAddress)),
         cast(first(timestamp)/1000 as timestamp) as time,
         facet1(1),
         facet1(first(getCountry(remoteAddress)))
-        FROM HttpStat
+        FROM HTTP_STATISTICS
         WHERE lower(appType)='webapp'
-        GROUP BY appName, meta_server_name,getCountry(remoteAddress), substring(cast(timestamp/1000 as timestamp),0,16);
-        INCREMENTAL_TABLE_COMMIT COUNTRY;
+        GROUP BY appName, metaServerName,getCountry(remoteAddress), substring(cast(timestamp/1000 as timestamp),0,16);
+        INCREMENTAL_TABLE_COMMIT HTTP_GEOLOCATION;
 
-        CREATE TEMPORARY TABLE REFERRER USING CarbonAnalytics OPTIONS (tableName "REFERRER", schema "
+        CREATE TEMPORARY TABLE HTTP_REFERRER USING CarbonAnalytics OPTIONS (tableName "HTTP_REFERRER", schema "
         webappName STRING -i,
         serverName STRING,
         averageRequestCount INT,
@@ -194,22 +194,22 @@
         all_facet FACET -i,
         referrer_facet FACET -i",
         primaryKeys "webappName,serverName,referrer,time",
-        incrementalParams "REFERRER, MINUTE"
+        incrementalParams "HTTP_REFERRER, MINUTE"
         );
-        INSERT INTO TABLE REFERRER SELECT
+        INSERT INTO TABLE HTTP_REFERRER SELECT
         appName as webappName,
-        meta_server_name as serverName,
+        metaServerName as serverName,
         count(requestUri) as averageRequestCount ,
         referrer,
         cast(first(timestamp)/1000 as timestamp) as time,
         facet1(1),
         facet1(referrer)
-        FROM HttpStat
+        FROM HTTP_STATISTICS
         WHERE lower(appType)='webapp'
-        GROUP BY appName, meta_server_name,referrer, substring(cast(timestamp/1000 as timestamp),0,16);
-        INCREMENTAL_TABLE_COMMIT REFERRER;
+        GROUP BY appName, metaServerName,referrer, substring(cast(timestamp/1000 as timestamp),0,16);
+        INCREMENTAL_TABLE_COMMIT HTTP_REFERRER;
 
-        CREATE TEMPORARY TABLE WEBAPP_CONTEXT USING CarbonAnalytics OPTIONS (tableName "WEBAPP_CONTEXT", schema "
+        CREATE TEMPORARY TABLE HTTP_WEBAPP_CONTEXT USING CarbonAnalytics OPTIONS (tableName "HTTP_WEBAPP_CONTEXT", schema "
         webappName STRING -i,
         serverName STRING,
         averageRequestCount INT,
@@ -218,20 +218,20 @@
         all_facet FACET -i,
         webappcontext_facet FACET -i",
         primaryKeys "webappName,serverName,webappcontext,time",
-        incrementalParams "WEBAPP_CONTEXT, MINUTE"
+        incrementalParams "HTTP_WEBAPP_CONTEXT, MINUTE"
         );
-        INSERT INTO TABLE WEBAPP_CONTEXT SELECT
+        INSERT INTO TABLE HTTP_WEBAPP_CONTEXT SELECT
         appName as webappName,
-        meta_server_name as serverName,
+        metaServerName as serverName,
         count(requestUri) as averageRequestCount ,
         first(requestUri),
         cast(first(timestamp)/1000 as timestamp) as time,
         facet1(1),
         facet1(first(requestUri))
-        FROM HttpStat
+        FROM HTTP_STATISTICS
         WHERE lower(appType)='webapp'
-        GROUP BY appName, meta_server_name,requestUri, substring(cast(timestamp/1000 as timestamp),0,16);
-        INCREMENTAL_TABLE_COMMIT WEBAPP_CONTEXT;
+        GROUP BY appName, metaServerName,requestUri, substring(cast(timestamp/1000 as timestamp),0,16);
+        INCREMENTAL_TABLE_COMMIT HTTP_WEBAPP_CONTEXT;
     </Script>
     <CronExpression>0 0/1 * * * ? *</CronExpression>
 

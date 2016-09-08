@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <artifacts>
     <artifact name="org.wso2.carbon.analytics.http" version="1.0.0" type="carbon/application">
-        <dependency artifact="Eventstream" version="1.0.0" include="true" serverRole="DataAnalyticsServer"/>
-        <dependency artifact="Eventreceiver" version="1.0.0" include="true" serverRole="DataAnalyticsServer"/>
-        <dependency artifact="Eventstore" version="1.0.0" include="true" serverRole="DataAnalyticsServer"/>
+        <dependency artifact="HttpAnalytics-Stream" version="1.0.0" include="true" serverRole="DataAnalyticsServer"/>
+        <dependency artifact="HttpAnalytics-Receiver" version="1.0.0" include="true" serverRole="DataAnalyticsServer"/>
+        <dependency artifact="HttpAnalytics-Store" version="1.0.0" include="true" serverRole="DataAnalyticsServer"/>
         <!--Spark Scripts -->
-        <dependency artifact="Sparkscripts" version="1.0.0" include="true" serverRole="DataAnalyticsServer"/>
+        <dependency artifact="HttpAnalytics-SparkScript" version="1.0.0" include="true" serverRole="DataAnalyticsServer"/>
         <!-- Gadgets -->
         <dependency artifact="GadgetTimeVaryingLineChart" version="1.0.0" include="true" serverRole="DataAnalyticsServer"/>
         <dependency artifact="GadgetDataTable" version="1.0.0" include="true" serverRole="DataAnalyticsServer"/>

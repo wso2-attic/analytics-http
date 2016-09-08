@@ -1,15 +1,15 @@
 {
-  "name": "org.wso2.http.stats",
+  "name": "org.wso2.http.analytics.stream",
   "version": "1.0.0",
-  "nickName": "Http_Stat_Stream",
-  "description": "Sample of Http Statistics",
+  "nickName": "Http_Analytics_Stream",
+  "description": "Http Statistics Stream",
   "metaData": [
     {
-      "name": "server_address",
+      "name": "serverAddress",
       "type": "STRING"
     },
     {
-      "name": "server_name",
+      "name": "serverName",
       "type": "STRING"
     }
   ],
