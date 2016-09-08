@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2014, WSO2 Inc. (http://www.wso2.org) All Rights Reserved.
+ * Copyright (c) 2016, WSO2 Inc. (http://www.wso2.org) All Rights Reserved.
  *
  * WSO2 Inc. licenses this file to you under the Apache License,
  * Version 2.0 (the "License"); you may not use this file except
@@ -52,16 +52,16 @@ function getInfoBoxMiniChartStatStat(conditions, facet, field, operation) {
 
 
 function getDataForInfoBoxBarChart(type, conditions) {
-    var startTime = helper.parseDate(request.getParameter('start_time'));
-    var endTime = helper.parseDate(request.getParameter('end_time'));
+    var startTime = request.getParameter('start_time');
+    var endTime = request.getParameter('end_time');
     var timeDiff = 0;
     var i;
     var results, result;
     var operation, field;
     var arrList = [];
 
-    if (request.getParameter('start_time') != null && request.getParameter('end_time') != null) {
-        timeDiff = Math.abs((endTime.getTime() - startTime.getTime()) / 86400000);
+    if (startTime != null && endTime != null) {
+        timeDifference = endTime - startTime;
     }
 
     operation = 'SUM';
@@ -71,22 +71,49 @@ function getDataForInfoBoxBarChart(type, conditions) {
         field = AVERAGE_RESPONSE_TIME;
     }
 
-    if (timeDiff > 365) {
-        results = getInfoBoxMiniChartStatStat(conditions, YEAR_FACET, field, operation);
-    } else if (timeDiff > 30) {
-        results = getInfoBoxMiniChartStatStat(conditions, MONTH_FACET, field, operation);
-    } else if (timeDiff > 1) {
-        results = getInfoBoxMiniChartStatStat(conditions, DAY_FACET, field, operation);
-    } else {
-        results = getInfoBoxMiniChartStatStat(conditions, HOUR_FACET, field, operation);
+    // Decide the time unit for summarization based on the following conditions,
+    // if time difference is more than,
+    //      2 years -> year
+    //      2 months -> month
+    //      2 days -> day
+    //      2 hours -> hour
+    //      else -> minute
+    var facetField = TIME_FACET;
+    if (timeDifference >= 63072000000) {
+        facetField = YEAR_FACET;
+    } else if (timeDifference >= 5184000000) {
+        facetField = MONTH_FACET;
+    } else if (timeDifference >= 172800000) {
+        facetField = DAY_FACET;
+    } else if (timeDifference >= 7200000) {
+        facetField = HOUR_FACET;
     }
+
+    results = getInfoBoxMiniChartStatStat(conditions, facetField, field, operation);
+
+    var dateCompletionPostfix = ':00.000Z';
+
+    if (facetField == YEAR_FACET) {
+        dateCompletionPostfix = '-00-00T00:00:00.000Z';
+    } else if (facetField == MONTH_FACET) {
+        dateCompletionPostfix = '-00T00:00:00.000Z';
+    } else if (facetField == DAY_FACET) {
+        dateCompletionPostfix = 'T00:00:00.000Z';
+    } else if (facetField == HOUR_FACET) {
+        dateCompletionPostfix = ':00:00.000Z';
+    }
+
+    results.sort(function (a,b) {
+        return (new Date(a[0].replace(' ', 'T') + dateCompletionPostfix)
+        - new Date(b[0].replace(' ', 'T') + dateCompletionPostfix));
+    });
 
     for (i = 0; i < results.length; i++) {
         result = results[i];
         var tempData = [];
         tempData[0] = i;
         tempData[1] = result[1];
-        tempData[2] = result[0] + ' : ' + result[1];
+        tempData[2] = Number(new Date(result[0].replace(' ', 'T') + dateCompletionPostfix).getTime()).toPrecision();
         arrList.push(tempData);
     }
 
@@ -129,13 +156,14 @@ function getInfoBoxRequestStat(conditions) {
         output['avg'] = Math.round(results['AVG_' + AVERAGE_REQUEST_COUNT]);
         output['min'] = results['MIN_' + AVERAGE_REQUEST_COUNT]
     } else {
-        output['total'] = output['max'] = output['avg'] = output['min'] = 'N/A';
+        print({'message': ''});
+        return;
     }
 
     output['graph'] = getDataForInfoBoxBarChart('averageRequestCount', conditions);
 
 
-    print(output);
+    print({'message': output});
 }
 
 function getInfoBoxResponseStat(conditions) {
@@ -168,12 +196,13 @@ function getInfoBoxResponseStat(conditions) {
         output['avg'] = Math.round(results['AVG_' + AVERAGE_RESPONSE_TIME]);
         output['min'] = results['MIN_' + AVERAGE_RESPONSE_TIME];
     } else {
-        output['max'] = output['avg'] = output['min'] = 'N/A';
+        print({'message': ''});
+        return;
     }
 
     output['graph'] = getDataForInfoBoxBarChart('averageResponseTime', conditions);
 
-    print(output);
+    print({'message': output});
 }
 
 function getInfoBoxSessionStat(conditions) {
@@ -194,17 +223,18 @@ function getInfoBoxSessionStat(conditions) {
     if (results != null) {
         results = JSON.parse(results)[0];
     }
-    output['title'] = 'Session';
+    output['title'] = 'Sessions';
 
     if (results != null && results['values']['SUM_' + SESSION_COUNT] != null) {
         results = results['values'];
         output['total'] = results['SUM_' + SESSION_COUNT];
         output['avg'] = Math.round(results['AVG_' + SESSION_COUNT]);
     } else {
-        output['total'] = output['avg'] = 'N/A';
+        print({'message': ''});
+        return;
     }
 
-    print(output);
+    print({'message': output});
 }
 
 function getInfoBoxErrorStat(conditions) {
@@ -232,8 +262,9 @@ function getInfoBoxErrorStat(conditions) {
         output['percentage'] =
             (results['SUM_' + HTTP_ERROR_COUNT] * 100 / (results['SUM_' + HTTP_SUCCESS_COUNT] + results['SUM_' + HTTP_ERROR_COUNT])).toFixed(2) + '\x25';
     } else {
-        output['total'] = output['percentage'] = 'N/A';
+        print({'message': ''});
+        return;
     }
 
-    print(output);
+    print({'message': output});
 }

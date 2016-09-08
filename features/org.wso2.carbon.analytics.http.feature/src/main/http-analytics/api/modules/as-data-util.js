@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2014, WSO2 Inc. (http://www.wso2.org) All Rights Reserved.
+ * Copyright (c) 2016, WSO2 Inc. (http://www.wso2.org) All Rights Reserved.
  *
  * WSO2 Inc. licenses this file to you under the Apache License,
  * Version 2.0 (the "License"); you may not use this file except
@@ -37,6 +37,11 @@ function getShrinkedResultset(resultset, significantRecordCount, groupName) {
     var percentage = 0;
     var i;
 
+    // sort in descending order
+    resultset.sort(function(a,b){
+        return b[1] - a[1];
+    })
+
     if (significantRecordCount >= resultset.length) {
         return resultset;
     }
@@ -44,15 +49,11 @@ function getShrinkedResultset(resultset, significantRecordCount, groupName) {
     shrinkedResultset = resultset.slice(0, significantRecordCount);
 
     for (i = significantRecordCount; i < resultset.length; i++) {
-        total = total + resultset[i]['request_count'];
-        percentage = percentage + resultset[i]['percentage_request_count'];
+        total = total + resultset[i][1];
+        percentage = percentage + parseFloat(resultset[i][2]);
     }
 
-    shrinkedResultset.push({
-        'request_count': total,
-        'percentage_request_count': percentage.toFixed(2),
-        'name': groupName
-    });
+    shrinkedResultset.push([[groupName], total, percentage.toFixed(2)]);
     return shrinkedResultset;
 }
 

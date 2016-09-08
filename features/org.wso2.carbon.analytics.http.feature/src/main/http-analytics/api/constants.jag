@@ -1,6 +1,6 @@
 <%
 /*
- * Copyright (c) 2015, WSO2 Inc. (http://www.wso2.org) All Rights Reserved.
+ * Copyright (c) 2016, WSO2 Inc. (http://www.wso2.org) All Rights Reserved.
  *
  * WSO2 Inc. licenses this file to you under the Apache License,
  * Version 2.0 (the "License"); you may not use this file except
@@ -29,18 +29,18 @@ var DAS_TABLES = 'availableTables';
 var AGGREGATE_RESOURCE = 'aggregates';
 var TABLE_RESOURCE = 'tables';
 var TABLE_EXISTS_RESOURCE = 'table_exists';
+var FACETS_RESOURCE = 'facets';
 
 // table names
-var REQUEST_SUMMARY_TABLE = 'REQUESTS_SUMMARY_PER_MINUTE';
-var HTTP_STATUS_TABLE = 'HTTP_STATUS';
-var COUNTRY_TABLE = 'COUNTRY';
-var DEVICE_TYPE_TABLE = 'DEVICE_TYPE';
-var LANGUAGE_TABLE = 'LANGUAGE';
-var OPERATING_SYSTEM_TABLE = 'OPERATING_SYSTEM';
-var REFERRER_TABLE = 'REFERRER';
-var USER_AGENT_FAMILY_TABLE = 'USER_AGENT_FAMILY';
-var WEBAPP_CONTEXT_TABLE = 'WEBAPP_CONTEXT';
-
+var REQUEST_SUMMARY_TABLE = 'HTTP_REQUESTS_SUMMARY_PER_MINUTE';
+var HTTP_STATUS_TABLE = 'HTTP_RESPONSE_STATUS';
+var COUNTRY_TABLE = 'HTTP_GEOLOCATION';
+var DEVICE_TYPE_TABLE = 'HTTP_DEVICE_TYPE';
+var LANGUAGE_TABLE = 'HTTP_LANGUAGE';
+var OPERATING_SYSTEM_TABLE = 'HTTP_OPERATING_SYSTEM';
+var REFERRER_TABLE = 'HTTP_REFERRER';
+var USER_AGENT_FAMILY_TABLE = 'HTTP_BROWSER';
+var WEBAPP_CONTEXT_TABLE = 'HTTP_WEBAPP_CONTEXT';
 
 // field names
 var ALL_FACET = 'all_facet';
@@ -64,8 +64,17 @@ var AVERAGE_RESPONSE_TIME = 'averageResponseTime';
 var SESSION_COUNT = 'sessionCount';
 var HTTP_SUCCESS_COUNT = 'httpSuccessCount';
 var HTTP_ERROR_COUNT = 'httpErrorCount';
-var WEBAPP_NAME = '_webappName';
+var WEBAPP_NAME = 'webappName';
 var WEBAPP_TYPE = 'webappType';
 var SERVER_NAME = 'serverName';
 var TIME = 'time';
+
+var EMPTY_FACET_VALUE = 'EMPTY_FACET_VALUE!';
+
+// Significant number of records to be displayed in charts
+var BROWSER_SIGNIFICANT = 4;
+var OS_SIGNIFICANT = 4;
+var DEVICE_TYPE_SIGNIFICANT = 4;
+
+var NO_VALID_DATA_FOR_GEOLOCATION = 'NO_VALID_DATA_FOR_GEOLOCATION';
 %>

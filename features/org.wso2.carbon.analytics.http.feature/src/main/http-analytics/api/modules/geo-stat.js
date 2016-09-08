@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2014, WSO2 Inc. (http://www.wso2.org) All Rights Reserved.
+ * Copyright (c) 2016, WSO2 Inc. (http://www.wso2.org) All Rights Reserved.
  *
  * WSO2 Inc. licenses this file to you under the Apache License,
  * Version 2.0 (the "License"); you may not use this file except
@@ -19,7 +19,6 @@
 include('../db.jag');
 include('../constants.jag');
 var helper = require('as-data-util.js');
-var countryCodes = require('../../resources/countries.json');
 
 function getLanguageAllRequests(conditions){
     var results = getAggregateDataFromDAS(LANGUAGE_TABLE, conditions, "0", ALL_FACET, [
@@ -85,12 +84,13 @@ function getLanguageStatData(conditions) {
     return output;
 }
 
-function getLanguageTabularStat(conditions, tableHeadings, sortColumn) {
-    print(helper.getTabularData(getLanguageStatData(conditions), tableHeadings, sortColumn));
+function getLanguageTabularStat(conditions) {
+    print({'data': getLanguageStatData(conditions)});
 }
 
 function getCountryStatData(conditions) {
     var output = [];
+    var country;
     var i, total_request_count;
     var results, result;
 
@@ -113,7 +113,17 @@ function getCountryStatData(conditions) {
     if (results.length > 0) {
         for (i = 0; i < results.length; i++) {
             result = results[i]['values'];
-            output.push([result[COUNTRY_FACET], result['SUM_' + AVERAGE_REQUEST_COUNT],
+            country = result[COUNTRY_FACET];
+
+            if (country == EMPTY_FACET_VALUE) {
+                country = 'Other';
+            }
+
+            if (country == 'null') {
+                continue;
+            }
+
+            output.push([country, result['SUM_' + AVERAGE_REQUEST_COUNT],
                 (result['SUM_' + AVERAGE_REQUEST_COUNT]*100/total_request_count).toFixed(2)]);
         }
     }
@@ -123,16 +133,11 @@ function getCountryStatData(conditions) {
 }
 
 function getCountryCodeStatData(){
-    var output = {};
-    var i, total_request_count;
+    var dataArray = [];
+    var country;
+    var i;
     var results, result;
 
-    total_request_count = getCountryAllRequests(conditions);
-
-    if(total_request_count <= 0){
-        return;
-
-    }
     results = getAggregateDataFromDAS(COUNTRY_TABLE, conditions, "0", COUNTRY_FACET, [
         {
             "fieldName": AVERAGE_REQUEST_COUNT,
@@ -144,42 +149,34 @@ function getCountryCodeStatData(){
     results = JSON.parse(results);
 
     if (results.length > 0) {
+
+        if (results.length == 1 && results[0]['values'][COUNTRY_FACET][0] == 'null'){
+            return NO_VALID_DATA_FOR_GEOLOCATION;
+        }
+
         for (i = 0; i < results.length; i++) {
             result = results[i]['values'];
+            country = result[COUNTRY_FACET][0];
 
-            var countryCode = countryCodeLookUp(result[COUNTRY_FACET]);
-            if(countryCode != null){
-                output[countryCode] = (result['SUM_' + AVERAGE_REQUEST_COUNT]*100/total_request_count).toFixed(2);
+            if (country != EMPTY_FACET_VALUE) {
+                dataArray.push({'name': country, 'value': result['SUM_' + AVERAGE_REQUEST_COUNT]});
             }
         }
     }
 
-    return output;
+    return dataArray;
 }
-
-function countryCodeLookUp(country){
-
-    var countryCodeObject = countryCodes;
-    for(var key in countryCodeObject){
-        if(countryCodeObject[key] == country){
-            return key;
-        }
-    }
-
-    return null;
-}
-
 
 function drawCountryMap(conditions){
     var dataObject = {};
     var i, len;
     var row;
     var results = getCountryCodeStatData(conditions);
-    print(results);
+    print({'message': results});
 }
 
-function getCountryTabularStat(conditions, tableHeadings, sortColumn) {
-    print(helper.getTabularData(getCountryStatData(conditions), tableHeadings, sortColumn));
+function getCountryTabularStat(conditions) {
+    print({'data': getCountryStatData(conditions)});
 
 }
 
@@ -196,23 +193,10 @@ function getLanguageStat(){
     if (results.length > 0) {
         for (i = 0; i < results.length && (i < 5); i++) {
             result = results[i];
-            dataArray.push([i, result[1]]);
-            ticks.push([i, result[0]]);
+            dataArray.push({'name': result[0], 'value': result[1]});
         }
     }
 
-    chartOptions = {
-        'xaxis': {
-            'ticks': ticks,
-            'axisLabel': 'Top 5 HTTP Response Codes'
-        },
-        'yaxis': {
-            'axisLabel': 'Number of requests'
-        }
-    };
-
-    print([
-        {'series1': {'label': 's', 'data': dataArray}},
-        chartOptions
-    ]);
+    print({'message': dataArray});
+    return;
 }

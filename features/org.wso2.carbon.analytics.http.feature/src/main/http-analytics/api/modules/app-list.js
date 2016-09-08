@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2014, WSO2 Inc. (http://www.wso2.org) All Rights Reserved.
+ * Copyright (c) 2016, WSO2 Inc. (http://www.wso2.org) All Rights Reserved.
  *
  * WSO2 Inc. licenses this file to you under the Apache License,
  * Version 2.0 (the "License"); you may not use this file except
@@ -27,10 +27,9 @@ function getPastStat(conditions, endTime, timePeriod) {
     var startTime;
 
     // replace the time condition in the query
-    reg = /\d+ TO \d+/;
     startTime = endTime - timePeriod;
-
-    conditions = conditions.replace(reg, startTime + ' TO ' + endTime);
+    conditions.startTime = startTime;
+    conditions.endTime = endTime;
 
     results = getAggregateDataFromDAS(REQUEST_SUMMARY_TABLE, conditions, "0", WEBAPP_NAME_FACET, [
         {
@@ -62,14 +61,14 @@ function matchPastStatWithApp(webappName, pastDataArray) {
 
 function getTableHeadings() {
     return [
-        'Application / Service',
+        'Applications / Services',
         'Type',
         {
             'parent': 'Average request count',
             'sub': ['Last minute', 'Last hour', 'Last day']
         },
         'Total number of requests',
-        'Percentage error'
+        'Error Percentage'
     ];
 }
 
@@ -134,5 +133,12 @@ function getAppsStat(conditions, endTime) {
         'orderColumn': ['1'],
         'applist': 'true'
     });
+
+}
+
+function getAppsList(conditions) {
+    var apps = getUniqueValuesFromDAS(REQUEST_SUMMARY_TABLE, WEBAPP_NAME_FACET, conditions);
+    var categories = JSON.parse(apps).categories;
+    print({'message': Object.keys(categories)});
 
 }

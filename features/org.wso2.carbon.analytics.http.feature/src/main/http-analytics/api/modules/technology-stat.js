@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2015, WSO2 Inc. (http://www.wso2.org) All Rights Reserved.
+ * Copyright (c) 2016, WSO2 Inc. (http://www.wso2.org) All Rights Reserved.
  *
  * WSO2 Inc. licenses this file to you under the Apache License,
  * Version 2.0 (the "License"); you may not use this file except
@@ -215,23 +215,24 @@ function getOperatingStatData(conditions){
 
 
 
-function getHttpStatusTabularStat(conditions, tableHeadings, sortColumn) {
-    print(helper.getTabularData(getHttpStatusStatData(conditions), tableHeadings, sortColumn));
+function getHttpStatusTabularStat(conditions) {
+    print({'data': getHttpStatusStatData(conditions)});
 }
 
-function getBrowserTabularStat(conditions, tableHeadings, sortColumn){
-    print(helper.getTabularData(getBrowserStatData(conditions), tableHeadings, sortColumn));}
-
-function getDeviceTabularStat(conditions, tableHeadings, sortColumn){
-    print(helper.getTabularData(getDeviceStatData(conditions), tableHeadings,sortColumn));
+function getBrowserTabularStat(conditions){
+    print({'data': getBrowserStatData(conditions)});
 }
 
-function getOperatingSystemTabularStat(conditions, tableHeadings, sortColumn){
-    print(helper.getTabularData(getOperatingStatData(conditions), tableHeadings, sortColumn));
+function getDeviceTabularStat(conditions){
+    print({'data': getDeviceStatData(conditions)});
+}
+
+function getOperatingSystemTabularStat(conditions){
+    print({'data': getOperatingStatData(conditions)});
 }
 
 function getBrowserPieStat(conditions, visibleNumbers, groupName){
-    var dataObject = {};
+    var dataObject = [];
     var i, len;
     var row;
     var series;
@@ -244,17 +245,19 @@ function getBrowserPieStat(conditions, visibleNumbers, groupName){
 
     for (i = 0, len = shrinkedResults.length; i < len; i++) {
         row = shrinkedResults[i];
-        series = 'series' + i;
-        data = {'label': row[0][0], 'data': row[2]};
-        dataObject[series] = data;
+        data = {'name': row[0][0], 'value': row[2]};
+        dataObject.push(data);
     }
 
-    print([dataObject, chartOptions]);
+    print ({'message': dataObject});
+    return;
+
+//    print([dataObject, chartOptions]);
 
 }
 
 function getDevicePieStat(conditions, visibleNumbers, groupName){
-    var dataObject = {};
+    var dataObject = [];
     var i, len;
     var row;
     var series;
@@ -267,16 +270,16 @@ function getDevicePieStat(conditions, visibleNumbers, groupName){
 
     for (i = 0, len = shrinkedResults.length; i < len; i++) {
         row = shrinkedResults[i];
-        series = 'series' + i;
-        data = {'label': row[0][0], 'data': row[2]};
-        dataObject[series] = data;
+        data = {'name': row[0][0], 'value': row[2]};
+        dataObject.push(data);
     }
 
-    print([dataObject, chartOptions]);
+    print({'message': dataObject});
+    return;
 }
 
 function getOperatingSystemPieStat(conditions, visibleNumbers, groupName){
-    var dataObject = {};
+    var dataObject = [];
     var i, len;
     var row;
     var series;
@@ -289,12 +292,12 @@ function getOperatingSystemPieStat(conditions, visibleNumbers, groupName){
 
     for (i = 0, len = shrinkedResults.length; i < len; i++) {
         row = shrinkedResults[i];
-        series = 'series' + i;
-        data = {'label': row[0][0], 'data': row[2]};
-        dataObject[series] = data;
+        data = {'name': row[0][0], 'value': row[2]};
+        dataObject.push(data);
     }
 
-    print([dataObject, chartOptions]);
+    print({'message': dataObject});
+    return;
 
 }
 
@@ -311,23 +314,26 @@ function getHttpStatusStat(conditions) {
     if (results.length > 0) {
         for (i = 0; i < results.length && (i < 5); i++) {
             result = results[i];
-            dataArray.push([i, result[1]]);
-            ticks.push([i, result[0]]);
+            dataArray.push({'name': result[0], 'value': result[1]});
+//            ticks.push([i, result[0]]);
         }
     }
 
-    chartOptions = {
-        'xaxis': {
-            'ticks': ticks,
-            'axisLabel': 'Top 5 HTTP Response Codes'
-        },
-        'yaxis': {
-            'axisLabel': 'Number of Requests'
-        }
-    };
+    print({'message': dataArray});
+    return;
 
-    print([
-        {'series1': {'label': 's', 'data': dataArray}},
-        chartOptions
-    ]);
+//    chartOptions = {
+//        'xaxis': {
+//            'ticks': ticks,
+//            'axisLabel': 'Top 5 HTTP Response Codes'
+//        },
+//        'yaxis': {
+//            'axisLabel': 'Number of Requests'
+//        }
+//    };
+//
+//    print([
+//        {'series1': {'label': 's', 'data': dataArray}},
+//        chartOptions
+//    ]);
 }

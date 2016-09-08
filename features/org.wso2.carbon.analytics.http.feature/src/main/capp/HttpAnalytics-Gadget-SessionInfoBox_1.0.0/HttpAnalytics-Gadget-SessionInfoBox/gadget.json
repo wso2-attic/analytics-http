@@ -1,0 +1,15 @@
+{
+    "id": "HttpAnalytics-Gadget-SessionInfoBox",
+    "title": "AS Session Info-Box",
+    "type": "gadget",
+    "thumbnail": "store://gadget/HttpAnalytics-Gadget-SessionInfoBox/images/index.jpg",
+    "data": {
+        "url": "store://gadget/HttpAnalytics-Gadget-SessionInfoBox/HttpAnalytics-Gadget-SessionInfoBox.xml"
+    },
+    "listen": {
+        "timeRangeChangeSubscriber": {
+            "type": "message",
+            "description": "This listens to  message received by the subscriber"
+        }
+    }
+} 

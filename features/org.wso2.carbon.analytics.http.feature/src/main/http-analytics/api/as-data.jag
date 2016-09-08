@@ -1,6 +1,6 @@
 <%
 /*
- * Copyright (c) 2014, WSO2 Inc. (http://www.wso2.org) All Rights Reserved.
+ * Copyright (c) 2016, WSO2 Inc. (http://www.wso2.org) All Rights Reserved.
  *
  * WSO2 Inc. licenses this file to you under the Apache License,
  * Version 2.0 (the "License"); you may not use this file except
@@ -18,49 +18,41 @@
  */
 
 include('constants.jag');
-
-// define significant number of records to be displayed in charts
-var BROWSER_SIGNIFICANT = 4;
-var OS_SIGNIFICANT = 5;
-var DEVICE_TYPE_SIGNIFICANT = 3;
-
-// define sorting column id in tabular visualization
-var BROWSER_SORT = 2;
-var OS_SORT = 2;
-var DEVICE_TYPE_SORT = 2;
-var HTTP_RESPONSE_SORT = 2;
-var LANGUAGE_SORT = 2;
-var COUNTRY_SORT = 2;
-var CONTEXT_SORT = 2;
-var REFERRAL_SORT = 2;
-
 var util = require('modules/as-data-util.js');
 var action = request.getParameter('action');
 var conditions = buildConditions();
 
-var log = new Log("AS-DATA");
+var log = new Log("HTTP-ANALYTICS");
 
 /*
- build the ammendment to the prepared statement along with the parameter values based on
+ build the amendment to the prepared statement along with the parameter values based on
  start_time, end_time, node and webapp
  */
 function buildConditions() {
     // default data range is the past 24 hours
-    var startTime = request.getParameter('start_time') || new Date() - 86400000;
-    var endTime = request.getParameter('end_time') || new Date();
+    var conditions = {};
+    conditions['timeFrom'] = getStartTime();
+    conditions['timeTo'] = getEndTime();
+
     var node = request.getParameter('node');
-    var webapp = request.getParameter('appname');
-    var conditions = [];
-
-    conditions.push(TIME + ': [' + Math.floor(startTime / 1000) + ' TO ' + Math.ceil(endTime / 1000) + ']');
-
     if (node != null && node != 'All') {
-        conditions.push(SERVER_NAME + ': "' + node + '"');
+        conditions['node'] = node;
     }
-    if (webapp != null && webapp != 'null') {
-        conditions.push(WEBAPP_NAME + ': "' + webapp + '"');
+
+    var appName = request.getParameter('appname');
+    if (appName != null) {
+        conditions['appName'] = appName;
     }
-    return conditions.join(' AND ');
+
+    return conditions;
+}
+
+function getStartTime() {
+    return Math.floor(request.getParameter('start_time') / 1000);
+}
+
+function getEndTime() {
+    return Math.floor(request.getParameter('end_time') / 1000);
 }
 
 function getNodeList() {
@@ -75,7 +67,7 @@ function getAppsStat() {
     var endTime;
     var appList = require('modules/app-list.js');
     if (log.isDebugEnabled()) {
-        log.debug('Retrieving applicaiton list');
+        log.debug('Retrieving application statistics');
     }
     endTime = request.getParameter('end_time') || new Date();
     appList.getAppsStat(conditions, Math.ceil(endTime / 1000));
@@ -94,7 +86,7 @@ function getBrowserTabularStat() {
     if (log.isDebugEnabled()) {
         log.debug('Retrieving browser stat - tabular');
     }
-    technologyStat.getBrowserTabularStat(conditions, ['Browser', 'Request Count', 'Percentage'], BROWSER_SORT);
+    technologyStat.getBrowserTabularStat(conditions);
 }
 
 function getOperatingSystemStat() {
@@ -110,8 +102,7 @@ function getOperatingSystemTabularStat() {
     if (log.isDebugEnabled()) {
         log.debug('Retrieving operating system stat - tabular');
     }
-    technologyStat.getOperatingSystemTabularStat(conditions,
-            ['Operating System', 'Request Count', 'Percentage'], OS_SORT);
+    technologyStat.getOperatingSystemTabularStat(conditions);
 }
 
 function getDeviceTypeStat() {
@@ -127,7 +118,7 @@ function getDeviceTypeTabularStat() {
     if (log.isDebugEnabled()) {
         log.debug('Retrieving device type stat - tabular');
     }
-    technologyStat.getDeviceTabularStat(conditions,['Device type', 'Request Count', 'Percentage'], DEVICE_TYPE_SORT);
+    technologyStat.getDeviceTabularStat(conditions);
 }
 
 function getHttpStatusStat() {
@@ -143,8 +134,7 @@ function getHttpStatusTabularStat() {
     if (log.isDebugEnabled()) {
         log.debug('Retrieving HTTP response code stat - tabular');
     }
-    technologyStat.getHttpStatusTabularStat(conditions, ['HTTP Response Code', 'Request Count',
-                                                         'Percentage'], HTTP_RESPONSE_SORT);
+    technologyStat.getHttpStatusTabularStat(conditions);
 }
 
 function getLanguageStat() {
@@ -160,7 +150,7 @@ function getLanguageTabularStat() {
     if (log.isDebugEnabled()) {
         log.debug('Retrieving language stat - tabular');
     }
-    geoStat.getLanguageTabularStat(conditions, ['Language', 'Request Count', 'Percentage'], LANGUAGE_SORT);
+    geoStat.getLanguageTabularStat(conditions);
 }
 
 function getCountryStat() {
@@ -176,7 +166,7 @@ function getCountryTabularStat() {
     if (log.isDebugEnabled()) {
         log.debug('Retrieving country stat - tabular');
     }
-    geoStat.getCountryTabularStat(conditions, ['Country', 'Request Count', 'Percentage'],COUNTRY_SORT);
+    geoStat.getCountryTabularStat(conditions);
 }
 
 function getContextStat() {
@@ -184,15 +174,15 @@ function getContextStat() {
     if (log.isDebugEnabled()) {
         log.debug('Retrieving context stat');
     }
-    trafficStat.getContextTabularStat(conditions, ['Context', 'Request Count', 'Percentage'],CONTEXT_SORT);
+    trafficStat.getContextTabularStat(conditions);
 }
 
-function getReferralStat() {
+function getReferrerStat() {
     var trafficStat = require('modules/traffic-stat.js');
     if (log.isDebugEnabled()) {
         log.debug('Retrieving referral stat');
     }
-    trafficStat.getReferrerTabularStat(conditions, ['Referrer', 'Request Count','Percentage'], REFERRAL_SORT);
+    trafficStat.getReferrerTabularStat(conditions);
 }
 
 function getRequestStat() {
@@ -251,6 +241,18 @@ function getInfoBoxErrorStat() {
     return infoBoxStat.getInfoBoxErrorStat(conditions);
 }
 
+function getAppsList() {
+    var appList = require('modules/app-list.js');
+    if (log.isDebugEnabled()) {
+        log.debug('Retrieving applications list');
+    }
+
+    // remove webappName from the conditions
+    tempConditions = JSON.parse(JSON.stringify(conditions));
+    delete(tempConditions.appName);
+    return appList.getAppsList(tempConditions);
+}
+
 var actionMapping = {
     'node-list': getNodeList,
     'apps': getAppsStat,
@@ -267,14 +269,15 @@ var actionMapping = {
     'country': getCountryStat,
     'country-tabular': getCountryTabularStat,
     'context': getContextStat,
-    'referral': getReferralStat,
+    'referrer': getReferrerStat,
     'request': getRequestStat,
     'response': getResponseStat,
     'error': getErrorStat,
     'request-count': getInfoBoxRequestStat,
     'response-count': getInfoBoxResponseStat,
     'session-count': getInfoBoxSessionStat,
-    'error-count': getInfoBoxErrorStat
+    'error-count': getInfoBoxErrorStat,
+    'apps-list': getAppsList
 };
 
 actionMapping[action]();

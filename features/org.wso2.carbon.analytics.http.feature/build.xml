@@ -19,23 +19,18 @@
     <property name="project-name" value="${ant.project.name}"/>
     <property name="build-dir" value="src/main/resources"/>
     <property name="http-analytics-target-dir" value="${build-dir}/http-analytics"/>
-    <property name="http-analytics-theme-target-dir" value="${build-dir}/http-analytics-theme"/>
     <property name="http-analytics-dir" value="src/main/http-analytics"/>
-    <property name="http-analytics-theme-dir" value="src/main/http-analytics-theme"/>
     <property name="ANALYTICS_HTTP_dir" value="src/main/capp"/>
     <property name="ANALYTICS_HTTP_capp" value="org_wso2_carbon_analytics_http-1.0.0"/>
 
     <target name="clean">
         <delete dir="${http-analytics-target-dir}"/>
-        <delete dir="${http-analytics-theme-target-dir}"/>
         <delete file="${http-analytics-target-dir}/${ANALYTICS_HTTP_capp}"/>
     </target>
 
     <target name="pre-configure">
         <mkdir dir="${http-analytics-target-dir}"/>
-        <mkdir dir="${http-analytics-theme-target-dir}"/>
         <copydir src="${http-analytics-dir}" dest="${http-analytics-target-dir}"/>
-        <copydir src="${http-analytics-theme-dir}" dest="${http-analytics-theme-target-dir}"/>
     </target>
 
     <target name="zip" depends="clean,pre-configure">
