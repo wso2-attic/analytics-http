@@ -1,0 +1,27 @@
+{
+    "id": "HttpAnalytics-Gadget-appsList",
+    "title": "Applications",
+    "type": "gadget",
+    "thumbnail": "store://gadget/HttpAnalytics-Gadget-appsList/images/index.jpg",
+    "data": {
+        "url": "store://gadget/HttpAnalytics-Gadget-appsList/data-table.xml"
+    },
+    "listen": {
+        "timeRangeChangeSubscriber": {
+            "type": "message",
+            "description": "This listens to  message received by the subscriber"
+        }
+    },
+    "notify": {
+        "webappPublisher": {
+            "type": "webappName",
+            "description": "This publishes webapp names to be received by the subscriber"
+        }
+    },
+    "toolbarButtons": {
+        "default": {
+            "maximize": true,
+            "configurations": false
+        }
+    }
+}

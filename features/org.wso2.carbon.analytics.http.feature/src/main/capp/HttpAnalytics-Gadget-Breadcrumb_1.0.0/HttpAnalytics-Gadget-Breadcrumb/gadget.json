@@ -1,0 +1,20 @@
+{
+    "id": "HttpAnalytics-Gadget-Breadcrumb",
+    "title": "HttpAnalytics-Gadget-Breadcrumb",
+    "type": "widget",
+    "category": "Widget",
+    "thumbnail": "store://gadget/HttpAnalytics-Gadget-Breadcrumb/index.png",
+    "data": {
+        "url": "store://gadget/HttpAnalytics-Gadget-Breadcrumb/index.xml"
+    },
+    "styles": {
+        "borders": false,
+        "title": false
+    },
+    "toolbarButtons": {
+        "default": {
+            "maximize": false,
+            "configurations": false
+        }
+    }
+}

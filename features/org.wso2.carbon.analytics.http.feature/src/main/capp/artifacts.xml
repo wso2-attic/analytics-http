@@ -7,21 +7,21 @@
         <!--Spark Scripts -->
         <dependency artifact="HttpAnalytics-SparkScript" version="1.0.0" include="true" serverRole="DataAnalyticsServer"/>
         <!-- Gadgets -->
-        <dependency artifact="GadgetTimeVaryingLineChart" version="1.0.0" include="true" serverRole="DataAnalyticsServer"/>
-        <dependency artifact="GadgetDataTable" version="1.0.0" include="true" serverRole="DataAnalyticsServer"/>
-        <dependency artifact="GadgetPieChartVizGrammar" version="1.0.0" include="true" serverRole="DataAnalyticsServer"/>
-        <dependency artifact="GadgetDateRangePicker" version="1.0.0" include="true" serverRole="DataAnalyticsServer"/>
-        <dependency artifact="GadgetCommons" version="1.0.0" include="true" serverRole="DataAnalyticsServer"/>
-        <dependency artifact="GadgetHorizontalBarChart" version="1.0.0" include="true" serverRole="DataAnalyticsServer"/>
-        <dependency artifact="GadgetAppsList" version="1.0.0" include="true" serverRole="DataAnalyticsServer"/>
-        <dependency artifact="GadgetRequestInfoBox" version="1.0.0" include="true" serverRole="DataAnalyticsServer"/>
-        <dependency artifact="GadgetResponseInfoBox" version="1.0.0" include="true" serverRole="DataAnalyticsServer"/>
-        <dependency artifact="GadgetSessionInfoBox" version="1.0.0" include="true" serverRole="DataAnalyticsServer"/>
-        <dependency artifact="GadgetErrorInfoBox" version="1.0.0" include="true" serverRole="DataAnalyticsServer"/>
-        <dependency artifact="GadgetSearchBox" version="1.0.0" include="true" serverRole="DataAnalyticsServer"/>
-        <dependency artifact="GadgetGeoLocationMapVizGrammar" version="1.0.0" include="true" serverRole="DataAnalyticsServer"/>
-        <dependency artifact="GadgetBreadcrumb" version="1.0.0" include="true" serverRole="DataAnalyticsServer"/>
+        <dependency artifact="HttpAnalytics-Gadget-LineChart" version="1.0.0" include="true" serverRole="DataAnalyticsServer"/>
+        <dependency artifact="HttpAnalytics-Gadget-DataTable" version="1.0.0" include="true" serverRole="DataAnalyticsServer"/>
+        <dependency artifact="HttpAnalytics-Gadget-PieChart" version="1.0.0" include="true" serverRole="DataAnalyticsServer"/>
+        <dependency artifact="HttpAnalytics-Gadget-DateRangePicker" version="1.0.0" include="true" serverRole="DataAnalyticsServer"/>
+        <dependency artifact="HttpAnalytics-Gadget-Commons" version="1.0.0" include="true" serverRole="DataAnalyticsServer"/>
+        <dependency artifact="HttpAnalytics-Gadget-HorizontalBarChart" version="1.0.0" include="true" serverRole="DataAnalyticsServer"/>
+        <dependency artifact="HttpAnalytics-Gadget-AppsList" version="1.0.0" include="true" serverRole="DataAnalyticsServer"/>
+        <dependency artifact="HttpAnalytics-Gadget-RequestInfoBox" version="1.0.0" include="true" serverRole="DataAnalyticsServer"/>
+        <dependency artifact="HttpAnalytics-Gadget-ResponseInfoBox" version="1.0.0" include="true" serverRole="DataAnalyticsServer"/>
+        <dependency artifact="HttpAnalytics-Gadget-SessionInfoBox" version="1.0.0" include="true" serverRole="DataAnalyticsServer"/>
+        <dependency artifact="HttpAnalytics-Gadget-ErrorInfoBox" version="1.0.0" include="true" serverRole="DataAnalyticsServer"/>
+        <dependency artifact="HttpAnalytics-Gadget-SearchBox" version="1.0.0" include="true" serverRole="DataAnalyticsServer"/>
+        <dependency artifact="HttpAnalytics-Gadget-GeoLocationMap" version="1.0.0" include="true" serverRole="DataAnalyticsServer"/>
+        <dependency artifact="HttpAnalytics-Gadget-Breadcrumb" version="1.0.0" include="true" serverRole="DataAnalyticsServer"/>
         <!-- Dashboard Definition -->
-        <dependency artifact="Dashboard" version="1.0.0" include="true" serverRole="DataAnalyticsServer"/>
+        <dependency artifact="HttpAnalytics-Dashboard" version="1.0.0" include="true" serverRole="DataAnalyticsServer"/>
     </artifact>
 </artifacts>

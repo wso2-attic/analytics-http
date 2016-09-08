@@ -1,0 +1,15 @@
+{
+    "id": "HttpAnalytics-Gadget-ResponseInfoBox",
+    "title": "AS Response Info-Box",
+    "type": "gadget",
+    "thumbnail": "store://gadget/HttpAnalytics-Gadget-ResponseInfoBox/images/index.jpg",
+    "data": {
+        "url": "store://gadget/HttpAnalytics-Gadget-ResponseInfoBox/HttpAnalytics-Gadget-ResponseInfoBox.xml"
+    },
+    "listen": {
+        "timeRangeChangeSubscriber": {
+            "type": "message",
+            "description": "This listens to  message received by the subscriber"
+        }
+    }
+} 

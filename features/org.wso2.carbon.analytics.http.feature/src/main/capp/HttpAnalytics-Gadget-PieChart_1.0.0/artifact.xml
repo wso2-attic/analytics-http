@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<artifact name="HttpAnalytics-Gadget-PieChart" version="1.0.0" type="dashboards/gadget" serverRole="DataAnalyticsServer">
+    <file>HttpAnalytics-Gadget-PieChart</file>
+</artifact>

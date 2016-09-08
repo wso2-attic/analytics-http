@@ -1,0 +1,26 @@
+{
+    "id": "HttpAnalytics-Gadget-DateRangePicker",
+    "title": "Date Range Picker",
+    "type": "gadget",
+    "category": "Widgets",
+    "thumbnail": "store://gadget/HttpAnalytics-Gadget-DateRangePicker/index.png",
+    "data": {
+        "url": "store://gadget/HttpAnalytics-Gadget-DateRangePicker/index.xml"
+    },
+    "styles": {
+        "borders": false,
+        "title": false
+    },
+    "notify": {
+        "timeRangeChangePublisher": {
+            "type": "message",
+            "description": "This notifies message generated in publisher"
+        }
+    },
+    "listen": {
+        "chart-zoomed": {
+            "type": "date-range",
+            "description": "This notifies message generated in publisher"
+        }
+    }
+}
