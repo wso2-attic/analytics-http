@@ -95,7 +95,7 @@
                             <artifactItems>
                                 <artifactItem>
                                     <groupId>org.wso2.carbon.analytics.http</groupId>
-                                    <artifactId>wso2analytics-http</artifactId>
+                                    <artifactId>wso2http-analytics</artifactId>
                                     <version>${project.version}</version>
                                     <type>zip</type>
                                     <overWrite>true</overWrite>
