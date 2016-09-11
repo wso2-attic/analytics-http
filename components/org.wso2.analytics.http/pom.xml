@@ -29,6 +29,7 @@
 
     <artifactId>org.wso2.analytics.http</artifactId>
     <packaging>bundle</packaging>
+    <name>Analytics HTTP Component</name>
 
     <dependencies>
         <dependency>

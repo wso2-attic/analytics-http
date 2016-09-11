@@ -27,6 +27,7 @@
     <modelVersion>4.0.0</modelVersion>
     <artifactId>wso2http-analytics</artifactId>
     <packaging>jar</packaging>
+    <name>WSO2 HTTP Analytics Server - Distribution</name>
  
     <build>
         <plugins>
