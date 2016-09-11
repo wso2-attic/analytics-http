@@ -19,13 +19,13 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <parent>
-        <groupId>org.wso2.carbon.analytics.http</groupId>
+        <groupId>org.wso2.analytics.http</groupId>
         <artifactId>analytics-http-features</artifactId>
         <version>1.0.0-SNAPSHOT</version>
     </parent>
 
     <modelVersion>4.0.0</modelVersion>
-    <artifactId>org.wso2.carbon.analytics.http.feature</artifactId>
+    <artifactId>org.wso2.analytics.http.feature</artifactId>
 
     <name>Analytics HTTP Feature</name>
 
@@ -107,7 +107,7 @@
                             <goal>p2-feature-gen</goal>
                         </goals>
                         <configuration>
-                            <id>org.wso2.carbon.analytics.http</id>
+                            <id>org.wso2.analytics.http</id>
                             <propertiesFile>../feature.properties</propertiesFile>
                             <adviceFile>
                                 <properties>
@@ -117,7 +117,7 @@
                             </adviceFile>
                             <bundles>
                                 <bundleDef>
-                                    org.wso2.carbon.analytics.http:org.wso2.carbon.analytics.http:${http.analytics.version}
+                                    org.wso2.analytics.http:org.wso2.analytics.http:${http.analytics.version}
                                 </bundleDef>
                                 <bundleDef>
                                     org.wso2.orbit.com.maxmind.geoip2:geoip2:${geoip2.version}

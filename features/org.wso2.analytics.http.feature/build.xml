@@ -21,7 +21,7 @@
     <property name="http-analytics-target-dir" value="${build-dir}/http-analytics"/>
     <property name="http-analytics-dir" value="src/main/http-analytics"/>
     <property name="ANALYTICS_HTTP_dir" value="src/main/capp"/>
-    <property name="ANALYTICS_HTTP_capp" value="org_wso2_carbon_analytics_http-1.0.0"/>
+    <property name="ANALYTICS_HTTP_capp" value="org_wso2_analytics_http-1.0.0"/>
 
     <target name="clean">
         <delete dir="${http-analytics-target-dir}"/>

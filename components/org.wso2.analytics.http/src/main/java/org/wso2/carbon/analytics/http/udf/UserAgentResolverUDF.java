@@ -1,4 +1,4 @@
-package org.wso2.carbon.analytics.http.udf;
+package org.wso2.analytics.http.udf;
 /*
  * Copyright (c) 2016, WSO2 Inc. (http://www.wso2.org) All Rights Reserved.
  *

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <artifacts>
-    <artifact name="org.wso2.carbon.analytics.http" version="1.0.0" type="carbon/application">
+    <artifact name="org.wso2.analytics.http" version="1.0.0" type="carbon/application">
         <dependency artifact="HttpAnalytics-Stream" version="1.0.0" include="true" serverRole="DataAnalyticsServer"/>
         <dependency artifact="HttpAnalytics-Receiver" version="1.0.0" include="true" serverRole="DataAnalyticsServer"/>
         <dependency artifact="HttpAnalytics-Store" version="1.0.0" include="true" serverRole="DataAnalyticsServer"/>
