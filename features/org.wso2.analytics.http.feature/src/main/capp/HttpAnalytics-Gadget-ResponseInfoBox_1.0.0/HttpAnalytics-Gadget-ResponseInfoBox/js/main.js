@@ -68,7 +68,10 @@ var drawChart = function (data, options) {
                     y = item.datapoint[1],
                     time = data[1][item.dataIndex][2];
 
-                showTooltip(item.pageX, item.pageY, 'Date:' + new Date(parseFloat(time)) + '<br/>Response Time: ' + y + 'ms');
+                var date = new Date(parseFloat(time));
+                var timestamp = new Date(date.valueOf() + 60000 * date.getTimezoneOffset());
+
+                showTooltip(item.pageX, item.pageY, 'Timestamp:' + timestamp.toLocaleString() + '<br/>Response Time: ' + y + 'ms');
             }
         } else {
             $("#tooltip").remove();
