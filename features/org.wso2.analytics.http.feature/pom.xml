@@ -20,7 +20,7 @@
     <parent>
         <groupId>org.wso2.analytics.http</groupId>
         <artifactId>analytics-http-features</artifactId>
-        <version>1.0.0-m1</version>
+        <version>1.0.0-SNAPSHOT</version>
     </parent>
 
     <modelVersion>4.0.0</modelVersion>
