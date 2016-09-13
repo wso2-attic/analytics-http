@@ -46,12 +46,14 @@
         <div id="canvas2">
             <div class="container-fluid request-count">
                 <div class="top row">
-                    <div class="col-xs-7 column" style="padding-bottom:0">
+                    <div class="col-xs-12 column" style="padding-bottom:0">
                         <small class="statistics-main">Total Requests</small>
+                    </div>
+                    <div class="col-xs-7 column" style="padding-bottom:0; padding-top:0">
                         <h2 class="total-count">N/A</h2>
                     </div>
                     <div class="col-xs-5 column" style="height:40%;">
-                        <div id="placeholder" class="demo-placeholder" style="height:75%; width: 75%; "></div>
+                        <div id="placeholder" class="demo-placeholder" style="height:75%; width: 75%; top:0"></div>
                     </div>
                 </div>
                 <div class="arrow-box"></div>
