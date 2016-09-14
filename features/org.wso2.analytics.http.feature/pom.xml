@@ -16,8 +16,7 @@
   limitations under the License.
   -->
 
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <parent>
         <groupId>org.wso2.analytics.http</groupId>
         <artifactId>analytics-http-features</artifactId>
@@ -32,18 +31,6 @@
     <build>
         <plugins>
             <plugin>
-                <artifactId>maven-clean-plugin</artifactId>
-                <executions>
-                    <execution>
-                        <id>auto-clean</id>
-                        <phase>initialize</phase>
-                        <goals>
-                            <goal>clean</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
-            <plugin>
                 <artifactId>maven-antrun-plugin</artifactId>
                 <version>1.7</version>
                 <executions>
@@ -51,7 +38,7 @@
                         <phase>process-resources</phase>
                         <configuration>
                             <target>
-                                <ant antfile="build.xml" target="zip"/>
+                                <ant antfile="build.xml" target="zip" />
                             </target>
                         </configuration>
                         <goals>
@@ -63,8 +50,8 @@
                         <phase>install</phase>
                         <configuration>
                             <target>
-                                <delete dir="src/main/resources/http-analytics"/>
-                                <delete file="src/main/resources/org_wso2_carbon_analytics_http-1.0.0.car"/>
+                                <delete dir="src/main/resources/http-analytics" />
+                                <delete file="src/main/resources/org_wso2_carbon_analytics_http-1.0.0.car" />
                             </target>
                         </configuration>
                         <goals>

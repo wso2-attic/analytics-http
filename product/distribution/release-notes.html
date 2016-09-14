@@ -16,21 +16,15 @@
 <html>
 <head>
 	<meta http-equiv="content-type" content="" />
-	<title>WSO2 DAS v3.0.1 Release Notes</title>
+	<title>WSO2 HTTP Analytics v1.0.0-m1 Release Notes</title>
 </head>
 
 <body>
-	<h1>WSO2 Data Analytics Server (DAS) v3.0.1 Released!</h1>
+	<h1>WSO2 HTTP Analytics Server v1.0.0-m1 Released!</h1>
 
 	<h3>${buildNumber}</h3>
 
-	<p>WSO2 Data Analytics Server development team is pleased to announce the release of WSO2 Data Analytics Server 3.0.1</p>
-
-	<p>WSO2 Data Analytics Server 3.0.1 combines real-time, batch, interactive, and predictive (via machine learning) analysis of data into one integrated platform to support the multiple demands of Internet of Things (IoT) solutions, as well as mobile and Web apps.</p>
-
-	<p>As a part of WSO2&rsquo;s analytics platform, WSO2 DAS introduces a single solution with the ability to build systems and applications that collect and analyze both realtime and persisted, data and communicate the results. It is designed to treat millions of events per second, and is therefore capable to handle Big Data volumes and Internet of Things projects.</p>
-
-	<p>WSO2 DAS is powered by <a href="http://wso2.org/projects/carbon" class="externalLink">WSO2 Carbon</a>, the SOA middleware component platform.</p>
+	<p>WSO2 HTTP Analytics Server development team is pleased to announce the release of WSO2 HTTP Analytics Server 1.0.0-m1. WSO2 HTTP Analytics Server 1.0.0-m1 is the single solution for HTTP traffic analysis for WSO2 Servers. WSO2 HTTP Analytics Server is powered by <a href="http://wso2.org/projects/carbon" class="externalLink">WSO2 Carbon</a>, the SOA middleware component platform.</p>
 
 	<p>
 		An open source product, WSO2 Carbon is available under the <a
@@ -38,15 +32,16 @@
 			href="http://www.apache.org/licenses/LICENSE-2.0.html"> Apache Software License (v2.0) </a>
 	</p>
 
-	<p>You can download this distribution from <a href="http://wso2.org/downloads/bam/">
-		http://wso2.org/downloads/bam/</a> and give it a try.</p>
+	<p>You can download this distribution from <a href="http://wso2.com/platform">
+		http://wso2.com/platform</a> and give it a try.</p>
 
 	<h2>How to Run</h2>
 	<ol>
 		<li>Extract the downloaded zip</li>
 		<li>Go to the bin directory in the extracted folder</li>
 		<li>Run the wso2server.sh or wso2server.bat as appropriate</li>
-		<li>Point your browser to the URL https://localhost:9443/carbon</li>
+		<li>To access the management console, point your browser to the URL <a href="https://localhost:9443/carbon">https://localhost:9443/carbon</a></li>
+		<li>To access the HTTP Analytics dashboard, point your browser to the URL <a href="https://localhost:9443/portal/dashboards/http-analytics/">https://localhost:9443/portal/dashboards/http-analytics/</a></li>
 		<li>Use "admin", "admin" as the username and password to login as an admin</li>
 		<li>If you need to start the OSGi console with the server use the property
 			-DosgiConsole when starting the server. The INSTALL.txt file found on the
@@ -54,31 +49,29 @@
 			properties that can be passed into the startup script</li>
 	</ol>
 
-	<h2>What's New In This Release</h2>
+	<h2>Key Feature of WSO2 HTTP Analytics Server</h2>
 	<ul>
-		<li>This release fixes the following bugs over Data Analytics Server 3.0.0 release.
-https://wso2.org/jira/issues/?filter=12622</li>
-	</ul>
+		<li>HTTP Traffic Analytics dashboard. This dashboard is capable of monitoring the following aspects of HTTP Analytics,</li>
+		<ul>
+			<li>Number of requests, average response time, number of sessions and error count statistics</li>
+			<li>Browser, operating system and device type statistics</li>
+			<li>HTTP Response code statistics</li>
+			<li>Geolocation and language statistics</li>
+			<li>Context statistics</li>
+			<li>Referrer statistics</li>
+		</ul>
 
-	<h2>Key Features of WSO2 DAS</h2>
-	<ul>
-		<li>Data aggregation.</li>
-		<li>Integrated, real-time, and batch analytics.</li>
-		<li>Interactive analytics and edge analytics.</li>
-		<li>High level language and data storage.</li>
-		<li>Extensibility using C-Apps.</li>
-		<li>Communication.</li>
 	</ul>
 
 	</ol>
 	<h2>Issues Fixed in This Release</h2>
 	<ul>
-		<li><a href="https://wso2.org/jira/issues/?filter=12622" class="externalLink">WSO2 DAS 3.0.1 Fixed Issues</a></li>
+		<li><a href="https://wso2.org/jira/issues/?filter=13331" class="externalLink">WSO2 HTTP Analytics 1.0.0-m1 Fixed Issues</a></li>
 	</ul>
 
 	<h2>Known Issues</h2>
 	<ul>
-		<li><a href="https://wso2.org/jira/issues/?filter=12623" class="externalLink">WSO2 DAS 3.0.1 Known Issues</a></li>
+		<li><a href="https://wso2.org/jira/issues/?filter=13332" class="externalLink">WSO2 HTTP Analytics 1.0.0-m1 Known Issues</a></li>
 	</ul>
 
 	<h2>How You Can Contribute</h2>
@@ -100,7 +93,7 @@ https://wso2.org/jira/issues/?filter=12622</li>
 	</h3>
 	<p>
 		We encourage you to report issues, documentation faults and feature requests regarding
-		WSO2 DAS through the public <a href="https://wso2.org/jira/browse/DAS">DAS JIRA</a>. You
+		WSO2 DAS through the public <a href="https://wso2.org/jira/browse/ANLYHTTP">HTTP Analytics JIRA</a>. You
 		can use the <a href="http://www.wso2.org/jira/browse/CARBON">Carbon JIRA</a> to report any
 		issues related to the Carbon base framework or associated Carbon components.
 	</p>
@@ -124,11 +117,11 @@ https://wso2.org/jira/issues/?filter=12622</li>
 		visit <a href="http://wso2.com/support">http://wso2.com/support</a>.
 	</p>
 	<p>
-		For more information about WSO2 DAS please see <a href="http://wso2.com/products/business-activity-monitor/">
-		http://wso2.com/products/business-activity-monitor/</a>.
+		For more information about WSO2 HTTP Analytics please see <a href="http://wso2.com/platform/">
+		http://wso2.com/platform</a>.
 	</p>
 
-	<p><i>-- The WSO2 DAS Team --</i> </p>
+	<p><i>-- The WSO2 HTTP Analytics Team --</i> </p>
 
 </body>
 </html>
